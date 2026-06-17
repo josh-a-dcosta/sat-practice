@@ -2,8 +2,11 @@
 
 const { DatabaseSync } = require('node:sqlite');
 const path = require('path');
+const fs   = require('fs');
 
-const DB_PATH = process.env.SAT_DB_PATH || path.join(__dirname, 'sat-practice.db');
+// On Railway the /data volume persists across deploys; fall back to local for dev.
+const DB_PATH = process.env.SAT_DB_PATH ||
+  (fs.existsSync('/data') ? '/data/sat-practice.db' : path.join(__dirname, 'sat-practice.db'));
 
 const db = new DatabaseSync(DB_PATH);
 

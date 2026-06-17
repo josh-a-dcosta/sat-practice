@@ -3,6 +3,24 @@
 const http = require('http');
 const fs   = require('fs');
 const path = require('path');
+
+// Auto-seed the database if it's empty (first run on Railway or fresh clone).
+(function autoSeed() {
+  const { db } = require('./db');
+  const count = db.prepare('SELECT COUNT(*) n FROM questions').get().n;
+  if (count > 0) return;
+  console.log('No questions found — running first-time setup…');
+  const { execFileSync } = require('child_process');
+  const node = process.execPath;
+  try {
+    execFileSync(node, ['scripts/generate-seed.js'], { cwd: __dirname, stdio: 'inherit' });
+    execFileSync(node, ['--experimental-sqlite', 'scripts/seed.js'], { cwd: __dirname, stdio: 'inherit' });
+    console.log('First-time setup complete.');
+  } catch (e) {
+    console.error('Auto-seed failed:', e.message);
+  }
+})();
+
 const repo = require('./repo');
 const { isValidTopic, isValidDifficulty, domainOfTopic } = require('./topics');
 
