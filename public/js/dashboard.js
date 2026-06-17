@@ -43,15 +43,18 @@ async function load() {
 
 function renderTiles() {
   const o = DATA.overall;
-  const mathS = DATA.sections.find((s) => s.section === 'math') || {};
-  const readS = DATA.sections.find((s) => s.section === 'reading') || {};
+  const cat = DATA.catalogue || [];
+  const mathTotal    = cat.filter(c => c.domain === 'math').reduce((s,c) => s + c.total, 0);
+  const mathMastered = cat.filter(c => c.domain === 'math').reduce((s,c) => s + c.mastered, 0);
+  const readTotal    = cat.filter(c => c.domain === 'reading').reduce((s,c) => s + c.total, 0);
+  const readMastered = cat.filter(c => c.domain === 'reading').reduce((s,c) => s + c.mastered, 0);
   const tiles = [
     { num: o.attempts, lbl: 'Total attempts' },
     { num: o.correct, lbl: 'Correct' },
     { num: o.accuracy + '%', lbl: 'Overall accuracy' },
     { num: fmtTime(o.avgTime), lbl: 'Avg time / question' },
-    { num: `${mathS.mastered || 0}/${mathS.total || 0}`, lbl: '🔢 Math mastered' },
-    { num: `${readS.mastered || 0}/${readS.total || 0}`, lbl: '📖 Reading mastered' },
+    { num: `${mathMastered}/${mathTotal}`, lbl: '🔢 Math mastered' },
+    { num: `${readMastered}/${readTotal}`, lbl: '📖 Reading mastered' },
   ];
   $('statTiles').innerHTML = tiles.map((t) =>
     `<div class="stat"><div class="num">${t.num}</div><div class="lbl">${t.lbl}</div></div>`).join('');
@@ -98,44 +101,52 @@ function renderCharts() {
     options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } },
   });
 
-  // Accuracy by section (bar)
-  const bs = DATA.bySection;
+  // Accuracy by topic (bar)
+  const bt = DATA.byTopic || [];
+  const topicLabels = bt.map(t => {
+    const name = t.topic.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
+    return `${name} (${t.difficulty})`;
+  });
+  const colors = bt.map((_, i) => [PINK, PINK_LIGHT, AMBER, '#c084fc', '#60a5fa', '#34d399', '#fb923c', '#f87171'][i % 8]);
   makeChart('sectionChart', {
     type: 'bar',
     data: {
-      labels: bs.map((s) => s.section === 'math' ? 'Math' : 'Reading'),
+      labels: topicLabels,
       datasets: [{
         label: 'Accuracy %',
-        data: bs.map((s) => s.attempts ? Math.round((s.correct / s.attempts) * 100) : 0),
-        backgroundColor: [PINK, PINK_LIGHT], borderRadius: 8,
+        data: bt.map(t => t.attempts ? Math.round((t.correct / t.attempts) * 100) : 0),
+        backgroundColor: colors, borderRadius: 8,
       }],
     },
     options: {
-      responsive: true, maintainAspectRatio: false,
-      scales: { y: { beginAtZero: true, max: 100, ticks: { callback: (v) => v + '%' } } },
+      responsive: true, maintainAspectRatio: false, indexAxis: 'y',
+      scales: { x: { beginAtZero: true, max: 100, ticks: { callback: v => v + '%' } } },
       plugins: { legend: { display: false } },
     },
   });
 
-  // Avg time by section (bar)
+  // Avg time by topic (bar)
   makeChart('timeChart', {
     type: 'bar',
     data: {
-      labels: bs.map((s) => s.section === 'math' ? 'Math' : 'Reading'),
+      labels: topicLabels,
       datasets: [{
         label: 'Avg seconds',
-        data: bs.map((s) => Math.round(s.avg_time)),
-        backgroundColor: [AMBER, PINK_LIGHT], borderRadius: 8,
+        data: bt.map(t => Math.round(t.avg_time)),
+        backgroundColor: colors, borderRadius: 8,
       }],
     },
     options: {
-      responsive: true, maintainAspectRatio: false,
-      scales: { y: { beginAtZero: true, ticks: { callback: (v) => v + 's' } } },
+      responsive: true, maintainAspectRatio: false, indexAxis: 'y',
+      scales: { x: { beginAtZero: true, ticks: { callback: v => v + 's' } } },
       plugins: { legend: { display: false } },
     },
   });
 }
 
+function fmtTopic(t) {
+  return t.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
+}
 function renderSessions() {
   const tbody = $('sessionsTable').querySelector('tbody');
   if (!DATA.sessions.length) {
@@ -143,6 +154,7 @@ function renderSessions() {
     return;
   }
   tbody.innerHTML = DATA.sessions.map((s) => {
+    const domainEmoji = s.domain === 'math' ? '🔢' : '📖';
     const status = s.status === 'completed'
       ? '<span class="pill correct">completed</span>'
       : '<span class="pill wrong">in progress</span>';
@@ -152,7 +164,8 @@ function renderSessions() {
       : `${s.answered}/${s.total}`;
     return `<tr>
       <td>${s.id}</td>
-      <td>${s.section === 'math' ? '🔢 Math' : '📖 Reading'}</td>
+      <td>${domainEmoji} ${fmtTopic(s.topic)}</td>
+      <td>${s.difficulty === 'hard' ? '🔴' : '🟡'} ${s.difficulty}</td>
       <td>${status}</td>
       <td>${fmtDate(s.created_at)}</td>
       <td>${fmtDate(s.completed_at)}</td>
@@ -163,11 +176,13 @@ function renderSessions() {
 }
 
 function getFilteredAttempts() {
-  const sec = $('fSection').value;
+  const sec    = $('fSection').value;
+  const diff   = $('fDifficulty') ? $('fDifficulty').value : '';
   const result = $('fResult').value;
   const search = $('fSearch').value.trim().toLowerCase();
   return allAttempts.filter((a) => {
-    if (sec && a.section !== sec) return false;
+    if (sec    && a.domain !== sec) return false;
+    if (diff   && a.difficulty !== diff) return false;
     if (result !== '' && String(a.is_correct) !== result) return false;
     if (search && !a.prompt.toLowerCase().includes(search)) return false;
     return true;
@@ -186,9 +201,12 @@ function renderAttempts() {
     const res = a.is_correct
       ? '<span class="pill correct">✓ correct</span>'
       : '<span class="pill wrong">✗ wrong</span>';
+    const domainEmoji = a.domain === 'math' ? '🔢' : '📖';
+    const topicName = (a.topic||'').replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
     return `<tr>
       <td>${fmtDate(a.answered_at)}</td>
-      <td>${a.section === 'math' ? '🔢' : '📖'} ${a.section}</td>
+      <td>${domainEmoji} ${topicName}</td>
+      <td>${a.difficulty === 'hard' ? '🔴' : '🟡'} ${a.difficulty}</td>
       <td>${escapeHtml(a.prompt)}${a.prompt.length >= 90 ? '…' : ''}</td>
       <td>${a.selected}</td>
       <td>${a.correct}</td>
@@ -223,7 +241,7 @@ function exportCsv() {
   URL.revokeObjectURL(url);
 }
 
-['fSection', 'fResult'].forEach((id) => $(id).addEventListener('change', renderAttempts));
+['fSection', 'fResult', 'fDifficulty'].forEach((id) => { const el = $(id); if (el) el.addEventListener('change', renderAttempts); });
 $('fSearch').addEventListener('input', renderAttempts);
 $('exportBtn').addEventListener('click', exportCsv);
 

@@ -56,7 +56,9 @@ function updateTimerDisplay() {
 
 async function loadState() {
   state = await api('GET', `/api/sessions/${sessionId}`);
-  $('sectionLabel').textContent = `· ${state.section === 'math' ? '🔢 Math' : '📖 Reading & Writing'}`;
+  const domainEmoji = state.domain === 'math' ? '🔢' : '📖';
+  const diffLabel = state.difficulty === 'hard' ? '🔴 Hard' : '🟡 Medium';
+  $('sectionLabel').textContent = `${domainEmoji} ${state.topic.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase())} · ${diffLabel}`;
   if (state.status === 'completed') {
     return showResults();
   }

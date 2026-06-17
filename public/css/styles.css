@@ -349,6 +349,49 @@ table.data tr:hover td { background: var(--pink-50); }
   background: #fff;
   color: var(--ink);
 }
+/* Topic grid on home page */
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 4px;
+}
+.topic-card {
+  border: 2px solid var(--pink-100);
+  border-radius: 16px;
+  padding: 16px;
+  background: var(--pink-50);
+}
+.topic-name {
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+.diff-row { display: flex; flex-direction: column; gap: 8px; }
+.diff-btn {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 11px 14px;
+  border: 2px solid var(--pink-200);
+  border-radius: 12px;
+  background: #fff;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.12s, box-shadow 0.12s, transform 0.08s;
+}
+.diff-btn:hover:not([disabled]) { border-color: var(--pink-400); transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+.diff-btn.active { border-color: var(--amber); background: #fffbf0; }
+.diff-btn.locked { opacity: 0.5; cursor: default; }
+.diff-label { font-weight: 800; font-size: 0.9rem; color: var(--ink); }
+.diff-badge { font-size: 0.75rem; font-weight: 800; color: var(--amber); }
+.diff-badge.resume { color: var(--pink-600); }
+.diff-prog { height: 6px; background: var(--pink-100); border-radius: 999px; overflow: hidden; margin: 2px 0; }
+.diff-prog span { display: block; height: 100%; background: var(--pink-400); border-radius: 999px; transition: width 0.3s; }
+.diff-count { font-size: 0.78rem; color: var(--muted); font-weight: 700; }
+.diff-count.empty { color: var(--pink-300); }
+
 .note { color: var(--muted); font-size: 0.9rem; }
 .center { text-align: center; }
 .hidden { display: none !important; }

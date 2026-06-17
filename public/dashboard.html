@@ -61,7 +61,7 @@
       <div style="overflow-x:auto">
         <table class="data" id="sessionsTable">
           <thead><tr>
-            <th>#</th><th>Section</th><th>Status</th><th>Started</th><th>Finished</th><th>Score</th><th>Progress</th>
+            <th>#</th><th>Topic</th><th>Difficulty</th><th>Status</th><th>Started</th><th>Finished</th><th>Score</th><th>Progress</th>
           </tr></thead>
           <tbody></tbody>
         </table>
@@ -71,11 +71,18 @@
     <div class="card">
       <h2>All attempts</h2>
       <div class="filters">
-        <label>Section
+        <label>Domain
           <select id="fSection">
             <option value="">All</option>
             <option value="math">Math</option>
             <option value="reading">Reading</option>
+          </select>
+        </label>
+        <label>Difficulty
+          <select id="fDifficulty">
+            <option value="">All</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
           </select>
         </label>
         <label>Result
@@ -92,7 +99,7 @@
       <div style="overflow-x:auto">
         <table class="data" id="attemptsTable">
           <thead><tr>
-            <th>Date</th><th>Section</th><th>Question</th><th>Her answer</th><th>Correct</th><th>Result</th><th>Time</th>
+            <th>Date</th><th>Topic</th><th>Difficulty</th><th>Question</th><th>Her answer</th><th>Correct</th><th>Result</th><th>Time</th>
           </tr></thead>
           <tbody></tbody>
         </table>

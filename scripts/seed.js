@@ -1,11 +1,5 @@
 'use strict';
 
-/*
- * Loads data/questions.*.json into the SQLite database.
- * Idempotent: uses ext_id, so re-running updates existing questions in place
- * and never creates duplicates. Safe to run after importing new PDFs.
- */
-
 const fs = require('fs');
 const path = require('path');
 const { db } = require('../db');
@@ -16,44 +10,40 @@ const files = [
 ];
 
 const upsert = db.prepare(`
-  INSERT INTO questions (ext_id, section, passage, prompt, choices, correct, explanation, difficulty, source)
-  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+  INSERT INTO questions (ext_id, domain, topic, difficulty, passage, prompt, choices, correct, explanation, source)
+  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   ON CONFLICT(ext_id) DO UPDATE SET
-    section = excluded.section,
-    passage = excluded.passage,
-    prompt = excluded.prompt,
-    choices = excluded.choices,
-    correct = excluded.correct,
+    domain      = excluded.domain,
+    topic       = excluded.topic,
+    difficulty  = excluded.difficulty,
+    passage     = excluded.passage,
+    prompt      = excluded.prompt,
+    choices     = excluded.choices,
+    correct     = excluded.correct,
     explanation = excluded.explanation,
-    difficulty = excluded.difficulty,
-    source = excluded.source
+    source      = excluded.source
 `);
 
 let total = 0;
 for (const file of files) {
-  if (!fs.existsSync(file)) {
-    console.warn(`Skipping missing file: ${file}`);
-    continue;
-  }
+  if (!fs.existsSync(file)) { console.warn(`Skipping missing: ${file}`); continue; }
   const items = JSON.parse(fs.readFileSync(file, 'utf8'));
   for (const q of items) {
     upsert.run(
-      q.ext_id,
-      q.section,
-      q.passage ?? null,
-      q.prompt,
-      JSON.stringify(q.choices),
-      q.correct,
-      q.explanation ?? '',
-      q.difficulty ?? 'medium',
-      q.source ?? 'starter',
+      q.ext_id, q.domain, q.topic, q.difficulty ?? 'medium',
+      q.passage ?? null, q.prompt,
+      JSON.stringify(q.choices), q.correct,
+      q.explanation ?? '', q.source ?? 'starter',
     );
     total++;
   }
-  console.log(`Loaded ${items.length} questions from ${path.basename(file)}`);
+  console.log(`Loaded ${items.length} from ${path.basename(file)}`);
 }
 
-const counts = db.prepare('SELECT section, COUNT(*) n FROM questions GROUP BY section').all();
-console.log('Database now contains:');
-for (const c of counts) console.log(`  ${c.section}: ${c.n} questions`);
-console.log(`Done (${total} questions processed).`);
+const rows = db.prepare(`
+  SELECT domain, topic, difficulty, COUNT(*) n
+  FROM questions GROUP BY domain, topic, difficulty ORDER BY domain, topic, difficulty
+`).all();
+console.log('\nDatabase:');
+for (const r of rows) console.log(`  ${r.domain} / ${r.topic} / ${r.difficulty}: ${r.n} questions`);
+console.log(`\n${total} questions processed.`);

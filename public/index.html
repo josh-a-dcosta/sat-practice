@@ -19,37 +19,31 @@
   <div class="container">
     <div class="card">
       <h1>Hi there! Ready to practice? 💖</h1>
-      <p class="subtitle">Pick a section to begin. Take your time, do your best, and have fun!</p>
-
+      <p class="subtitle">Choose a topic below. You've got this! ✨</p>
       <div class="goal">
         <div>
-          <div style="font-weight:800; color:var(--pink-600)" id="goalText">Today's goal</div>
+          <div style="font-weight:800;color:var(--pink-600)">Today's goal</div>
           <div class="note" id="goalSub">Loading…</div>
         </div>
         <div class="goal-bar"><span id="goalFill" style="width:0%"></span></div>
-        <div style="font-weight:800; color:var(--pink-600)" id="goalCount">0 / 40</div>
+        <div style="font-weight:800;color:var(--pink-600)" id="goalCount">0 / 40</div>
       </div>
     </div>
 
-    <div class="card">
-      <h2>Choose a section</h2>
-      <div class="choice-grid" id="choices">
-        <div class="spinner">Loading sections…</div>
-      </div>
-    </div>
+    <div id="domainSections"><div class="spinner">Loading…</div></div>
 
     <div class="card center">
-      <p class="note">Want to see your progress, charts, and reports?</p>
+      <p class="note">Track your scores, charts, and progress here:</p>
       <a class="btn btn-ghost" href="/dashboard.html">📊 Open the Dashboard</a>
     </div>
   </div>
 
   <script src="/js/common.js"></script>
   <script>
-    const SECTION_META = {
-      math: { emoji: '🔢', title: 'Math', blurb: 'Algebra, ratios, geometry, and more.' },
-      reading: { emoji: '📖', title: 'Reading & Writing', blurb: 'Grammar, vocabulary, and comprehension.' },
-    };
+    const DOMAIN_ORDER = [
+      { domain: 'math',    emoji: '🔢', label: 'Math' },
+      { domain: 'reading', emoji: '📖', label: 'Reading & Writing' },
+    ];
 
     async function load() {
       const data = await api('GET', '/api/overview');
@@ -60,46 +54,87 @@
       document.getElementById('goalFill').style.width = pct + '%';
       document.getElementById('goalCount').textContent = `${t.answeredToday} / ${t.goal}`;
       document.getElementById('goalSub').textContent = t.met
-        ? '🎉 Goal reached today — fantastic job! Keep going if you like!'
-        : `${t.goal - t.answeredToday} more question${t.goal - t.answeredToday === 1 ? '' : 's'} to reach today\'s goal of ${t.goal}.`;
+        ? '🎉 Daily goal reached — fantastic work! Keep going if you like!'
+        : `${t.goal - t.answeredToday} more question${t.goal - t.answeredToday === 1 ? '' : 's'} to reach today\'s goal.`;
 
-      // Section cards
-      const wrap = document.getElementById('choices');
-      wrap.innerHTML = '';
-      for (const s of data.sections) {
-        const meta = SECTION_META[s.section];
-        const card = document.createElement('button');
-        card.className = 'choice';
-        const resume = s.hasActiveSession
-          ? `<div class="resume-tag">▶ Resume in progress</div>`
-          : '';
-        const availNote = s.available < data.sessionSize && !s.hasActiveSession
-          ? `<div class="meta" style="color:var(--amber)">Only ${s.available} new question${s.available === 1 ? '' : 's'} left in this section.</div>`
-          : '';
-        card.innerHTML = `
-          <div class="emoji">${meta.emoji}</div>
-          <h3>${meta.title}</h3>
-          <div class="meta">${meta.blurb}</div>
-          <div class="meta" style="margin-top:8px">✅ Mastered: <b>${s.mastered}</b> of ${s.total}</div>
-          ${availNote}
-          ${resume}
-        `;
-        card.onclick = () => startSection(s.section);
-        wrap.appendChild(card);
+      // Group catalogue by domain then topic
+      const byDomainTopic = {};
+      for (const item of data.catalogue) {
+        const key = `${item.domain}|${item.topic}`;
+        if (!byDomainTopic[key]) byDomainTopic[key] = { domain: item.domain, topic: item.topic, topicName: item.topicName, difficulties: [] };
+        byDomainTopic[key].difficulties.push(item);
       }
+
+      const wrap = document.getElementById('domainSections');
+      wrap.innerHTML = '';
+
+      for (const { domain, emoji, label } of DOMAIN_ORDER) {
+        const topics = Object.values(byDomainTopic).filter(g => g.domain === domain);
+        if (!topics.length) continue;
+
+        const section = document.createElement('div');
+        section.className = 'card';
+        section.innerHTML = `<h2>${emoji} ${label}</h2><div class="topic-grid" id="tg-${domain}"></div>`;
+        wrap.appendChild(section);
+
+        const grid = section.querySelector(`#tg-${domain}`);
+
+        for (const group of topics) {
+          const topicCard = document.createElement('div');
+          topicCard.className = 'topic-card';
+
+          const diffButtons = group.difficulties.map(item => {
+            const locked = !item.available;
+            const hasActive = !!item.activeSessionId;
+            let cls = 'diff-btn';
+            if (locked) cls += ' locked';
+            else if (hasActive) cls += ' active';
+
+            const mastPct = item.total > 0 ? Math.round((item.mastered / item.total) * 100) : 0;
+            const badge = hasActive ? '<span class="diff-badge resume">▶ resume</span>' : '';
+            const progress = item.total > 0
+              ? `<div class="diff-prog"><span style="width:${mastPct}%"></span></div>`
+              : '';
+            const countLine = locked
+              ? `<span class="diff-count empty">No questions yet</span>`
+              : `<span class="diff-count">${item.mastered}/${item.total} mastered</span>`;
+
+            return `
+              <button class="${cls}" data-topic="${item.topic}" data-difficulty="${item.difficulty}" ${locked ? 'disabled' : ''}>
+                <span class="diff-label">${item.difficulty === 'medium' ? '🟡 Medium' : '🔴 Hard'}</span>
+                ${badge}
+                ${progress}
+                ${countLine}
+              </button>`;
+          }).join('');
+
+          topicCard.innerHTML = `
+            <div class="topic-name">${group.topicName}</div>
+            <div class="diff-row">${diffButtons}</div>
+          `;
+          grid.appendChild(topicCard);
+        }
+      }
+
+      // Wire up buttons
+      document.querySelectorAll('.diff-btn:not([disabled])').forEach(btn => {
+        btn.addEventListener('click', () => startSession(btn.dataset.topic, btn.dataset.difficulty));
+      });
     }
 
-    async function startSection(section) {
+    async function startSection(section) { /* legacy — unused */ }
+
+    async function startSession(topic, difficulty) {
       try {
-        const result = await api('POST', '/api/sessions', { section });
+        const result = await api('POST', '/api/sessions', { topic, difficulty });
         window.location.href = `/session.html?id=${result.id}`;
       } catch (e) {
         alert(e.message);
       }
     }
 
-    load().catch((e) => {
-      document.getElementById('choices').innerHTML = `<p class="note">Could not load: ${e.message}</p>`;
+    load().catch(e => {
+      document.getElementById('domainSections').innerHTML = `<div class="card"><p class="note">Could not load: ${e.message}</p></div>`;
     });
   </script>
 </body>
