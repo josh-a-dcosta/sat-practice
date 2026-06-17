@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAT Practice 🌸</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>" />
+</head>
+<body>
+  <div class="topbar">
+    <a class="brand" href="/">🌸 SAT Practice</a>
+    <div class="navlinks">
+      <a href="/">Home</a>
+      <a href="/dashboard.html">Dashboard</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="card">
+      <h1>Hi there! Ready to practice? 💖</h1>
+      <p class="subtitle">Pick a section to begin. Take your time, do your best, and have fun!</p>
+
+      <div class="goal">
+        <div>
+          <div style="font-weight:800; color:var(--pink-600)" id="goalText">Today's goal</div>
+          <div class="note" id="goalSub">Loading…</div>
+        </div>
+        <div class="goal-bar"><span id="goalFill" style="width:0%"></span></div>
+        <div style="font-weight:800; color:var(--pink-600)" id="goalCount">0 / 40</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Choose a section</h2>
+      <div class="choice-grid" id="choices">
+        <div class="spinner">Loading sections…</div>
+      </div>
+    </div>
+
+    <div class="card center">
+      <p class="note">Want to see your progress, charts, and reports?</p>
+      <a class="btn btn-ghost" href="/dashboard.html">📊 Open the Dashboard</a>
+    </div>
+  </div>
+
+  <script src="/js/common.js"></script>
+  <script>
+    const SECTION_META = {
+      math: { emoji: '🔢', title: 'Math', blurb: 'Algebra, ratios, geometry, and more.' },
+      reading: { emoji: '📖', title: 'Reading & Writing', blurb: 'Grammar, vocabulary, and comprehension.' },
+    };
+
+    async function load() {
+      const data = await api('GET', '/api/overview');
+
+      // Goal banner
+      const t = data.today;
+      const pct = Math.min(100, Math.round((t.answeredToday / t.goal) * 100));
+      document.getElementById('goalFill').style.width = pct + '%';
+      document.getElementById('goalCount').textContent = `${t.answeredToday} / ${t.goal}`;
+      document.getElementById('goalSub').textContent = t.met
+        ? '🎉 Goal reached today — fantastic job! Keep going if you like!'
+        : `${t.goal - t.answeredToday} more question${t.goal - t.answeredToday === 1 ? '' : 's'} to reach today\'s goal of ${t.goal}.`;
+
+      // Section cards
+      const wrap = document.getElementById('choices');
+      wrap.innerHTML = '';
+      for (const s of data.sections) {
+        const meta = SECTION_META[s.section];
+        const card = document.createElement('button');
+        card.className = 'choice';
+        const resume = s.hasActiveSession
+          ? `<div class="resume-tag">▶ Resume in progress</div>`
+          : '';
+        const availNote = s.available < data.sessionSize && !s.hasActiveSession
+          ? `<div class="meta" style="color:var(--amber)">Only ${s.available} new question${s.available === 1 ? '' : 's'} left in this section.</div>`
+          : '';
+        card.innerHTML = `
+          <div class="emoji">${meta.emoji}</div>
+          <h3>${meta.title}</h3>
+          <div class="meta">${meta.blurb}</div>
+          <div class="meta" style="margin-top:8px">✅ Mastered: <b>${s.mastered}</b> of ${s.total}</div>
+          ${availNote}
+          ${resume}
+        `;
+        card.onclick = () => startSection(s.section);
+        wrap.appendChild(card);
+      }
+    }
+
+    async function startSection(section) {
+      try {
+        const result = await api('POST', '/api/sessions', { section });
+        window.location.href = `/session.html?id=${result.id}`;
+      } catch (e) {
+        alert(e.message);
+      }
+    }
+
+    load().catch((e) => {
+      document.getElementById('choices').innerHTML = `<p class="note">Could not load: ${e.message}</p>`;
+    });
+  </script>
+</body>
+</html>

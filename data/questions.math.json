@@ -1,0 +1,2270 @@
+[
+  {
+    "ext_id": "starter-math-001",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "If 9x + 17 = 125, what is the value of x?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "12"
+      },
+      {
+        "label": "B",
+        "text": "108"
+      },
+      {
+        "label": "C",
+        "text": "13"
+      },
+      {
+        "label": "D",
+        "text": "11"
+      }
+    ],
+    "correct": "A",
+    "explanation": "Subtract 17 from both sides: 9x = 108. Divide by 9: x = 12."
+  },
+  {
+    "ext_id": "starter-math-002",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "If 9x + 7 = 43, what is the value of x?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "4"
+      },
+      {
+        "label": "B",
+        "text": "3"
+      },
+      {
+        "label": "C",
+        "text": "36"
+      },
+      {
+        "label": "D",
+        "text": "5"
+      }
+    ],
+    "correct": "A",
+    "explanation": "Subtract 7 from both sides: 9x = 36. Divide by 9: x = 4."
+  },
+  {
+    "ext_id": "starter-math-003",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "If 2x + 10 = 28, what is the value of x?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "18"
+      },
+      {
+        "label": "B",
+        "text": "8"
+      },
+      {
+        "label": "C",
+        "text": "9"
+      },
+      {
+        "label": "D",
+        "text": "10"
+      }
+    ],
+    "correct": "C",
+    "explanation": "Subtract 10 from both sides: 2x = 18. Divide by 2: x = 9."
+  },
+  {
+    "ext_id": "starter-math-004",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "If 6x + 5 = 23, what is the value of x?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "4"
+      },
+      {
+        "label": "B",
+        "text": "3"
+      },
+      {
+        "label": "C",
+        "text": "18"
+      },
+      {
+        "label": "D",
+        "text": "2"
+      }
+    ],
+    "correct": "B",
+    "explanation": "Subtract 5 from both sides: 6x = 18. Divide by 6: x = 3."
+  },
+  {
+    "ext_id": "starter-math-005",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "If 2x + 20 = 26, what is the value of x?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "3"
+      },
+      {
+        "label": "B",
+        "text": "6"
+      },
+      {
+        "label": "C",
+        "text": "4"
+      },
+      {
+        "label": "D",
+        "text": "2"
+      }
+    ],
+    "correct": "A",
+    "explanation": "Subtract 20 from both sides: 2x = 6. Divide by 2: x = 3."
+  },
+  {
+    "ext_id": "starter-math-006",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "If 5x + 6 = 16, what is the value of x?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1"
+      },
+      {
+        "label": "B",
+        "text": "3"
+      },
+      {
+        "label": "C",
+        "text": "2"
+      },
+      {
+        "label": "D",
+        "text": "10"
+      }
+    ],
+    "correct": "C",
+    "explanation": "Subtract 6 from both sides: 5x = 10. Divide by 5: x = 2."
+  },
+  {
+    "ext_id": "starter-math-007",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "If 2x + 2 = 12, what is the value of x?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "10"
+      },
+      {
+        "label": "B",
+        "text": "4"
+      },
+      {
+        "label": "C",
+        "text": "6"
+      },
+      {
+        "label": "D",
+        "text": "5"
+      }
+    ],
+    "correct": "D",
+    "explanation": "Subtract 2 from both sides: 2x = 10. Divide by 2: x = 5."
+  },
+  {
+    "ext_id": "starter-math-008",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "If 6x + 8 = 26, what is the value of x?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "3"
+      },
+      {
+        "label": "B",
+        "text": "18"
+      },
+      {
+        "label": "C",
+        "text": "4"
+      },
+      {
+        "label": "D",
+        "text": "2"
+      }
+    ],
+    "correct": "A",
+    "explanation": "Subtract 8 from both sides: 6x = 18. Divide by 6: x = 3."
+  },
+  {
+    "ext_id": "starter-math-009",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "What is 60% of 240?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "149"
+      },
+      {
+        "label": "B",
+        "text": "139"
+      },
+      {
+        "label": "C",
+        "text": "144"
+      },
+      {
+        "label": "D",
+        "text": "154"
+      }
+    ],
+    "correct": "C",
+    "explanation": "60% = 60/100 = 0.6. 0.6 × 240 = 144."
+  },
+  {
+    "ext_id": "starter-math-010",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "What is 10% of 60?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "11"
+      },
+      {
+        "label": "B",
+        "text": "16"
+      },
+      {
+        "label": "C",
+        "text": "1"
+      },
+      {
+        "label": "D",
+        "text": "6"
+      }
+    ],
+    "correct": "D",
+    "explanation": "10% = 10/100 = 0.1. 0.1 × 60 = 6."
+  },
+  {
+    "ext_id": "starter-math-011",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "What is 30% of 120?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "31"
+      },
+      {
+        "label": "B",
+        "text": "36"
+      },
+      {
+        "label": "C",
+        "text": "46"
+      },
+      {
+        "label": "D",
+        "text": "41"
+      }
+    ],
+    "correct": "B",
+    "explanation": "30% = 30/100 = 0.3. 0.3 × 120 = 36."
+  },
+  {
+    "ext_id": "starter-math-012",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "What is 75% of 60?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "55"
+      },
+      {
+        "label": "B",
+        "text": "40"
+      },
+      {
+        "label": "C",
+        "text": "45"
+      },
+      {
+        "label": "D",
+        "text": "50"
+      }
+    ],
+    "correct": "C",
+    "explanation": "75% = 75/100 = 0.75. 0.75 × 60 = 45."
+  },
+  {
+    "ext_id": "starter-math-013",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "What is 10% of 160?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "26"
+      },
+      {
+        "label": "B",
+        "text": "21"
+      },
+      {
+        "label": "C",
+        "text": "16"
+      },
+      {
+        "label": "D",
+        "text": "11"
+      }
+    ],
+    "correct": "C",
+    "explanation": "10% = 10/100 = 0.1. 0.1 × 160 = 16."
+  },
+  {
+    "ext_id": "starter-math-014",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "What is 25% of 120?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "25"
+      },
+      {
+        "label": "B",
+        "text": "35"
+      },
+      {
+        "label": "C",
+        "text": "40"
+      },
+      {
+        "label": "D",
+        "text": "30"
+      }
+    ],
+    "correct": "D",
+    "explanation": "25% = 25/100 = 0.25. 0.25 × 120 = 30."
+  },
+  {
+    "ext_id": "starter-math-015",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "A jacket costs $50. Its price increases by 15%. What is the new price, in dollars?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "7.5"
+      },
+      {
+        "label": "B",
+        "text": "42.5"
+      },
+      {
+        "label": "C",
+        "text": "72.5"
+      },
+      {
+        "label": "D",
+        "text": "57.5"
+      }
+    ],
+    "correct": "D",
+    "explanation": "The increase is 15% of 50 = 7.5. New price = 50 + 7.5 = 57.5."
+  },
+  {
+    "ext_id": "starter-math-016",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "A jacket costs $50. Its price increases by 15%. What is the new price, in dollars?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "7.5"
+      },
+      {
+        "label": "B",
+        "text": "57.5"
+      },
+      {
+        "label": "C",
+        "text": "42.5"
+      },
+      {
+        "label": "D",
+        "text": "72.5"
+      }
+    ],
+    "correct": "B",
+    "explanation": "The increase is 15% of 50 = 7.5. New price = 50 + 7.5 = 57.5."
+  },
+  {
+    "ext_id": "starter-math-017",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "A jacket costs $40. Its price increases by 20%. What is the new price, in dollars?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "32"
+      },
+      {
+        "label": "B",
+        "text": "48"
+      },
+      {
+        "label": "C",
+        "text": "8"
+      },
+      {
+        "label": "D",
+        "text": "68"
+      }
+    ],
+    "correct": "B",
+    "explanation": "The increase is 20% of 40 = 8. New price = 40 + 8 = 48."
+  },
+  {
+    "ext_id": "starter-math-018",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "A jacket costs $40. Its price increases by 15%. What is the new price, in dollars?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "34"
+      },
+      {
+        "label": "B",
+        "text": "46"
+      },
+      {
+        "label": "C",
+        "text": "6"
+      },
+      {
+        "label": "D",
+        "text": "61"
+      }
+    ],
+    "correct": "B",
+    "explanation": "The increase is 15% of 40 = 6. New price = 40 + 6 = 46."
+  },
+  {
+    "ext_id": "starter-math-019",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "A jacket costs $80. Its price increases by 15%. What is the new price, in dollars?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "12"
+      },
+      {
+        "label": "B",
+        "text": "68"
+      },
+      {
+        "label": "C",
+        "text": "92"
+      },
+      {
+        "label": "D",
+        "text": "107"
+      }
+    ],
+    "correct": "C",
+    "explanation": "The increase is 15% of 80 = 12. New price = 80 + 12 = 92."
+  },
+  {
+    "ext_id": "starter-math-020",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "If 2 notebooks cost $6, how much do 8 notebooks cost at the same rate?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "18"
+      },
+      {
+        "label": "B",
+        "text": "24"
+      },
+      {
+        "label": "C",
+        "text": "30"
+      },
+      {
+        "label": "D",
+        "text": "48"
+      }
+    ],
+    "correct": "B",
+    "explanation": "Each notebook costs 6/2 = $3. For 8 notebooks: 3 × 8 = $24."
+  },
+  {
+    "ext_id": "starter-math-021",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "If 4 notebooks cost $16, how much do 16 notebooks cost at the same rate?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "64"
+      },
+      {
+        "label": "B",
+        "text": "80"
+      },
+      {
+        "label": "C",
+        "text": "48"
+      },
+      {
+        "label": "D",
+        "text": "256"
+      }
+    ],
+    "correct": "A",
+    "explanation": "Each notebook costs 16/4 = $4. For 16 notebooks: 4 × 16 = $64."
+  },
+  {
+    "ext_id": "starter-math-022",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "If 2 notebooks cost $8, how much do 6 notebooks cost at the same rate?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "32"
+      },
+      {
+        "label": "B",
+        "text": "48"
+      },
+      {
+        "label": "C",
+        "text": "24"
+      },
+      {
+        "label": "D",
+        "text": "16"
+      }
+    ],
+    "correct": "C",
+    "explanation": "Each notebook costs 8/2 = $4. For 6 notebooks: 4 × 6 = $24."
+  },
+  {
+    "ext_id": "starter-math-023",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "If 3 notebooks cost $12, how much do 15 notebooks cost at the same rate?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "48"
+      },
+      {
+        "label": "B",
+        "text": "60"
+      },
+      {
+        "label": "C",
+        "text": "180"
+      },
+      {
+        "label": "D",
+        "text": "72"
+      }
+    ],
+    "correct": "B",
+    "explanation": "Each notebook costs 12/3 = $4. For 15 notebooks: 4 × 15 = $60."
+  },
+  {
+    "ext_id": "starter-math-024",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "If 2 notebooks cost $6, how much do 6 notebooks cost at the same rate?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "18"
+      },
+      {
+        "label": "B",
+        "text": "12"
+      },
+      {
+        "label": "C",
+        "text": "24"
+      },
+      {
+        "label": "D",
+        "text": "36"
+      }
+    ],
+    "correct": "A",
+    "explanation": "Each notebook costs 6/2 = $3. For 6 notebooks: 3 × 6 = $18."
+  },
+  {
+    "ext_id": "starter-math-025",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "A line passes through the points (1, 4) and (4, 16). What is the slope of the line?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "5"
+      },
+      {
+        "label": "B",
+        "text": "3"
+      },
+      {
+        "label": "C",
+        "text": "-4"
+      },
+      {
+        "label": "D",
+        "text": "4"
+      }
+    ],
+    "correct": "D",
+    "explanation": "Slope = (y₂ − y₁)/(x₂ − x₁) = (16 − 4)/(4 − 1) = 12/3 = 4."
+  },
+  {
+    "ext_id": "starter-math-026",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "A line passes through the points (2, 6) and (6, 22). What is the slope of the line?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "4"
+      },
+      {
+        "label": "B",
+        "text": "-4"
+      },
+      {
+        "label": "C",
+        "text": "3"
+      },
+      {
+        "label": "D",
+        "text": "5"
+      }
+    ],
+    "correct": "A",
+    "explanation": "Slope = (y₂ − y₁)/(x₂ − x₁) = (22 − 6)/(6 − 2) = 16/4 = 4."
+  },
+  {
+    "ext_id": "starter-math-027",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "A line passes through the points (2, 5) and (6, 21). What is the slope of the line?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "3"
+      },
+      {
+        "label": "B",
+        "text": "-4"
+      },
+      {
+        "label": "C",
+        "text": "5"
+      },
+      {
+        "label": "D",
+        "text": "4"
+      }
+    ],
+    "correct": "D",
+    "explanation": "Slope = (y₂ − y₁)/(x₂ − x₁) = (21 − 5)/(6 − 2) = 16/4 = 4."
+  },
+  {
+    "ext_id": "starter-math-028",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "A line passes through the points (1, 1) and (4, -5). What is the slope of the line?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "-1"
+      },
+      {
+        "label": "B",
+        "text": "2"
+      },
+      {
+        "label": "C",
+        "text": "-3"
+      },
+      {
+        "label": "D",
+        "text": "-2"
+      }
+    ],
+    "correct": "D",
+    "explanation": "Slope = (y₂ − y₁)/(x₂ − x₁) = (-5 − 1)/(4 − 1) = -6/3 = -2."
+  },
+  {
+    "ext_id": "starter-math-029",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "A line passes through the points (1, 6) and (5, 22). What is the slope of the line?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "4"
+      },
+      {
+        "label": "B",
+        "text": "5"
+      },
+      {
+        "label": "C",
+        "text": "3"
+      },
+      {
+        "label": "D",
+        "text": "-4"
+      }
+    ],
+    "correct": "A",
+    "explanation": "Slope = (y₂ − y₁)/(x₂ − x₁) = (22 − 6)/(5 − 1) = 16/4 = 4."
+  },
+  {
+    "ext_id": "starter-math-030",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "A line passes through the points (4, 0) and (7, -3). What is the slope of the line?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1"
+      },
+      {
+        "label": "B",
+        "text": "0"
+      },
+      {
+        "label": "C",
+        "text": "-1"
+      },
+      {
+        "label": "D",
+        "text": "-2"
+      }
+    ],
+    "correct": "C",
+    "explanation": "Slope = (y₂ − y₁)/(x₂ − x₁) = (-3 − 0)/(7 − 4) = -3/3 = -1."
+  },
+  {
+    "ext_id": "starter-math-031",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "If f(x) = 2x² − 3, what is f(2)?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "1"
+      },
+      {
+        "label": "B",
+        "text": "5"
+      },
+      {
+        "label": "C",
+        "text": "7"
+      },
+      {
+        "label": "D",
+        "text": "11"
+      }
+    ],
+    "correct": "B",
+    "explanation": "f(2) = 2(2)² − 3 = 2×4 − 3 = 8 − 3 = 5."
+  },
+  {
+    "ext_id": "starter-math-032",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "If f(x) = 2x² − 4, what is f(5)?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "48"
+      },
+      {
+        "label": "B",
+        "text": "6"
+      },
+      {
+        "label": "C",
+        "text": "46"
+      },
+      {
+        "label": "D",
+        "text": "54"
+      }
+    ],
+    "correct": "C",
+    "explanation": "f(5) = 2(5)² − 4 = 2×25 − 4 = 50 − 4 = 46."
+  },
+  {
+    "ext_id": "starter-math-033",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "If f(x) = 3x² − 6, what is f(2)?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "0"
+      },
+      {
+        "label": "B",
+        "text": "18"
+      },
+      {
+        "label": "C",
+        "text": "9"
+      },
+      {
+        "label": "D",
+        "text": "6"
+      }
+    ],
+    "correct": "D",
+    "explanation": "f(2) = 3(2)² − 6 = 3×4 − 6 = 12 − 6 = 6."
+  },
+  {
+    "ext_id": "starter-math-034",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "If f(x) = 2x² − 3, what is f(3)?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "3"
+      },
+      {
+        "label": "B",
+        "text": "15"
+      },
+      {
+        "label": "C",
+        "text": "17"
+      },
+      {
+        "label": "D",
+        "text": "21"
+      }
+    ],
+    "correct": "B",
+    "explanation": "f(3) = 2(3)² − 3 = 2×9 − 3 = 18 − 3 = 15."
+  },
+  {
+    "ext_id": "starter-math-035",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "If f(x) = 3x² − 3, what is f(3)?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "30"
+      },
+      {
+        "label": "B",
+        "text": "27"
+      },
+      {
+        "label": "C",
+        "text": "6"
+      },
+      {
+        "label": "D",
+        "text": "24"
+      }
+    ],
+    "correct": "D",
+    "explanation": "f(3) = 3(3)² − 3 = 3×9 − 3 = 27 − 3 = 24."
+  },
+  {
+    "ext_id": "starter-math-036",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "If f(x) = 1x² − 4, what is f(5)?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "29"
+      },
+      {
+        "label": "B",
+        "text": "21"
+      },
+      {
+        "label": "C",
+        "text": "1"
+      },
+      {
+        "label": "D",
+        "text": "22"
+      }
+    ],
+    "correct": "B",
+    "explanation": "f(5) = 1(5)² − 4 = 1×25 − 4 = 25 − 4 = 21."
+  },
+  {
+    "ext_id": "starter-math-037",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "What is the average (arithmetic mean) of the numbers 3, 5, 7, 8?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "6.75"
+      },
+      {
+        "label": "B",
+        "text": "23"
+      },
+      {
+        "label": "C",
+        "text": "4.75"
+      },
+      {
+        "label": "D",
+        "text": "5.75"
+      }
+    ],
+    "correct": "D",
+    "explanation": "Sum = 3 + 5 + 7 + 8 = 23. Mean = 23 ÷ 4 = 5.75."
+  },
+  {
+    "ext_id": "starter-math-038",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "What is the average (arithmetic mean) of the numbers 8, 10, 14, 13?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "45"
+      },
+      {
+        "label": "B",
+        "text": "11.25"
+      },
+      {
+        "label": "C",
+        "text": "10.25"
+      },
+      {
+        "label": "D",
+        "text": "12.25"
+      }
+    ],
+    "correct": "B",
+    "explanation": "Sum = 8 + 10 + 14 + 13 = 45. Mean = 45 ÷ 4 = 11.25."
+  },
+  {
+    "ext_id": "starter-math-039",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "What is the average (arithmetic mean) of the numbers 3, 5, 6, 12?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "7.5"
+      },
+      {
+        "label": "B",
+        "text": "6.5"
+      },
+      {
+        "label": "C",
+        "text": "26"
+      },
+      {
+        "label": "D",
+        "text": "5.5"
+      }
+    ],
+    "correct": "B",
+    "explanation": "Sum = 3 + 5 + 6 + 12 = 26. Mean = 26 ÷ 4 = 6.5."
+  },
+  {
+    "ext_id": "starter-math-040",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "What is the average (arithmetic mean) of the numbers 8, 11, 12, 14?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "45"
+      },
+      {
+        "label": "B",
+        "text": "10.25"
+      },
+      {
+        "label": "C",
+        "text": "11.25"
+      },
+      {
+        "label": "D",
+        "text": "12.25"
+      }
+    ],
+    "correct": "C",
+    "explanation": "Sum = 8 + 11 + 12 + 14 = 45. Mean = 45 ÷ 4 = 11.25."
+  },
+  {
+    "ext_id": "starter-math-041",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "What is the average (arithmetic mean) of the numbers 4, 7, 8, 9?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "28"
+      },
+      {
+        "label": "B",
+        "text": "8"
+      },
+      {
+        "label": "C",
+        "text": "6"
+      },
+      {
+        "label": "D",
+        "text": "7"
+      }
+    ],
+    "correct": "D",
+    "explanation": "Sum = 4 + 7 + 8 + 9 = 28. Mean = 28 ÷ 4 = 7."
+  },
+  {
+    "ext_id": "starter-math-042",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "What is the median of the data set: 11, 12, 15, 4, 7?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "11"
+      },
+      {
+        "label": "B",
+        "text": "13"
+      },
+      {
+        "label": "C",
+        "text": "12"
+      },
+      {
+        "label": "D",
+        "text": "7"
+      }
+    ],
+    "correct": "A",
+    "explanation": "Ordered, the values are 4, 7, 11, 12, 15. The median is the middle value: 11."
+  },
+  {
+    "ext_id": "starter-math-043",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "What is the median of the data set: 5, 3, 7, 4, 9?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "5"
+      },
+      {
+        "label": "B",
+        "text": "6"
+      },
+      {
+        "label": "C",
+        "text": "7"
+      },
+      {
+        "label": "D",
+        "text": "4"
+      }
+    ],
+    "correct": "A",
+    "explanation": "Ordered, the values are 3, 4, 5, 7, 9. The median is the middle value: 5."
+  },
+  {
+    "ext_id": "starter-math-044",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "What is the median of the data set: 14, 10, 7, 11, 5?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "7"
+      },
+      {
+        "label": "B",
+        "text": "10"
+      },
+      {
+        "label": "C",
+        "text": "12"
+      },
+      {
+        "label": "D",
+        "text": "11"
+      }
+    ],
+    "correct": "B",
+    "explanation": "Ordered, the values are 5, 7, 10, 11, 14. The median is the middle value: 10."
+  },
+  {
+    "ext_id": "starter-math-045",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "What is the median of the data set: 14, 11, 7, 3, 13?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "7"
+      },
+      {
+        "label": "B",
+        "text": "12"
+      },
+      {
+        "label": "C",
+        "text": "11"
+      },
+      {
+        "label": "D",
+        "text": "13"
+      }
+    ],
+    "correct": "C",
+    "explanation": "Ordered, the values are 3, 7, 11, 13, 14. The median is the middle value: 11."
+  },
+  {
+    "ext_id": "starter-math-046",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "What is the value of 3^2 × 3^2?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "82"
+      },
+      {
+        "label": "B",
+        "text": "84"
+      },
+      {
+        "label": "C",
+        "text": "81"
+      },
+      {
+        "label": "D",
+        "text": "18"
+      }
+    ],
+    "correct": "C",
+    "explanation": "When multiplying powers with the same base, add the exponents: 3^(2+2) = 3^4 = 81."
+  },
+  {
+    "ext_id": "starter-math-047",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "What is the value of 2^3 × 2^3?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "64"
+      },
+      {
+        "label": "B",
+        "text": "16"
+      },
+      {
+        "label": "C",
+        "text": "66"
+      },
+      {
+        "label": "D",
+        "text": "512"
+      }
+    ],
+    "correct": "A",
+    "explanation": "When multiplying powers with the same base, add the exponents: 2^(3+3) = 2^6 = 64."
+  },
+  {
+    "ext_id": "starter-math-048",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "What is the value of 4^2 × 4^2?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "260"
+      },
+      {
+        "label": "B",
+        "text": "32"
+      },
+      {
+        "label": "C",
+        "text": "257"
+      },
+      {
+        "label": "D",
+        "text": "256"
+      }
+    ],
+    "correct": "D",
+    "explanation": "When multiplying powers with the same base, add the exponents: 4^(2+2) = 4^4 = 256."
+  },
+  {
+    "ext_id": "starter-math-049",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "What is the value of 3^2 × 3^3?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "729"
+      },
+      {
+        "label": "B",
+        "text": "243"
+      },
+      {
+        "label": "C",
+        "text": "246"
+      },
+      {
+        "label": "D",
+        "text": "36"
+      }
+    ],
+    "correct": "B",
+    "explanation": "When multiplying powers with the same base, add the exponents: 3^(2+3) = 3^5 = 243."
+  },
+  {
+    "ext_id": "starter-math-050",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "A rectangle has a width of 8 and a height of 5. What is its perimeter?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "26"
+      },
+      {
+        "label": "B",
+        "text": "21"
+      },
+      {
+        "label": "C",
+        "text": "34"
+      },
+      {
+        "label": "D",
+        "text": "40"
+      }
+    ],
+    "correct": "A",
+    "explanation": "Perimeter = 2 × (width + height) = 2 × (8 + 5) = 26."
+  },
+  {
+    "ext_id": "starter-math-051",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "A rectangle has a width of 7 and a height of 3. What is its perimeter?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "21"
+      },
+      {
+        "label": "B",
+        "text": "17"
+      },
+      {
+        "label": "C",
+        "text": "27"
+      },
+      {
+        "label": "D",
+        "text": "20"
+      }
+    ],
+    "correct": "D",
+    "explanation": "Perimeter = 2 × (width + height) = 2 × (7 + 3) = 20."
+  },
+  {
+    "ext_id": "starter-math-052",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "A rectangle has a width of 8 and a height of 9. What is its perimeter?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "42"
+      },
+      {
+        "label": "B",
+        "text": "25"
+      },
+      {
+        "label": "C",
+        "text": "34"
+      },
+      {
+        "label": "D",
+        "text": "72"
+      }
+    ],
+    "correct": "C",
+    "explanation": "Perimeter = 2 × (width + height) = 2 × (8 + 9) = 34."
+  },
+  {
+    "ext_id": "starter-math-053",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "A rectangle has a width of 10 and a height of 7. What is its area?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "63"
+      },
+      {
+        "label": "B",
+        "text": "34"
+      },
+      {
+        "label": "C",
+        "text": "80"
+      },
+      {
+        "label": "D",
+        "text": "70"
+      }
+    ],
+    "correct": "D",
+    "explanation": "Area = width × height = 10 × 7 = 70."
+  },
+  {
+    "ext_id": "starter-math-054",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "A rectangle has a width of 12 and a height of 4. What is its perimeter?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "44"
+      },
+      {
+        "label": "B",
+        "text": "48"
+      },
+      {
+        "label": "C",
+        "text": "28"
+      },
+      {
+        "label": "D",
+        "text": "32"
+      }
+    ],
+    "correct": "D",
+    "explanation": "Perimeter = 2 × (width + height) = 2 × (12 + 4) = 32."
+  },
+  {
+    "ext_id": "starter-math-055",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "A circle has a radius of 8. What is its area, in terms of π?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "72π"
+      },
+      {
+        "label": "B",
+        "text": "64π"
+      },
+      {
+        "label": "C",
+        "text": "512π"
+      },
+      {
+        "label": "D",
+        "text": "16π"
+      }
+    ],
+    "correct": "B",
+    "explanation": "Area = πr² = π(8)² = 64π."
+  },
+  {
+    "ext_id": "starter-math-056",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "A circle has a radius of 6. What is its area, in terms of π?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "12π"
+      },
+      {
+        "label": "B",
+        "text": "42π"
+      },
+      {
+        "label": "C",
+        "text": "216π"
+      },
+      {
+        "label": "D",
+        "text": "36π"
+      }
+    ],
+    "correct": "D",
+    "explanation": "Area = πr² = π(6)² = 36π."
+  },
+  {
+    "ext_id": "starter-math-057",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "A circle has a radius of 6. What is its area, in terms of π?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "42π"
+      },
+      {
+        "label": "B",
+        "text": "216π"
+      },
+      {
+        "label": "C",
+        "text": "36π"
+      },
+      {
+        "label": "D",
+        "text": "12π"
+      }
+    ],
+    "correct": "C",
+    "explanation": "Area = πr² = π(6)² = 36π."
+  },
+  {
+    "ext_id": "starter-math-058",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "A circle has a radius of 2. What is its area, in terms of π?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "8π"
+      },
+      {
+        "label": "B",
+        "text": "4π"
+      },
+      {
+        "label": "C",
+        "text": "6π"
+      },
+      {
+        "label": "D",
+        "text": "5π"
+      }
+    ],
+    "correct": "B",
+    "explanation": "Area = πr² = π(2)² = 4π."
+  },
+  {
+    "ext_id": "starter-math-059",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "A right triangle has legs of length 3 and 4. What is the length of the hypotenuse?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "7"
+      },
+      {
+        "label": "B",
+        "text": "6"
+      },
+      {
+        "label": "C",
+        "text": "4"
+      },
+      {
+        "label": "D",
+        "text": "5"
+      }
+    ],
+    "correct": "D",
+    "explanation": "By the Pythagorean theorem, c² = 3² + 4² = 9 + 16 = 25, so c = 5."
+  },
+  {
+    "ext_id": "starter-math-060",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "A right triangle has legs of length 6 and 8. What is the length of the hypotenuse?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "10"
+      },
+      {
+        "label": "B",
+        "text": "11"
+      },
+      {
+        "label": "C",
+        "text": "9"
+      },
+      {
+        "label": "D",
+        "text": "14"
+      }
+    ],
+    "correct": "A",
+    "explanation": "By the Pythagorean theorem, c² = 6² + 8² = 36 + 64 = 100, so c = 10."
+  },
+  {
+    "ext_id": "starter-math-061",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "A right triangle has legs of length 5 and 12. What is the length of the hypotenuse?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "12"
+      },
+      {
+        "label": "B",
+        "text": "13"
+      },
+      {
+        "label": "C",
+        "text": "17"
+      },
+      {
+        "label": "D",
+        "text": "14"
+      }
+    ],
+    "correct": "B",
+    "explanation": "By the Pythagorean theorem, c² = 5² + 12² = 25 + 144 = 169, so c = 13."
+  },
+  {
+    "ext_id": "starter-math-062",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "A right triangle has legs of length 8 and 15. What is the length of the hypotenuse?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "23"
+      },
+      {
+        "label": "B",
+        "text": "17"
+      },
+      {
+        "label": "C",
+        "text": "18"
+      },
+      {
+        "label": "D",
+        "text": "16"
+      }
+    ],
+    "correct": "B",
+    "explanation": "By the Pythagorean theorem, c² = 8² + 15² = 64 + 225 = 289, so c = 17."
+  },
+  {
+    "ext_id": "starter-math-063",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "A right triangle has legs of length 9 and 12. What is the length of the hypotenuse?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "15"
+      },
+      {
+        "label": "B",
+        "text": "14"
+      },
+      {
+        "label": "C",
+        "text": "21"
+      },
+      {
+        "label": "D",
+        "text": "16"
+      }
+    ],
+    "correct": "A",
+    "explanation": "By the Pythagorean theorem, c² = 9² + 12² = 81 + 144 = 225, so c = 15."
+  },
+  {
+    "ext_id": "starter-math-064",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "A right triangle has legs of length 7 and 24. What is the length of the hypotenuse?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "24"
+      },
+      {
+        "label": "B",
+        "text": "26"
+      },
+      {
+        "label": "C",
+        "text": "25"
+      },
+      {
+        "label": "D",
+        "text": "31"
+      }
+    ],
+    "correct": "C",
+    "explanation": "By the Pythagorean theorem, c² = 7² + 24² = 49 + 576 = 625, so c = 25."
+  },
+  {
+    "ext_id": "starter-math-065",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "If x + y = 6 and x − y = 4, what is the value of x?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "5"
+      },
+      {
+        "label": "B",
+        "text": "7"
+      },
+      {
+        "label": "C",
+        "text": "1"
+      },
+      {
+        "label": "D",
+        "text": "6"
+      }
+    ],
+    "correct": "A",
+    "explanation": "Add the two equations: 2x = 6 + 4 = 10, so x = 5."
+  },
+  {
+    "ext_id": "starter-math-066",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "If x + y = 7 and x − y = 3, what is the value of x?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "6"
+      },
+      {
+        "label": "B",
+        "text": "7"
+      },
+      {
+        "label": "C",
+        "text": "5"
+      },
+      {
+        "label": "D",
+        "text": "2"
+      }
+    ],
+    "correct": "C",
+    "explanation": "Add the two equations: 2x = 7 + 3 = 10, so x = 5."
+  },
+  {
+    "ext_id": "starter-math-067",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "If x + y = 5 and x − y = 1, what is the value of x?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "2"
+      },
+      {
+        "label": "B",
+        "text": "4"
+      },
+      {
+        "label": "C",
+        "text": "5"
+      },
+      {
+        "label": "D",
+        "text": "3"
+      }
+    ],
+    "correct": "D",
+    "explanation": "Add the two equations: 2x = 5 + 1 = 6, so x = 3."
+  },
+  {
+    "ext_id": "starter-math-068",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "If x + y = 6 and x − y = 4, what is the value of x?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "5"
+      },
+      {
+        "label": "B",
+        "text": "7"
+      },
+      {
+        "label": "C",
+        "text": "1"
+      },
+      {
+        "label": "D",
+        "text": "6"
+      }
+    ],
+    "correct": "A",
+    "explanation": "Add the two equations: 2x = 6 + 4 = 10, so x = 5."
+  },
+  {
+    "ext_id": "starter-math-069",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "If x + y = 15 and x − y = 1, what is the value of x?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "15"
+      },
+      {
+        "label": "B",
+        "text": "8"
+      },
+      {
+        "label": "C",
+        "text": "9"
+      },
+      {
+        "label": "D",
+        "text": "7"
+      }
+    ],
+    "correct": "B",
+    "explanation": "Add the two equations: 2x = 15 + 1 = 16, so x = 8."
+  },
+  {
+    "ext_id": "starter-math-070",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "A car travels 225 miles in 5 hours. What is its average speed, in miles per hour?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "45"
+      },
+      {
+        "label": "B",
+        "text": "40"
+      },
+      {
+        "label": "C",
+        "text": "225"
+      },
+      {
+        "label": "D",
+        "text": "50"
+      }
+    ],
+    "correct": "A",
+    "explanation": "Average speed = distance ÷ time = 225 ÷ 5 = 45 mph."
+  },
+  {
+    "ext_id": "starter-math-071",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "A car travels 200 miles in 5 hours. What is its average speed, in miles per hour?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "200"
+      },
+      {
+        "label": "B",
+        "text": "35"
+      },
+      {
+        "label": "C",
+        "text": "40"
+      },
+      {
+        "label": "D",
+        "text": "45"
+      }
+    ],
+    "correct": "C",
+    "explanation": "Average speed = distance ÷ time = 200 ÷ 5 = 40 mph."
+  },
+  {
+    "ext_id": "starter-math-072",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "A car travels 200 miles in 5 hours. What is its average speed, in miles per hour?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "40"
+      },
+      {
+        "label": "B",
+        "text": "35"
+      },
+      {
+        "label": "C",
+        "text": "45"
+      },
+      {
+        "label": "D",
+        "text": "200"
+      }
+    ],
+    "correct": "A",
+    "explanation": "Average speed = distance ÷ time = 200 ÷ 5 = 40 mph."
+  },
+  {
+    "ext_id": "starter-math-073",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "A car travels 200 miles in 5 hours. What is its average speed, in miles per hour?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "40"
+      },
+      {
+        "label": "B",
+        "text": "35"
+      },
+      {
+        "label": "C",
+        "text": "200"
+      },
+      {
+        "label": "D",
+        "text": "45"
+      }
+    ],
+    "correct": "A",
+    "explanation": "Average speed = distance ÷ time = 200 ÷ 5 = 40 mph."
+  },
+  {
+    "ext_id": "starter-math-074",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "A bag contains 2 red marbles and 6 blue marbles. If one marble is drawn at random, what is the probability it is red?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "2/8"
+      },
+      {
+        "label": "B",
+        "text": "2/6"
+      },
+      {
+        "label": "C",
+        "text": "2/9"
+      },
+      {
+        "label": "D",
+        "text": "6/8"
+      }
+    ],
+    "correct": "A",
+    "explanation": "P(red) = (red marbles)/(total marbles) = 2/8."
+  },
+  {
+    "ext_id": "starter-math-075",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "A bag contains 5 red marbles and 4 blue marbles. If one marble is drawn at random, what is the probability it is red?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "5/4"
+      },
+      {
+        "label": "B",
+        "text": "5/10"
+      },
+      {
+        "label": "C",
+        "text": "5/9"
+      },
+      {
+        "label": "D",
+        "text": "4/9"
+      }
+    ],
+    "correct": "C",
+    "explanation": "P(red) = (red marbles)/(total marbles) = 5/9."
+  },
+  {
+    "ext_id": "starter-math-076",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "A bag contains 5 red marbles and 4 blue marbles. If one marble is drawn at random, what is the probability it is red?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "5/4"
+      },
+      {
+        "label": "B",
+        "text": "4/9"
+      },
+      {
+        "label": "C",
+        "text": "5/10"
+      },
+      {
+        "label": "D",
+        "text": "5/9"
+      }
+    ],
+    "correct": "D",
+    "explanation": "P(red) = (red marbles)/(total marbles) = 5/9."
+  },
+  {
+    "ext_id": "starter-math-077",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "A bag contains 2 red marbles and 6 blue marbles. If one marble is drawn at random, what is the probability it is red?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "2/6"
+      },
+      {
+        "label": "B",
+        "text": "2/9"
+      },
+      {
+        "label": "C",
+        "text": "2/8"
+      },
+      {
+        "label": "D",
+        "text": "6/8"
+      }
+    ],
+    "correct": "C",
+    "explanation": "P(red) = (red marbles)/(total marbles) = 2/8."
+  },
+  {
+    "ext_id": "starter-math-078",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "An amount of 30 is divided in the ratio 3:7. What is the value of the larger part?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "24"
+      },
+      {
+        "label": "B",
+        "text": "30"
+      },
+      {
+        "label": "C",
+        "text": "21"
+      },
+      {
+        "label": "D",
+        "text": "9"
+      }
+    ],
+    "correct": "C",
+    "explanation": "The ratio has 10 parts, so each part = 30 ÷ 10 = 3. The larger share is 7 parts = 21."
+  },
+  {
+    "ext_id": "starter-math-079",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "An amount of 30 is divided in the ratio 3:3. What is the value of the larger part?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "20"
+      },
+      {
+        "label": "B",
+        "text": "30"
+      },
+      {
+        "label": "C",
+        "text": "16"
+      },
+      {
+        "label": "D",
+        "text": "15"
+      }
+    ],
+    "correct": "D",
+    "explanation": "The ratio has 6 parts, so each part = 30 ÷ 6 = 5. The larger share is 3 parts = 15."
+  },
+  {
+    "ext_id": "starter-math-080",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "An amount of 33 is divided in the ratio 4:7. What is the value of the larger part?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "21"
+      },
+      {
+        "label": "B",
+        "text": "24"
+      },
+      {
+        "label": "C",
+        "text": "12"
+      },
+      {
+        "label": "D",
+        "text": "33"
+      }
+    ],
+    "correct": "A",
+    "explanation": "The ratio has 11 parts, so each part = 33 ÷ 11 = 3. The larger share is 7 parts = 21."
+  },
+  {
+    "ext_id": "starter-math-081",
+    "section": "math",
+    "passage": null,
+    "difficulty": "medium",
+    "source": "starter",
+    "prompt": "An amount of 40 is divided in the ratio 3:5. What is the value of the larger part?",
+    "choices": [
+      {
+        "label": "A",
+        "text": "15"
+      },
+      {
+        "label": "B",
+        "text": "25"
+      },
+      {
+        "label": "C",
+        "text": "30"
+      },
+      {
+        "label": "D",
+        "text": "40"
+      }
+    ],
+    "correct": "B",
+    "explanation": "The ratio has 8 parts, so each part = 40 ÷ 8 = 5. The larger share is 5 parts = 25."
+  }
+]

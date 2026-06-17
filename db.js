@@ -1,0 +1,63 @@
+'use strict';
+
+const { DatabaseSync } = require('node:sqlite');
+const path = require('path');
+
+const DB_PATH = process.env.SAT_DB_PATH || path.join(__dirname, 'sat-practice.db');
+
+const db = new DatabaseSync(DB_PATH);
+
+// Pragmas for reliability and reasonable concurrency for a single-user app.
+db.exec('PRAGMA journal_mode = WAL;');
+db.exec('PRAGMA foreign_keys = ON;');
+
+db.exec(`
+CREATE TABLE IF NOT EXISTS questions (
+  id          INTEGER PRIMARY KEY AUTOINCREMENT,
+  ext_id      TEXT UNIQUE NOT NULL,        -- stable id from source, idempotent seeding
+  section     TEXT NOT NULL CHECK (section IN ('math','reading')),
+  passage     TEXT,                        -- optional reading passage / context
+  prompt      TEXT NOT NULL,
+  choices     TEXT NOT NULL,               -- JSON: [{label,text}, ...]
+  correct     TEXT NOT NULL,               -- correct label, e.g. "B"
+  explanation TEXT NOT NULL DEFAULT '',
+  difficulty  TEXT NOT NULL DEFAULT 'medium',
+  source      TEXT NOT NULL DEFAULT 'starter'
+);
+
+CREATE TABLE IF NOT EXISTS sessions (
+  id               INTEGER PRIMARY KEY AUTOINCREMENT,
+  section          TEXT NOT NULL CHECK (section IN ('math','reading')),
+  status           TEXT NOT NULL DEFAULT 'in_progress' CHECK (status IN ('in_progress','completed')),
+  current_position INTEGER NOT NULL DEFAULT 1,
+  created_at       TEXT NOT NULL DEFAULT (datetime('now')),
+  completed_at     TEXT,
+  score            INTEGER
+);
+
+CREATE TABLE IF NOT EXISTS session_questions (
+  id          INTEGER PRIMARY KEY AUTOINCREMENT,
+  session_id  INTEGER NOT NULL REFERENCES sessions(id) ON DELETE CASCADE,
+  question_id INTEGER NOT NULL REFERENCES questions(id),
+  position    INTEGER NOT NULL,
+  UNIQUE (session_id, position),
+  UNIQUE (session_id, question_id)
+);
+
+CREATE TABLE IF NOT EXISTS attempts (
+  id                 INTEGER PRIMARY KEY AUTOINCREMENT,
+  session_id         INTEGER NOT NULL REFERENCES sessions(id) ON DELETE CASCADE,
+  question_id        INTEGER NOT NULL REFERENCES questions(id),
+  selected           TEXT NOT NULL,
+  is_correct         INTEGER NOT NULL,            -- 0 / 1
+  time_taken_seconds INTEGER NOT NULL DEFAULT 0,
+  answered_at        TEXT NOT NULL DEFAULT (datetime('now')),
+  UNIQUE (session_id, question_id)                -- one answer per question per session
+);
+
+CREATE INDEX IF NOT EXISTS idx_attempts_question ON attempts(question_id);
+CREATE INDEX IF NOT EXISTS idx_attempts_answered_at ON attempts(answered_at);
+CREATE INDEX IF NOT EXISTS idx_sq_session ON session_questions(session_id);
+`);
+
+module.exports = { db, DB_PATH };
