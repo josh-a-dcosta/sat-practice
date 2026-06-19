@@ -77,6 +77,13 @@ function readBody(req) {
   });
 }
 
+// Cache policy: pages/code must always revalidate so updates show up without a
+// hard refresh; question images are content-stable (unique names) so cache them.
+function cacheControl(ext) {
+  if (ext === '.png' || ext === '.svg' || ext === '.ico') return 'public, max-age=86400';
+  return 'no-cache, must-revalidate';
+}
+
 function serveStatic(req, res, pathname) {
   let rel = pathname === '/' ? '/index.html' : pathname;
   const fp = path.normalize(path.join(PUBLIC_DIR, rel));
@@ -86,12 +93,17 @@ function serveStatic(req, res, pathname) {
       if (path.extname(fp) === '') {
         return fs.readFile(path.join(PUBLIC_DIR, 'index.html'), (e2, html) => {
           if (e2) { res.writeHead(404); return res.end('Not found'); }
-          res.writeHead(200, { 'Content-Type': MIME['.html'] }); res.end(html);
+          res.writeHead(200, { 'Content-Type': MIME['.html'], 'Cache-Control': 'no-cache, must-revalidate' });
+          res.end(html);
         });
       }
       res.writeHead(404); return res.end('Not found');
     }
-    res.writeHead(200, { 'Content-Type': MIME[path.extname(fp).toLowerCase()] || 'application/octet-stream' });
+    const ext = path.extname(fp).toLowerCase();
+    res.writeHead(200, {
+      'Content-Type': MIME[ext] || 'application/octet-stream',
+      'Cache-Control': cacheControl(ext),
+    });
     res.end(content);
   });
 }
