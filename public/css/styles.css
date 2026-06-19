@@ -17,6 +17,24 @@
   --radius: 20px;
 }
 
+/* Blue theme (e.g. for user "fg") — remaps the same palette variables so the
+   whole UI recolors with no other changes. Default (no attribute) stays pink. */
+:root[data-theme="blue"] {
+  --pink-50:  #f2f7ff;
+  --pink-100: #e1ecff;
+  --pink-200: #c4dbff;
+  --pink-300: #97c0ff;
+  --pink-400: #5fa0ff;
+  --pink-500: #2f7dff;
+  --pink-600: #1f66e0;
+  --pink-700: #1850b4;
+  --shadow: 0 10px 30px rgba(47, 125, 255, 0.15);
+  --shadow-sm: 0 4px 14px rgba(47, 125, 255, 0.12);
+}
+:root[data-theme="blue"] body {
+  background: linear-gradient(160deg, var(--pink-50) 0%, #fafcff 40%, #fff 100%);
+}
+
 * { box-sizing: border-box; }
 
 body {

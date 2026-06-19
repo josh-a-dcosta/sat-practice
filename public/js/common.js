@@ -1,5 +1,12 @@
 // Shared helpers used across pages.
 
+// Per-user color theme. Apply any remembered theme immediately to avoid a flash.
+const THEME_BY_USER = { fg: 'blue', jd: 'pink' };
+(function applySavedTheme() {
+  const t = localStorage.getItem('theme');
+  if (t) document.documentElement.dataset.theme = t;
+})();
+
 async function api(method, path, body) {
   const opts = { method, headers: {} };
   if (body !== undefined) {
@@ -21,6 +28,8 @@ async function api(method, path, body) {
 
 async function logout() {
   try { await fetch('/api/logout', { method: 'POST' }); } catch (_) { /* ignore */ }
+  localStorage.removeItem('theme');
+  document.documentElement.removeAttribute('data-theme');
   location.href = '/login.html';
 }
 
@@ -30,6 +39,9 @@ async function mountUserMenu() {
   if (!nav) return;
   try {
     const me = await api('GET', '/api/me');
+    const theme = THEME_BY_USER[me.user.username] || 'pink';
+    document.documentElement.dataset.theme = theme;
+    localStorage.setItem('theme', theme);
     const chip = document.createElement('span');
     chip.className = 'user-chip';
     chip.textContent = `👤 ${me.user.username}`;
