@@ -1,0 +1,84 @@
+'use strict';
+
+/*
+ * The practice taxonomy: two domains, each with topics, practiced at a
+ * difficulty level. A "category" is a (domain, topic, difficulty) triple,
+ * e.g. math / algebra / medium.
+ *
+ * This mirrors the College Board SAT content domains so each PDF you upload
+ * maps cleanly to one section.
+ */
+
+const TAXONOMY = {
+  math: {
+    label: 'Math',
+    emoji: '🔢',
+    topics: {
+      'algebra': 'Algebra',
+      'advanced-math': 'Advanced Math',
+      'psda': 'Problem-Solving & Data Analysis',
+      'geometry': 'Geometry',
+    },
+  },
+  reading: {
+    label: 'Reading & Writing',
+    emoji: '📖',
+    topics: {
+      'information-ideas': 'Information & Ideas',
+      'craft-structure': 'Craft & Structure',
+      'expression-ideas': 'Expression of Ideas',
+      'standard-conventions': 'Standard English Conventions',
+    },
+  },
+};
+
+const DIFFICULTIES = ['medium', 'hard'];
+
+const DIFFICULTY_LABELS = { medium: 'Medium', hard: 'Hard' };
+
+// topic -> domain
+function domainOfTopic(topic) {
+  for (const [domain, d] of Object.entries(TAXONOMY)) {
+    if (d.topics[topic]) return domain;
+  }
+  return null;
+}
+
+function topicLabel(topic) {
+  for (const d of Object.values(TAXONOMY)) {
+    if (d.topics[topic]) return d.topics[topic];
+  }
+  return topic;
+}
+
+function isValidTopic(topic) {
+  return !!domainOfTopic(topic);
+}
+
+function isValidDifficulty(diff) {
+  return DIFFICULTIES.includes(diff);
+}
+
+// Flat list of every category in display order.
+function allCategories() {
+  const out = [];
+  for (const [domain, d] of Object.entries(TAXONOMY)) {
+    for (const topic of Object.keys(d.topics)) {
+      for (const difficulty of DIFFICULTIES) {
+        out.push({ domain, topic, difficulty });
+      }
+    }
+  }
+  return out;
+}
+
+module.exports = {
+  TAXONOMY,
+  DIFFICULTIES,
+  DIFFICULTY_LABELS,
+  domainOfTopic,
+  topicLabel,
+  isValidTopic,
+  isValidDifficulty,
+  allCategories,
+};

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Practice Session 🌸</title>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>" />
+</head>
+<body>
+  <div class="topbar">
+    <a class="brand" href="/">🌸 SAT Practice</a>
+    <div class="navlinks">
+      <a href="/" id="pauseLink">⏸ Pause &amp; exit</a>
+      <a href="/dashboard.html">Dashboard</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- QUESTION VIEW -->
+    <div id="questionView">
+      <div class="card">
+        <div class="q-header">
+          <div>
+            <span class="q-counter" id="counter">Question</span>
+            <span class="note" id="sectionLabel" style="font-weight:700"></span>
+          </div>
+          <div class="timer" id="timer">2:00</div>
+        </div>
+        <div class="goal-bar" style="margin:6px 0 18px"><span id="progressFill" style="width:0%"></span></div>
+
+        <div class="passage hidden" id="passage"></div>
+        <div class="prompt" id="prompt">Loading…</div>
+        <div class="choices" id="choices"></div>
+
+        <div class="locked-note hidden" id="lockedNote">🔒 Answer locked in for this question. You can move on!</div>
+
+        <div class="q-actions">
+          <button class="btn btn-ghost" id="prevBtn">← Previous</button>
+          <button class="btn btn-primary" id="submitBtn" disabled>Submit answer</button>
+          <button class="btn btn-ghost" id="nextBtn">Next →</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px">
+          <h2 style="margin:0">Your questions</h2>
+          <button class="btn btn-primary" id="finishBtn" disabled>🎉 Finish &amp; see results</button>
+        </div>
+        <p class="note" id="finishNote">Answer every question to finish. You can jump around using the map below.</p>
+        <div class="map" id="map"></div>
+      </div>
+    </div>
+
+    <!-- RESULTS VIEW -->
+    <div id="resultsView" class="hidden">
+      <div class="card">
+        <div class="celebrate">
+          <div class="big" id="resultEmoji">🎉</div>
+          <h1 id="resultTitle">Session complete!</h1>
+          <p class="subtitle" id="resultMsg"></p>
+          <div class="score-ring" id="scoreText"></div>
+        </div>
+        <div class="stat-grid" style="margin-top:18px">
+          <div class="stat"><div class="num" id="rScore">0</div><div class="lbl">Correct</div></div>
+          <div class="stat"><div class="num" id="rTotal">0</div><div class="lbl">Questions</div></div>
+          <div class="stat"><div class="num" id="rAcc">0%</div><div class="lbl">Accuracy</div></div>
+          <div class="stat"><div class="num" id="rAvg">0:00</div><div class="lbl">Avg time / Q</div></div>
+        </div>
+      </div>
+
+      <div class="card" id="reviewCard">
+        <h2>📚 Let's learn from the tricky ones</h2>
+        <p class="note">Here are the questions to review, with the correct answer and an explanation. Understand these — you'll get a chance to retake them in a future session!</p>
+        <div id="reviewList"></div>
+      </div>
+
+      <div class="card center">
+        <a class="btn btn-primary btn-lg" href="/">🏠 Back to Home</a>
+        <a class="btn btn-ghost btn-lg" href="/dashboard.html">📊 See my progress</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/common.js"></script>
+  <script src="/js/practice.js"></script>
+</body>
+</html>
