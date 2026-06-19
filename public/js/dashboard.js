@@ -284,8 +284,32 @@ async function openReview(attemptId) {
 }
 
 function closeReview() {
+  if (document.fullscreenElement) document.exitFullscreen?.();
+  $('reviewCardEl').classList.remove('expanded');
   $('reviewModal').classList.add('hidden');
   document.body.style.overflow = '';
+}
+
+// ----- Review zoom + full screen (mirrors the practice page) -----
+let rvZoom = 1;
+const RV_MIN = 1, RV_MAX = 3, RV_STEP = 0.25;
+function applyReviewZoom() {
+  const wrap = $('rvImgWrap');
+  rvZoom = Math.max(RV_MIN, Math.min(RV_MAX, rvZoom));
+  if (wrap) wrap.style.width = (rvZoom * 100) + '%';
+  $('rvZoomLevel').textContent = Math.round(rvZoom * 100) + '%';
+  $('rvZoomOut').disabled = rvZoom <= RV_MIN;
+  $('rvZoomIn').disabled = rvZoom >= RV_MAX;
+}
+function reviewFullscreen() {
+  const card = $('reviewCardEl');
+  if (!document.fullscreenElement) {
+    card.requestFullscreen?.();
+    card.classList.add('expanded');
+    $('rvFull').textContent = '🡼 Exit full screen';
+  } else {
+    document.exitFullscreen?.();
+  }
 }
 
 function renderReview(r) {
@@ -306,8 +330,10 @@ function renderReview(r) {
 
   if (r.image) {
     // The full, unmasked page already shows the question AND the rationale.
+    html += `<div class="review-imgframe" id="rvImgFrame"><div class="review-imgwrap" id="rvImgWrap">`;
     html += `<img class="review-img" src="${r.image}" alt="Question" />`;
     if (r.answerImage) html += `<img class="review-img" src="${r.answerImage}" alt="Answer continued" />`;
+    html += `</div></div>`;
     html += `<div class="ans-row">
         <span class="tag-wrong">Your answer: ${escapeHtml(r.selected || '(no answer)')}</span>
         <span class="tag-right">Correct answer: ${escapeHtml(r.correct)}</span>
@@ -338,6 +364,10 @@ function renderReview(r) {
   }
 
   $('reviewBody').innerHTML = html;
+  // Zoom/full-screen controls apply only to the image (PDF page) review.
+  $('reviewToolbar').classList.toggle('hidden', !r.image);
+  rvZoom = 1;
+  applyReviewZoom();
 }
 
 function exportCsv() {
@@ -390,7 +420,19 @@ $('attemptsTable').addEventListener('click', (e) => {
 });
 $('reviewClose').addEventListener('click', closeReview);
 $('reviewModal').addEventListener('click', (e) => { if (e.target === $('reviewModal')) closeReview(); });
-document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeReview(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !document.fullscreenElement) closeReview(); });
+
+// Review zoom + full-screen controls
+$('rvZoomIn').addEventListener('click', () => { rvZoom += RV_STEP; applyReviewZoom(); });
+$('rvZoomOut').addEventListener('click', () => { rvZoom -= RV_STEP; applyReviewZoom(); });
+$('rvZoomFit').addEventListener('click', () => { rvZoom = 1; applyReviewZoom(); });
+$('rvFull').addEventListener('click', reviewFullscreen);
+document.addEventListener('fullscreenchange', () => {
+  if (!document.fullscreenElement) {
+    $('reviewCardEl').classList.remove('expanded');
+    $('rvFull').textContent = '⛶ Full screen';
+  }
+});
 
 load().catch((e) => {
   $('statTiles').innerHTML = `<p class="note">Could not load dashboard: ${e.message}</p>`;

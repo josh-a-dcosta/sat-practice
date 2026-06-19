@@ -126,7 +126,15 @@
 
   <!-- Question review modal -->
   <div class="modal-overlay hidden" id="reviewModal">
-    <div class="modal-card">
+    <div class="modal-card" id="reviewCardEl">
+      <div class="modal-toolbar hidden" id="reviewToolbar">
+        <span class="pdf-tools-label">🔍 Zoom</span>
+        <button class="zoom-btn" id="rvZoomOut" type="button" aria-label="Zoom out">➖</button>
+        <span class="zoom-level" id="rvZoomLevel">100%</span>
+        <button class="zoom-btn" id="rvZoomIn" type="button" aria-label="Zoom in">➕</button>
+        <button class="zoom-btn zoom-reset" id="rvZoomFit" type="button">⤢ Fit</button>
+        <button class="zoom-btn" id="rvFull" type="button">⛶ Full screen</button>
+      </div>
       <button class="modal-close" id="reviewClose" type="button" aria-label="Close">✕</button>
       <div id="reviewBody"><div class="spinner">Loading…</div></div>
     </div>
