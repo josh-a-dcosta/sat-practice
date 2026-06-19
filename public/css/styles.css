@@ -65,6 +65,8 @@ a { color: var(--pink-600); }
   padding: 28px 20px 80px;
 }
 .container.wide { max-width: 1180px; }
+/* Practice page uses nearly the full screen so the question image is big & readable */
+.container.practice-page { max-width: min(1840px, 97vw); padding-left: 24px; padding-right: 24px; }
 
 .card {
   background: var(--white);
@@ -400,8 +402,8 @@ table.data tr:hover td { background: var(--pink-50); }
 /* ===== Split practice layout: PDF page (left) + answer panel (right) ===== */
 .practice-split {
   display: grid;
-  grid-template-columns: minmax(0, 1.35fr) minmax(320px, 1fr);
-  gap: 22px;
+  grid-template-columns: minmax(0, 1.7fr) minmax(360px, 1fr);
+  gap: 26px;
   align-items: start;
 }
 .pdf-pane { position: sticky; top: 92px; }
@@ -442,7 +444,7 @@ table.data tr:hover td { background: var(--pink-50); }
   border: 2px solid var(--pink-100);
   border-radius: 14px;
   background: #fff;
-  max-height: 72vh;
+  max-height: 82vh;
   overflow: auto;                       /* pan in both directions when zoomed */
 }
 .pdf-inner { position: relative; width: 100%; }  /* positioning context; width drives zoom */
