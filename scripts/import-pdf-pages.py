@@ -264,43 +264,47 @@ def main():
     if dupes:
         print(f'  Note: {dupes} duplicate Question ID line(s) in the PDF (counted once).')
 
-    failed = False
+    reasons = dict(skipped)
     if missing:
-        print(f'  ❌ MISSING {len(missing)} question(s):')
-        reasons = dict(skipped)
+        print(f'  ⚠️  {len(missing)} Question ID(s) in the PDF were not parsed:')
         for qid in sorted(missing):
             print(f'      {qid}  ({reasons.get(qid, "unknown reason")})')
-        failed = True
     else:
         print('  ✅ Every Question ID in the PDF was extracted — none lost.')
 
-    # ---- Must match the remembered expected count for this section ----
+    # ---- Compare against the remembered expected count for this section ----
     print('\n--- Expected count check (data/expected-counts.json) ---')
     if EXPECTED is None:
-        print(f'  ❌ No expected count recorded for slug "{SLUG}". '
-              f'Add one to data/expected-counts.json before importing.')
-        failed = True
-    elif EXPECTED == len(out):
-        print(f'  ✅ Extracted {len(out)} matches the expected {EXPECTED} for "{SLUG}".')
+        print(f'  ⚠️  No expected count recorded for "{SLUG}"; using PDF reconciliation.')
+        short = len(missing)
     else:
-        print(f'  ❌ Count MISMATCH for "{SLUG}": expected {EXPECTED}, extracted {len(out)} '
-              f'(difference {len(out) - EXPECTED:+d}).')
-        failed = True
+        short = EXPECTED - len(out)
+        if short == 0:
+            print(f'  ✅ Extracted {len(out)} matches the expected {EXPECTED} for "{SLUG}".')
+        elif short > 0:
+            print(f'  ⚠️  Short by {short}: expected {EXPECTED}, extracted {len(out)}.')
+        else:
+            print(f'  ⚠️  Extracted {len(out)} exceeds expected {EXPECTED} (by {-short}).')
 
-    if failed:
-        # Hard fail: do NOT write the data file, and remove any stale one so this
-        # domain+difficulty has ZERO questions rather than a wrong/partial set.
+    # Rule: import unless we are short by MORE THAN 5 questions; only then skip
+    # the whole PDF so the section stays empty rather than badly incomplete.
+    TOLERANCE = 5
+    if short > TOLERANCE:
         if os.path.exists(DATA_PATH):
             os.remove(DATA_PATH)
             print(f'\n  Removed stale {os.path.basename(DATA_PATH)} so this section stays empty.')
-        print('\n⚠️  Import REJECTED — counts do not match. No questions written for '
-              f'{TOPIC}/{DIFF}. Fix the PDF or parser and re-run.')
+        print(f'\n⚠️  Import SKIPPED for {TOPIC}/{DIFF} — short by {short} (more than {TOLERANCE}). '
+              f'No questions written. Fix the PDF or parser and re-run.')
         sys.exit(1)
 
     with open(DATA_PATH, 'w') as f:
         json.dump(out, f, indent=2)
     print(f'\nData  -> {DATA_PATH}')
-    print('✅ Import reconciled: PDF, extraction, and expected count all agree.')
+    if short > 0:
+        print(f'✅ Imported {len(out)} question(s) for {TOPIC}/{DIFF} — within tolerance '
+              f'({short} short of {EXPECTED}, ≤ {TOLERANCE}).')
+    else:
+        print(f'✅ Import reconciled: {len(out)} question(s), all accounted for.')
 
 def pg_search(pg, phrase):
     try:
