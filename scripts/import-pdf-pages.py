@@ -136,14 +136,20 @@ def parse_correct(text):
         if cm:
             return 'mcq', cm.group(1)
 
-    # 3) Grid-in questions state the answer in the rationale prose.
+    # 3) Grid-in questions state the answer in the rationale prose. Collapse all
+    #    whitespace first so line wraps inside the phrase never break the match,
+    #    and pull the numbers/fractions directly (handles "either 2 or 8" and a
+    #    "Note that 2 and 8 are examples..." confirmation that wraps mid-sentence).
+    flat = re.sub(r'\s+', ' ', text)
+    NUM = r'-?\d*\.?\d+(?:/\d*\.?\d+)?'
     acceptable = []
-    pm = re.search(r'The correct answer is\s+([^\.\n]+)', text)
-    if pm:
-        acceptable += clean_vals(re.split(r'[,;]|\band\b', pm.group(1)))
-    ex = re.search(r'Note that\s+(.+?)\s+are examples of ways to enter a correct answer', text, re.S)
+    ex = re.search(r'Note that (.+?) are examples of ways to enter a correct answer', flat)
     if ex:
-        acceptable += clean_vals(re.split(r'[,;]|\band\b', ex.group(1)))
+        acceptable += re.findall(NUM, ex.group(1))
+    if not acceptable:
+        pm = re.search(r'The correct answer is ([^.]*\d[^.]*)', flat)
+        if pm:
+            acceptable += re.findall(NUM, pm.group(1))
     # de-dup preserving order
     seen = []
     for v in acceptable:

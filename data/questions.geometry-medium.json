@@ -1,0 +1,2149 @@
+[
+  {
+    "ext_id": "cb-geometry-medium-4b7bb316",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Area and volume",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"4205\"]",
+    "image": "/pdf/geometry-medium/q_4b7bb316.png",
+    "mask_fraction": 0.2367,
+    "answer_image": null,
+    "prompt": "Question 4b7bb316"
+  },
+  {
+    "ext_id": "cb-geometry-medium-bcb66188",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Right triangles and trigonometry",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/geometry-medium/q_bcb66188.png",
+    "mask_fraction": 0.3731,
+    "answer_image": null,
+    "prompt": "Question bcb66188"
+  },
+  {
+    "ext_id": "cb-geometry-medium-f67e4efc",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Area and volume",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/geometry-medium/q_f67e4efc.png",
+    "mask_fraction": 0.3627,
+    "answer_image": null,
+    "prompt": "Question f67e4efc"
+  },
+  {
+    "ext_id": "cb-geometry-medium-33e29881",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Right triangles and trigonometry",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/geometry-medium/q_33e29881.png",
+    "mask_fraction": 0.3617,
+    "answer_image": null,
+    "prompt": "Question 33e29881"
+  },
+  {
+    "ext_id": "cb-geometry-medium-5afbdc8e",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Area and volume",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/geometry-medium/q_5afbdc8e.png",
+    "mask_fraction": 0.3864,
+    "answer_image": null,
+    "prompt": "Question 5afbdc8e"
+  },
+  {
+    "ext_id": "cb-geometry-medium-659cb706",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Right triangles and trigonometry",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/geometry-medium/q_659cb706.png",
+    "mask_fraction": 0.6155,
+    "answer_image": null,
+    "prompt": "Question 659cb706"
+  },
+  {
+    "ext_id": "cb-geometry-medium-1f0b582e",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Area and volume",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/geometry-medium/q_1f0b582e.png",
+    "mask_fraction": 0.3542,
+    "answer_image": null,
+    "prompt": "Question 1f0b582e"
+  },
+  {
+    "ext_id": "cb-geometry-medium-686b5212",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Lines, angles, and triangles",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"57\"]",
+    "image": "/pdf/geometry-medium/q_686b5212.png",
+    "mask_fraction": 0.4981,
+    "answer_image": null,
+    "prompt": "Question 686b5212"
+  },
+  {
+    "ext_id": "cb-geometry-medium-81b664bc",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Lines, angles, and triangles",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/geometry-medium/q_81b664bc.png",
+    "mask_fraction": 0.4915,
+    "answer_image": null,
+    "prompt": "Question 81b664bc"
+  },
+  {
+    "ext_id": "cb-geometry-medium-902dc959",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Right triangles and trigonometry",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/geometry-medium/q_902dc959.png",
+    "mask_fraction": 0.5549,
+    "answer_image": null,
+    "prompt": "Question 902dc959"
+  },
+  {
+    "ext_id": "cb-geometry-medium-e86f0651",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Area and volume",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/geometry-medium/q_e86f0651.png",
+    "mask_fraction": 0.3428,
+    "answer_image": null,
+    "prompt": "Question e86f0651"
+  },
+  {
+    "ext_id": "cb-geometry-medium-96467fea",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Area and volume",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/geometry-medium/q_96467fea.png",
+    "mask_fraction": 0.3362,
+    "answer_image": null,
+    "prompt": "Question 96467fea"
+  },
+  {
+    "ext_id": "cb-geometry-medium-096c7ef5",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Area and volume",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/geometry-medium/q_096c7ef5.png",
+    "mask_fraction": 0.6989,
+    "answer_image": null,
+    "prompt": "Question 096c7ef5"
+  },
+  {
+    "ext_id": "cb-geometry-medium-ec5d4823",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Area and volume",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"360\"]",
+    "image": "/pdf/geometry-medium/q_ec5d4823.png",
+    "mask_fraction": 0.2367,
+    "answer_image": null,
+    "prompt": "Question ec5d4823"
+  },
+  {
+    "ext_id": "cb-geometry-medium-3b931fb0",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Area and volume",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"29\"]",
+    "image": "/pdf/geometry-medium/q_3b931fb0.png",
+    "mask_fraction": 0.2367,
+    "answer_image": null,
+    "prompt": "Question 3b931fb0"
+  },
+  {
+    "ext_id": "cb-geometry-medium-94364a79",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Lines, angles, and triangles",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/geometry-medium/q_94364a79.png",
+    "mask_fraction": 0.3542,
+    "answer_image": null,
+    "prompt": "Question 94364a79"
+  },
+  {
+    "ext_id": "cb-geometry-medium-51f26ce8",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Lines, angles, and triangles",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/geometry-medium/q_51f26ce8.png",
+    "mask_fraction": 0.6042,
+    "answer_image": null,
+    "prompt": "Question 51f26ce8"
+  },
+  {
+    "ext_id": "cb-geometry-medium-055aafe7",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Lines, angles, and triangles",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/geometry-medium/q_055aafe7.png",
+    "mask_fraction": 0.3551,
+    "answer_image": null,
+    "prompt": "Question 055aafe7"
+  },
+  {
+    "ext_id": "cb-geometry-medium-2bddbc1b",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Right triangles and trigonometry",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/geometry-medium/q_2bddbc1b.png",
+    "mask_fraction": 0.6345,
+    "answer_image": null,
+    "prompt": "Question 2bddbc1b"
+  },
+  {
+    "ext_id": "cb-geometry-medium-a4ed5285",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Area and volume",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"7.5\", \"15/2\"]",
+    "image": "/pdf/geometry-medium/q_a4ed5285.png",
+    "mask_fraction": 0.4996,
+    "answer_image": null,
+    "prompt": "Question a4ed5285"
+  },
+  {
+    "ext_id": "cb-geometry-medium-e336a1d2",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Area and volume",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/geometry-medium/q_e336a1d2.png",
+    "mask_fraction": 0.3428,
+    "answer_image": null,
+    "prompt": "Question e336a1d2"
+  },
+  {
+    "ext_id": "cb-geometry-medium-e4b4e9ea",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Area and volume",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/geometry-medium/q_e4b4e9ea.png",
+    "mask_fraction": 0.3579,
+    "answer_image": null,
+    "prompt": "Question e4b4e9ea"
+  },
+  {
+    "ext_id": "cb-geometry-medium-c0586eb5",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Area and volume",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/geometry-medium/q_c0586eb5.png",
+    "mask_fraction": 0.3362,
+    "answer_image": null,
+    "prompt": "Question c0586eb5"
+  },
+  {
+    "ext_id": "cb-geometry-medium-03c6994f",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Area and volume",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/geometry-medium/q_03c6994f.png",
+    "mask_fraction": 0.357,
+    "answer_image": null,
+    "prompt": "Question 03c6994f"
+  },
+  {
+    "ext_id": "cb-geometry-medium-151eda3c",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Area and volume",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/geometry-medium/q_151eda3c.png",
+    "mask_fraction": 0.3949,
+    "answer_image": null,
+    "prompt": "Question 151eda3c"
+  },
+  {
+    "ext_id": "cb-geometry-medium-d621cffb",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Area and volume",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/geometry-medium/q_d621cffb.png",
+    "mask_fraction": 0.3551,
+    "answer_image": null,
+    "prompt": "Question d621cffb"
+  },
+  {
+    "ext_id": "cb-geometry-medium-5a7e3b46",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Right triangles and trigonometry",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/geometry-medium/q_5a7e3b46.png",
+    "mask_fraction": 0.3371,
+    "answer_image": null,
+    "prompt": "Question 5a7e3b46"
+  },
+  {
+    "ext_id": "cb-geometry-medium-d7a8aa9c",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Lines, angles, and triangles",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/geometry-medium/q_d7a8aa9c.png",
+    "mask_fraction": 0.3636,
+    "answer_image": null,
+    "prompt": "Question d7a8aa9c"
+  },
+  {
+    "ext_id": "cb-geometry-medium-a2659088",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Area and volume",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/geometry-medium/q_a2659088.png",
+    "mask_fraction": 0.339,
+    "answer_image": null,
+    "prompt": "Question a2659088"
+  },
+  {
+    "ext_id": "cb-geometry-medium-933fee1a",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Lines, angles, and triangles",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/geometry-medium/q_933fee1a.png",
+    "mask_fraction": 0.5578,
+    "answer_image": null,
+    "prompt": "Question 933fee1a"
+  },
+  {
+    "ext_id": "cb-geometry-medium-2f7c92ad",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Lines, angles, and triangles",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/geometry-medium/q_2f7c92ad.png",
+    "mask_fraction": 0.6449,
+    "answer_image": null,
+    "prompt": "Question 2f7c92ad"
+  },
+  {
+    "ext_id": "cb-geometry-medium-5011b039",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Circles",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"13\"]",
+    "image": "/pdf/geometry-medium/q_5011b039.png",
+    "mask_fraction": 0.2187,
+    "answer_image": null,
+    "prompt": "Question 5011b039"
+  },
+  {
+    "ext_id": "cb-geometry-medium-e0874bc2",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Area and volume",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/geometry-medium/q_e0874bc2.png",
+    "mask_fraction": 0.5275,
+    "answer_image": null,
+    "prompt": "Question e0874bc2"
+  },
+  {
+    "ext_id": "cb-geometry-medium-a4c05a1b",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Lines, angles, and triangles",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/geometry-medium/q_a4c05a1b.png",
+    "mask_fraction": 0.6364,
+    "answer_image": null,
+    "prompt": "Question a4c05a1b"
+  },
+  {
+    "ext_id": "cb-geometry-medium-38517165",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Area and volume",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"31\"]",
+    "image": "/pdf/geometry-medium/q_38517165.png",
+    "mask_fraction": 0.2187,
+    "answer_image": null,
+    "prompt": "Question 38517165"
+  },
+  {
+    "ext_id": "cb-geometry-medium-98c12e38",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Area and volume",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/geometry-medium/q_98c12e38.png",
+    "mask_fraction": 0.3362,
+    "answer_image": null,
+    "prompt": "Question 98c12e38"
+  },
+  {
+    "ext_id": "cb-geometry-medium-aa2d36fe",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Circles",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/geometry-medium/q_aa2d36fe.png",
+    "mask_fraction": 0.3589,
+    "answer_image": null,
+    "prompt": "Question aa2d36fe"
+  },
+  {
+    "ext_id": "cb-geometry-medium-d3fe472f",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Lines, angles, and triangles",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/geometry-medium/q_d3fe472f.png",
+    "mask_fraction": 0.3542,
+    "answer_image": null,
+    "prompt": "Question d3fe472f"
+  },
+  {
+    "ext_id": "cb-geometry-medium-fd8745fc",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Lines, angles, and triangles",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"84\"]",
+    "image": "/pdf/geometry-medium/q_fd8745fc.png",
+    "mask_fraction": 0.2367,
+    "answer_image": null,
+    "prompt": "Question fd8745fc"
+  },
+  {
+    "ext_id": "cb-geometry-medium-2085e10e",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Lines, angles, and triangles",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/geometry-medium/q_2085e10e.png",
+    "mask_fraction": 0.3949,
+    "answer_image": null,
+    "prompt": "Question 2085e10e"
+  },
+  {
+    "ext_id": "cb-geometry-medium-c7bed21d",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Lines, angles, and triangles",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/geometry-medium/q_c7bed21d.png",
+    "mask_fraction": 0.3854,
+    "answer_image": null,
+    "prompt": "Question c7bed21d"
+  },
+  {
+    "ext_id": "cb-geometry-medium-8e7689e0",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Circles",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"4\"]",
+    "image": "/pdf/geometry-medium/q_8e7689e0.png",
+    "mask_fraction": 0.2197,
+    "answer_image": null,
+    "prompt": "Question 8e7689e0"
+  },
+  {
+    "ext_id": "cb-geometry-medium-de550be0",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Right triangles and trigonometry",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/geometry-medium/q_de550be0.png",
+    "mask_fraction": 0.6288,
+    "answer_image": null,
+    "prompt": "Question de550be0"
+  },
+  {
+    "ext_id": "cb-geometry-medium-800e71b8",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Circles",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/geometry-medium/q_800e71b8.png",
+    "mask_fraction": 0.5104,
+    "answer_image": null,
+    "prompt": "Question 800e71b8"
+  },
+  {
+    "ext_id": "cb-geometry-medium-901e3285",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Lines, angles, and triangles",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/geometry-medium/q_901e3285.png",
+    "mask_fraction": 0.3864,
+    "answer_image": null,
+    "prompt": "Question 901e3285"
+  },
+  {
+    "ext_id": "cb-geometry-medium-2adbf1b1",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Lines, angles, and triangles",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/geometry-medium/q_2adbf1b1.png",
+    "mask_fraction": 0.6127,
+    "answer_image": null,
+    "prompt": "Question 2adbf1b1"
+  },
+  {
+    "ext_id": "cb-geometry-medium-7700d098",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Right triangles and trigonometry",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/geometry-medium/q_7700d098.png",
+    "mask_fraction": 0.3542,
+    "answer_image": null,
+    "prompt": "Question 7700d098"
+  },
+  {
+    "ext_id": "cb-geometry-medium-014edcb7",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Lines, angles, and triangles",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/geometry-medium/q_014edcb7.png",
+    "mask_fraction": 0.5994,
+    "answer_image": null,
+    "prompt": "Question 014edcb7"
+  },
+  {
+    "ext_id": "cb-geometry-medium-fc8aa563",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Circles",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/geometry-medium/q_fc8aa563.png",
+    "mask_fraction": 0.3494,
+    "answer_image": null,
+    "prompt": "Question fc8aa563"
+  },
+  {
+    "ext_id": "cb-geometry-medium-74d8b897",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Circles",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"81\"]",
+    "image": "/pdf/geometry-medium/q_74d8b897.png",
+    "mask_fraction": 0.2187,
+    "answer_image": null,
+    "prompt": "Question 74d8b897"
+  },
+  {
+    "ext_id": "cb-geometry-medium-ee540927",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Circles",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/geometry-medium/q_ee540927.png",
+    "mask_fraction": 0.3778,
+    "answer_image": null,
+    "prompt": "Question ee540927"
+  },
+  {
+    "ext_id": "cb-geometry-medium-a0cacec1",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Circles",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"192\"]",
+    "image": "/pdf/geometry-medium/q_a0cacec1.png",
+    "mask_fraction": 0.2519,
+    "answer_image": null,
+    "prompt": "Question a0cacec1"
+  },
+  {
+    "ext_id": "cb-geometry-medium-9823f279",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Right triangles and trigonometry",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"45\"]",
+    "image": "/pdf/geometry-medium/q_9823f279.png",
+    "mask_fraction": 0.499,
+    "answer_image": null,
+    "prompt": "Question 9823f279"
+  },
+  {
+    "ext_id": "cb-geometry-medium-6ae1360d",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Area and volume",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"4.41\", \"441/100\"]",
+    "image": "/pdf/geometry-medium/q_6ae1360d.png",
+    "mask_fraction": 0.2193,
+    "answer_image": null,
+    "prompt": "Question 6ae1360d"
+  },
+  {
+    "ext_id": "cb-geometry-medium-9ec76b54",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Right triangles and trigonometry",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/geometry-medium/q_9ec76b54.png",
+    "mask_fraction": 0.3418,
+    "answer_image": null,
+    "prompt": "Question 9ec76b54"
+  },
+  {
+    "ext_id": "cb-geometry-medium-f1c1e971",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Circles",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/geometry-medium/q_f1c1e971.png",
+    "mask_fraction": 0.3542,
+    "answer_image": null,
+    "prompt": "Question f1c1e971"
+  },
+  {
+    "ext_id": "cb-geometry-medium-1c3d613c",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Lines, angles, and triangles",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"20\"]",
+    "image": "/pdf/geometry-medium/q_1c3d613c.png",
+    "mask_fraction": 0.357,
+    "answer_image": null,
+    "prompt": "Question 1c3d613c"
+  },
+  {
+    "ext_id": "cb-geometry-medium-2d521ca9",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Circles",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/geometry-medium/q_2d521ca9.png",
+    "mask_fraction": 0.3504,
+    "answer_image": null,
+    "prompt": "Question 2d521ca9"
+  },
+  {
+    "ext_id": "cb-geometry-medium-e9c5bfb2",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Area and volume",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/geometry-medium/q_e9c5bfb2.png",
+    "mask_fraction": 0.5653,
+    "answer_image": null,
+    "prompt": "Question e9c5bfb2"
+  },
+  {
+    "ext_id": "cb-geometry-medium-08b7a3f5",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Area and volume",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"27\"]",
+    "image": "/pdf/geometry-medium/q_08b7a3f5.png",
+    "mask_fraction": 0.2367,
+    "answer_image": null,
+    "prompt": "Question 08b7a3f5"
+  },
+  {
+    "ext_id": "cb-geometry-medium-7a8ad237",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Lines, angles, and triangles",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"21\"]",
+    "image": "/pdf/geometry-medium/q_7a8ad237.png",
+    "mask_fraction": 0.2367,
+    "answer_image": null,
+    "prompt": "Question 7a8ad237"
+  },
+  {
+    "ext_id": "cb-geometry-medium-856372ca",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Circles",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/geometry-medium/q_856372ca.png",
+    "mask_fraction": 0.4157,
+    "answer_image": null,
+    "prompt": "Question 856372ca"
+  },
+  {
+    "ext_id": "cb-geometry-medium-9c0a0eca",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Area and volume",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/geometry-medium/q_9c0a0eca.png",
+    "mask_fraction": 0.3542,
+    "answer_image": null,
+    "prompt": "Question 9c0a0eca"
+  },
+  {
+    "ext_id": "cb-geometry-medium-bf8d843e",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Right triangles and trigonometry",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/geometry-medium/q_bf8d843e.png",
+    "mask_fraction": 0.4886,
+    "answer_image": null,
+    "prompt": "Question bf8d843e"
+  },
+  {
+    "ext_id": "cb-geometry-medium-aef4fd8a",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Area and volume",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/geometry-medium/q_aef4fd8a.png",
+    "mask_fraction": 0.3485,
+    "answer_image": null,
+    "prompt": "Question aef4fd8a"
+  },
+  {
+    "ext_id": "cb-geometry-medium-95ba2d09",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Circles",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/geometry-medium/q_95ba2d09.png",
+    "mask_fraction": 0.5881,
+    "answer_image": null,
+    "prompt": "Question 95ba2d09"
+  },
+  {
+    "ext_id": "cb-geometry-medium-6dd463ca",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Lines, angles, and triangles",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/geometry-medium/q_6dd463ca.png",
+    "mask_fraction": 0.5047,
+    "answer_image": null,
+    "prompt": "Question 6dd463ca"
+  },
+  {
+    "ext_id": "cb-geometry-medium-0815a5af",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Circles",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/geometry-medium/q_0815a5af.png",
+    "mask_fraction": 0.5862,
+    "answer_image": null,
+    "prompt": "Question 0815a5af"
+  },
+  {
+    "ext_id": "cb-geometry-medium-a71617d3",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Right triangles and trigonometry",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"45\"]",
+    "image": "/pdf/geometry-medium/q_a71617d3.png",
+    "mask_fraction": 0.499,
+    "answer_image": null,
+    "prompt": "Question a71617d3"
+  },
+  {
+    "ext_id": "cb-geometry-medium-a5aee181",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Right triangles and trigonometry",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/geometry-medium/q_a5aee181.png",
+    "mask_fraction": 0.3409,
+    "answer_image": null,
+    "prompt": "Question a5aee181"
+  },
+  {
+    "ext_id": "cb-geometry-medium-ae33e0a1",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Area and volume",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/geometry-medium/q_ae33e0a1.png",
+    "mask_fraction": 0.357,
+    "answer_image": null,
+    "prompt": "Question ae33e0a1"
+  },
+  {
+    "ext_id": "cb-geometry-medium-13d9a1c3",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Right triangles and trigonometry",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"4\"]",
+    "image": "/pdf/geometry-medium/q_13d9a1c3.png",
+    "mask_fraction": 0.2831,
+    "answer_image": null,
+    "prompt": "Question 13d9a1c3"
+  },
+  {
+    "ext_id": "cb-geometry-medium-c4e5e23c",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Area and volume",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/geometry-medium/q_c4e5e23c.png",
+    "mask_fraction": 0.357,
+    "answer_image": null,
+    "prompt": "Question c4e5e23c"
+  },
+  {
+    "ext_id": "cb-geometry-medium-585a9138",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Lines, angles, and triangles",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"63\"]",
+    "image": "/pdf/geometry-medium/q_585a9138.png",
+    "mask_fraction": 0.2367,
+    "answer_image": null,
+    "prompt": "Question 585a9138"
+  },
+  {
+    "ext_id": "cb-geometry-medium-4ff7b652",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Lines, angles, and triangles",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/geometry-medium/q_4ff7b652.png",
+    "mask_fraction": 0.3665,
+    "answer_image": null,
+    "prompt": "Question 4ff7b652"
+  },
+  {
+    "ext_id": "cb-geometry-medium-cecbdeba",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Area and volume",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/geometry-medium/q_cecbdeba.png",
+    "mask_fraction": 0.3561,
+    "answer_image": null,
+    "prompt": "Question cecbdeba"
+  },
+  {
+    "ext_id": "cb-geometry-medium-a2e76b60",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Area and volume",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/geometry-medium/q_a2e76b60.png",
+    "mask_fraction": 0.4564,
+    "answer_image": null,
+    "prompt": "Question a2e76b60"
+  },
+  {
+    "ext_id": "cb-geometry-medium-468613c0",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Area and volume",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/geometry-medium/q_468613c0.png",
+    "mask_fraction": 0.3428,
+    "answer_image": null,
+    "prompt": "Question 468613c0"
+  },
+  {
+    "ext_id": "cb-geometry-medium-95ca2683",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Lines, angles, and triangles",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/geometry-medium/q_95ca2683.png",
+    "mask_fraction": 0.3362,
+    "answer_image": null,
+    "prompt": "Question 95ca2683"
+  },
+  {
+    "ext_id": "cb-geometry-medium-37dde49f",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Area and volume",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/geometry-medium/q_37dde49f.png",
+    "mask_fraction": 0.5379,
+    "answer_image": null,
+    "prompt": "Question 37dde49f"
+  },
+  {
+    "ext_id": "cb-geometry-medium-82c8325f",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Circles",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/geometry-medium/q_82c8325f.png",
+    "mask_fraction": 0.3504,
+    "answer_image": null,
+    "prompt": "Question 82c8325f"
+  },
+  {
+    "ext_id": "cb-geometry-medium-cf53cb56",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Area and volume",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/geometry-medium/q_cf53cb56.png",
+    "mask_fraction": 0.4953,
+    "answer_image": null,
+    "prompt": "Question cf53cb56"
+  },
+  {
+    "ext_id": "cb-geometry-medium-b96ff36e",
+    "domain": "math",
+    "topic": "geometry",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Circles",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"5\"]",
+    "image": "/pdf/geometry-medium/q_b96ff36e.png",
+    "mask_fraction": 0.2367,
+    "answer_image": null,
+    "prompt": "Question b96ff36e"
+  }
+]

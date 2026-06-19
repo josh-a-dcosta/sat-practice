@@ -1,0 +1,3801 @@
+[
+  {
+    "ext_id": "cb-punctuations-hard-960dec02",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/punctuations-hard/q_960dec02.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question 960dec02"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-37e5c794",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_37e5c794.png",
+    "mask_fraction": 0.392,
+    "answer_image": null,
+    "prompt": "Question 37e5c794"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-3a1239d2",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/punctuations-hard/q_3a1239d2.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 3a1239d2"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-a2816c7f",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/punctuations-hard/q_a2816c7f.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question a2816c7f"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-eb95235b",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_eb95235b.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question eb95235b"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-adf210e7",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_adf210e7.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question adf210e7"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-908a76b8",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/punctuations-hard/q_908a76b8.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question 908a76b8"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-707461d8",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/punctuations-hard/q_707461d8.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 707461d8"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-13fcf575",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/punctuations-hard/q_13fcf575.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 13fcf575"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-940ff6f7",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/punctuations-hard/q_940ff6f7.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question 940ff6f7"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-4c335aea",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/punctuations-hard/q_4c335aea.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 4c335aea"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-8b017d4e",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_8b017d4e.png",
+    "mask_fraction": 0.392,
+    "answer_image": null,
+    "prompt": "Question 8b017d4e"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-aaa1907f",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/punctuations-hard/q_aaa1907f.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question aaa1907f"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-626a1642",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/punctuations-hard/q_626a1642.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 626a1642"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-9df6da04",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/punctuations-hard/q_9df6da04.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 9df6da04"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-ae439895",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/punctuations-hard/q_ae439895.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question ae439895"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-f78997cf",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/punctuations-hard/q_f78997cf.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question f78997cf"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-f0864217",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/punctuations-hard/q_f0864217.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question f0864217"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-c91ef0f0",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_c91ef0f0.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question c91ef0f0"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-fced396a",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/punctuations-hard/q_fced396a.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question fced396a"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-4dcedc31",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/punctuations-hard/q_4dcedc31.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 4dcedc31"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-f10b7ce4",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/punctuations-hard/q_f10b7ce4.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question f10b7ce4"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-5bed774c",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_5bed774c.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 5bed774c"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-9c3630b9",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/punctuations-hard/q_9c3630b9.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question 9c3630b9"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-3a2d77d7",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_3a2d77d7.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 3a2d77d7"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-435809d8",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/punctuations-hard/q_435809d8.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 435809d8"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-ea0aa676",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_ea0aa676.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question ea0aa676"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-83898524",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_83898524.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 83898524"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-fba5d8d1",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_fba5d8d1.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question fba5d8d1"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-dc645172",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_dc645172.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question dc645172"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-886dc9f9",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/punctuations-hard/q_886dc9f9.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 886dc9f9"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-59a246dc",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_59a246dc.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 59a246dc"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-e060dd6b",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/punctuations-hard/q_e060dd6b.png",
+    "mask_fraction": 0.392,
+    "answer_image": null,
+    "prompt": "Question e060dd6b"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-6e071432",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/punctuations-hard/q_6e071432.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 6e071432"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-6ea8c23f",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_6ea8c23f.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 6ea8c23f"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-aab74a3b",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_aab74a3b.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question aab74a3b"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-512f0ac9",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/punctuations-hard/q_512f0ac9.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 512f0ac9"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-a9e5b788",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/punctuations-hard/q_a9e5b788.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question a9e5b788"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-d2b81427",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/punctuations-hard/q_d2b81427.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question d2b81427"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-e76e74e8",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/punctuations-hard/q_e76e74e8.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question e76e74e8"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-1a61e2ae",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/punctuations-hard/q_1a61e2ae.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 1a61e2ae"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-73a6603c",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/punctuations-hard/q_73a6603c.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question 73a6603c"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-3bceeb93",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/punctuations-hard/q_3bceeb93.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 3bceeb93"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-6fac7f45",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/punctuations-hard/q_6fac7f45.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 6fac7f45"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-aecdb820",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/punctuations-hard/q_aecdb820.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question aecdb820"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-2c9c6ca9",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_2c9c6ca9.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 2c9c6ca9"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-dab8b8ee",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/punctuations-hard/q_dab8b8ee.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question dab8b8ee"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-c06af4d8",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/punctuations-hard/q_c06af4d8.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question c06af4d8"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-e9aee0d8",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/punctuations-hard/q_e9aee0d8.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question e9aee0d8"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-9579581e",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/punctuations-hard/q_9579581e.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 9579581e"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-a75d5984",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/punctuations-hard/q_a75d5984.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question a75d5984"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-2784cbaf",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/punctuations-hard/q_2784cbaf.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question 2784cbaf"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-863065c7",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_863065c7.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 863065c7"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-872a002e",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/punctuations-hard/q_872a002e.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 872a002e"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-0fe5ce68",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/punctuations-hard/q_0fe5ce68.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 0fe5ce68"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-b369d54c",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/punctuations-hard/q_b369d54c.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question b369d54c"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-790fc366",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/punctuations-hard/q_790fc366.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 790fc366"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-62120607",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/punctuations-hard/q_62120607.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 62120607"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-2bb7416a",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_2bb7416a.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 2bb7416a"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-a05cc490",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/punctuations-hard/q_a05cc490.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question a05cc490"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-9d4a701b",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/punctuations-hard/q_9d4a701b.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question 9d4a701b"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-db24ecc9",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/punctuations-hard/q_db24ecc9.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question db24ecc9"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-0fa289a7",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_0fa289a7.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question 0fa289a7"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-f30a478e",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/punctuations-hard/q_f30a478e.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question f30a478e"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-80aa7690",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/punctuations-hard/q_80aa7690.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question 80aa7690"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-772835db",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/punctuations-hard/q_772835db.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question 772835db"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-f768090a",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/punctuations-hard/q_f768090a.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question f768090a"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-5670a657",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_5670a657.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 5670a657"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-5aa171de",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/punctuations-hard/q_5aa171de.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 5aa171de"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-5b8f9cf2",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/punctuations-hard/q_5b8f9cf2.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 5b8f9cf2"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-21e58a83",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/punctuations-hard/q_21e58a83.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question 21e58a83"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-de3dd17d",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_de3dd17d.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question de3dd17d"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-ecba68b5",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_ecba68b5.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question ecba68b5"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-2dd1b8bf",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_2dd1b8bf.png",
+    "mask_fraction": 0.392,
+    "answer_image": null,
+    "prompt": "Question 2dd1b8bf"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-59094d87",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/punctuations-hard/q_59094d87.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question 59094d87"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-8772475b",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_8772475b.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question 8772475b"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-ba8ebf49",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_ba8ebf49.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question ba8ebf49"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-188f7e3c",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/punctuations-hard/q_188f7e3c.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question 188f7e3c"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-a8fa749a",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/punctuations-hard/q_a8fa749a.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question a8fa749a"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-fa36d803",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/punctuations-hard/q_fa36d803.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question fa36d803"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-84658166",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/punctuations-hard/q_84658166.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 84658166"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-e3c1b4f7",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/punctuations-hard/q_e3c1b4f7.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question e3c1b4f7"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-9994ae0d",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/punctuations-hard/q_9994ae0d.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 9994ae0d"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-61160f0a",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_61160f0a.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question 61160f0a"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-c88ba1b7",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/punctuations-hard/q_c88ba1b7.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question c88ba1b7"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-1b97cce9",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/punctuations-hard/q_1b97cce9.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 1b97cce9"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-b15724fc",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_b15724fc.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question b15724fc"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-a872c60a",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/punctuations-hard/q_a872c60a.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question a872c60a"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-615f001e",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/punctuations-hard/q_615f001e.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 615f001e"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-594b4a94",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/punctuations-hard/q_594b4a94.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 594b4a94"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-2fd05c15",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/punctuations-hard/q_2fd05c15.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 2fd05c15"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-fdb16e20",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/punctuations-hard/q_fdb16e20.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question fdb16e20"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-7e37affc",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_7e37affc.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question 7e37affc"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-d46ac7e7",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_d46ac7e7.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question d46ac7e7"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-2b6e1c06",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/punctuations-hard/q_2b6e1c06.png",
+    "mask_fraction": 0.392,
+    "answer_image": null,
+    "prompt": "Question 2b6e1c06"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-f45ae404",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/punctuations-hard/q_f45ae404.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question f45ae404"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-1ee4485c",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/punctuations-hard/q_1ee4485c.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 1ee4485c"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-2bca654a",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_2bca654a.png",
+    "mask_fraction": 0.392,
+    "answer_image": null,
+    "prompt": "Question 2bca654a"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-be37d4ae",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/punctuations-hard/q_be37d4ae.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question be37d4ae"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-c15069eb",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/punctuations-hard/q_c15069eb.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question c15069eb"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-5aae2475",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/punctuations-hard/q_5aae2475.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 5aae2475"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-b0fb36ad",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/punctuations-hard/q_b0fb36ad.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question b0fb36ad"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-329255db",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/punctuations-hard/q_329255db.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question 329255db"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-7ce4ee13",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/punctuations-hard/q_7ce4ee13.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 7ce4ee13"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-aa443c4b",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/punctuations-hard/q_aa443c4b.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question aa443c4b"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-0a114526",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/punctuations-hard/q_0a114526.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 0a114526"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-b32eab9f",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_b32eab9f.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question b32eab9f"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-50801257",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/punctuations-hard/q_50801257.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question 50801257"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-a14eef71",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_a14eef71.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question a14eef71"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-5fd86f4b",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/punctuations-hard/q_5fd86f4b.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 5fd86f4b"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-f868d438",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/punctuations-hard/q_f868d438.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question f868d438"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-6d4b2e1e",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_6d4b2e1e.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 6d4b2e1e"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-109d5bbb",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/punctuations-hard/q_109d5bbb.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 109d5bbb"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-18382e67",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/punctuations-hard/q_18382e67.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 18382e67"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-3fee46f2",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/punctuations-hard/q_3fee46f2.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 3fee46f2"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-c468db1c",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_c468db1c.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question c468db1c"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-8a9d2f4e",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/punctuations-hard/q_8a9d2f4e.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question 8a9d2f4e"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-78e978b5",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_78e978b5.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 78e978b5"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-d4fe8f03",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/punctuations-hard/q_d4fe8f03.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question d4fe8f03"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-dfbf5d33",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/punctuations-hard/q_dfbf5d33.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question dfbf5d33"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-bb4557cf",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_bb4557cf.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question bb4557cf"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-0b005ae2",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_0b005ae2.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 0b005ae2"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-3daf126e",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_3daf126e.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 3daf126e"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-5ee7fb04",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/punctuations-hard/q_5ee7fb04.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question 5ee7fb04"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-c49e946e",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/punctuations-hard/q_c49e946e.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question c49e946e"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-81f09e07",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_81f09e07.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question 81f09e07"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-8a264a54",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_8a264a54.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question 8a264a54"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-1c65db8f",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/punctuations-hard/q_1c65db8f.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 1c65db8f"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-d222f7d9",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Form, Structure, and Sense",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/punctuations-hard/q_d222f7d9.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question d222f7d9"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-2c4cd76d",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/punctuations-hard/q_2c4cd76d.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question 2c4cd76d"
+  },
+  {
+    "ext_id": "cb-punctuations-hard-78b88c04",
+    "domain": "reading",
+    "topic": "standard-conventions",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Boundaries",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/punctuations-hard/q_78b88c04.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question 78b88c04"
+  }
+]

@@ -1,0 +1,3309 @@
+[
+  {
+    "ext_id": "cb-algebra-hard-ac472881",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"403\"]",
+    "image": "/pdf/algebra-hard/q_ac472881.png",
+    "mask_fraction": 0.25,
+    "answer_image": null,
+    "prompt": "Question ac472881"
+  },
+  {
+    "ext_id": "cb-algebra-hard-3f5a3602",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-hard/q_3f5a3602.png",
+    "mask_fraction": 0.8314,
+    "answer_image": null,
+    "prompt": "Question 3f5a3602"
+  },
+  {
+    "ext_id": "cb-algebra-hard-edc1b7b7",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"3\"]",
+    "image": "/pdf/algebra-hard/q_edc1b7b7.png",
+    "mask_fraction": 0.2898,
+    "answer_image": null,
+    "prompt": "Question edc1b7b7"
+  },
+  {
+    "ext_id": "cb-algebra-hard-3008cfc3",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"33\"]",
+    "image": "/pdf/algebra-hard/q_3008cfc3.png",
+    "mask_fraction": 0.3021,
+    "answer_image": null,
+    "prompt": "Question 3008cfc3"
+  },
+  {
+    "ext_id": "cb-algebra-hard-4becad44",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-hard/q_4becad44.png",
+    "mask_fraction": 0.4091,
+    "answer_image": null,
+    "prompt": "Question 4becad44"
+  },
+  {
+    "ext_id": "cb-algebra-hard-d1b66ae6",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"3/2\", \"1.5\"]",
+    "image": "/pdf/algebra-hard/q_d1b66ae6.png",
+    "mask_fraction": 0.2793,
+    "answer_image": null,
+    "prompt": "Question d1b66ae6"
+  },
+  {
+    "ext_id": "cb-algebra-hard-3cdbf026",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-hard/q_3cdbf026.png",
+    "mask_fraction": 0.4025,
+    "answer_image": null,
+    "prompt": "Question 3cdbf026"
+  },
+  {
+    "ext_id": "cb-algebra-hard-00723d16",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"0.25\", \"1/4\"]",
+    "image": "/pdf/algebra-hard/q_00723d16.png",
+    "mask_fraction": 0.2193,
+    "answer_image": null,
+    "prompt": "Question 00723d16"
+  },
+  {
+    "ext_id": "cb-algebra-hard-ff501705",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"6\"]",
+    "image": "/pdf/algebra-hard/q_ff501705.png",
+    "mask_fraction": 0.2954,
+    "answer_image": null,
+    "prompt": "Question ff501705"
+  },
+  {
+    "ext_id": "cb-algebra-hard-8c5e6702",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-hard/q_8c5e6702.png",
+    "mask_fraction": 0.3646,
+    "answer_image": null,
+    "prompt": "Question 8c5e6702"
+  },
+  {
+    "ext_id": "cb-algebra-hard-2937ef4f",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-hard/q_2937ef4f.png",
+    "mask_fraction": 0.3949,
+    "answer_image": null,
+    "prompt": "Question 2937ef4f"
+  },
+  {
+    "ext_id": "cb-algebra-hard-9bbce683",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-hard/q_9bbce683.png",
+    "mask_fraction": 0.4574,
+    "answer_image": null,
+    "prompt": "Question 9bbce683"
+  },
+  {
+    "ext_id": "cb-algebra-hard-2b15d65f",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-hard/q_2b15d65f.png",
+    "mask_fraction": 0.393,
+    "answer_image": null,
+    "prompt": "Question 2b15d65f"
+  },
+  {
+    "ext_id": "cb-algebra-hard-e25f0807",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"16.25\", \"65/4\"]",
+    "image": "/pdf/algebra-hard/q_e25f0807.png",
+    "mask_fraction": 0.2998,
+    "answer_image": null,
+    "prompt": "Question e25f0807"
+  },
+  {
+    "ext_id": "cb-algebra-hard-686b7244",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"5\"]",
+    "image": "/pdf/algebra-hard/q_686b7244.png",
+    "mask_fraction": 0.2547,
+    "answer_image": null,
+    "prompt": "Question 686b7244"
+  },
+  {
+    "ext_id": "cb-algebra-hard-1b1deebe",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-hard/q_1b1deebe.png",
+    "mask_fraction": 0.4223,
+    "answer_image": null,
+    "prompt": "Question 1b1deebe"
+  },
+  {
+    "ext_id": "cb-algebra-hard-187f74bc",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-hard/q_187f74bc.png",
+    "mask_fraction": 0.6714,
+    "answer_image": null,
+    "prompt": "Question 187f74bc"
+  },
+  {
+    "ext_id": "cb-algebra-hard-be9cb6a2",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-hard/q_be9cb6a2.png",
+    "mask_fraction": 0.3617,
+    "answer_image": null,
+    "prompt": "Question be9cb6a2"
+  },
+  {
+    "ext_id": "cb-algebra-hard-1a1a95de",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-hard/q_1a1a95de.png",
+    "mask_fraction": 0.7708,
+    "answer_image": null,
+    "prompt": "Question 1a1a95de"
+  },
+  {
+    "ext_id": "cb-algebra-hard-db422e7f",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"5\", \"1/2\"]",
+    "image": "/pdf/algebra-hard/q_db422e7f.png",
+    "mask_fraction": 0.2193,
+    "answer_image": null,
+    "prompt": "Question db422e7f"
+  },
+  {
+    "ext_id": "cb-algebra-hard-45cfb9de",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-hard/q_45cfb9de.png",
+    "mask_fraction": 0.4129,
+    "answer_image": null,
+    "prompt": "Question 45cfb9de"
+  },
+  {
+    "ext_id": "cb-algebra-hard-571174f3",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"2857\", \"2/7\"]",
+    "image": "/pdf/algebra-hard/q_571174f3.png",
+    "mask_fraction": 0.296,
+    "answer_image": null,
+    "prompt": "Question 571174f3"
+  },
+  {
+    "ext_id": "cb-algebra-hard-979c6ebc",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-hard/q_979c6ebc.png",
+    "mask_fraction": 0.4223,
+    "answer_image": null,
+    "prompt": "Question 979c6ebc"
+  },
+  {
+    "ext_id": "cb-algebra-hard-f14484a5",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-hard/q_f14484a5.png",
+    "mask_fraction": 0.3854,
+    "answer_image": null,
+    "prompt": "Question f14484a5"
+  },
+  {
+    "ext_id": "cb-algebra-hard-797a81fb",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-hard/q_797a81fb.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 797a81fb"
+  },
+  {
+    "ext_id": "cb-algebra-hard-4f1342d6",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"87\"]",
+    "image": "/pdf/algebra-hard/q_4f1342d6.png",
+    "mask_fraction": 0.25,
+    "answer_image": null,
+    "prompt": "Question 4f1342d6"
+  },
+  {
+    "ext_id": "cb-algebra-hard-b5f62071",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"-28\"]",
+    "image": "/pdf/algebra-hard/q_b5f62071.png",
+    "mask_fraction": 0.2907,
+    "answer_image": null,
+    "prompt": "Question b5f62071"
+  },
+  {
+    "ext_id": "cb-algebra-hard-38bf4e04",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-hard/q_38bf4e04.png",
+    "mask_fraction": 0.3854,
+    "answer_image": null,
+    "prompt": "Question 38bf4e04"
+  },
+  {
+    "ext_id": "cb-algebra-hard-b7e6394d",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-hard/q_b7e6394d.png",
+    "mask_fraction": 0.4886,
+    "answer_image": null,
+    "prompt": "Question b7e6394d"
+  },
+  {
+    "ext_id": "cb-algebra-hard-ee2f611f",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"28\"]",
+    "image": "/pdf/algebra-hard/q_ee2f611f.png",
+    "mask_fraction": 0.2547,
+    "answer_image": null,
+    "prompt": "Question ee2f611f"
+  },
+  {
+    "ext_id": "cb-algebra-hard-25e1cfed",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-hard/q_25e1cfed.png",
+    "mask_fraction": 0.3589,
+    "answer_image": null,
+    "prompt": "Question 25e1cfed"
+  },
+  {
+    "ext_id": "cb-algebra-hard-fdee0fbf",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"74\"]",
+    "image": "/pdf/algebra-hard/q_fdee0fbf.png",
+    "mask_fraction": 0.2453,
+    "answer_image": null,
+    "prompt": "Question fdee0fbf"
+  },
+  {
+    "ext_id": "cb-algebra-hard-541bef2f",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-hard/q_541bef2f.png",
+    "mask_fraction": 0.4062,
+    "answer_image": null,
+    "prompt": "Question 541bef2f"
+  },
+  {
+    "ext_id": "cb-algebra-hard-f75bd744",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"8\"]",
+    "image": "/pdf/algebra-hard/q_f75bd744.png",
+    "mask_fraction": 0.2926,
+    "answer_image": null,
+    "prompt": "Question f75bd744"
+  },
+  {
+    "ext_id": "cb-algebra-hard-d0e614a6",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-hard/q_d0e614a6.png",
+    "mask_fraction": 0.7718,
+    "answer_image": null,
+    "prompt": "Question d0e614a6"
+  },
+  {
+    "ext_id": "cb-algebra-hard-b3abf40f",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-hard/q_b3abf40f.png",
+    "mask_fraction": 0.3835,
+    "answer_image": null,
+    "prompt": "Question b3abf40f"
+  },
+  {
+    "ext_id": "cb-algebra-hard-e6cb2402",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"9411\", \"9412\", \"16/17\"]",
+    "image": "/pdf/algebra-hard/q_e6cb2402.png",
+    "mask_fraction": 0.2505,
+    "answer_image": null,
+    "prompt": "Question e6cb2402"
+  },
+  {
+    "ext_id": "cb-algebra-hard-415ab1d2",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-hard/q_415ab1d2.png",
+    "mask_fraction": 0.7093,
+    "answer_image": null,
+    "prompt": "Question 415ab1d2"
+  },
+  {
+    "ext_id": "cb-algebra-hard-6c71f3ec",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-hard/q_6c71f3ec.png",
+    "mask_fraction": 0.4062,
+    "answer_image": null,
+    "prompt": "Question 6c71f3ec"
+  },
+  {
+    "ext_id": "cb-algebra-hard-e9908930",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-hard/q_e9908930.png",
+    "mask_fraction": 0.4754,
+    "answer_image": null,
+    "prompt": "Question e9908930"
+  },
+  {
+    "ext_id": "cb-algebra-hard-9aaf7786",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"-10\"]",
+    "image": "/pdf/algebra-hard/q_9aaf7786.png",
+    "mask_fraction": 0.2187,
+    "answer_image": null,
+    "prompt": "Question 9aaf7786"
+  },
+  {
+    "ext_id": "cb-algebra-hard-b988eeec",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"-12\"]",
+    "image": "/pdf/algebra-hard/q_b988eeec.png",
+    "mask_fraction": 0.2339,
+    "answer_image": null,
+    "prompt": "Question b988eeec"
+  },
+  {
+    "ext_id": "cb-algebra-hard-70feb725",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-hard/q_70feb725.png",
+    "mask_fraction": 0.3901,
+    "answer_image": null,
+    "prompt": "Question 70feb725"
+  },
+  {
+    "ext_id": "cb-algebra-hard-1a621af4",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"-14\"]",
+    "image": "/pdf/algebra-hard/q_1a621af4.png",
+    "mask_fraction": 0.2187,
+    "answer_image": null,
+    "prompt": "Question 1a621af4"
+  },
+  {
+    "ext_id": "cb-algebra-hard-af2ba762",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-hard/q_af2ba762.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question af2ba762"
+  },
+  {
+    "ext_id": "cb-algebra-hard-b9835972",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"24\"]",
+    "image": "/pdf/algebra-hard/q_b9835972.png",
+    "mask_fraction": 0.2367,
+    "answer_image": null,
+    "prompt": "Question b9835972"
+  },
+  {
+    "ext_id": "cb-algebra-hard-d1f50dbe",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-hard/q_d1f50dbe.png",
+    "mask_fraction": 0.3617,
+    "answer_image": null,
+    "prompt": "Question d1f50dbe"
+  },
+  {
+    "ext_id": "cb-algebra-hard-e1248a5c",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-hard/q_e1248a5c.png",
+    "mask_fraction": 0.6212,
+    "answer_image": null,
+    "prompt": "Question e1248a5c"
+  },
+  {
+    "ext_id": "cb-algebra-hard-05bb1af9",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-hard/q_05bb1af9.png",
+    "mask_fraction": 0.7168,
+    "answer_image": null,
+    "prompt": "Question 05bb1af9"
+  },
+  {
+    "ext_id": "cb-algebra-hard-cc7ffe02",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-hard/q_cc7ffe02.png",
+    "mask_fraction": 0.3769,
+    "answer_image": null,
+    "prompt": "Question cc7ffe02"
+  },
+  {
+    "ext_id": "cb-algebra-hard-1362ccde",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"35\"]",
+    "image": "/pdf/algebra-hard/q_1362ccde.png",
+    "mask_fraction": 0.2708,
+    "answer_image": null,
+    "prompt": "Question 1362ccde"
+  },
+  {
+    "ext_id": "cb-algebra-hard-52cb8ea4",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-hard/q_52cb8ea4.png",
+    "mask_fraction": 0.429,
+    "answer_image": null,
+    "prompt": "Question 52cb8ea4"
+  },
+  {
+    "ext_id": "cb-algebra-hard-7866a908",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-hard/q_7866a908.png",
+    "mask_fraction": 0.3864,
+    "answer_image": null,
+    "prompt": "Question 7866a908"
+  },
+  {
+    "ext_id": "cb-algebra-hard-0b46bad5",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-hard/q_0b46bad5.png",
+    "mask_fraction": 0.9413,
+    "answer_image": null,
+    "prompt": "Question 0b46bad5"
+  },
+  {
+    "ext_id": "cb-algebra-hard-7d5d1b32",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"-.9333\", \"-14/15\"]",
+    "image": "/pdf/algebra-hard/q_7d5d1b32.png",
+    "mask_fraction": 0.2505,
+    "answer_image": null,
+    "prompt": "Question 7d5d1b32"
+  },
+  {
+    "ext_id": "cb-algebra-hard-c362c210",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"1.5\", \"3/2\"]",
+    "image": "/pdf/algebra-hard/q_c362c210.png",
+    "mask_fraction": 0.4905,
+    "answer_image": null,
+    "prompt": "Question c362c210"
+  },
+  {
+    "ext_id": "cb-algebra-hard-ee7b1de1",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"182\"]",
+    "image": "/pdf/algebra-hard/q_ee7b1de1.png",
+    "mask_fraction": 0.2547,
+    "answer_image": null,
+    "prompt": "Question ee7b1de1"
+  },
+  {
+    "ext_id": "cb-algebra-hard-768f3b7c",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-hard/q_768f3b7c.png",
+    "mask_fraction": 0.4517,
+    "answer_image": null,
+    "prompt": "Question 768f3b7c"
+  },
+  {
+    "ext_id": "cb-algebra-hard-94b48cbf",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-hard/q_94b48cbf.png",
+    "mask_fraction": 0.3721,
+    "answer_image": null,
+    "prompt": "Question 94b48cbf"
+  },
+  {
+    "ext_id": "cb-algebra-hard-45a534d0",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"-34\"]",
+    "image": "/pdf/algebra-hard/q_45a534d0.png",
+    "mask_fraction": 0.2907,
+    "answer_image": null,
+    "prompt": "Question 45a534d0"
+  },
+  {
+    "ext_id": "cb-algebra-hard-50f4cb9c",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-hard/q_50f4cb9c.png",
+    "mask_fraction": 0.4451,
+    "answer_image": null,
+    "prompt": "Question 50f4cb9c"
+  },
+  {
+    "ext_id": "cb-algebra-hard-16889ef3",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-hard/q_16889ef3.png",
+    "mask_fraction": 0.4867,
+    "answer_image": null,
+    "prompt": "Question 16889ef3"
+  },
+  {
+    "ext_id": "cb-algebra-hard-adb0c96c",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"80\"]",
+    "image": "/pdf/algebra-hard/q_adb0c96c.png",
+    "mask_fraction": 0.286,
+    "answer_image": null,
+    "prompt": "Question adb0c96c"
+  },
+  {
+    "ext_id": "cb-algebra-hard-d7bf55e1",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"180\"]",
+    "image": "/pdf/algebra-hard/q_d7bf55e1.png",
+    "mask_fraction": 0.25,
+    "answer_image": null,
+    "prompt": "Question d7bf55e1"
+  },
+  {
+    "ext_id": "cb-algebra-hard-771bd0ca",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"-22\"]",
+    "image": "/pdf/algebra-hard/q_771bd0ca.png",
+    "mask_fraction": 0.2471,
+    "answer_image": null,
+    "prompt": "Question 771bd0ca"
+  },
+  {
+    "ext_id": "cb-algebra-hard-69f609b2",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-hard/q_69f609b2.png",
+    "mask_fraction": 0.3589,
+    "answer_image": null,
+    "prompt": "Question 69f609b2"
+  },
+  {
+    "ext_id": "cb-algebra-hard-a309803e",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-hard/q_a309803e.png",
+    "mask_fraction": 0.3617,
+    "answer_image": null,
+    "prompt": "Question a309803e"
+  },
+  {
+    "ext_id": "cb-algebra-hard-55ea82f3",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-hard/q_55ea82f3.png",
+    "mask_fraction": 0.3854,
+    "answer_image": null,
+    "prompt": "Question 55ea82f3"
+  },
+  {
+    "ext_id": "cb-algebra-hard-a049f400",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-hard/q_a049f400.png",
+    "mask_fraction": 0.6525,
+    "answer_image": null,
+    "prompt": "Question a049f400"
+  },
+  {
+    "ext_id": "cb-algebra-hard-5bf5136d",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-hard/q_5bf5136d.png",
+    "mask_fraction": 0.3693,
+    "answer_image": null,
+    "prompt": "Question 5bf5136d"
+  },
+  {
+    "ext_id": "cb-algebra-hard-36fd6752",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"10\"]",
+    "image": "/pdf/algebra-hard/q_36fd6752.png",
+    "mask_fraction": 0.286,
+    "answer_image": null,
+    "prompt": "Question 36fd6752"
+  },
+  {
+    "ext_id": "cb-algebra-hard-98d3393a",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-hard/q_98d3393a.png",
+    "mask_fraction": 0.3968,
+    "answer_image": null,
+    "prompt": "Question 98d3393a"
+  },
+  {
+    "ext_id": "cb-algebra-hard-0b0fa68b",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"0465\", \"2/43\"]",
+    "image": "/pdf/algebra-hard/q_0b0fa68b.png",
+    "mask_fraction": 0.2165,
+    "answer_image": null,
+    "prompt": "Question 0b0fa68b"
+  },
+  {
+    "ext_id": "cb-algebra-hard-6989c80a",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-hard/q_6989c80a.png",
+    "mask_fraction": 0.3835,
+    "answer_image": null,
+    "prompt": "Question 6989c80a"
+  },
+  {
+    "ext_id": "cb-algebra-hard-0cb57740",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-hard/q_0cb57740.png",
+    "mask_fraction": 0.3627,
+    "answer_image": null,
+    "prompt": "Question 0cb57740"
+  },
+  {
+    "ext_id": "cb-algebra-hard-e8f9e117",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"20\"]",
+    "image": "/pdf/algebra-hard/q_e8f9e117.png",
+    "mask_fraction": 0.3011,
+    "answer_image": null,
+    "prompt": "Question e8f9e117"
+  },
+  {
+    "ext_id": "cb-algebra-hard-d8539e09",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-hard/q_d8539e09.png",
+    "mask_fraction": 0.6515,
+    "answer_image": null,
+    "prompt": "Question d8539e09"
+  },
+  {
+    "ext_id": "cb-algebra-hard-a7e2859a",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-hard/q_a7e2859a.png",
+    "mask_fraction": 0.3617,
+    "answer_image": null,
+    "prompt": "Question a7e2859a"
+  },
+  {
+    "ext_id": "cb-algebra-hard-48fb34c8",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-hard/q_48fb34c8.png",
+    "mask_fraction": 0.6534,
+    "answer_image": null,
+    "prompt": "Question 48fb34c8"
+  },
+  {
+    "ext_id": "cb-algebra-hard-f718c9cf",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"1.8\", \"9/5\"]",
+    "image": "/pdf/algebra-hard/q_f718c9cf.png",
+    "mask_fraction": 0.2865,
+    "answer_image": null,
+    "prompt": "Question f718c9cf"
+  },
+  {
+    "ext_id": "cb-algebra-hard-cc3e9528",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"59/9\", \"6.555\", \"6.556\"]",
+    "image": "/pdf/algebra-hard/q_cc3e9528.png",
+    "mask_fraction": 0.2193,
+    "answer_image": null,
+    "prompt": "Question cc3e9528"
+  },
+  {
+    "ext_id": "cb-algebra-hard-153ee763",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-hard/q_153ee763.png",
+    "mask_fraction": 0.374,
+    "answer_image": null,
+    "prompt": "Question 153ee763"
+  },
+  {
+    "ext_id": "cb-algebra-hard-466b87e3",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"1/2\", \".5\"]",
+    "image": "/pdf/algebra-hard/q_466b87e3.png",
+    "mask_fraction": 0.2945,
+    "answer_image": null,
+    "prompt": "Question 466b87e3"
+  },
+  {
+    "ext_id": "cb-algebra-hard-aee9fd2d",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-hard/q_aee9fd2d.png",
+    "mask_fraction": 0.3589,
+    "answer_image": null,
+    "prompt": "Question aee9fd2d"
+  },
+  {
+    "ext_id": "cb-algebra-hard-0366d965",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"30\"]",
+    "image": "/pdf/algebra-hard/q_0366d965.png",
+    "mask_fraction": 0.3485,
+    "answer_image": null,
+    "prompt": "Question 0366d965"
+  },
+  {
+    "ext_id": "cb-algebra-hard-570b5a5d",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-hard/q_570b5a5d.png",
+    "mask_fraction": 0.4129,
+    "answer_image": null,
+    "prompt": "Question 570b5a5d"
+  },
+  {
+    "ext_id": "cb-algebra-hard-6d8ad460",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"1.2\", \"6/5\"]",
+    "image": "/pdf/algebra-hard/q_6d8ad460.png",
+    "mask_fraction": 0.582,
+    "answer_image": null,
+    "prompt": "Question 6d8ad460"
+  },
+  {
+    "ext_id": "cb-algebra-hard-963da34c",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-hard/q_963da34c.png",
+    "mask_fraction": 0.4687,
+    "answer_image": null,
+    "prompt": "Question 963da34c"
+  },
+  {
+    "ext_id": "cb-algebra-hard-184ce5aa",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-hard/q_184ce5aa.png",
+    "mask_fraction": 0.3551,
+    "answer_image": null,
+    "prompt": "Question 184ce5aa"
+  },
+  {
+    "ext_id": "cb-algebra-hard-e2e3942f",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-hard/q_e2e3942f.png",
+    "mask_fraction": 0.4375,
+    "answer_image": null,
+    "prompt": "Question e2e3942f"
+  },
+  {
+    "ext_id": "cb-algebra-hard-f03465dc",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-hard/q_f03465dc.png",
+    "mask_fraction": 0.4072,
+    "answer_image": null,
+    "prompt": "Question f03465dc"
+  },
+  {
+    "ext_id": "cb-algebra-hard-f8ff3249",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-hard/q_f8ff3249.png",
+    "mask_fraction": 0.6515,
+    "answer_image": null,
+    "prompt": "Question f8ff3249"
+  },
+  {
+    "ext_id": "cb-algebra-hard-a35c7164",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-hard/q_a35c7164.png",
+    "mask_fraction": 0.5284,
+    "answer_image": null,
+    "prompt": "Question a35c7164"
+  },
+  {
+    "ext_id": "cb-algebra-hard-03503d49",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-hard/q_03503d49.png",
+    "mask_fraction": 0.374,
+    "answer_image": null,
+    "prompt": "Question 03503d49"
+  },
+  {
+    "ext_id": "cb-algebra-hard-63d03c0b",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"3331\"]",
+    "image": "/pdf/algebra-hard/q_63d03c0b.png",
+    "mask_fraction": 0.2708,
+    "answer_image": null,
+    "prompt": "Question 63d03c0b"
+  },
+  {
+    "ext_id": "cb-algebra-hard-2d54c272",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"40\"]",
+    "image": "/pdf/algebra-hard/q_2d54c272.png",
+    "mask_fraction": 0.2803,
+    "answer_image": null,
+    "prompt": "Question 2d54c272"
+  },
+  {
+    "ext_id": "cb-algebra-hard-fbd5483f",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-hard/q_fbd5483f.png",
+    "mask_fraction": 0.3665,
+    "answer_image": null,
+    "prompt": "Question fbd5483f"
+  },
+  {
+    "ext_id": "cb-algebra-hard-58477a6c",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-hard/q_58477a6c.png",
+    "mask_fraction": 0.4612,
+    "answer_image": null,
+    "prompt": "Question 58477a6c"
+  },
+  {
+    "ext_id": "cb-algebra-hard-1e0a46e4",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-hard/q_1e0a46e4.png",
+    "mask_fraction": 0.4678,
+    "answer_image": null,
+    "prompt": "Question 1e0a46e4"
+  },
+  {
+    "ext_id": "cb-algebra-hard-1e11190a",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-hard/q_1e11190a.png",
+    "mask_fraction": 0.3854,
+    "answer_image": null,
+    "prompt": "Question 1e11190a"
+  },
+  {
+    "ext_id": "cb-algebra-hard-78391fcc",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-hard/q_78391fcc.png",
+    "mask_fraction": 0.4971,
+    "answer_image": null,
+    "prompt": "Question 78391fcc"
+  },
+  {
+    "ext_id": "cb-algebra-hard-68c5c81a",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-hard/q_68c5c81a.png",
+    "mask_fraction": 0.4053,
+    "answer_image": null,
+    "prompt": "Question 68c5c81a"
+  },
+  {
+    "ext_id": "cb-algebra-hard-b8e73b5b",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-hard/q_b8e73b5b.png",
+    "mask_fraction": 0.3949,
+    "answer_image": null,
+    "prompt": "Question b8e73b5b"
+  },
+  {
+    "ext_id": "cb-algebra-hard-830120b0",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-hard/q_830120b0.png",
+    "mask_fraction": 0.4848,
+    "answer_image": null,
+    "prompt": "Question 830120b0"
+  },
+  {
+    "ext_id": "cb-algebra-hard-e86a06fe",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-hard/q_e86a06fe.png",
+    "mask_fraction": 0.393,
+    "answer_image": null,
+    "prompt": "Question e86a06fe"
+  },
+  {
+    "ext_id": "cb-algebra-hard-c4ea43ef",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-hard/q_c4ea43ef.png",
+    "mask_fraction": 0.4962,
+    "answer_image": null,
+    "prompt": "Question c4ea43ef"
+  },
+  {
+    "ext_id": "cb-algebra-hard-fb5e7f59",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"11\"]",
+    "image": "/pdf/algebra-hard/q_fb5e7f59.png",
+    "mask_fraction": 0.3078,
+    "answer_image": null,
+    "prompt": "Question fb5e7f59"
+  },
+  {
+    "ext_id": "cb-algebra-hard-59352689",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"3.5\", \"7/2\"]",
+    "image": "/pdf/algebra-hard/q_59352689.png",
+    "mask_fraction": 0.314,
+    "answer_image": null,
+    "prompt": "Question 59352689"
+  },
+  {
+    "ext_id": "cb-algebra-hard-14360f84",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-hard/q_14360f84.png",
+    "mask_fraction": 0.4062,
+    "answer_image": null,
+    "prompt": "Question 14360f84"
+  },
+  {
+    "ext_id": "cb-algebra-hard-0393ba15",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-hard/q_0393ba15.png",
+    "mask_fraction": 0.3845,
+    "answer_image": null,
+    "prompt": "Question 0393ba15"
+  },
+  {
+    "ext_id": "cb-algebra-hard-a71b1bc1",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"25\"]",
+    "image": "/pdf/algebra-hard/q_a71b1bc1.png",
+    "mask_fraction": 0.25,
+    "answer_image": null,
+    "prompt": "Question a71b1bc1"
+  },
+  {
+    "ext_id": "cb-algebra-hard-e103300e",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-hard/q_e103300e.png",
+    "mask_fraction": 0.374,
+    "answer_image": null,
+    "prompt": "Question e103300e"
+  },
+  {
+    "ext_id": "cb-algebra-hard-cb58833c",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"1.25\", \"5/4\"]",
+    "image": "/pdf/algebra-hard/q_cb58833c.png",
+    "mask_fraction": 0.2415,
+    "answer_image": null,
+    "prompt": "Question cb58833c"
+  },
+  {
+    "ext_id": "cb-algebra-hard-567ac7ab",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-hard/q_567ac7ab.png",
+    "mask_fraction": 0.4157,
+    "answer_image": null,
+    "prompt": "Question 567ac7ab"
+  },
+  {
+    "ext_id": "cb-algebra-hard-9d0396d4",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-hard/q_9d0396d4.png",
+    "mask_fraction": 0.7121,
+    "answer_image": null,
+    "prompt": "Question 9d0396d4"
+  },
+  {
+    "ext_id": "cb-algebra-hard-4771a64a",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"11\"]",
+    "image": "/pdf/algebra-hard/q_4771a64a.png",
+    "mask_fraction": 0.2187,
+    "answer_image": null,
+    "prompt": "Question 4771a64a"
+  },
+  {
+    "ext_id": "cb-algebra-hard-daad7c32",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-hard/q_daad7c32.png",
+    "mask_fraction": 0.3788,
+    "answer_image": null,
+    "prompt": "Question daad7c32"
+  },
+  {
+    "ext_id": "cb-algebra-hard-3f8a701b",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-hard/q_3f8a701b.png",
+    "mask_fraction": 0.499,
+    "answer_image": null,
+    "prompt": "Question 3f8a701b"
+  },
+  {
+    "ext_id": "cb-algebra-hard-3a84f885",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"1677\"]",
+    "image": "/pdf/algebra-hard/q_3a84f885.png",
+    "mask_fraction": 0.2898,
+    "answer_image": null,
+    "prompt": "Question 3a84f885"
+  },
+  {
+    "ext_id": "cb-algebra-hard-023c0a8d",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-hard/q_023c0a8d.png",
+    "mask_fraction": 0.3721,
+    "answer_image": null,
+    "prompt": "Question 023c0a8d"
+  },
+  {
+    "ext_id": "cb-algebra-hard-a5882327",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-hard/q_a5882327.png",
+    "mask_fraction": 0.3665,
+    "answer_image": null,
+    "prompt": "Question a5882327"
+  },
+  {
+    "ext_id": "cb-algebra-hard-75012ee7",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-hard/q_75012ee7.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question 75012ee7"
+  },
+  {
+    "ext_id": "cb-algebra-hard-a7a14e87",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-hard/q_a7a14e87.png",
+    "mask_fraction": 0.4015,
+    "answer_image": null,
+    "prompt": "Question a7a14e87"
+  },
+  {
+    "ext_id": "cb-algebra-hard-429fb7c0",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"-.3266\", \"-.3267\", \"-49/150\"]",
+    "image": "/pdf/algebra-hard/q_429fb7c0.png",
+    "mask_fraction": 0.2193,
+    "answer_image": null,
+    "prompt": "Question 429fb7c0"
+  },
+  {
+    "ext_id": "cb-algebra-hard-5e08a055",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-hard/q_5e08a055.png",
+    "mask_fraction": 0.4053,
+    "answer_image": null,
+    "prompt": "Question 5e08a055"
+  },
+  {
+    "ext_id": "cb-algebra-hard-9f70fd47",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"189/5\", \"37.8\"]",
+    "image": "/pdf/algebra-hard/q_9f70fd47.png",
+    "mask_fraction": 0.2193,
+    "answer_image": null,
+    "prompt": "Question 9f70fd47"
+  },
+  {
+    "ext_id": "cb-algebra-hard-f5ff91b2",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-hard/q_f5ff91b2.png",
+    "mask_fraction": 0.3589,
+    "answer_image": null,
+    "prompt": "Question f5ff91b2"
+  },
+  {
+    "ext_id": "cb-algebra-hard-a1fd2304",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"1.5\", \"3/2\"]",
+    "image": "/pdf/algebra-hard/q_a1fd2304.png",
+    "mask_fraction": 0.2187,
+    "answer_image": null,
+    "prompt": "Question a1fd2304"
+  },
+  {
+    "ext_id": "cb-algebra-hard-628300a9",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-hard/q_628300a9.png",
+    "mask_fraction": 0.429,
+    "answer_image": null,
+    "prompt": "Question 628300a9"
+  },
+  {
+    "ext_id": "cb-algebra-hard-0bd33265",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"515\"]",
+    "image": "/pdf/algebra-hard/q_0bd33265.png",
+    "mask_fraction": 0.2547,
+    "answer_image": null,
+    "prompt": "Question 0bd33265"
+  },
+  {
+    "ext_id": "cb-algebra-hard-bbf9e5ce",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-hard/q_bbf9e5ce.png",
+    "mask_fraction": 0.3646,
+    "answer_image": null,
+    "prompt": "Question bbf9e5ce"
+  },
+  {
+    "ext_id": "cb-algebra-hard-5b7599a6",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-hard/q_5b7599a6.png",
+    "mask_fraction": 0.7112,
+    "answer_image": null,
+    "prompt": "Question 5b7599a6"
+  },
+  {
+    "ext_id": "cb-algebra-hard-67d63e19",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-hard/q_67d63e19.png",
+    "mask_fraction": 0.3646,
+    "answer_image": null,
+    "prompt": "Question 67d63e19"
+  },
+  {
+    "ext_id": "cb-algebra-hard-27f5fff3",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-hard/q_27f5fff3.png",
+    "mask_fraction": 0.7528,
+    "answer_image": null,
+    "prompt": "Question 27f5fff3"
+  },
+  {
+    "ext_id": "cb-algebra-hard-49800634",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-hard/q_49800634.png",
+    "mask_fraction": 0.4375,
+    "answer_image": null,
+    "prompt": "Question 49800634"
+  },
+  {
+    "ext_id": "cb-algebra-hard-73b3b7d8",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"20\"]",
+    "image": "/pdf/algebra-hard/q_73b3b7d8.png",
+    "mask_fraction": 0.286,
+    "answer_image": null,
+    "prompt": "Question 73b3b7d8"
+  }
+]

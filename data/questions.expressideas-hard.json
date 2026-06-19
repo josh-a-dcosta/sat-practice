@@ -1,0 +1,2409 @@
+[
+  {
+    "ext_id": "cb-expressideas-hard-2b08f514",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/expressideas-hard/q_2b08f514.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question 2b08f514"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-afec1a70",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/expressideas-hard/q_afec1a70.png",
+    "mask_fraction": 0.5246,
+    "answer_image": null,
+    "prompt": "Question afec1a70"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-4d2736f0",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/expressideas-hard/q_4d2736f0.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 4d2736f0"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-d3b7d7a3",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/expressideas-hard/q_d3b7d7a3.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question d3b7d7a3"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-39ccb463",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/expressideas-hard/q_39ccb463.png",
+    "mask_fraction": 0.5426,
+    "answer_image": null,
+    "prompt": "Question 39ccb463"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-e3edc138",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/expressideas-hard/q_e3edc138.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question e3edc138"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-00221c00",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/expressideas-hard/q_00221c00.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 00221c00"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-16631d34",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/expressideas-hard/q_16631d34.png",
+    "mask_fraction": 0.5426,
+    "answer_image": null,
+    "prompt": "Question 16631d34"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-1d79a59d",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/expressideas-hard/q_1d79a59d.png",
+    "mask_fraction": 0.5795,
+    "answer_image": null,
+    "prompt": "Question 1d79a59d"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-42e6cc83",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/expressideas-hard/q_42e6cc83.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question 42e6cc83"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-6c9df5d1",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/expressideas-hard/q_6c9df5d1.png",
+    "mask_fraction": 0.5786,
+    "answer_image": null,
+    "prompt": "Question 6c9df5d1"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-e6b1e12c",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/expressideas-hard/q_e6b1e12c.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question e6b1e12c"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-a965c6ed",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/expressideas-hard/q_a965c6ed.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question a965c6ed"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-7d5c32e6",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/expressideas-hard/q_7d5c32e6.png",
+    "mask_fraction": 0.5975,
+    "answer_image": null,
+    "prompt": "Question 7d5c32e6"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-b07a7634",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/expressideas-hard/q_b07a7634.png",
+    "mask_fraction": 0.5606,
+    "answer_image": null,
+    "prompt": "Question b07a7634"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-3fa48bf3",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/expressideas-hard/q_3fa48bf3.png",
+    "mask_fraction": 0.5975,
+    "answer_image": null,
+    "prompt": "Question 3fa48bf3"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-8fe4f4ab",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/expressideas-hard/q_8fe4f4ab.png",
+    "mask_fraction": 0.5246,
+    "answer_image": null,
+    "prompt": "Question 8fe4f4ab"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-3b02e88a",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/expressideas-hard/q_3b02e88a.png",
+    "mask_fraction": 0.5066,
+    "answer_image": null,
+    "prompt": "Question 3b02e88a"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-8112b7e3",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/expressideas-hard/q_8112b7e3.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 8112b7e3"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-964c6055",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/expressideas-hard/q_964c6055.png",
+    "mask_fraction": 0.5975,
+    "answer_image": null,
+    "prompt": "Question 964c6055"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-7ce14583",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/expressideas-hard/q_7ce14583.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 7ce14583"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-8e9677e6",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/expressideas-hard/q_8e9677e6.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 8e9677e6"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-4b7a84b0",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/expressideas-hard/q_4b7a84b0.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 4b7a84b0"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-f5959727",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/expressideas-hard/q_f5959727.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question f5959727"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-6e0c60da",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/expressideas-hard/q_6e0c60da.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 6e0c60da"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-64e88c58",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/expressideas-hard/q_64e88c58.png",
+    "mask_fraction": 0.5606,
+    "answer_image": null,
+    "prompt": "Question 64e88c58"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-2c61e0b9",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/expressideas-hard/q_2c61e0b9.png",
+    "mask_fraction": 0.5246,
+    "answer_image": null,
+    "prompt": "Question 2c61e0b9"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-9dc4e640",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/expressideas-hard/q_9dc4e640.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 9dc4e640"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-f5149550",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/expressideas-hard/q_f5149550.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question f5149550"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-af88c47a",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/expressideas-hard/q_af88c47a.png",
+    "mask_fraction": 0.5246,
+    "answer_image": null,
+    "prompt": "Question af88c47a"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-a266d876",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/expressideas-hard/q_a266d876.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question a266d876"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-9551ef8b",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/expressideas-hard/q_9551ef8b.png",
+    "mask_fraction": 0.5246,
+    "answer_image": null,
+    "prompt": "Question 9551ef8b"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-9502ec65",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/expressideas-hard/q_9502ec65.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 9502ec65"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-2df7b582",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/expressideas-hard/q_2df7b582.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 2df7b582"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-459df2ba",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/expressideas-hard/q_459df2ba.png",
+    "mask_fraction": 0.5606,
+    "answer_image": null,
+    "prompt": "Question 459df2ba"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-07456405",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/expressideas-hard/q_07456405.png",
+    "mask_fraction": 0.5786,
+    "answer_image": null,
+    "prompt": "Question 07456405"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-5fa51c86",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/expressideas-hard/q_5fa51c86.png",
+    "mask_fraction": 0.5426,
+    "answer_image": null,
+    "prompt": "Question 5fa51c86"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-3a715eca",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/expressideas-hard/q_3a715eca.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 3a715eca"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-fdd9a360",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/expressideas-hard/q_fdd9a360.png",
+    "mask_fraction": 0.5786,
+    "answer_image": null,
+    "prompt": "Question fdd9a360"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-0fab0c90",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/expressideas-hard/q_0fab0c90.png",
+    "mask_fraction": 0.5606,
+    "answer_image": null,
+    "prompt": "Question 0fab0c90"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-00e0170f",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/expressideas-hard/q_00e0170f.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 00e0170f"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-c071eca2",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/expressideas-hard/q_c071eca2.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question c071eca2"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-a7a944ed",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/expressideas-hard/q_a7a944ed.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question a7a944ed"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-176edca6",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/expressideas-hard/q_176edca6.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 176edca6"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-10cd0327",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/expressideas-hard/q_10cd0327.png",
+    "mask_fraction": 0.5606,
+    "answer_image": null,
+    "prompt": "Question 10cd0327"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-1773fa73",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/expressideas-hard/q_1773fa73.png",
+    "mask_fraction": 0.5606,
+    "answer_image": null,
+    "prompt": "Question 1773fa73"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-5b8b69a2",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/expressideas-hard/q_5b8b69a2.png",
+    "mask_fraction": 0.5606,
+    "answer_image": null,
+    "prompt": "Question 5b8b69a2"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-0acc26b2",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/expressideas-hard/q_0acc26b2.png",
+    "mask_fraction": 0.5246,
+    "answer_image": null,
+    "prompt": "Question 0acc26b2"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-1c6e1d55",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/expressideas-hard/q_1c6e1d55.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 1c6e1d55"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-9336f63b",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/expressideas-hard/q_9336f63b.png",
+    "mask_fraction": 0.5426,
+    "answer_image": null,
+    "prompt": "Question 9336f63b"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-de01ccef",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/expressideas-hard/q_de01ccef.png",
+    "mask_fraction": 0.5426,
+    "answer_image": null,
+    "prompt": "Question de01ccef"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-cfade68d",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/expressideas-hard/q_cfade68d.png",
+    "mask_fraction": 0.5426,
+    "answer_image": null,
+    "prompt": "Question cfade68d"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-9f1a0d91",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/expressideas-hard/q_9f1a0d91.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 9f1a0d91"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-a2bff07e",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/expressideas-hard/q_a2bff07e.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question a2bff07e"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-5222ffab",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/expressideas-hard/q_5222ffab.png",
+    "mask_fraction": 0.5426,
+    "answer_image": null,
+    "prompt": "Question 5222ffab"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-edf30612",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/expressideas-hard/q_edf30612.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question edf30612"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-974b5a8c",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/expressideas-hard/q_974b5a8c.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 974b5a8c"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-3dcc7140",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/expressideas-hard/q_3dcc7140.png",
+    "mask_fraction": 0.5246,
+    "answer_image": null,
+    "prompt": "Question 3dcc7140"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-1e31470f",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/expressideas-hard/q_1e31470f.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 1e31470f"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-47e238be",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/expressideas-hard/q_47e238be.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 47e238be"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-622a351d",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/expressideas-hard/q_622a351d.png",
+    "mask_fraction": 0.5246,
+    "answer_image": null,
+    "prompt": "Question 622a351d"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-5645f119",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/expressideas-hard/q_5645f119.png",
+    "mask_fraction": 0.5975,
+    "answer_image": null,
+    "prompt": "Question 5645f119"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-1872cd6d",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/expressideas-hard/q_1872cd6d.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 1872cd6d"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-96a86bce",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/expressideas-hard/q_96a86bce.png",
+    "mask_fraction": 0.5066,
+    "answer_image": null,
+    "prompt": "Question 96a86bce"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-db3ad406",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/expressideas-hard/q_db3ad406.png",
+    "mask_fraction": 0.5066,
+    "answer_image": null,
+    "prompt": "Question db3ad406"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-973632d2",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/expressideas-hard/q_973632d2.png",
+    "mask_fraction": 0.5786,
+    "answer_image": null,
+    "prompt": "Question 973632d2"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-ad729337",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/expressideas-hard/q_ad729337.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question ad729337"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-e98b1690",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/expressideas-hard/q_e98b1690.png",
+    "mask_fraction": 0.5246,
+    "answer_image": null,
+    "prompt": "Question e98b1690"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-8d1ddd1b",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/expressideas-hard/q_8d1ddd1b.png",
+    "mask_fraction": 0.5606,
+    "answer_image": null,
+    "prompt": "Question 8d1ddd1b"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-480ade7e",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/expressideas-hard/q_480ade7e.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 480ade7e"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-b44141cf",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/expressideas-hard/q_b44141cf.png",
+    "mask_fraction": 0.5606,
+    "answer_image": null,
+    "prompt": "Question b44141cf"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-c34d6bff",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/expressideas-hard/q_c34d6bff.png",
+    "mask_fraction": 0.5246,
+    "answer_image": null,
+    "prompt": "Question c34d6bff"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-ec03f090",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/expressideas-hard/q_ec03f090.png",
+    "mask_fraction": 0.5786,
+    "answer_image": null,
+    "prompt": "Question ec03f090"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-c40a1964",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/expressideas-hard/q_c40a1964.png",
+    "mask_fraction": 0.5246,
+    "answer_image": null,
+    "prompt": "Question c40a1964"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-f5a00eff",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/expressideas-hard/q_f5a00eff.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question f5a00eff"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-332e75bf",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/expressideas-hard/q_332e75bf.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 332e75bf"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-b0620764",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/expressideas-hard/q_b0620764.png",
+    "mask_fraction": 0.5426,
+    "answer_image": null,
+    "prompt": "Question b0620764"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-fc95a352",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/expressideas-hard/q_fc95a352.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question fc95a352"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-2ba97187",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/expressideas-hard/q_2ba97187.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 2ba97187"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-ecb31049",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Transitions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/expressideas-hard/q_ecb31049.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question ecb31049"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-e8494245",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/expressideas-hard/q_e8494245.png",
+    "mask_fraction": 0.5426,
+    "answer_image": null,
+    "prompt": "Question e8494245"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-56b000d0",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/expressideas-hard/q_56b000d0.png",
+    "mask_fraction": 0.5606,
+    "answer_image": null,
+    "prompt": "Question 56b000d0"
+  },
+  {
+    "ext_id": "cb-expressideas-hard-87d34a39",
+    "domain": "reading",
+    "topic": "expression-ideas",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Rhetorical Synthesis",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/expressideas-hard/q_87d34a39.png",
+    "mask_fraction": 0.5606,
+    "answer_image": null,
+    "prompt": "Question 87d34a39"
+  }
+]

@@ -1,0 +1,4342 @@
+[
+  {
+    "ext_id": "cb-advmath-hard-301faf80",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"14\"]",
+    "image": "/pdf/advmath-hard/q_301faf80.png",
+    "mask_fraction": 0.2159,
+    "answer_image": null,
+    "prompt": "Question 301faf80"
+  },
+  {
+    "ext_id": "cb-advmath-hard-128c75e2",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"609\"]",
+    "image": "/pdf/advmath-hard/q_128c75e2.png",
+    "mask_fraction": 0.2178,
+    "answer_image": null,
+    "prompt": "Question 128c75e2"
+  },
+  {
+    "ext_id": "cb-advmath-hard-02060533",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/advmath-hard/q_02060533.png",
+    "mask_fraction": 0.4593,
+    "answer_image": null,
+    "prompt": "Question 02060533"
+  },
+  {
+    "ext_id": "cb-advmath-hard-91e7ea5e",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_91e7ea5e.png",
+    "mask_fraction": 0.411,
+    "answer_image": null,
+    "prompt": "Question 91e7ea5e"
+  },
+  {
+    "ext_id": "cb-advmath-hard-358f18bc",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"1728\"]",
+    "image": "/pdf/advmath-hard/q_358f18bc.png",
+    "mask_fraction": 0.2462,
+    "answer_image": null,
+    "prompt": "Question 358f18bc"
+  },
+  {
+    "ext_id": "cb-advmath-hard-3a9d60b2",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"9\"]",
+    "image": "/pdf/advmath-hard/q_3a9d60b2.png",
+    "mask_fraction": 0.2746,
+    "answer_image": null,
+    "prompt": "Question 3a9d60b2"
+  },
+  {
+    "ext_id": "cb-advmath-hard-8490cc45",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/advmath-hard/q_8490cc45.png",
+    "mask_fraction": 0.3466,
+    "answer_image": null,
+    "prompt": "Question 8490cc45"
+  },
+  {
+    "ext_id": "cb-advmath-hard-ebed7dc6",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/advmath-hard/q_ebed7dc6.png",
+    "mask_fraction": 0.3882,
+    "answer_image": null,
+    "prompt": "Question ebed7dc6"
+  },
+  {
+    "ext_id": "cb-advmath-hard-ba0edc30",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/advmath-hard/q_ba0edc30.png",
+    "mask_fraction": 0.392,
+    "answer_image": null,
+    "prompt": "Question ba0edc30"
+  },
+  {
+    "ext_id": "cb-advmath-hard-fc3d783a",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"6\"]",
+    "image": "/pdf/advmath-hard/q_fc3d783a.png",
+    "mask_fraction": 0.2642,
+    "answer_image": null,
+    "prompt": "Question fc3d783a"
+  },
+  {
+    "ext_id": "cb-advmath-hard-a9084ca4",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_a9084ca4.png",
+    "mask_fraction": 0.4223,
+    "answer_image": null,
+    "prompt": "Question a9084ca4"
+  },
+  {
+    "ext_id": "cb-advmath-hard-2c6f214f",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_2c6f214f.png",
+    "mask_fraction": 0.3655,
+    "answer_image": null,
+    "prompt": "Question 2c6f214f"
+  },
+  {
+    "ext_id": "cb-advmath-hard-781c2f6e",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_781c2f6e.png",
+    "mask_fraction": 0.4365,
+    "answer_image": null,
+    "prompt": "Question 781c2f6e"
+  },
+  {
+    "ext_id": "cb-advmath-hard-4661e2a9",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/advmath-hard/q_4661e2a9.png",
+    "mask_fraction": 0.4706,
+    "answer_image": null,
+    "prompt": "Question 4661e2a9"
+  },
+  {
+    "ext_id": "cb-advmath-hard-371cbf6b",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Equivalent expressions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/advmath-hard/q_371cbf6b.png",
+    "mask_fraction": 0.3845,
+    "answer_image": null,
+    "prompt": "Question 371cbf6b"
+  },
+  {
+    "ext_id": "cb-advmath-hard-c3b116d7",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Equivalent expressions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/advmath-hard/q_c3b116d7.png",
+    "mask_fraction": 0.4006,
+    "answer_image": null,
+    "prompt": "Question c3b116d7"
+  },
+  {
+    "ext_id": "cb-advmath-hard-40c09d66",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Equivalent expressions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"7/6\", \"1.166\", \"1.167\"]",
+    "image": "/pdf/advmath-hard/q_40c09d66.png",
+    "mask_fraction": 0.2528,
+    "answer_image": null,
+    "prompt": "Question 40c09d66"
+  },
+  {
+    "ext_id": "cb-advmath-hard-b8f13a3a",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"20\"]",
+    "image": "/pdf/advmath-hard/q_b8f13a3a.png",
+    "mask_fraction": 0.2339,
+    "answer_image": null,
+    "prompt": "Question b8f13a3a"
+  },
+  {
+    "ext_id": "cb-advmath-hard-8e1da169",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/advmath-hard/q_8e1da169.png",
+    "mask_fraction": 0.3636,
+    "answer_image": null,
+    "prompt": "Question 8e1da169"
+  },
+  {
+    "ext_id": "cb-advmath-hard-f65288e8",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/advmath-hard/q_f65288e8.png",
+    "mask_fraction": 0.5331,
+    "answer_image": null,
+    "prompt": "Question f65288e8"
+  },
+  {
+    "ext_id": "cb-advmath-hard-2c288148",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"231\"]",
+    "image": "/pdf/advmath-hard/q_2c288148.png",
+    "mask_fraction": 0.2765,
+    "answer_image": null,
+    "prompt": "Question 2c288148"
+  },
+  {
+    "ext_id": "cb-advmath-hard-40491607",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"48\"]",
+    "image": "/pdf/advmath-hard/q_40491607.png",
+    "mask_fraction": 0.2632,
+    "answer_image": null,
+    "prompt": "Question 40491607"
+  },
+  {
+    "ext_id": "cb-advmath-hard-7902bed0",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_7902bed0.png",
+    "mask_fraction": 0.3608,
+    "answer_image": null,
+    "prompt": "Question 7902bed0"
+  },
+  {
+    "ext_id": "cb-advmath-hard-4a0d0399",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"-324\"]",
+    "image": "/pdf/advmath-hard/q_4a0d0399.png",
+    "mask_fraction": 0.2339,
+    "answer_image": null,
+    "prompt": "Question 4a0d0399"
+  },
+  {
+    "ext_id": "cb-advmath-hard-f2f3fa00",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"5\"]",
+    "image": "/pdf/advmath-hard/q_f2f3fa00.png",
+    "mask_fraction": 0.3125,
+    "answer_image": null,
+    "prompt": "Question f2f3fa00"
+  },
+  {
+    "ext_id": "cb-advmath-hard-9654add7",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/advmath-hard/q_9654add7.png",
+    "mask_fraction": 0.464,
+    "answer_image": null,
+    "prompt": "Question 9654add7"
+  },
+  {
+    "ext_id": "cb-advmath-hard-34847f8a",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Equivalent expressions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/advmath-hard/q_34847f8a.png",
+    "mask_fraction": 0.4072,
+    "answer_image": null,
+    "prompt": "Question 34847f8a"
+  },
+  {
+    "ext_id": "cb-advmath-hard-263f9937",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_263f9937.png",
+    "mask_fraction": 0.554,
+    "answer_image": null,
+    "prompt": "Question 263f9937"
+  },
+  {
+    "ext_id": "cb-advmath-hard-fada6b03",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"120\"]",
+    "image": "/pdf/advmath-hard/q_fada6b03.png",
+    "mask_fraction": 0.2756,
+    "answer_image": null,
+    "prompt": "Question fada6b03"
+  },
+  {
+    "ext_id": "cb-advmath-hard-137cc6fd",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Equivalent expressions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"0177\", \"0178\", \"4/225\"]",
+    "image": "/pdf/advmath-hard/q_137cc6fd.png",
+    "mask_fraction": 0.2543,
+    "answer_image": null,
+    "prompt": "Question 137cc6fd"
+  },
+  {
+    "ext_id": "cb-advmath-hard-6ce95fc8",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_6ce95fc8.png",
+    "mask_fraction": 0.4754,
+    "answer_image": null,
+    "prompt": "Question 6ce95fc8"
+  },
+  {
+    "ext_id": "cb-advmath-hard-4dd4efcf",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_4dd4efcf.png",
+    "mask_fraction": 0.4479,
+    "answer_image": null,
+    "prompt": "Question 4dd4efcf"
+  },
+  {
+    "ext_id": "cb-advmath-hard-f5aa5040",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"20.25\", \"81/4\"]",
+    "image": "/pdf/advmath-hard/q_f5aa5040.png",
+    "mask_fraction": 0.2648,
+    "answer_image": null,
+    "prompt": "Question f5aa5040"
+  },
+  {
+    "ext_id": "cb-advmath-hard-2992ac30",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/advmath-hard/q_2992ac30.png",
+    "mask_fraction": 0.3854,
+    "answer_image": null,
+    "prompt": "Question 2992ac30"
+  },
+  {
+    "ext_id": "cb-advmath-hard-841ef26c",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/advmath-hard/q_841ef26c.png",
+    "mask_fraction": 0.3674,
+    "answer_image": null,
+    "prompt": "Question 841ef26c"
+  },
+  {
+    "ext_id": "cb-advmath-hard-ea6d05bb",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Equivalent expressions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"-419\"]",
+    "image": "/pdf/advmath-hard/q_ea6d05bb.png",
+    "mask_fraction": 0.2159,
+    "answer_image": null,
+    "prompt": "Question ea6d05bb"
+  },
+  {
+    "ext_id": "cb-advmath-hard-09d21d79",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"-24\"]",
+    "image": "/pdf/advmath-hard/q_09d21d79.png",
+    "mask_fraction": 0.5786,
+    "answer_image": null,
+    "prompt": "Question 09d21d79"
+  },
+  {
+    "ext_id": "cb-advmath-hard-722de804",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"94\"]",
+    "image": "/pdf/advmath-hard/q_722de804.png",
+    "mask_fraction": 0.2775,
+    "answer_image": null,
+    "prompt": "Question 722de804"
+  },
+  {
+    "ext_id": "cb-advmath-hard-433184f1",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Equivalent expressions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_433184f1.png",
+    "mask_fraction": 0.3608,
+    "answer_image": null,
+    "prompt": "Question 433184f1"
+  },
+  {
+    "ext_id": "cb-advmath-hard-d135f4bf",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"76\"]",
+    "image": "/pdf/advmath-hard/q_d135f4bf.png",
+    "mask_fraction": 0.2339,
+    "answer_image": null,
+    "prompt": "Question d135f4bf"
+  },
+  {
+    "ext_id": "cb-advmath-hard-b0543157",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/advmath-hard/q_b0543157.png",
+    "mask_fraction": 0.3882,
+    "answer_image": null,
+    "prompt": "Question b0543157"
+  },
+  {
+    "ext_id": "cb-advmath-hard-d8789a4c",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Equivalent expressions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/advmath-hard/q_d8789a4c.png",
+    "mask_fraction": 0.428,
+    "answer_image": null,
+    "prompt": "Question d8789a4c"
+  },
+  {
+    "ext_id": "cb-advmath-hard-d0a53ef5",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"-3\"]",
+    "image": "/pdf/advmath-hard/q_d0a53ef5.png",
+    "mask_fraction": 0.286,
+    "answer_image": null,
+    "prompt": "Question d0a53ef5"
+  },
+  {
+    "ext_id": "cb-advmath-hard-271ffad7",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/advmath-hard/q_271ffad7.png",
+    "mask_fraction": 0.3882,
+    "answer_image": null,
+    "prompt": "Question 271ffad7"
+  },
+  {
+    "ext_id": "cb-advmath-hard-ee857afb",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"7\"]",
+    "image": "/pdf/advmath-hard/q_ee857afb.png",
+    "mask_fraction": 0.2453,
+    "answer_image": null,
+    "prompt": "Question ee857afb"
+  },
+  {
+    "ext_id": "cb-advmath-hard-35e05e19",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/advmath-hard/q_35e05e19.png",
+    "mask_fraction": 0.3826,
+    "answer_image": null,
+    "prompt": "Question 35e05e19"
+  },
+  {
+    "ext_id": "cb-advmath-hard-2c05d312",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/advmath-hard/q_2c05d312.png",
+    "mask_fraction": 0.4214,
+    "answer_image": null,
+    "prompt": "Question 2c05d312"
+  },
+  {
+    "ext_id": "cb-advmath-hard-1fe32f7d",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"51\"]",
+    "image": "/pdf/advmath-hard/q_1fe32f7d.png",
+    "mask_fraction": 0.2737,
+    "answer_image": null,
+    "prompt": "Question 1fe32f7d"
+  },
+  {
+    "ext_id": "cb-advmath-hard-a45ffacb",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"5\"]",
+    "image": "/pdf/advmath-hard/q_a45ffacb.png",
+    "mask_fraction": 0.2339,
+    "answer_image": null,
+    "prompt": "Question a45ffacb"
+  },
+  {
+    "ext_id": "cb-advmath-hard-821e724e",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"336\"]",
+    "image": "/pdf/advmath-hard/q_821e724e.png",
+    "mask_fraction": 0.2339,
+    "answer_image": null,
+    "prompt": "Question 821e724e"
+  },
+  {
+    "ext_id": "cb-advmath-hard-d8e84431",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/advmath-hard/q_d8e84431.png",
+    "mask_fraction": 0.3617,
+    "answer_image": null,
+    "prompt": "Question d8e84431"
+  },
+  {
+    "ext_id": "cb-advmath-hard-18e35375",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_18e35375.png",
+    "mask_fraction": 0.3731,
+    "answer_image": null,
+    "prompt": "Question 18e35375"
+  },
+  {
+    "ext_id": "cb-advmath-hard-c303ad23",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"5\"]",
+    "image": "/pdf/advmath-hard/q_c303ad23.png",
+    "mask_fraction": 0.2453,
+    "answer_image": null,
+    "prompt": "Question c303ad23"
+  },
+  {
+    "ext_id": "cb-advmath-hard-2cb17792",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"17.5\", \"35/2\"]",
+    "image": "/pdf/advmath-hard/q_2cb17792.png",
+    "mask_fraction": 0.3045,
+    "answer_image": null,
+    "prompt": "Question 2cb17792"
+  },
+  {
+    "ext_id": "cb-advmath-hard-ce508fb0",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"-4.9\", \"-49/10\"]",
+    "image": "/pdf/advmath-hard/q_ce508fb0.png",
+    "mask_fraction": 0.313,
+    "answer_image": null,
+    "prompt": "Question ce508fb0"
+  },
+  {
+    "ext_id": "cb-advmath-hard-74473be4",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_74473be4.png",
+    "mask_fraction": 0.3665,
+    "answer_image": null,
+    "prompt": "Question 74473be4"
+  },
+  {
+    "ext_id": "cb-advmath-hard-7bd10ef3",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/advmath-hard/q_7bd10ef3.png",
+    "mask_fraction": 0.4233,
+    "answer_image": null,
+    "prompt": "Question 7bd10ef3"
+  },
+  {
+    "ext_id": "cb-advmath-hard-e11294f9",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"31\"]",
+    "image": "/pdf/advmath-hard/q_e11294f9.png",
+    "mask_fraction": 0.2642,
+    "answer_image": null,
+    "prompt": "Question e11294f9"
+  },
+  {
+    "ext_id": "cb-advmath-hard-03ff48d2",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"50\"]",
+    "image": "/pdf/advmath-hard/q_03ff48d2.png",
+    "mask_fraction": 0.2746,
+    "answer_image": null,
+    "prompt": "Question 03ff48d2"
+  },
+  {
+    "ext_id": "cb-advmath-hard-7028c74f",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"10.33\", \"31/3\"]",
+    "image": "/pdf/advmath-hard/q_7028c74f.png",
+    "mask_fraction": 0.2752,
+    "answer_image": null,
+    "prompt": "Question 7028c74f"
+  },
+  {
+    "ext_id": "cb-advmath-hard-88a0c425",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/advmath-hard/q_88a0c425.png",
+    "mask_fraction": 0.3939,
+    "answer_image": null,
+    "prompt": "Question 88a0c425"
+  },
+  {
+    "ext_id": "cb-advmath-hard-8462b105",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/advmath-hard/q_8462b105.png",
+    "mask_fraction": 0.3466,
+    "answer_image": null,
+    "prompt": "Question 8462b105"
+  },
+  {
+    "ext_id": "cb-advmath-hard-ce579859",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/advmath-hard/q_ce579859.png",
+    "mask_fraction": 0.4015,
+    "answer_image": null,
+    "prompt": "Question ce579859"
+  },
+  {
+    "ext_id": "cb-advmath-hard-5355c0ef",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Equivalent expressions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"09\", \"9/100\"]",
+    "image": "/pdf/advmath-hard/q_5355c0ef.png",
+    "mask_fraction": 0.2439,
+    "answer_image": null,
+    "prompt": "Question 5355c0ef"
+  },
+  {
+    "ext_id": "cb-advmath-hard-2f51abc2",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/advmath-hard/q_2f51abc2.png",
+    "mask_fraction": 0.3759,
+    "answer_image": null,
+    "prompt": "Question 2f51abc2"
+  },
+  {
+    "ext_id": "cb-advmath-hard-17d0e87d",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/advmath-hard/q_17d0e87d.png",
+    "mask_fraction": 0.4432,
+    "answer_image": null,
+    "prompt": "Question 17d0e87d"
+  },
+  {
+    "ext_id": "cb-advmath-hard-c81b6c57",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Equivalent expressions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/advmath-hard/q_c81b6c57.png",
+    "mask_fraction": 0.4015,
+    "answer_image": null,
+    "prompt": "Question c81b6c57"
+  },
+  {
+    "ext_id": "cb-advmath-hard-d139cf4b",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/advmath-hard/q_d139cf4b.png",
+    "mask_fraction": 0.4081,
+    "answer_image": null,
+    "prompt": "Question d139cf4b"
+  },
+  {
+    "ext_id": "cb-advmath-hard-66bce0c1",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/advmath-hard/q_66bce0c1.png",
+    "mask_fraction": 0.4346,
+    "answer_image": null,
+    "prompt": "Question 66bce0c1"
+  },
+  {
+    "ext_id": "cb-advmath-hard-97e50fa2",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"2\", \"8\"]",
+    "image": "/pdf/advmath-hard/q_97e50fa2.png",
+    "mask_fraction": 0.4536,
+    "answer_image": null,
+    "prompt": "Question 97e50fa2"
+  },
+  {
+    "ext_id": "cb-advmath-hard-c946d5bd",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_c946d5bd.png",
+    "mask_fraction": 0.7121,
+    "answer_image": null,
+    "prompt": "Question c946d5bd"
+  },
+  {
+    "ext_id": "cb-advmath-hard-ebb717ab",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"289\"]",
+    "image": "/pdf/advmath-hard/q_ebb717ab.png",
+    "mask_fraction": 0.2737,
+    "answer_image": null,
+    "prompt": "Question ebb717ab"
+  },
+  {
+    "ext_id": "cb-advmath-hard-e51bf5b1",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Equivalent expressions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_e51bf5b1.png",
+    "mask_fraction": 0.3371,
+    "answer_image": null,
+    "prompt": "Question e51bf5b1"
+  },
+  {
+    "ext_id": "cb-advmath-hard-9afe2370",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/advmath-hard/q_9afe2370.png",
+    "mask_fraction": 0.4365,
+    "answer_image": null,
+    "prompt": "Question 9afe2370"
+  },
+  {
+    "ext_id": "cb-advmath-hard-df71424b",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_df71424b.png",
+    "mask_fraction": 0.6903,
+    "answer_image": null,
+    "prompt": "Question df71424b"
+  },
+  {
+    "ext_id": "cb-advmath-hard-967ef685",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Equivalent expressions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_967ef685.png",
+    "mask_fraction": 0.3579,
+    "answer_image": null,
+    "prompt": "Question 967ef685"
+  },
+  {
+    "ext_id": "cb-advmath-hard-b7c74b73",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/advmath-hard/q_b7c74b73.png",
+    "mask_fraction": 0.3835,
+    "answer_image": null,
+    "prompt": "Question b7c74b73"
+  },
+  {
+    "ext_id": "cb-advmath-hard-3d12b1e0",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"-1\"]",
+    "image": "/pdf/advmath-hard/q_3d12b1e0.png",
+    "mask_fraction": 0.2737,
+    "answer_image": null,
+    "prompt": "Question 3d12b1e0"
+  },
+  {
+    "ext_id": "cb-advmath-hard-2c88af4d",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Equivalent expressions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_2c88af4d.png",
+    "mask_fraction": 0.5246,
+    "answer_image": null,
+    "prompt": "Question 2c88af4d"
+  },
+  {
+    "ext_id": "cb-advmath-hard-ffdbcad4",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Equivalent expressions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_ffdbcad4.png",
+    "mask_fraction": 0.3703,
+    "answer_image": null,
+    "prompt": "Question ffdbcad4"
+  },
+  {
+    "ext_id": "cb-advmath-hard-71014fb1",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_71014fb1.png",
+    "mask_fraction": 0.4176,
+    "answer_image": null,
+    "prompt": "Question 71014fb1"
+  },
+  {
+    "ext_id": "cb-advmath-hard-22fd3e1f",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Equivalent expressions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_22fd3e1f.png",
+    "mask_fraction": 0.5398,
+    "answer_image": null,
+    "prompt": "Question 22fd3e1f"
+  },
+  {
+    "ext_id": "cb-advmath-hard-4dc5c6f9",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_4dc5c6f9.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question 4dc5c6f9"
+  },
+  {
+    "ext_id": "cb-advmath-hard-a0b4103e",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Equivalent expressions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_a0b4103e.png",
+    "mask_fraction": 0.3968,
+    "answer_image": null,
+    "prompt": "Question a0b4103e"
+  },
+  {
+    "ext_id": "cb-advmath-hard-565428e1",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Equivalent expressions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"5061\", \"5062\", \"41/81\"]",
+    "image": "/pdf/advmath-hard/q_565428e1.png",
+    "mask_fraction": 0.2487,
+    "answer_image": null,
+    "prompt": "Question 565428e1"
+  },
+  {
+    "ext_id": "cb-advmath-hard-2cd6b22d",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_2cd6b22d.png",
+    "mask_fraction": 0.4138,
+    "answer_image": null,
+    "prompt": "Question 2cd6b22d"
+  },
+  {
+    "ext_id": "cb-advmath-hard-f2d60b99",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/advmath-hard/q_f2d60b99.png",
+    "mask_fraction": 0.375,
+    "answer_image": null,
+    "prompt": "Question f2d60b99"
+  },
+  {
+    "ext_id": "cb-advmath-hard-36b6f8ba",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/advmath-hard/q_36b6f8ba.png",
+    "mask_fraction": 0.6799,
+    "answer_image": null,
+    "prompt": "Question 36b6f8ba"
+  },
+  {
+    "ext_id": "cb-advmath-hard-e9349667",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_e9349667.png",
+    "mask_fraction": 0.4498,
+    "answer_image": null,
+    "prompt": "Question e9349667"
+  },
+  {
+    "ext_id": "cb-advmath-hard-1f353a9e",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_1f353a9e.png",
+    "mask_fraction": 0.4233,
+    "answer_image": null,
+    "prompt": "Question 1f353a9e"
+  },
+  {
+    "ext_id": "cb-advmath-hard-b03adde3",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_b03adde3.png",
+    "mask_fraction": 0.5028,
+    "answer_image": null,
+    "prompt": "Question b03adde3"
+  },
+  {
+    "ext_id": "cb-advmath-hard-1ce9ffcd",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/advmath-hard/q_1ce9ffcd.png",
+    "mask_fraction": 0.393,
+    "answer_image": null,
+    "prompt": "Question 1ce9ffcd"
+  },
+  {
+    "ext_id": "cb-advmath-hard-104bff62",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_104bff62.png",
+    "mask_fraction": 0.4129,
+    "answer_image": null,
+    "prompt": "Question 104bff62"
+  },
+  {
+    "ext_id": "cb-advmath-hard-270cf326",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_270cf326.png",
+    "mask_fraction": 0.4337,
+    "answer_image": null,
+    "prompt": "Question 270cf326"
+  },
+  {
+    "ext_id": "cb-advmath-hard-92f812bb",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_92f812bb.png",
+    "mask_fraction": 0.3551,
+    "answer_image": null,
+    "prompt": "Question 92f812bb"
+  },
+  {
+    "ext_id": "cb-advmath-hard-7dbd46d9",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/advmath-hard/q_7dbd46d9.png",
+    "mask_fraction": 0.4214,
+    "answer_image": null,
+    "prompt": "Question 7dbd46d9"
+  },
+  {
+    "ext_id": "cb-advmath-hard-0121a235",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_0121a235.png",
+    "mask_fraction": 0.5672,
+    "answer_image": null,
+    "prompt": "Question 0121a235"
+  },
+  {
+    "ext_id": "cb-advmath-hard-158591f0",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"29/3\", \"9.666\", \"9.667\"]",
+    "image": "/pdf/advmath-hard/q_158591f0.png",
+    "mask_fraction": 0.2752,
+    "answer_image": null,
+    "prompt": "Question 158591f0"
+  },
+  {
+    "ext_id": "cb-advmath-hard-bba18ecb",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/advmath-hard/q_bba18ecb.png",
+    "mask_fraction": 0.3703,
+    "answer_image": null,
+    "prompt": "Question bba18ecb"
+  },
+  {
+    "ext_id": "cb-advmath-hard-668f1863",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"-12\"]",
+    "image": "/pdf/advmath-hard/q_668f1863.png",
+    "mask_fraction": 0.2339,
+    "answer_image": null,
+    "prompt": "Question 668f1863"
+  },
+  {
+    "ext_id": "cb-advmath-hard-70753f99",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/advmath-hard/q_70753f99.png",
+    "mask_fraction": 0.4006,
+    "answer_image": null,
+    "prompt": "Question 70753f99"
+  },
+  {
+    "ext_id": "cb-advmath-hard-c6e85cd7",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Equivalent expressions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"2916\", \"2917\", \"7/24\"]",
+    "image": "/pdf/advmath-hard/q_c6e85cd7.png",
+    "mask_fraction": 0.2183,
+    "answer_image": null,
+    "prompt": "Question c6e85cd7"
+  },
+  {
+    "ext_id": "cb-advmath-hard-6aefc52b",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"14\"]",
+    "image": "/pdf/advmath-hard/q_6aefc52b.png",
+    "mask_fraction": 0.3021,
+    "answer_image": null,
+    "prompt": "Question 6aefc52b"
+  },
+  {
+    "ext_id": "cb-advmath-hard-55c5d3c2",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"-19\"]",
+    "image": "/pdf/advmath-hard/q_55c5d3c2.png",
+    "mask_fraction": 0.2339,
+    "answer_image": null,
+    "prompt": "Question 55c5d3c2"
+  },
+  {
+    "ext_id": "cb-advmath-hard-c9417793",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"18\"]",
+    "image": "/pdf/advmath-hard/q_c9417793.png",
+    "mask_fraction": 0.2746,
+    "answer_image": null,
+    "prompt": "Question c9417793"
+  },
+  {
+    "ext_id": "cb-advmath-hard-58dcc59f",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"13\"]",
+    "image": "/pdf/advmath-hard/q_58dcc59f.png",
+    "mask_fraction": 0.2339,
+    "answer_image": null,
+    "prompt": "Question 58dcc59f"
+  },
+  {
+    "ext_id": "cb-advmath-hard-2d1614a1",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/advmath-hard/q_2d1614a1.png",
+    "mask_fraction": 0.3854,
+    "answer_image": null,
+    "prompt": "Question 2d1614a1"
+  },
+  {
+    "ext_id": "cb-advmath-hard-16aa9758",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/advmath-hard/q_16aa9758.png",
+    "mask_fraction": 0.3949,
+    "answer_image": null,
+    "prompt": "Question 16aa9758"
+  },
+  {
+    "ext_id": "cb-advmath-hard-30281058",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/advmath-hard/q_30281058.png",
+    "mask_fraction": 0.4053,
+    "answer_image": null,
+    "prompt": "Question 30281058"
+  },
+  {
+    "ext_id": "cb-advmath-hard-84dd43f8",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"3.44\", \"86/25\"]",
+    "image": "/pdf/advmath-hard/q_84dd43f8.png",
+    "mask_fraction": 0.2165,
+    "answer_image": null,
+    "prompt": "Question 84dd43f8"
+  },
+  {
+    "ext_id": "cb-advmath-hard-59d1f4b5",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/advmath-hard/q_59d1f4b5.png",
+    "mask_fraction": 0.465,
+    "answer_image": null,
+    "prompt": "Question 59d1f4b5"
+  },
+  {
+    "ext_id": "cb-advmath-hard-4fb8a648",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/advmath-hard/q_4fb8a648.png",
+    "mask_fraction": 0.4204,
+    "answer_image": null,
+    "prompt": "Question 4fb8a648"
+  },
+  {
+    "ext_id": "cb-advmath-hard-133f3e41",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/advmath-hard/q_133f3e41.png",
+    "mask_fraction": 0.4157,
+    "answer_image": null,
+    "prompt": "Question 133f3e41"
+  },
+  {
+    "ext_id": "cb-advmath-hard-01668cd6",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/advmath-hard/q_01668cd6.png",
+    "mask_fraction": 0.4195,
+    "answer_image": null,
+    "prompt": "Question 01668cd6"
+  },
+  {
+    "ext_id": "cb-advmath-hard-95eeeb5b",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/advmath-hard/q_95eeeb5b.png",
+    "mask_fraction": 0.3532,
+    "answer_image": null,
+    "prompt": "Question 95eeeb5b"
+  },
+  {
+    "ext_id": "cb-advmath-hard-5910bfff",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/advmath-hard/q_5910bfff.png",
+    "mask_fraction": 0.6288,
+    "answer_image": null,
+    "prompt": "Question 5910bfff"
+  },
+  {
+    "ext_id": "cb-advmath-hard-fbb96bb1",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/advmath-hard/q_fbb96bb1.png",
+    "mask_fraction": 0.4763,
+    "answer_image": null,
+    "prompt": "Question fbb96bb1"
+  },
+  {
+    "ext_id": "cb-advmath-hard-ad038c19",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Equivalent expressions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_ad038c19.png",
+    "mask_fraction": 0.5114,
+    "answer_image": null,
+    "prompt": "Question ad038c19"
+  },
+  {
+    "ext_id": "cb-advmath-hard-ef926848",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/advmath-hard/q_ef926848.png",
+    "mask_fraction": 0.3665,
+    "answer_image": null,
+    "prompt": "Question ef926848"
+  },
+  {
+    "ext_id": "cb-advmath-hard-77c0cced",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/advmath-hard/q_77c0cced.png",
+    "mask_fraction": 0.4394,
+    "answer_image": null,
+    "prompt": "Question 77c0cced"
+  },
+  {
+    "ext_id": "cb-advmath-hard-635f54ee",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/advmath-hard/q_635f54ee.png",
+    "mask_fraction": 0.4186,
+    "answer_image": null,
+    "prompt": "Question 635f54ee"
+  },
+  {
+    "ext_id": "cb-advmath-hard-1697ffcf",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"5\"]",
+    "image": "/pdf/advmath-hard/q_1697ffcf.png",
+    "mask_fraction": 0.2557,
+    "answer_image": null,
+    "prompt": "Question 1697ffcf"
+  },
+  {
+    "ext_id": "cb-advmath-hard-70fb357b",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/advmath-hard/q_70fb357b.png",
+    "mask_fraction": 0.4015,
+    "answer_image": null,
+    "prompt": "Question 70fb357b"
+  },
+  {
+    "ext_id": "cb-advmath-hard-20291f47",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Equivalent expressions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/advmath-hard/q_20291f47.png",
+    "mask_fraction": 0.3703,
+    "answer_image": null,
+    "prompt": "Question 20291f47"
+  },
+  {
+    "ext_id": "cb-advmath-hard-42f8e4b4",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Equivalent expressions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"8\"]",
+    "image": "/pdf/advmath-hard/q_42f8e4b4.png",
+    "mask_fraction": 0.2159,
+    "answer_image": null,
+    "prompt": "Question 42f8e4b4"
+  },
+  {
+    "ext_id": "cb-advmath-hard-de39858a",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/advmath-hard/q_de39858a.png",
+    "mask_fraction": 0.3608,
+    "answer_image": null,
+    "prompt": "Question de39858a"
+  },
+  {
+    "ext_id": "cb-advmath-hard-d41cf4d3",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_d41cf4d3.png",
+    "mask_fraction": 0.3646,
+    "answer_image": null,
+    "prompt": "Question d41cf4d3"
+  },
+  {
+    "ext_id": "cb-advmath-hard-1178f2df",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"-2112\"]",
+    "image": "/pdf/advmath-hard/q_1178f2df.png",
+    "mask_fraction": 0.322,
+    "answer_image": null,
+    "prompt": "Question 1178f2df"
+  },
+  {
+    "ext_id": "cb-advmath-hard-c8a5c221",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Equivalent expressions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/advmath-hard/q_c8a5c221.png",
+    "mask_fraction": 0.3655,
+    "answer_image": null,
+    "prompt": "Question c8a5c221"
+  },
+  {
+    "ext_id": "cb-advmath-hard-84e8cc72",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/advmath-hard/q_84e8cc72.png",
+    "mask_fraction": 0.3911,
+    "answer_image": null,
+    "prompt": "Question 84e8cc72"
+  },
+  {
+    "ext_id": "cb-advmath-hard-12e7faf8",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Equivalent expressions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/advmath-hard/q_12e7faf8.png",
+    "mask_fraction": 0.3968,
+    "answer_image": null,
+    "prompt": "Question 12e7faf8"
+  },
+  {
+    "ext_id": "cb-advmath-hard-89fc23af",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Equivalent expressions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_89fc23af.png",
+    "mask_fraction": 0.4811,
+    "answer_image": null,
+    "prompt": "Question 89fc23af"
+  },
+  {
+    "ext_id": "cb-advmath-hard-041eda89",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"29\"]",
+    "image": "/pdf/advmath-hard/q_041eda89.png",
+    "mask_fraction": 0.2756,
+    "answer_image": null,
+    "prompt": "Question 041eda89"
+  },
+  {
+    "ext_id": "cb-advmath-hard-911c415b",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Equivalent expressions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"6632\"]",
+    "image": "/pdf/advmath-hard/q_911c415b.png",
+    "mask_fraction": 0.2547,
+    "answer_image": null,
+    "prompt": "Question 911c415b"
+  },
+  {
+    "ext_id": "cb-advmath-hard-b74f2feb",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Equivalent expressions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"361/8\", \"45.12\", \"45.13\"]",
+    "image": "/pdf/advmath-hard/q_b74f2feb.png",
+    "mask_fraction": 0.2183,
+    "answer_image": null,
+    "prompt": "Question b74f2feb"
+  },
+  {
+    "ext_id": "cb-advmath-hard-5edc8c98",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"0625\", \"1/16\"]",
+    "image": "/pdf/advmath-hard/q_5edc8c98.png",
+    "mask_fraction": 0.2941,
+    "answer_image": null,
+    "prompt": "Question 5edc8c98"
+  },
+  {
+    "ext_id": "cb-advmath-hard-cd358b89",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/advmath-hard/q_cd358b89.png",
+    "mask_fraction": 0.3532,
+    "answer_image": null,
+    "prompt": "Question cd358b89"
+  },
+  {
+    "ext_id": "cb-advmath-hard-f89e1d6f",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Equivalent expressions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/advmath-hard/q_f89e1d6f.png",
+    "mask_fraction": 0.4072,
+    "answer_image": null,
+    "prompt": "Question f89e1d6f"
+  },
+  {
+    "ext_id": "cb-advmath-hard-ff2e5c76",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_ff2e5c76.png",
+    "mask_fraction": 0.3911,
+    "answer_image": null,
+    "prompt": "Question ff2e5c76"
+  },
+  {
+    "ext_id": "cb-advmath-hard-2c5c22d0",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/advmath-hard/q_2c5c22d0.png",
+    "mask_fraction": 0.4309,
+    "answer_image": null,
+    "prompt": "Question 2c5c22d0"
+  },
+  {
+    "ext_id": "cb-advmath-hard-f678483b",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"35\"]",
+    "image": "/pdf/advmath-hard/q_f678483b.png",
+    "mask_fraction": 0.2528,
+    "answer_image": null,
+    "prompt": "Question f678483b"
+  },
+  {
+    "ext_id": "cb-advmath-hard-fc3dfa26",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/advmath-hard/q_fc3dfa26.png",
+    "mask_fraction": 0.4905,
+    "answer_image": null,
+    "prompt": "Question fc3dfa26"
+  },
+  {
+    "ext_id": "cb-advmath-hard-6d9e01a2",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"25/4\", \"6.25\"]",
+    "image": "/pdf/advmath-hard/q_6d9e01a2.png",
+    "mask_fraction": 0.2468,
+    "answer_image": null,
+    "prompt": "Question 6d9e01a2"
+  },
+  {
+    "ext_id": "cb-advmath-hard-9f2ecade",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"210\"]",
+    "image": "/pdf/advmath-hard/q_9f2ecade.png",
+    "mask_fraction": 0.249,
+    "answer_image": null,
+    "prompt": "Question 9f2ecade"
+  },
+  {
+    "ext_id": "cb-advmath-hard-083ef63a",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"-13/2\", \"-6.5\"]",
+    "image": "/pdf/advmath-hard/q_083ef63a.png",
+    "mask_fraction": 0.2458,
+    "answer_image": null,
+    "prompt": "Question 083ef63a"
+  },
+  {
+    "ext_id": "cb-advmath-hard-6011a3f8",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/advmath-hard/q_6011a3f8.png",
+    "mask_fraction": 0.393,
+    "answer_image": null,
+    "prompt": "Question 6011a3f8"
+  },
+  {
+    "ext_id": "cb-advmath-hard-0e61101e",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/advmath-hard/q_0e61101e.png",
+    "mask_fraction": 0.3759,
+    "answer_image": null,
+    "prompt": "Question 0e61101e"
+  },
+  {
+    "ext_id": "cb-advmath-hard-e117d3b8",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Equivalent expressions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/advmath-hard/q_e117d3b8.png",
+    "mask_fraction": 0.4072,
+    "answer_image": null,
+    "prompt": "Question e117d3b8"
+  },
+  {
+    "ext_id": "cb-advmath-hard-f44b4125",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/advmath-hard/q_f44b4125.png",
+    "mask_fraction": 0.4186,
+    "answer_image": null,
+    "prompt": "Question f44b4125"
+  },
+  {
+    "ext_id": "cb-advmath-hard-7a6d06bf",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"5\"]",
+    "image": "/pdf/advmath-hard/q_7a6d06bf.png",
+    "mask_fraction": 0.2339,
+    "answer_image": null,
+    "prompt": "Question 7a6d06bf"
+  },
+  {
+    "ext_id": "cb-advmath-hard-04bbce67",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"-7\"]",
+    "image": "/pdf/advmath-hard/q_04bbce67.png",
+    "mask_fraction": 0.2471,
+    "answer_image": null,
+    "prompt": "Question 04bbce67"
+  },
+  {
+    "ext_id": "cb-advmath-hard-dcf63c94",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/advmath-hard/q_dcf63c94.png",
+    "mask_fraction": 0.3759,
+    "answer_image": null,
+    "prompt": "Question dcf63c94"
+  },
+  {
+    "ext_id": "cb-advmath-hard-9cb9beec",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"14.5\", \"29/2\"]",
+    "image": "/pdf/advmath-hard/q_9cb9beec.png",
+    "mask_fraction": 0.3026,
+    "answer_image": null,
+    "prompt": "Question 9cb9beec"
+  },
+  {
+    "ext_id": "cb-advmath-hard-2b1a27cd",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"168\"]",
+    "image": "/pdf/advmath-hard/q_2b1a27cd.png",
+    "mask_fraction": 0.2708,
+    "answer_image": null,
+    "prompt": "Question 2b1a27cd"
+  },
+  {
+    "ext_id": "cb-advmath-hard-1073d70c",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_1073d70c.png",
+    "mask_fraction": 0.4195,
+    "answer_image": null,
+    "prompt": "Question 1073d70c"
+  },
+  {
+    "ext_id": "cb-advmath-hard-1fe10d97",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_1fe10d97.png",
+    "mask_fraction": 0.4034,
+    "answer_image": null,
+    "prompt": "Question 1fe10d97"
+  },
+  {
+    "ext_id": "cb-advmath-hard-7355b9d9",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Equivalent expressions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_7355b9d9.png",
+    "mask_fraction": 0.3437,
+    "answer_image": null,
+    "prompt": "Question 7355b9d9"
+  },
+  {
+    "ext_id": "cb-advmath-hard-b73ee6cf",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_b73ee6cf.png",
+    "mask_fraction": 0.4157,
+    "answer_image": null,
+    "prompt": "Question b73ee6cf"
+  },
+  {
+    "ext_id": "cb-advmath-hard-08d03fe4",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/advmath-hard/q_08d03fe4.png",
+    "mask_fraction": 0.3665,
+    "answer_image": null,
+    "prompt": "Question 08d03fe4"
+  },
+  {
+    "ext_id": "cb-advmath-hard-7eed640d",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_7eed640d.png",
+    "mask_fraction": 0.4091,
+    "answer_image": null,
+    "prompt": "Question 7eed640d"
+  },
+  {
+    "ext_id": "cb-advmath-hard-43926bd9",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"8\"]",
+    "image": "/pdf/advmath-hard/q_43926bd9.png",
+    "mask_fraction": 0.4081,
+    "answer_image": null,
+    "prompt": "Question 43926bd9"
+  },
+  {
+    "ext_id": "cb-advmath-hard-4d037075",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/advmath-hard/q_4d037075.png",
+    "mask_fraction": 0.7367,
+    "answer_image": null,
+    "prompt": "Question 4d037075"
+  },
+  {
+    "ext_id": "cb-advmath-hard-f25a34aa",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"110\"]",
+    "image": "/pdf/advmath-hard/q_f25a34aa.png",
+    "mask_fraction": 0.2339,
+    "answer_image": null,
+    "prompt": "Question f25a34aa"
+  },
+  {
+    "ext_id": "cb-advmath-hard-4d7064a6",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_4d7064a6.png",
+    "mask_fraction": 0.3731,
+    "answer_image": null,
+    "prompt": "Question 4d7064a6"
+  },
+  {
+    "ext_id": "cb-advmath-hard-c8e9a011",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_c8e9a011.png",
+    "mask_fraction": 0.4081,
+    "answer_image": null,
+    "prompt": "Question c8e9a011"
+  },
+  {
+    "ext_id": "cb-advmath-hard-7e6ea718",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/advmath-hard/q_7e6ea718.png",
+    "mask_fraction": 0.3797,
+    "answer_image": null,
+    "prompt": "Question 7e6ea718"
+  },
+  {
+    "ext_id": "cb-advmath-hard-a58232b7",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_a58232b7.png",
+    "mask_fraction": 0.4195,
+    "answer_image": null,
+    "prompt": "Question a58232b7"
+  },
+  {
+    "ext_id": "cb-advmath-hard-1853bb35",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/advmath-hard/q_1853bb35.png",
+    "mask_fraction": 0.3466,
+    "answer_image": null,
+    "prompt": "Question 1853bb35"
+  },
+  {
+    "ext_id": "cb-advmath-hard-a54753ca",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/advmath-hard/q_a54753ca.png",
+    "mask_fraction": 0.3778,
+    "answer_image": null,
+    "prompt": "Question a54753ca"
+  },
+  {
+    "ext_id": "cb-advmath-hard-a8ae0d22",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_a8ae0d22.png",
+    "mask_fraction": 0.3655,
+    "answer_image": null,
+    "prompt": "Question a8ae0d22"
+  },
+  {
+    "ext_id": "cb-advmath-hard-161126cf",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/advmath-hard/q_161126cf.png",
+    "mask_fraction": 0.3835,
+    "answer_image": null,
+    "prompt": "Question 161126cf"
+  },
+  {
+    "ext_id": "cb-advmath-hard-a7711fe8",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/advmath-hard/q_a7711fe8.png",
+    "mask_fraction": 0.3759,
+    "answer_image": null,
+    "prompt": "Question a7711fe8"
+  },
+  {
+    "ext_id": "cb-advmath-hard-1a722d7d",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_1a722d7d.png",
+    "mask_fraction": 0.3892,
+    "answer_image": null,
+    "prompt": "Question 1a722d7d"
+  },
+  {
+    "ext_id": "cb-advmath-hard-3a01a5ee",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_3a01a5ee.png",
+    "mask_fraction": 0.4025,
+    "answer_image": null,
+    "prompt": "Question 3a01a5ee"
+  },
+  {
+    "ext_id": "cb-advmath-hard-6e7ae9fc",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"25\"]",
+    "image": "/pdf/advmath-hard/q_6e7ae9fc.png",
+    "mask_fraction": 0.2348,
+    "answer_image": null,
+    "prompt": "Question 6e7ae9fc"
+  },
+  {
+    "ext_id": "cb-advmath-hard-48f83c34",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear functions",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/advmath-hard/q_48f83c34.png",
+    "mask_fraction": 0.3646,
+    "answer_image": null,
+    "prompt": "Question 48f83c34"
+  },
+  {
+    "ext_id": "cb-advmath-hard-58b109d4",
+    "domain": "math",
+    "topic": "advanced-math",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Nonlinear equations in one variable and systems of equations in two variables",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"-10\"]",
+    "image": "/pdf/advmath-hard/q_58b109d4.png",
+    "mask_fraction": 0.304,
+    "answer_image": null,
+    "prompt": "Question 58b109d4"
+  }
+]

@@ -1,0 +1,3033 @@
+[
+  {
+    "ext_id": "cb-psda-medium-a5b069b4",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "One-variable data: Distributions and measures of center and spread",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/psda-medium/q_a5b069b4.png",
+    "mask_fraction": 0.3958,
+    "answer_image": null,
+    "prompt": "Question a5b069b4"
+  },
+  {
+    "ext_id": "cb-psda-medium-b1b5300b",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Probability and conditional probability",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/psda-medium/q_b1b5300b.png",
+    "mask_fraction": 0.6061,
+    "answer_image": null,
+    "prompt": "Question b1b5300b"
+  },
+  {
+    "ext_id": "cb-psda-medium-d28c29e1",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Ratios, rates, proportional relationships, and units",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/psda-medium/q_d28c29e1.png",
+    "mask_fraction": 0.3901,
+    "answer_image": null,
+    "prompt": "Question d28c29e1"
+  },
+  {
+    "ext_id": "cb-psda-medium-1adb39f0",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Two-variable data: Models and scatterplots",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/psda-medium/q_1adb39f0.png",
+    "mask_fraction": 0.5237,
+    "answer_image": null,
+    "prompt": "Question 1adb39f0"
+  },
+  {
+    "ext_id": "cb-psda-medium-b4912cc5",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Ratios, rates, proportional relationships, and units",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/psda-medium/q_b4912cc5.png",
+    "mask_fraction": 0.3901,
+    "answer_image": null,
+    "prompt": "Question b4912cc5"
+  },
+  {
+    "ext_id": "cb-psda-medium-825b7490",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Ratios, rates, proportional relationships, and units",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"980\"]",
+    "image": "/pdf/psda-medium/q_825b7490.png",
+    "mask_fraction": 0.232,
+    "answer_image": null,
+    "prompt": "Question 825b7490"
+  },
+  {
+    "ext_id": "cb-psda-medium-37930b2a",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Evaluating statistical claims: Observational studies and experiments",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/psda-medium/q_37930b2a.png",
+    "mask_fraction": 0.4602,
+    "answer_image": null,
+    "prompt": "Question 37930b2a"
+  },
+  {
+    "ext_id": "cb-psda-medium-3310c2ab",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Ratios, rates, proportional relationships, and units",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"2432\"]",
+    "image": "/pdf/psda-medium/q_3310c2ab.png",
+    "mask_fraction": 0.232,
+    "answer_image": null,
+    "prompt": "Question 3310c2ab"
+  },
+  {
+    "ext_id": "cb-psda-medium-4c774b00",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "One-variable data: Distributions and measures of center and spread",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/psda-medium/q_4c774b00.png",
+    "mask_fraction": 0.643,
+    "answer_image": null,
+    "prompt": "Question 4c774b00"
+  },
+  {
+    "ext_id": "cb-psda-medium-a456cfd2",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "One-variable data: Distributions and measures of center and spread",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"14\"]",
+    "image": "/pdf/psda-medium/q_a456cfd2.png",
+    "mask_fraction": 0.482,
+    "answer_image": null,
+    "prompt": "Question a456cfd2"
+  },
+  {
+    "ext_id": "cb-psda-medium-e1ad3d41",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Probability and conditional probability",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/psda-medium/q_e1ad3d41.png",
+    "mask_fraction": 0.6117,
+    "answer_image": null,
+    "prompt": "Question e1ad3d41"
+  },
+  {
+    "ext_id": "cb-psda-medium-3726e079",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Ratios, rates, proportional relationships, and units",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"24\"]",
+    "image": "/pdf/psda-medium/q_3726e079.png",
+    "mask_fraction": 0.2329,
+    "answer_image": null,
+    "prompt": "Question 3726e079"
+  },
+  {
+    "ext_id": "cb-psda-medium-05195d8a",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Percentages",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"110\"]",
+    "image": "/pdf/psda-medium/q_05195d8a.png",
+    "mask_fraction": 0.2187,
+    "answer_image": null,
+    "prompt": "Question 05195d8a"
+  },
+  {
+    "ext_id": "cb-psda-medium-8e528129",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Ratios, rates, proportional relationships, and units",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"4\"]",
+    "image": "/pdf/psda-medium/q_8e528129.png",
+    "mask_fraction": 0.25,
+    "answer_image": null,
+    "prompt": "Question 8e528129"
+  },
+  {
+    "ext_id": "cb-psda-medium-53d97af5",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inference from sample statistics and margin of error",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/psda-medium/q_53d97af5.png",
+    "mask_fraction": 0.4081,
+    "answer_image": null,
+    "prompt": "Question 53d97af5"
+  },
+  {
+    "ext_id": "cb-psda-medium-0301c5dc",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Probability and conditional probability",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/psda-medium/q_0301c5dc.png",
+    "mask_fraction": 0.5549,
+    "answer_image": null,
+    "prompt": "Question 0301c5dc"
+  },
+  {
+    "ext_id": "cb-psda-medium-0ae37ff3",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Probability and conditional probability",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/psda-medium/q_0ae37ff3.png",
+    "mask_fraction": 0.3721,
+    "answer_image": null,
+    "prompt": "Question 0ae37ff3"
+  },
+  {
+    "ext_id": "cb-psda-medium-9bb4107c",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Two-variable data: Models and scatterplots",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"0.5\", \"1/2\"]",
+    "image": "/pdf/psda-medium/q_9bb4107c.png",
+    "mask_fraction": 0.6123,
+    "answer_image": null,
+    "prompt": "Question 9bb4107c"
+  },
+  {
+    "ext_id": "cb-psda-medium-3f2ee20a",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "One-variable data: Distributions and measures of center and spread",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/psda-medium/q_3f2ee20a.png",
+    "mask_fraction": 0.5028,
+    "answer_image": null,
+    "prompt": "Question 3f2ee20a"
+  },
+  {
+    "ext_id": "cb-psda-medium-d0efc1dd",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "One-variable data: Distributions and measures of center and spread",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/psda-medium/q_d0efc1dd.png",
+    "mask_fraction": 0.4043,
+    "answer_image": null,
+    "prompt": "Question d0efc1dd"
+  },
+  {
+    "ext_id": "cb-psda-medium-2e74e403",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Two-variable data: Models and scatterplots",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/psda-medium/q_2e74e403.png",
+    "mask_fraction": 0.7339,
+    "answer_image": null,
+    "prompt": "Question 2e74e403"
+  },
+  {
+    "ext_id": "cb-psda-medium-f8f79e11",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inference from sample statistics and margin of error",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/psda-medium/q_f8f79e11.png",
+    "mask_fraction": 0.3901,
+    "answer_image": null,
+    "prompt": "Question f8f79e11"
+  },
+  {
+    "ext_id": "cb-psda-medium-9fa781f8",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Ratios, rates, proportional relationships, and units",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"90\"]",
+    "image": "/pdf/psda-medium/q_9fa781f8.png",
+    "mask_fraction": 0.232,
+    "answer_image": null,
+    "prompt": "Question 9fa781f8"
+  },
+  {
+    "ext_id": "cb-psda-medium-9a144a01",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Two-variable data: Models and scatterplots",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/psda-medium/q_9a144a01.png",
+    "mask_fraction": 0.3911,
+    "answer_image": null,
+    "prompt": "Question 9a144a01"
+  },
+  {
+    "ext_id": "cb-psda-medium-022e9894",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Percentages",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"324\"]",
+    "image": "/pdf/psda-medium/q_022e9894.png",
+    "mask_fraction": 0.2547,
+    "answer_image": null,
+    "prompt": "Question 022e9894"
+  },
+  {
+    "ext_id": "cb-psda-medium-e24765e6",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Two-variable data: Models and scatterplots",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"5\"]",
+    "image": "/pdf/psda-medium/q_e24765e6.png",
+    "mask_fraction": 0.553,
+    "answer_image": null,
+    "prompt": "Question e24765e6"
+  },
+  {
+    "ext_id": "cb-psda-medium-63573fea",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Percentages",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/psda-medium/q_63573fea.png",
+    "mask_fraction": 0.3949,
+    "answer_image": null,
+    "prompt": "Question 63573fea"
+  },
+  {
+    "ext_id": "cb-psda-medium-03a16790",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Two-variable data: Models and scatterplots",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/psda-medium/q_03a16790.png",
+    "mask_fraction": 0.7292,
+    "answer_image": null,
+    "prompt": "Question 03a16790"
+  },
+  {
+    "ext_id": "cb-psda-medium-b4f5a7ca",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Evaluating statistical claims: Observational studies and experiments",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/psda-medium/q_b4f5a7ca.png",
+    "mask_fraction": 0.3901,
+    "answer_image": null,
+    "prompt": "Question b4f5a7ca"
+  },
+  {
+    "ext_id": "cb-psda-medium-c3d78831",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Ratios, rates, proportional relationships, and units",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/psda-medium/q_c3d78831.png",
+    "mask_fraction": 0.3807,
+    "answer_image": null,
+    "prompt": "Question c3d78831"
+  },
+  {
+    "ext_id": "cb-psda-medium-fea831fc",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Ratios, rates, proportional relationships, and units",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"25\", \"25.4\", \"127/5\"]",
+    "image": "/pdf/psda-medium/q_fea831fc.png",
+    "mask_fraction": 0.268,
+    "answer_image": null,
+    "prompt": "Question fea831fc"
+  },
+  {
+    "ext_id": "cb-psda-medium-e03f3477",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inference from sample statistics and margin of error",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/psda-medium/q_e03f3477.png",
+    "mask_fraction": 0.4271,
+    "answer_image": null,
+    "prompt": "Question e03f3477"
+  },
+  {
+    "ext_id": "cb-psda-medium-d693f563",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Percentages",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"56\"]",
+    "image": "/pdf/psda-medium/q_d693f563.png",
+    "mask_fraction": 0.2367,
+    "answer_image": null,
+    "prompt": "Question d693f563"
+  },
+  {
+    "ext_id": "cb-psda-medium-f46139df",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Two-variable data: Models and scatterplots",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/psda-medium/q_f46139df.png",
+    "mask_fraction": 0.6392,
+    "answer_image": null,
+    "prompt": "Question f46139df"
+  },
+  {
+    "ext_id": "cb-psda-medium-07f2829b",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "One-variable data: Distributions and measures of center and spread",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"1\"]",
+    "image": "/pdf/psda-medium/q_07f2829b.png",
+    "mask_fraction": 0.6382,
+    "answer_image": null,
+    "prompt": "Question 07f2829b"
+  },
+  {
+    "ext_id": "cb-psda-medium-7ac5d686",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Two-variable data: Models and scatterplots",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/psda-medium/q_7ac5d686.png",
+    "mask_fraction": 0.3949,
+    "answer_image": null,
+    "prompt": "Question 7ac5d686"
+  },
+  {
+    "ext_id": "cb-psda-medium-1fc4f47b",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Probability and conditional probability",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/psda-medium/q_1fc4f47b.png",
+    "mask_fraction": 0.3721,
+    "answer_image": null,
+    "prompt": "Question 1fc4f47b"
+  },
+  {
+    "ext_id": "cb-psda-medium-181cc4d6",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Ratios, rates, proportional relationships, and units",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/psda-medium/q_181cc4d6.png",
+    "mask_fraction": 0.446,
+    "answer_image": null,
+    "prompt": "Question 181cc4d6"
+  },
+  {
+    "ext_id": "cb-psda-medium-578e26ae",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "One-variable data: Distributions and measures of center and spread",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/psda-medium/q_578e26ae.png",
+    "mask_fraction": 0.5369,
+    "answer_image": null,
+    "prompt": "Question 578e26ae"
+  },
+  {
+    "ext_id": "cb-psda-medium-7fd284ac",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Two-variable data: Models and scatterplots",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/psda-medium/q_7fd284ac.png",
+    "mask_fraction": 0.5483,
+    "answer_image": null,
+    "prompt": "Question 7fd284ac"
+  },
+  {
+    "ext_id": "cb-psda-medium-1b403590",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Ratios, rates, proportional relationships, and units",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/psda-medium/q_1b403590.png",
+    "mask_fraction": 0.3523,
+    "answer_image": null,
+    "prompt": "Question 1b403590"
+  },
+  {
+    "ext_id": "cb-psda-medium-a2162ea1",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inference from sample statistics and margin of error",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/psda-medium/q_a2162ea1.png",
+    "mask_fraction": 0.4271,
+    "answer_image": null,
+    "prompt": "Question a2162ea1"
+  },
+  {
+    "ext_id": "cb-psda-medium-2df8f293",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Probability and conditional probability",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"0714\", \"1/14\"]",
+    "image": "/pdf/psda-medium/q_2df8f293.png",
+    "mask_fraction": 0.2553,
+    "answer_image": null,
+    "prompt": "Question 2df8f293"
+  },
+  {
+    "ext_id": "cb-psda-medium-7cab9fe1",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Percentages",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/psda-medium/q_7cab9fe1.png",
+    "mask_fraction": 0.3362,
+    "answer_image": null,
+    "prompt": "Question 7cab9fe1"
+  },
+  {
+    "ext_id": "cb-psda-medium-e17babed",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Two-variable data: Models and scatterplots",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/psda-medium/q_e17babed.png",
+    "mask_fraction": 0.732,
+    "answer_image": null,
+    "prompt": "Question e17babed"
+  },
+  {
+    "ext_id": "cb-psda-medium-445dd032",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Ratios, rates, proportional relationships, and units",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/psda-medium/q_445dd032.png",
+    "mask_fraction": 0.4252,
+    "answer_image": null,
+    "prompt": "Question 445dd032"
+  },
+  {
+    "ext_id": "cb-psda-medium-121dc44f",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Percentages",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/psda-medium/q_121dc44f.png",
+    "mask_fraction": 0.3362,
+    "answer_image": null,
+    "prompt": "Question 121dc44f"
+  },
+  {
+    "ext_id": "cb-psda-medium-a29e89fc",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "One-variable data: Distributions and measures of center and spread",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"3630\"]",
+    "image": "/pdf/psda-medium/q_a29e89fc.png",
+    "mask_fraction": 0.3125,
+    "answer_image": null,
+    "prompt": "Question a29e89fc"
+  },
+  {
+    "ext_id": "cb-psda-medium-9bedc4a0",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inference from sample statistics and margin of error",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/psda-medium/q_9bedc4a0.png",
+    "mask_fraction": 0.4271,
+    "answer_image": null,
+    "prompt": "Question 9bedc4a0"
+  },
+  {
+    "ext_id": "cb-psda-medium-939c46d1",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Ratios, rates, proportional relationships, and units",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/psda-medium/q_939c46d1.png",
+    "mask_fraction": 0.5407,
+    "answer_image": null,
+    "prompt": "Question 939c46d1"
+  },
+  {
+    "ext_id": "cb-psda-medium-fc46af57",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inference from sample statistics and margin of error",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/psda-medium/q_fc46af57.png",
+    "mask_fraction": 0.4271,
+    "answer_image": null,
+    "prompt": "Question fc46af57"
+  },
+  {
+    "ext_id": "cb-psda-medium-7b65bb28",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "One-variable data: Distributions and measures of center and spread",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/psda-medium/q_7b65bb28.png",
+    "mask_fraction": 0.4659,
+    "answer_image": null,
+    "prompt": "Question 7b65bb28"
+  },
+  {
+    "ext_id": "cb-psda-medium-8a714fa1",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Percentages",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/psda-medium/q_8a714fa1.png",
+    "mask_fraction": 0.3826,
+    "answer_image": null,
+    "prompt": "Question 8a714fa1"
+  },
+  {
+    "ext_id": "cb-psda-medium-8e2e424e",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Percentages",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/psda-medium/q_8e2e424e.png",
+    "mask_fraction": 0.3589,
+    "answer_image": null,
+    "prompt": "Question 8e2e424e"
+  },
+  {
+    "ext_id": "cb-psda-medium-be00d896",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "One-variable data: Distributions and measures of center and spread",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/psda-medium/q_be00d896.png",
+    "mask_fraction": 0.3854,
+    "answer_image": null,
+    "prompt": "Question be00d896"
+  },
+  {
+    "ext_id": "cb-psda-medium-3d985614",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Two-variable data: Models and scatterplots",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/psda-medium/q_3d985614.png",
+    "mask_fraction": 0.5644,
+    "answer_image": null,
+    "prompt": "Question 3d985614"
+  },
+  {
+    "ext_id": "cb-psda-medium-560fab82",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "One-variable data: Distributions and measures of center and spread",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"19\"]",
+    "image": "/pdf/psda-medium/q_560fab82.png",
+    "mask_fraction": 0.375,
+    "answer_image": null,
+    "prompt": "Question 560fab82"
+  },
+  {
+    "ext_id": "cb-psda-medium-d94018fd",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "One-variable data: Distributions and measures of center and spread",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/psda-medium/q_d94018fd.png",
+    "mask_fraction": 0.6203,
+    "answer_image": null,
+    "prompt": "Question d94018fd"
+  },
+  {
+    "ext_id": "cb-psda-medium-e21d10a7",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Ratios, rates, proportional relationships, and units",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"1015\"]",
+    "image": "/pdf/psda-medium/q_e21d10a7.png",
+    "mask_fraction": 0.25,
+    "answer_image": null,
+    "prompt": "Question e21d10a7"
+  },
+  {
+    "ext_id": "cb-psda-medium-1d945139",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Ratios, rates, proportional relationships, and units",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/psda-medium/q_1d945139.png",
+    "mask_fraction": 0.3608,
+    "answer_image": null,
+    "prompt": "Question 1d945139"
+  },
+  {
+    "ext_id": "cb-psda-medium-f04d40b2",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inference from sample statistics and margin of error",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/psda-medium/q_f04d40b2.png",
+    "mask_fraction": 0.3911,
+    "answer_image": null,
+    "prompt": "Question f04d40b2"
+  },
+  {
+    "ext_id": "cb-psda-medium-f52123e0",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "One-variable data: Distributions and measures of center and spread",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"29\"]",
+    "image": "/pdf/psda-medium/q_f52123e0.png",
+    "mask_fraction": 0.2793,
+    "answer_image": null,
+    "prompt": "Question f52123e0"
+  },
+  {
+    "ext_id": "cb-psda-medium-8917ce38",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Ratios, rates, proportional relationships, and units",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/psda-medium/q_8917ce38.png",
+    "mask_fraction": 0.3721,
+    "answer_image": null,
+    "prompt": "Question 8917ce38"
+  },
+  {
+    "ext_id": "cb-psda-medium-ec787383",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Ratios, rates, proportional relationships, and units",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"40260\"]",
+    "image": "/pdf/psda-medium/q_ec787383.png",
+    "mask_fraction": 0.232,
+    "answer_image": null,
+    "prompt": "Question ec787383"
+  },
+  {
+    "ext_id": "cb-psda-medium-7e6c745f",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Ratios, rates, proportional relationships, and units",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/psda-medium/q_7e6c745f.png",
+    "mask_fraction": 0.4631,
+    "answer_image": null,
+    "prompt": "Question 7e6c745f"
+  },
+  {
+    "ext_id": "cb-psda-medium-709e04de",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Percentages",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/psda-medium/q_709e04de.png",
+    "mask_fraction": 0.3362,
+    "answer_image": null,
+    "prompt": "Question 709e04de"
+  },
+  {
+    "ext_id": "cb-psda-medium-642519d7",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Evaluating statistical claims: Observational studies and experiments",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/psda-medium/q_642519d7.png",
+    "mask_fraction": 0.5104,
+    "answer_image": null,
+    "prompt": "Question 642519d7"
+  },
+  {
+    "ext_id": "cb-psda-medium-912cd125",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Probability and conditional probability",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/psda-medium/q_912cd125.png",
+    "mask_fraction": 0.6174,
+    "answer_image": null,
+    "prompt": "Question 912cd125"
+  },
+  {
+    "ext_id": "cb-psda-medium-ad7dbb22",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Two-variable data: Models and scatterplots",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"6\"]",
+    "image": "/pdf/psda-medium/q_ad7dbb22.png",
+    "mask_fraction": 0.5994,
+    "answer_image": null,
+    "prompt": "Question ad7dbb22"
+  },
+  {
+    "ext_id": "cb-psda-medium-ba61d95f",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Percentages",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/psda-medium/q_ba61d95f.png",
+    "mask_fraction": 0.3362,
+    "answer_image": null,
+    "prompt": "Question ba61d95f"
+  },
+  {
+    "ext_id": "cb-psda-medium-873d2838",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Ratios, rates, proportional relationships, and units",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"370\"]",
+    "image": "/pdf/psda-medium/q_873d2838.png",
+    "mask_fraction": 0.25,
+    "answer_image": null,
+    "prompt": "Question 873d2838"
+  },
+  {
+    "ext_id": "cb-psda-medium-8cbf1415",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Percentages",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/psda-medium/q_8cbf1415.png",
+    "mask_fraction": 0.3769,
+    "answer_image": null,
+    "prompt": "Question 8cbf1415"
+  },
+  {
+    "ext_id": "cb-psda-medium-3c5b19ef",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Two-variable data: Models and scatterplots",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/psda-medium/q_3c5b19ef.png",
+    "mask_fraction": 0.5417,
+    "answer_image": null,
+    "prompt": "Question 3c5b19ef"
+  },
+  {
+    "ext_id": "cb-psda-medium-73ddfdac",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Ratios, rates, proportional relationships, and units",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"73920\"]",
+    "image": "/pdf/psda-medium/q_73ddfdac.png",
+    "mask_fraction": 0.232,
+    "answer_image": null,
+    "prompt": "Question 73ddfdac"
+  },
+  {
+    "ext_id": "cb-psda-medium-96a45430",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Percentages",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/psda-medium/q_96a45430.png",
+    "mask_fraction": 0.3589,
+    "answer_image": null,
+    "prompt": "Question 96a45430"
+  },
+  {
+    "ext_id": "cb-psda-medium-5c3c2e3c",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "One-variable data: Distributions and measures of center and spread",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/psda-medium/q_5c3c2e3c.png",
+    "mask_fraction": 0.4223,
+    "answer_image": null,
+    "prompt": "Question 5c3c2e3c"
+  },
+  {
+    "ext_id": "cb-psda-medium-61b87506",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Ratios, rates, proportional relationships, and units",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"17\"]",
+    "image": "/pdf/psda-medium/q_61b87506.png",
+    "mask_fraction": 0.232,
+    "answer_image": null,
+    "prompt": "Question 61b87506"
+  },
+  {
+    "ext_id": "cb-psda-medium-30db8f77",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Probability and conditional probability",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"88\"]",
+    "image": "/pdf/psda-medium/q_30db8f77.png",
+    "mask_fraction": 0.2547,
+    "answer_image": null,
+    "prompt": "Question 30db8f77"
+  },
+  {
+    "ext_id": "cb-psda-medium-9110c120",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "One-variable data: Distributions and measures of center and spread",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/psda-medium/q_9110c120.png",
+    "mask_fraction": 0.4271,
+    "answer_image": null,
+    "prompt": "Question 9110c120"
+  },
+  {
+    "ext_id": "cb-psda-medium-b2f6f17d",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Percentages",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/psda-medium/q_b2f6f17d.png",
+    "mask_fraction": 0.3769,
+    "answer_image": null,
+    "prompt": "Question b2f6f17d"
+  },
+  {
+    "ext_id": "cb-psda-medium-ab7740a8",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Two-variable data: Models and scatterplots",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/psda-medium/q_ab7740a8.png",
+    "mask_fraction": 0.4564,
+    "answer_image": null,
+    "prompt": "Question ab7740a8"
+  },
+  {
+    "ext_id": "cb-psda-medium-38a9ac45",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Probability and conditional probability",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/psda-medium/q_38a9ac45.png",
+    "mask_fraction": 0.4403,
+    "answer_image": null,
+    "prompt": "Question 38a9ac45"
+  },
+  {
+    "ext_id": "cb-psda-medium-eb672707",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Ratios, rates, proportional relationships, and units",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"14/3\", \"4.666\", \"4.667\"]",
+    "image": "/pdf/psda-medium/q_eb672707.png",
+    "mask_fraction": 0.2326,
+    "answer_image": null,
+    "prompt": "Question eb672707"
+  },
+  {
+    "ext_id": "cb-psda-medium-c256b723",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Percentages",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"10\"]",
+    "image": "/pdf/psda-medium/q_c256b723.png",
+    "mask_fraction": 0.2367,
+    "answer_image": null,
+    "prompt": "Question c256b723"
+  },
+  {
+    "ext_id": "cb-psda-medium-90ba8f98",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Two-variable data: Models and scatterplots",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/psda-medium/q_90ba8f98.png",
+    "mask_fraction": 0.7311,
+    "answer_image": null,
+    "prompt": "Question 90ba8f98"
+  },
+  {
+    "ext_id": "cb-psda-medium-881ef5f5",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "One-variable data: Distributions and measures of center and spread",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"0\"]",
+    "image": "/pdf/psda-medium/q_881ef5f5.png",
+    "mask_fraction": 0.2519,
+    "answer_image": null,
+    "prompt": "Question 881ef5f5"
+  },
+  {
+    "ext_id": "cb-psda-medium-38525983",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Two-variable data: Models and scatterplots",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/psda-medium/q_38525983.png",
+    "mask_fraction": 0.732,
+    "answer_image": null,
+    "prompt": "Question 38525983"
+  },
+  {
+    "ext_id": "cb-psda-medium-cb4894f9",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Ratios, rates, proportional relationships, and units",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"34672\"]",
+    "image": "/pdf/psda-medium/q_cb4894f9.png",
+    "mask_fraction": 0.25,
+    "answer_image": null,
+    "prompt": "Question cb4894f9"
+  },
+  {
+    "ext_id": "cb-psda-medium-b6569d0e",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Probability and conditional probability",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/psda-medium/q_b6569d0e.png",
+    "mask_fraction": 0.7292,
+    "answer_image": null,
+    "prompt": "Question b6569d0e"
+  },
+  {
+    "ext_id": "cb-psda-medium-1180401d",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Ratios, rates, proportional relationships, and units",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/psda-medium/q_1180401d.png",
+    "mask_fraction": 0.3901,
+    "answer_image": null,
+    "prompt": "Question 1180401d"
+  },
+  {
+    "ext_id": "cb-psda-medium-f6cbb04a",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Ratios, rates, proportional relationships, and units",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/psda-medium/q_f6cbb04a.png",
+    "mask_fraction": 0.4479,
+    "answer_image": null,
+    "prompt": "Question f6cbb04a"
+  },
+  {
+    "ext_id": "cb-psda-medium-568bc2a4",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Ratios, rates, proportional relationships, and units",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/psda-medium/q_568bc2a4.png",
+    "mask_fraction": 0.3542,
+    "answer_image": null,
+    "prompt": "Question 568bc2a4"
+  },
+  {
+    "ext_id": "cb-psda-medium-96c3e32d",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Ratios, rates, proportional relationships, and units",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"16606\"]",
+    "image": "/pdf/psda-medium/q_96c3e32d.png",
+    "mask_fraction": 0.25,
+    "answer_image": null,
+    "prompt": "Question 96c3e32d"
+  },
+  {
+    "ext_id": "cb-psda-medium-4096a482",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inference from sample statistics and margin of error",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/psda-medium/q_4096a482.png",
+    "mask_fraction": 0.3901,
+    "answer_image": null,
+    "prompt": "Question 4096a482"
+  },
+  {
+    "ext_id": "cb-psda-medium-7f84b136",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Percentages",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"184\"]",
+    "image": "/pdf/psda-medium/q_7f84b136.png",
+    "mask_fraction": 0.4148,
+    "answer_image": null,
+    "prompt": "Question 7f84b136"
+  },
+  {
+    "ext_id": "cb-psda-medium-9eb896c5",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Two-variable data: Models and scatterplots",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/psda-medium/q_9eb896c5.png",
+    "mask_fraction": 0.5019,
+    "answer_image": null,
+    "prompt": "Question 9eb896c5"
+  },
+  {
+    "ext_id": "cb-psda-medium-94c65646",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Percentages",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"450\"]",
+    "image": "/pdf/psda-medium/q_94c65646.png",
+    "mask_fraction": 0.2187,
+    "answer_image": null,
+    "prompt": "Question 94c65646"
+  },
+  {
+    "ext_id": "cb-psda-medium-9e2bf782",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "One-variable data: Distributions and measures of center and spread",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/psda-medium/q_9e2bf782.png",
+    "mask_fraction": 0.4223,
+    "answer_image": null,
+    "prompt": "Question 9e2bf782"
+  },
+  {
+    "ext_id": "cb-psda-medium-4cc05491",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Two-variable data: Models and scatterplots",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/psda-medium/q_4cc05491.png",
+    "mask_fraction": 0.732,
+    "answer_image": null,
+    "prompt": "Question 4cc05491"
+  },
+  {
+    "ext_id": "cb-psda-medium-7b731fc3",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Percentages",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"161\"]",
+    "image": "/pdf/psda-medium/q_7b731fc3.png",
+    "mask_fraction": 0.2187,
+    "answer_image": null,
+    "prompt": "Question 7b731fc3"
+  },
+  {
+    "ext_id": "cb-psda-medium-e9f4521a",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Percentages",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"52\"]",
+    "image": "/pdf/psda-medium/q_e9f4521a.png",
+    "mask_fraction": 0.2187,
+    "answer_image": null,
+    "prompt": "Question e9f4521a"
+  },
+  {
+    "ext_id": "cb-psda-medium-89c39d77",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Ratios, rates, proportional relationships, and units",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"35728\"]",
+    "image": "/pdf/psda-medium/q_89c39d77.png",
+    "mask_fraction": 0.25,
+    "answer_image": null,
+    "prompt": "Question 89c39d77"
+  },
+  {
+    "ext_id": "cb-psda-medium-8193e8cd",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "One-variable data: Distributions and measures of center and spread",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"1/5\", \"2\"]",
+    "image": "/pdf/psda-medium/q_8193e8cd.png",
+    "mask_fraction": 0.2661,
+    "answer_image": null,
+    "prompt": "Question 8193e8cd"
+  },
+  {
+    "ext_id": "cb-psda-medium-dccdb20c",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Percentages",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"27\"]",
+    "image": "/pdf/psda-medium/q_dccdb20c.png",
+    "mask_fraction": 0.2187,
+    "answer_image": null,
+    "prompt": "Question dccdb20c"
+  },
+  {
+    "ext_id": "cb-psda-medium-fdfc90e4",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Two-variable data: Models and scatterplots",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/psda-medium/q_fdfc90e4.png",
+    "mask_fraction": 0.6382,
+    "answer_image": null,
+    "prompt": "Question fdfc90e4"
+  },
+  {
+    "ext_id": "cb-psda-medium-674a4084",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Ratios, rates, proportional relationships, and units",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/psda-medium/q_674a4084.png",
+    "mask_fraction": 0.3589,
+    "answer_image": null,
+    "prompt": "Question 674a4084"
+  },
+  {
+    "ext_id": "cb-psda-medium-1e562f24",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inference from sample statistics and margin of error",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/psda-medium/q_1e562f24.png",
+    "mask_fraction": 0.4271,
+    "answer_image": null,
+    "prompt": "Question 1e562f24"
+  },
+  {
+    "ext_id": "cb-psda-medium-89f8d08a",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inference from sample statistics and margin of error",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/psda-medium/q_89f8d08a.png",
+    "mask_fraction": 0.4081,
+    "answer_image": null,
+    "prompt": "Question 89f8d08a"
+  },
+  {
+    "ext_id": "cb-psda-medium-e9129a5c",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Two-variable data: Models and scatterplots",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/psda-medium/q_e9129a5c.png",
+    "mask_fraction": 0.7339,
+    "answer_image": null,
+    "prompt": "Question e9129a5c"
+  },
+  {
+    "ext_id": "cb-psda-medium-a3384df0",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Probability and conditional probability",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/psda-medium/q_a3384df0.png",
+    "mask_fraction": 0.5994,
+    "answer_image": null,
+    "prompt": "Question a3384df0"
+  },
+  {
+    "ext_id": "cb-psda-medium-566759ef",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Percentages",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/psda-medium/q_566759ef.png",
+    "mask_fraction": 0.3949,
+    "answer_image": null,
+    "prompt": "Question 566759ef"
+  },
+  {
+    "ext_id": "cb-psda-medium-ad1d6adb",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Percentages",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/psda-medium/q_ad1d6adb.png",
+    "mask_fraction": 0.3381,
+    "answer_image": null,
+    "prompt": "Question ad1d6adb"
+  },
+  {
+    "ext_id": "cb-psda-medium-9ee22c16",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inference from sample statistics and margin of error",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"3\", \"540\"]",
+    "image": "/pdf/psda-medium/q_9ee22c16.png",
+    "mask_fraction": 0.4365,
+    "answer_image": null,
+    "prompt": "Question 9ee22c16"
+  },
+  {
+    "ext_id": "cb-psda-medium-46b2e169",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Probability and conditional probability",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"26\", \"13/50\"]",
+    "image": "/pdf/psda-medium/q_46b2e169.png",
+    "mask_fraction": 0.2373,
+    "answer_image": null,
+    "prompt": "Question 46b2e169"
+  },
+  {
+    "ext_id": "cb-psda-medium-f8696cd8",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Probability and conditional probability",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/psda-medium/q_f8696cd8.png",
+    "mask_fraction": 0.5767,
+    "answer_image": null,
+    "prompt": "Question f8696cd8"
+  },
+  {
+    "ext_id": "cb-psda-medium-50b2807e",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Two-variable data: Models and scatterplots",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/psda-medium/q_50b2807e.png",
+    "mask_fraction": 0.7443,
+    "answer_image": null,
+    "prompt": "Question 50b2807e"
+  },
+  {
+    "ext_id": "cb-psda-medium-24a1e6a7",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Two-variable data: Models and scatterplots",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/psda-medium/q_24a1e6a7.png",
+    "mask_fraction": 0.7339,
+    "answer_image": null,
+    "prompt": "Question 24a1e6a7"
+  },
+  {
+    "ext_id": "cb-psda-medium-58171b5e",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Two-variable data: Models and scatterplots",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/psda-medium/q_58171b5e.png",
+    "mask_fraction": 0.3769,
+    "answer_image": null,
+    "prompt": "Question 58171b5e"
+  },
+  {
+    "ext_id": "cb-psda-medium-51c9d65f",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Ratios, rates, proportional relationships, and units",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/psda-medium/q_51c9d65f.png",
+    "mask_fraction": 0.3769,
+    "answer_image": null,
+    "prompt": "Question 51c9d65f"
+  },
+  {
+    "ext_id": "cb-psda-medium-25fc031a",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "One-variable data: Distributions and measures of center and spread",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/psda-medium/q_25fc031a.png",
+    "mask_fraction": 0.7642,
+    "answer_image": null,
+    "prompt": "Question 25fc031a"
+  },
+  {
+    "ext_id": "cb-psda-medium-d72a2b4d",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Percentages",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/psda-medium/q_d72a2b4d.png",
+    "mask_fraction": 0.3542,
+    "answer_image": null,
+    "prompt": "Question d72a2b4d"
+  },
+  {
+    "ext_id": "cb-psda-medium-e9ed719f",
+    "domain": "math",
+    "topic": "psda",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Probability and conditional probability",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"0.3\", \"3/10\"]",
+    "image": "/pdf/psda-medium/q_e9ed719f.png",
+    "mask_fraction": 0.3623,
+    "answer_image": null,
+    "prompt": "Question e9ed719f"
+  }
+]

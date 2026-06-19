@@ -1,0 +1,3337 @@
+[
+  {
+    "ext_id": "cb-craftstructure-hard-22a41819",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/craftstructure-hard/q_22a41819.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 22a41819"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-ca50de52",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/craftstructure-hard/q_ca50de52.png",
+    "mask_fraction": 0.465,
+    "answer_image": null,
+    "prompt": "Question ca50de52"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-82cb7dda",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/craftstructure-hard/q_82cb7dda.png",
+    "mask_fraction": 0.465,
+    "answer_image": null,
+    "prompt": "Question 82cb7dda"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-e35d481c",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/craftstructure-hard/q_e35d481c.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question e35d481c"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-5e57efec",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/craftstructure-hard/q_5e57efec.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 5e57efec"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-97e5bf55",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Cross-Text Connections",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/craftstructure-hard/q_97e5bf55.png",
+    "mask_fraction": 0.5805,
+    "answer_image": null,
+    "prompt": "Question 97e5bf55"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-d4732483",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/craftstructure-hard/q_d4732483.png",
+    "mask_fraction": 0.5369,
+    "answer_image": null,
+    "prompt": "Question d4732483"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-d9915c15",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/craftstructure-hard/q_d9915c15.png",
+    "mask_fraction": 0.465,
+    "answer_image": null,
+    "prompt": "Question d9915c15"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-e818241b",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/craftstructure-hard/q_e818241b.png",
+    "mask_fraction": 0.465,
+    "answer_image": null,
+    "prompt": "Question e818241b"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-d5ad34f0",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/craftstructure-hard/q_d5ad34f0.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question d5ad34f0"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-6c086e70",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/craftstructure-hard/q_6c086e70.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 6c086e70"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-6c9f1727",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/craftstructure-hard/q_6c9f1727.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 6c9f1727"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-93665100",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/craftstructure-hard/q_93665100.png",
+    "mask_fraction": 0.4081,
+    "answer_image": null,
+    "prompt": "Question 93665100"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-e459076b",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/craftstructure-hard/q_e459076b.png",
+    "mask_fraction": 0.4337,
+    "answer_image": null,
+    "prompt": "Question e459076b"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-0462dac3",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/craftstructure-hard/q_0462dac3.png",
+    "mask_fraction": 0.4081,
+    "answer_image": null,
+    "prompt": "Question 0462dac3"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-105ea6de",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Cross-Text Connections",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/craftstructure-hard/q_105ea6de.png",
+    "mask_fraction": 0.6534,
+    "answer_image": null,
+    "prompt": "Question 105ea6de"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-5f56fdec",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/craftstructure-hard/q_5f56fdec.png",
+    "mask_fraction": 0.6506,
+    "answer_image": null,
+    "prompt": "Question 5f56fdec"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-ac9a3a26",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/craftstructure-hard/q_ac9a3a26.png",
+    "mask_fraction": 0.465,
+    "answer_image": null,
+    "prompt": "Question ac9a3a26"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-03c9f327",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/craftstructure-hard/q_03c9f327.png",
+    "mask_fraction": 0.4612,
+    "answer_image": null,
+    "prompt": "Question 03c9f327"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-662ebff2",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/craftstructure-hard/q_662ebff2.png",
+    "mask_fraction": 0.4829,
+    "answer_image": null,
+    "prompt": "Question 662ebff2"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-c4737d6a",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Cross-Text Connections",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/craftstructure-hard/q_c4737d6a.png",
+    "mask_fraction": 0.6354,
+    "answer_image": null,
+    "prompt": "Question c4737d6a"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-5a97d9cd",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/craftstructure-hard/q_5a97d9cd.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 5a97d9cd"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-a87c3925",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Cross-Text Connections",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/craftstructure-hard/q_a87c3925.png",
+    "mask_fraction": 0.7225,
+    "answer_image": null,
+    "prompt": "Question a87c3925"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-b0f7541b",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/craftstructure-hard/q_b0f7541b.png",
+    "mask_fraction": 0.5085,
+    "answer_image": null,
+    "prompt": "Question b0f7541b"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-af4300b0",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/craftstructure-hard/q_af4300b0.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question af4300b0"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-cf46f239",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/craftstructure-hard/q_cf46f239.png",
+    "mask_fraction": 0.5265,
+    "answer_image": null,
+    "prompt": "Question cf46f239"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-d6c77ae5",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Cross-Text Connections",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/craftstructure-hard/q_d6c77ae5.png",
+    "mask_fraction": 0.6468,
+    "answer_image": null,
+    "prompt": "Question d6c77ae5"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-76e4c51d",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/craftstructure-hard/q_76e4c51d.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 76e4c51d"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-c61a7c4a",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/craftstructure-hard/q_c61a7c4a.png",
+    "mask_fraction": 0.5369,
+    "answer_image": null,
+    "prompt": "Question c61a7c4a"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-a2f64e58",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/craftstructure-hard/q_a2f64e58.png",
+    "mask_fraction": 0.5606,
+    "answer_image": null,
+    "prompt": "Question a2f64e58"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-e26d23c4",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/craftstructure-hard/q_e26d23c4.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question e26d23c4"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-98364791",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/craftstructure-hard/q_98364791.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 98364791"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-aa5897b8",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/craftstructure-hard/q_aa5897b8.png",
+    "mask_fraction": 0.5009,
+    "answer_image": null,
+    "prompt": "Question aa5897b8"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-7f935017",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/craftstructure-hard/q_7f935017.png",
+    "mask_fraction": 0.5218,
+    "answer_image": null,
+    "prompt": "Question 7f935017"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-be94c9fc",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/craftstructure-hard/q_be94c9fc.png",
+    "mask_fraction": 0.5028,
+    "answer_image": null,
+    "prompt": "Question be94c9fc"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-d72b325e",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Cross-text Connections",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/craftstructure-hard/q_d72b325e.png",
+    "mask_fraction": 0.5805,
+    "answer_image": null,
+    "prompt": "Question d72b325e"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-4b4ab04e",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Cross-Text Connections",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/craftstructure-hard/q_4b4ab04e.png",
+    "mask_fraction": 0.7045,
+    "answer_image": null,
+    "prompt": "Question 4b4ab04e"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-39857700",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/craftstructure-hard/q_39857700.png",
+    "mask_fraction": 0.4801,
+    "answer_image": null,
+    "prompt": "Question 39857700"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-f61c22f3",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/craftstructure-hard/q_f61c22f3.png",
+    "mask_fraction": 0.5369,
+    "answer_image": null,
+    "prompt": "Question f61c22f3"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-54804e10",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/craftstructure-hard/q_54804e10.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 54804e10"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-2e744883",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/craftstructure-hard/q_2e744883.png",
+    "mask_fraction": 0.465,
+    "answer_image": null,
+    "prompt": "Question 2e744883"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-0f2933b9",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/craftstructure-hard/q_0f2933b9.png",
+    "mask_fraction": 0.7244,
+    "answer_image": null,
+    "prompt": "Question 0f2933b9"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-b4887dae",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/craftstructure-hard/q_b4887dae.png",
+    "mask_fraction": 0.4829,
+    "answer_image": null,
+    "prompt": "Question b4887dae"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-9b22bf7b",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/craftstructure-hard/q_9b22bf7b.png",
+    "mask_fraction": 0.5028,
+    "answer_image": null,
+    "prompt": "Question 9b22bf7b"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-3e6ad72d",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/craftstructure-hard/q_3e6ad72d.png",
+    "mask_fraction": 0.465,
+    "answer_image": null,
+    "prompt": "Question 3e6ad72d"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-f3c45b4f",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Cross-Text Connections",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/craftstructure-hard/q_f3c45b4f.png",
+    "mask_fraction": 0.6534,
+    "answer_image": null,
+    "prompt": "Question f3c45b4f"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-5336f2e4",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/craftstructure-hard/q_5336f2e4.png",
+    "mask_fraction": 0.4981,
+    "answer_image": null,
+    "prompt": "Question 5336f2e4"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-1455b754",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/craftstructure-hard/q_1455b754.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 1455b754"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-7bc05fa2",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/craftstructure-hard/q_7bc05fa2.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 7bc05fa2"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-65406d2c",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/craftstructure-hard/q_65406d2c.png",
+    "mask_fraction": 0.4829,
+    "answer_image": null,
+    "prompt": "Question 65406d2c"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-10c236ce",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/craftstructure-hard/q_10c236ce.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 10c236ce"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-f7c02e89",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Cross-Text Connections",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/craftstructure-hard/q_f7c02e89.png",
+    "mask_fraction": 0.6657,
+    "answer_image": null,
+    "prompt": "Question f7c02e89"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-aaa3ee7c",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/craftstructure-hard/q_aaa3ee7c.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question aaa3ee7c"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-4ed09415",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/craftstructure-hard/q_4ed09415.png",
+    "mask_fraction": 0.5369,
+    "answer_image": null,
+    "prompt": "Question 4ed09415"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-975b0602",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/craftstructure-hard/q_975b0602.png",
+    "mask_fraction": 0.446,
+    "answer_image": null,
+    "prompt": "Question 975b0602"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-0b5ecf0e",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/craftstructure-hard/q_0b5ecf0e.png",
+    "mask_fraction": 0.465,
+    "answer_image": null,
+    "prompt": "Question 0b5ecf0e"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-a06c434d",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/craftstructure-hard/q_a06c434d.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question a06c434d"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-b411eb09",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/craftstructure-hard/q_b411eb09.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question b411eb09"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-592f94c2",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Cross-Text Connections",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/craftstructure-hard/q_592f94c2.png",
+    "mask_fraction": 0.6686,
+    "answer_image": null,
+    "prompt": "Question 592f94c2"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-c14daa3c",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/craftstructure-hard/q_c14daa3c.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question c14daa3c"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-84dbd633",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Cross-Text Connections",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/craftstructure-hard/q_84dbd633.png",
+    "mask_fraction": 0.6136,
+    "answer_image": null,
+    "prompt": "Question 84dbd633"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-96f3accc",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Cross-Text Connections",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/craftstructure-hard/q_96f3accc.png",
+    "mask_fraction": 0.6506,
+    "answer_image": null,
+    "prompt": "Question 96f3accc"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-3566120b",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/craftstructure-hard/q_3566120b.png",
+    "mask_fraction": 0.5076,
+    "answer_image": null,
+    "prompt": "Question 3566120b"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-34d7bb25",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/craftstructure-hard/q_34d7bb25.png",
+    "mask_fraction": 0.5369,
+    "answer_image": null,
+    "prompt": "Question 34d7bb25"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-bce4d106",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/craftstructure-hard/q_bce4d106.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question bce4d106"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-bbb77c84",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/craftstructure-hard/q_bbb77c84.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question bbb77c84"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-e7d37666",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/craftstructure-hard/q_e7d37666.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question e7d37666"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-570970cd",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/craftstructure-hard/q_570970cd.png",
+    "mask_fraction": 0.4981,
+    "answer_image": null,
+    "prompt": "Question 570970cd"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-a1ff8ce3",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/craftstructure-hard/q_a1ff8ce3.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question a1ff8ce3"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-5e4e082c",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Cross-Text Connections",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/craftstructure-hard/q_5e4e082c.png",
+    "mask_fraction": 0.6316,
+    "answer_image": null,
+    "prompt": "Question 5e4e082c"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-7b4dde72",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/craftstructure-hard/q_7b4dde72.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 7b4dde72"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-a60b0004",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/craftstructure-hard/q_a60b0004.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question a60b0004"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-a5e747f0",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/craftstructure-hard/q_a5e747f0.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question a5e747f0"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-e4e2aeb3",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Cross-Text Connections",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/craftstructure-hard/q_e4e2aeb3.png",
+    "mask_fraction": 0.5985,
+    "answer_image": null,
+    "prompt": "Question e4e2aeb3"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-6a1dc7c5",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Cross-Text Connections",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/craftstructure-hard/q_6a1dc7c5.png",
+    "mask_fraction": 0.6506,
+    "answer_image": null,
+    "prompt": "Question 6a1dc7c5"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-5dce6cab",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/craftstructure-hard/q_5dce6cab.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 5dce6cab"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-f99847ed",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/craftstructure-hard/q_f99847ed.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question f99847ed"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-83fd3cf4",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/craftstructure-hard/q_83fd3cf4.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 83fd3cf4"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-5e101c70",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Cross-Text Connections",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/craftstructure-hard/q_5e101c70.png",
+    "mask_fraction": 0.6468,
+    "answer_image": null,
+    "prompt": "Question 5e101c70"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-df45f0eb",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/craftstructure-hard/q_df45f0eb.png",
+    "mask_fraction": 0.5369,
+    "answer_image": null,
+    "prompt": "Question df45f0eb"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-6ae393f7",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/craftstructure-hard/q_6ae393f7.png",
+    "mask_fraction": 0.5369,
+    "answer_image": null,
+    "prompt": "Question 6ae393f7"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-e4f312c5",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/craftstructure-hard/q_e4f312c5.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question e4f312c5"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-79fe7550",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/craftstructure-hard/q_79fe7550.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 79fe7550"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-0a04cac5",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/craftstructure-hard/q_0a04cac5.png",
+    "mask_fraction": 0.4801,
+    "answer_image": null,
+    "prompt": "Question 0a04cac5"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-1f2d6173",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/craftstructure-hard/q_1f2d6173.png",
+    "mask_fraction": 0.5189,
+    "answer_image": null,
+    "prompt": "Question 1f2d6173"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-4eee64fa",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/craftstructure-hard/q_4eee64fa.png",
+    "mask_fraction": 0.465,
+    "answer_image": null,
+    "prompt": "Question 4eee64fa"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-4b54bbf0",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/craftstructure-hard/q_4b54bbf0.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 4b54bbf0"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-a70cbc53",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/craftstructure-hard/q_a70cbc53.png",
+    "mask_fraction": 0.5369,
+    "answer_image": null,
+    "prompt": "Question a70cbc53"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-3d658a5a",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/craftstructure-hard/q_3d658a5a.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 3d658a5a"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-17bf10de",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Cross-Text Connections",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/craftstructure-hard/q_17bf10de.png",
+    "mask_fraction": 0.7045,
+    "answer_image": null,
+    "prompt": "Question 17bf10de"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-d0198544",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Cross-Text Connections",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/craftstructure-hard/q_d0198544.png",
+    "mask_fraction": 0.7197,
+    "answer_image": null,
+    "prompt": "Question d0198544"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-7afb470b",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/craftstructure-hard/q_7afb470b.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 7afb470b"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-93ce86d0",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/craftstructure-hard/q_93ce86d0.png",
+    "mask_fraction": 0.465,
+    "answer_image": null,
+    "prompt": "Question 93ce86d0"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-f83f0aab",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/craftstructure-hard/q_f83f0aab.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question f83f0aab"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-a1d2c4d0",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/craftstructure-hard/q_a1d2c4d0.png",
+    "mask_fraction": 0.446,
+    "answer_image": null,
+    "prompt": "Question a1d2c4d0"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-c885c38b",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Cross-Text Connections",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/craftstructure-hard/q_c885c38b.png",
+    "mask_fraction": 0.6468,
+    "answer_image": null,
+    "prompt": "Question c885c38b"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-de2c2f57",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Cross-Text Connections",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/craftstructure-hard/q_de2c2f57.png",
+    "mask_fraction": 0.6534,
+    "answer_image": null,
+    "prompt": "Question de2c2f57"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-3f753a8e",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/craftstructure-hard/q_3f753a8e.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 3f753a8e"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-d7807ec8",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/craftstructure-hard/q_d7807ec8.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question d7807ec8"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-dd19befa",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/craftstructure-hard/q_dd19befa.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question dd19befa"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-4fa7e50e",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/craftstructure-hard/q_4fa7e50e.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 4fa7e50e"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-cce2f8dc",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/craftstructure-hard/q_cce2f8dc.png",
+    "mask_fraction": 0.465,
+    "answer_image": null,
+    "prompt": "Question cce2f8dc"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-6977d22b",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Cross-Text Connections",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/craftstructure-hard/q_6977d22b.png",
+    "mask_fraction": 0.6657,
+    "answer_image": null,
+    "prompt": "Question 6977d22b"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-6bc0ba75",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/craftstructure-hard/q_6bc0ba75.png",
+    "mask_fraction": 0.446,
+    "answer_image": null,
+    "prompt": "Question 6bc0ba75"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-5444db38",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/craftstructure-hard/q_5444db38.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 5444db38"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-6017ae31",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/craftstructure-hard/q_6017ae31.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 6017ae31"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-571cf537",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/craftstructure-hard/q_571cf537.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 571cf537"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-dba9eaf8",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/craftstructure-hard/q_dba9eaf8.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question dba9eaf8"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-a756aa95",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/craftstructure-hard/q_a756aa95.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question a756aa95"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-0ed8f24f",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/craftstructure-hard/q_0ed8f24f.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 0ed8f24f"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-ad4f7362",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/craftstructure-hard/q_ad4f7362.png",
+    "mask_fraction": 0.6023,
+    "answer_image": null,
+    "prompt": "Question ad4f7362"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-35e21b06",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Cross-Text Connections",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/craftstructure-hard/q_35e21b06.png",
+    "mask_fraction": 0.6316,
+    "answer_image": null,
+    "prompt": "Question 35e21b06"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-9b01bcf4",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Text Structure and Purpose",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/craftstructure-hard/q_9b01bcf4.png",
+    "mask_fraction": 0.465,
+    "answer_image": null,
+    "prompt": "Question 9b01bcf4"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-b35e2fdc",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/craftstructure-hard/q_b35e2fdc.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question b35e2fdc"
+  },
+  {
+    "ext_id": "cb-craftstructure-hard-e8fb0744",
+    "domain": "reading",
+    "topic": "craft-structure",
+    "difficulty": "hard",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Words in Context",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/craftstructure-hard/q_e8fb0744.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question e8fb0744"
+  }
+]
