@@ -34,6 +34,20 @@ SCALE = 2.0
 
 VALUE_RE = re.compile(r'^-?\$?\d*\.?\d+(?:/\d*\.?\d+)?%?$')
 
+EXPECTED_FILE = os.path.join(ROOT, 'data', 'expected-counts.json')
+
+def expected_count(slug):
+    """Look up the remembered expected question count for this slug, or None."""
+    try:
+        with open(EXPECTED_FILE) as f:
+            manifest = json.load(f)
+    except Exception:
+        return None
+    for s in manifest.get('sections', []):
+        if s.get('slug') == slug:
+            return s.get('expected')
+    return None
+
 def clean_vals(tokens):
     out = []
     for t in tokens:
@@ -216,14 +230,34 @@ def main():
     print(f'  Questions extracted           : {len(extracted)}')
     if dupes:
         print(f'  Note: {dupes} duplicate Question ID line(s) in the PDF (counted once).')
+
+    failed = False
     if missing:
         print(f'  ❌ MISSING {len(missing)} question(s) — NOT imported:')
         reasons = dict(skipped)
         for qid in sorted(missing):
             print(f'      {qid}  ({reasons.get(qid, "unknown reason")})')
-        print('  ⚠️  Fix parse_correct()/skill logic before relying on this import.')
+        failed = True
+    else:
+        print('  ✅ Every Question ID in the PDF was extracted — none lost.')
+
+    # ---- Check against the remembered expected count for this section ----
+    expected = expected_count(SLUG)
+    print('\n--- Expected count check (data/expected-counts.json) ---')
+    if expected is None:
+        print(f'  ⚠️  No expected count recorded for slug "{SLUG}". '
+              f'Add one to data/expected-counts.json to enable this check.')
+    elif expected == len(out):
+        print(f'  ✅ Extracted {len(out)} matches the expected {expected} for "{SLUG}".')
+    else:
+        print(f'  ❌ Count MISMATCH for "{SLUG}": expected {expected}, extracted {len(out)} '
+              f'(difference {len(out) - expected:+d}).')
+        failed = True
+
+    if failed:
+        print('\n⚠️  Import did NOT fully reconcile — fix before relying on this data.')
         sys.exit(1)
-    print('  ✅ All questions accounted for — none lost.')
+    print('\n✅ Import reconciled: PDF, extraction, and expected count all agree.')
 
 def pg_search(pg, phrase):
     try:

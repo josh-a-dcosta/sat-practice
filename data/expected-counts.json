@@ -1,0 +1,22 @@
+{
+  "_comment": "Expected question count per College Board PDF section (16 total: 4 math + 4 reading domains, each Medium and Hard). The importer tallies its extracted count against 'expected' here and FAILS if they differ, so no questions are silently lost. Update a number here if the official count changes. Total across all 16 = 2204.",
+  "sections": [
+    { "domain": "math",    "topic": "algebra",              "difficulty": "medium", "slug": "algebra-medium",        "expected": 188 },
+    { "domain": "math",    "topic": "advanced-math",        "difficulty": "medium", "slug": "advmath-medium",        "expected": 181 },
+    { "domain": "math",    "topic": "psda",                 "difficulty": "medium", "slug": "psda-medium",           "expected": 122 },
+    { "domain": "math",    "topic": "geometry",             "difficulty": "medium", "slug": "geometry-medium",       "expected": 83 },
+    { "domain": "reading", "topic": "information-ideas",     "difficulty": "medium", "slug": "infoideas-medium",      "expected": 167 },
+    { "domain": "reading", "topic": "craft-structure",      "difficulty": "medium", "slug": "craftstructure-medium", "expected": 129 },
+    { "domain": "reading", "topic": "expression-ideas",     "difficulty": "medium", "slug": "expressideas-medium",   "expected": 167 },
+    { "domain": "reading", "topic": "standard-conventions", "difficulty": "medium", "slug": "punctuations-medium",   "expected": 99 },
+
+    { "domain": "math",    "topic": "algebra",              "difficulty": "hard",   "slug": "algebra-hard",          "expected": 136 },
+    { "domain": "math",    "topic": "advanced-math",        "difficulty": "hard",   "slug": "advmath-hard",          "expected": 177 },
+    { "domain": "math",    "topic": "psda",                 "difficulty": "hard",   "slug": "psda-hard",             "expected": 98 },
+    { "domain": "math",    "topic": "geometry",             "difficulty": "hard",   "slug": "geometry-hard",         "expected": 124 },
+    { "domain": "reading", "topic": "information-ideas",     "difficulty": "hard",   "slug": "infoideas-hard",        "expected": 204 },
+    { "domain": "reading", "topic": "craft-structure",      "difficulty": "hard",   "slug": "craftstructure-hard",   "expected": 115 },
+    { "domain": "reading", "topic": "expression-ideas",     "difficulty": "hard",   "slug": "expressideas-hard",     "expected": 83 },
+    { "domain": "reading", "topic": "standard-conventions", "difficulty": "hard",   "slug": "punctuations-hard",     "expected": 131 }
+  ]
+}
