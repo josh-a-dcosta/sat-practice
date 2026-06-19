@@ -13,7 +13,8 @@ const path = require('path');
   const { execFileSync } = require('child_process');
   const node = process.execPath;
   try {
-    execFileSync(node, ['scripts/generate-seed.js'], { cwd: __dirname, stdio: 'inherit' });
+    // Load ONLY the real College Board PDF imports (data/questions.*.json).
+    // Starter/generated banks are intentionally not seeded.
     execFileSync(node, ['--experimental-sqlite', 'scripts/seed.js'], { cwd: __dirname, stdio: 'inherit' });
     console.log('First-time setup complete.');
   } catch (e) {

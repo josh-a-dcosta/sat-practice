@@ -5,7 +5,7 @@
   "type": "commonjs",
   "scripts": {
     "start": "node --experimental-sqlite server.js",
-    "seed": "node scripts/generate-seed.js && node --experimental-sqlite scripts/seed.js",
+    "seed": "node --experimental-sqlite scripts/seed.js",
     "generate": "node scripts/generate-seed.js",
     "import-pdf": "node scripts/import-pdf.js"
   },
