@@ -14,6 +14,19 @@ db.exec('PRAGMA journal_mode = WAL;');
 db.exec('PRAGMA foreign_keys = ON;');
 
 db.exec(`
+CREATE TABLE IF NOT EXISTS users (
+  id         INTEGER PRIMARY KEY AUTOINCREMENT,
+  username   TEXT UNIQUE NOT NULL,
+  password   TEXT NOT NULL,
+  created_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
+CREATE TABLE IF NOT EXISTS auth_tokens (
+  token      TEXT PRIMARY KEY,
+  user_id    INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  created_at TEXT NOT NULL DEFAULT (datetime('now'))
+);
+
 CREATE TABLE IF NOT EXISTS questions (
   id            INTEGER PRIMARY KEY AUTOINCREMENT,
   ext_id        TEXT UNIQUE NOT NULL,
@@ -36,6 +49,7 @@ CREATE TABLE IF NOT EXISTS questions (
 
 CREATE TABLE IF NOT EXISTS sessions (
   id               INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id          INTEGER REFERENCES users(id) ON DELETE CASCADE,
   domain           TEXT NOT NULL CHECK (domain IN ('math','reading')),
   topic            TEXT NOT NULL,
   difficulty       TEXT NOT NULL DEFAULT 'medium',
@@ -57,6 +71,7 @@ CREATE TABLE IF NOT EXISTS session_questions (
 
 CREATE TABLE IF NOT EXISTS attempts (
   id                 INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id            INTEGER REFERENCES users(id) ON DELETE CASCADE,
   session_id         INTEGER NOT NULL REFERENCES sessions(id) ON DELETE CASCADE,
   question_id        INTEGER NOT NULL REFERENCES questions(id),
   selected           TEXT NOT NULL,
@@ -85,5 +100,11 @@ for (const [col, def] of [
   try { db.exec(`ALTER TABLE questions ADD COLUMN ${col} ${def}`); } catch (_) { /* already exists */ }
 }
 db.exec('CREATE INDEX IF NOT EXISTS idx_q_skill ON questions(skill);');
+
+// Multi-user columns for databases created before per-user tracking existed.
+try { db.exec('ALTER TABLE sessions ADD COLUMN user_id INTEGER'); } catch (_) { /* already exists */ }
+try { db.exec('ALTER TABLE attempts ADD COLUMN user_id INTEGER'); } catch (_) { /* already exists */ }
+db.exec('CREATE INDEX IF NOT EXISTS idx_sessions_user ON sessions(user_id);');
+db.exec('CREATE INDEX IF NOT EXISTS idx_attempts_user ON attempts(user_id);');
 
 module.exports = { db, DB_PATH };

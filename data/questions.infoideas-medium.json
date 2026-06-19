@@ -1,0 +1,4845 @@
+[
+  {
+    "ext_id": "cb-infoideas-medium-87aa7bab",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_87aa7bab.png",
+    "mask_fraction": 0.4621,
+    "answer_image": null,
+    "prompt": "Question 87aa7bab"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-d73a908a",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_d73a908a.png",
+    "mask_fraction": 0.4801,
+    "answer_image": null,
+    "prompt": "Question d73a908a"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-d748c3fd",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_d748c3fd.png",
+    "mask_fraction": 0.4621,
+    "answer_image": null,
+    "prompt": "Question d748c3fd"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-8c1be131",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_8c1be131.png",
+    "mask_fraction": 0.4801,
+    "answer_image": null,
+    "prompt": "Question 8c1be131"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-92c2564d",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_92c2564d.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 92c2564d"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-22e4d633",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_22e4d633.png",
+    "mask_fraction": 0.517,
+    "answer_image": null,
+    "prompt": "Question 22e4d633"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-602b47c7",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_602b47c7.png",
+    "mask_fraction": 0.535,
+    "answer_image": null,
+    "prompt": "Question 602b47c7"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-29f5c8c2",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_29f5c8c2.png",
+    "mask_fraction": 0.517,
+    "answer_image": null,
+    "prompt": "Question 29f5c8c2"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-d83c3d54",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_d83c3d54.png",
+    "mask_fraction": 0.9176,
+    "answer_image": null,
+    "prompt": "Question d83c3d54"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-ca5a3fb4",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_ca5a3fb4.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question ca5a3fb4"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-95388117",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_95388117.png",
+    "mask_fraction": 0.6327,
+    "answer_image": null,
+    "prompt": "Question 95388117"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-60c6b64d",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/infoideas-medium/q_60c6b64d.png",
+    "mask_fraction": 0.499,
+    "answer_image": null,
+    "prompt": "Question 60c6b64d"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-1f3be847",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_1f3be847.png",
+    "mask_fraction": 0.4081,
+    "answer_image": null,
+    "prompt": "Question 1f3be847"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-11a9f635",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_11a9f635.png",
+    "mask_fraction": 0.4621,
+    "answer_image": null,
+    "prompt": "Question 11a9f635"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-2312021b",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_2312021b.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question 2312021b"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-e677fa6c",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_e677fa6c.png",
+    "mask_fraction": 0.4697,
+    "answer_image": null,
+    "prompt": "Question e677fa6c"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-11c68ded",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_11c68ded.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question 11c68ded"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-7cbb9764",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_7cbb9764.png",
+    "mask_fraction": 0.4801,
+    "answer_image": null,
+    "prompt": "Question 7cbb9764"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-94ca8ebd",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/infoideas-medium/q_94ca8ebd.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question 94ca8ebd"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-66c47028",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_66c47028.png",
+    "mask_fraction": 0.4621,
+    "answer_image": null,
+    "prompt": "Question 66c47028"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-3190835d",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_3190835d.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question 3190835d"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-d5b9ed0d",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_d5b9ed0d.png",
+    "mask_fraction": 1.0,
+    "answer_image": "/pdf/infoideas-medium/a_d5b9ed0d.png",
+    "prompt": "Question d5b9ed0d"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-0d81b7d9",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_0d81b7d9.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question 0d81b7d9"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-356ad646",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_356ad646.png",
+    "mask_fraction": 0.553,
+    "answer_image": null,
+    "prompt": "Question 356ad646"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-a13541c0",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_a13541c0.png",
+    "mask_fraction": 0.499,
+    "answer_image": null,
+    "prompt": "Question a13541c0"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-7c1e5880",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_7c1e5880.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 7c1e5880"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-15873d14",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/infoideas-medium/q_15873d14.png",
+    "mask_fraction": 0.9299,
+    "answer_image": null,
+    "prompt": "Question 15873d14"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-b38935ab",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_b38935ab.png",
+    "mask_fraction": 0.499,
+    "answer_image": null,
+    "prompt": "Question b38935ab"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-8a584241",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_8a584241.png",
+    "mask_fraction": 1.0,
+    "answer_image": "/pdf/infoideas-medium/a_8a584241.png",
+    "prompt": "Question 8a584241"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-dd72993d",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_dd72993d.png",
+    "mask_fraction": 0.517,
+    "answer_image": null,
+    "prompt": "Question dd72993d"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-25176ff8",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/infoideas-medium/q_25176ff8.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question 25176ff8"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-67b59a67",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_67b59a67.png",
+    "mask_fraction": 0.517,
+    "answer_image": null,
+    "prompt": "Question 67b59a67"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-7edfb2c5",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_7edfb2c5.png",
+    "mask_fraction": 0.874,
+    "answer_image": null,
+    "prompt": "Question 7edfb2c5"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-0c622cfb",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_0c622cfb.png",
+    "mask_fraction": 0.4621,
+    "answer_image": null,
+    "prompt": "Question 0c622cfb"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-5fb6ed10",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_5fb6ed10.png",
+    "mask_fraction": 0.4081,
+    "answer_image": null,
+    "prompt": "Question 5fb6ed10"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-db876fd5",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/infoideas-medium/q_db876fd5.png",
+    "mask_fraction": 0.553,
+    "answer_image": null,
+    "prompt": "Question db876fd5"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-5325b3cc",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/infoideas-medium/q_5325b3cc.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 5325b3cc"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-57303718",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/infoideas-medium/q_57303718.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question 57303718"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-c538954d",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_c538954d.png",
+    "mask_fraction": 0.4801,
+    "answer_image": null,
+    "prompt": "Question c538954d"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-f8244f7c",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_f8244f7c.png",
+    "mask_fraction": 0.7899,
+    "answer_image": null,
+    "prompt": "Question f8244f7c"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-8a668840",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_8a668840.png",
+    "mask_fraction": 0.8778,
+    "answer_image": null,
+    "prompt": "Question 8a668840"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-b7d51f84",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_b7d51f84.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question b7d51f84"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-3cc2eacc",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/infoideas-medium/q_3cc2eacc.png",
+    "mask_fraction": 0.4621,
+    "answer_image": null,
+    "prompt": "Question 3cc2eacc"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-54057e3f",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_54057e3f.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 54057e3f"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-29cde5fa",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_29cde5fa.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 29cde5fa"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-d2c2a7ef",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_d2c2a7ef.png",
+    "mask_fraction": 0.4877,
+    "answer_image": null,
+    "prompt": "Question d2c2a7ef"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-b30a2613",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_b30a2613.png",
+    "mask_fraction": 0.7642,
+    "answer_image": null,
+    "prompt": "Question b30a2613"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-123bd312",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_123bd312.png",
+    "mask_fraction": 0.4621,
+    "answer_image": null,
+    "prompt": "Question 123bd312"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-dc3ea63e",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_dc3ea63e.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question dc3ea63e"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-a95075c5",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_a95075c5.png",
+    "mask_fraction": 0.6042,
+    "answer_image": null,
+    "prompt": "Question a95075c5"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-742fd8ba",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_742fd8ba.png",
+    "mask_fraction": 0.9195,
+    "answer_image": null,
+    "prompt": "Question 742fd8ba"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-03e5cf33",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_03e5cf33.png",
+    "mask_fraction": 0.4621,
+    "answer_image": null,
+    "prompt": "Question 03e5cf33"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-e1504a2a",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_e1504a2a.png",
+    "mask_fraction": 0.4801,
+    "answer_image": null,
+    "prompt": "Question e1504a2a"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-9fe7aafa",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_9fe7aafa.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question 9fe7aafa"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-55688b3c",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/infoideas-medium/q_55688b3c.png",
+    "mask_fraction": 0.4621,
+    "answer_image": null,
+    "prompt": "Question 55688b3c"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-c9708e7d",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_c9708e7d.png",
+    "mask_fraction": 0.4621,
+    "answer_image": null,
+    "prompt": "Question c9708e7d"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-7c21b4b5",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/infoideas-medium/q_7c21b4b5.png",
+    "mask_fraction": 0.6109,
+    "answer_image": null,
+    "prompt": "Question 7c21b4b5"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-ed586475",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_ed586475.png",
+    "mask_fraction": 0.4081,
+    "answer_image": null,
+    "prompt": "Question ed586475"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-81af81d4",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/infoideas-medium/q_81af81d4.png",
+    "mask_fraction": 0.4801,
+    "answer_image": null,
+    "prompt": "Question 81af81d4"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-8af0c099",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/infoideas-medium/q_8af0c099.png",
+    "mask_fraction": 0.553,
+    "answer_image": null,
+    "prompt": "Question 8af0c099"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-c95995bc",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/infoideas-medium/q_c95995bc.png",
+    "mask_fraction": 0.4801,
+    "answer_image": null,
+    "prompt": "Question c95995bc"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-2573d64b",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_2573d64b.png",
+    "mask_fraction": 0.535,
+    "answer_image": null,
+    "prompt": "Question 2573d64b"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-6409016a",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_6409016a.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question 6409016a"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-e1546fd6",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_e1546fd6.png",
+    "mask_fraction": 0.7596,
+    "answer_image": null,
+    "prompt": "Question e1546fd6"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-04dff083",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_04dff083.png",
+    "mask_fraction": 0.499,
+    "answer_image": null,
+    "prompt": "Question 04dff083"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-8fbed1cb",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_8fbed1cb.png",
+    "mask_fraction": 0.4621,
+    "answer_image": null,
+    "prompt": "Question 8fbed1cb"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-f2b3b53b",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_f2b3b53b.png",
+    "mask_fraction": 0.517,
+    "answer_image": null,
+    "prompt": "Question f2b3b53b"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-5432d1de",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_5432d1de.png",
+    "mask_fraction": 0.4801,
+    "answer_image": null,
+    "prompt": "Question 5432d1de"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-4e9afd7a",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_4e9afd7a.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question 4e9afd7a"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-3882ddf6",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_3882ddf6.png",
+    "mask_fraction": 0.4621,
+    "answer_image": null,
+    "prompt": "Question 3882ddf6"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-d74b9bc6",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/infoideas-medium/q_d74b9bc6.png",
+    "mask_fraction": 0.9167,
+    "answer_image": null,
+    "prompt": "Question d74b9bc6"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-a2b0fc3b",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_a2b0fc3b.png",
+    "mask_fraction": 0.9129,
+    "answer_image": null,
+    "prompt": "Question a2b0fc3b"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-2584bcfb",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_2584bcfb.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question 2584bcfb"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-a59245a1",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_a59245a1.png",
+    "mask_fraction": 0.4621,
+    "answer_image": null,
+    "prompt": "Question a59245a1"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-25290c8d",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_25290c8d.png",
+    "mask_fraction": 0.4081,
+    "answer_image": null,
+    "prompt": "Question 25290c8d"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-420b82e2",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_420b82e2.png",
+    "mask_fraction": 0.4801,
+    "answer_image": null,
+    "prompt": "Question 420b82e2"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-d52fca9f",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_d52fca9f.png",
+    "mask_fraction": 0.535,
+    "answer_image": null,
+    "prompt": "Question d52fca9f"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-64b6427a",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_64b6427a.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question 64b6427a"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-7ae8065c",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_7ae8065c.png",
+    "mask_fraction": 0.553,
+    "answer_image": null,
+    "prompt": "Question 7ae8065c"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-9e5ce27c",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_9e5ce27c.png",
+    "mask_fraction": 0.4621,
+    "answer_image": null,
+    "prompt": "Question 9e5ce27c"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-28dfc05a",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_28dfc05a.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 28dfc05a"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-66bef967",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_66bef967.png",
+    "mask_fraction": 0.4621,
+    "answer_image": null,
+    "prompt": "Question 66bef967"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-668f75cb",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/infoideas-medium/q_668f75cb.png",
+    "mask_fraction": 0.5398,
+    "answer_image": null,
+    "prompt": "Question 668f75cb"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-cbecb873",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/infoideas-medium/q_cbecb873.png",
+    "mask_fraction": 0.6308,
+    "answer_image": null,
+    "prompt": "Question cbecb873"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-995d55fd",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_995d55fd.png",
+    "mask_fraction": 0.517,
+    "answer_image": null,
+    "prompt": "Question 995d55fd"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-12030076",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_12030076.png",
+    "mask_fraction": 0.499,
+    "answer_image": null,
+    "prompt": "Question 12030076"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-99fdf71c",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_99fdf71c.png",
+    "mask_fraction": 0.4621,
+    "answer_image": null,
+    "prompt": "Question 99fdf71c"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-ff18829b",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_ff18829b.png",
+    "mask_fraction": 1.0,
+    "answer_image": "/pdf/infoideas-medium/a_ff18829b.png",
+    "prompt": "Question ff18829b"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-e2829dd7",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/infoideas-medium/q_e2829dd7.png",
+    "mask_fraction": 1.0,
+    "answer_image": "/pdf/infoideas-medium/a_e2829dd7.png",
+    "prompt": "Question e2829dd7"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-194dd448",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/infoideas-medium/q_194dd448.png",
+    "mask_fraction": 0.4801,
+    "answer_image": null,
+    "prompt": "Question 194dd448"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-350e2336",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_350e2336.png",
+    "mask_fraction": 0.4801,
+    "answer_image": null,
+    "prompt": "Question 350e2336"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-c6b470bb",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/infoideas-medium/q_c6b470bb.png",
+    "mask_fraction": 0.4801,
+    "answer_image": null,
+    "prompt": "Question c6b470bb"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-f8befe75",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_f8befe75.png",
+    "mask_fraction": 0.499,
+    "answer_image": null,
+    "prompt": "Question f8befe75"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-ccf414c9",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_ccf414c9.png",
+    "mask_fraction": 0.6496,
+    "answer_image": null,
+    "prompt": "Question ccf414c9"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-3cc7d73b",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_3cc7d73b.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question 3cc7d73b"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-3f05e40f",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_3f05e40f.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question 3f05e40f"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-4a85fea6",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_4a85fea6.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question 4a85fea6"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-a0203977",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/infoideas-medium/q_a0203977.png",
+    "mask_fraction": 0.6127,
+    "answer_image": null,
+    "prompt": "Question a0203977"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-6af80ff3",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/infoideas-medium/q_6af80ff3.png",
+    "mask_fraction": 0.9441,
+    "answer_image": null,
+    "prompt": "Question 6af80ff3"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-0ec15b5a",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_0ec15b5a.png",
+    "mask_fraction": 0.6307,
+    "answer_image": null,
+    "prompt": "Question 0ec15b5a"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-a9390104",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_a9390104.png",
+    "mask_fraction": 0.4621,
+    "answer_image": null,
+    "prompt": "Question a9390104"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-659c6c1d",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_659c6c1d.png",
+    "mask_fraction": 0.4953,
+    "answer_image": null,
+    "prompt": "Question 659c6c1d"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-39de2206",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_39de2206.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 39de2206"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-d5c2a4d4",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_d5c2a4d4.png",
+    "mask_fraction": 0.5066,
+    "answer_image": null,
+    "prompt": "Question d5c2a4d4"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-cf7491c1",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_cf7491c1.png",
+    "mask_fraction": 0.6393,
+    "answer_image": null,
+    "prompt": "Question cf7491c1"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-5d6ab069",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_5d6ab069.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question 5d6ab069"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-2df730d0",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_2df730d0.png",
+    "mask_fraction": 1.0,
+    "answer_image": "/pdf/infoideas-medium/a_2df730d0.png",
+    "prompt": "Question 2df730d0"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-5d453dcc",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_5d453dcc.png",
+    "mask_fraction": 1.0,
+    "answer_image": "/pdf/infoideas-medium/a_5d453dcc.png",
+    "prompt": "Question 5d453dcc"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-3d505895",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/infoideas-medium/q_3d505895.png",
+    "mask_fraction": 0.4621,
+    "answer_image": null,
+    "prompt": "Question 3d505895"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-2ef8e367",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_2ef8e367.png",
+    "mask_fraction": 0.4081,
+    "answer_image": null,
+    "prompt": "Question 2ef8e367"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-ad680167",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/infoideas-medium/q_ad680167.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question ad680167"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-cebfb2c6",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_cebfb2c6.png",
+    "mask_fraction": 0.646,
+    "answer_image": null,
+    "prompt": "Question cebfb2c6"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-575e67df",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_575e67df.png",
+    "mask_fraction": 0.4801,
+    "answer_image": null,
+    "prompt": "Question 575e67df"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-1d08c7ee",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_1d08c7ee.png",
+    "mask_fraction": 0.499,
+    "answer_image": null,
+    "prompt": "Question 1d08c7ee"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-adbcbce0",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_adbcbce0.png",
+    "mask_fraction": 0.6742,
+    "answer_image": null,
+    "prompt": "Question adbcbce0"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-73caa3ab",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_73caa3ab.png",
+    "mask_fraction": 0.4848,
+    "answer_image": null,
+    "prompt": "Question 73caa3ab"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-dd349efc",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/infoideas-medium/q_dd349efc.png",
+    "mask_fraction": 0.7094,
+    "answer_image": null,
+    "prompt": "Question dd349efc"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-b7f79059",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/infoideas-medium/q_b7f79059.png",
+    "mask_fraction": 0.5502,
+    "answer_image": null,
+    "prompt": "Question b7f79059"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-8fb67890",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_8fb67890.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 8fb67890"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-6540a976",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_6540a976.png",
+    "mask_fraction": 0.4801,
+    "answer_image": null,
+    "prompt": "Question 6540a976"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-e99a38ec",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/infoideas-medium/q_e99a38ec.png",
+    "mask_fraction": 1.0,
+    "answer_image": "/pdf/infoideas-medium/a_e99a38ec.png",
+    "prompt": "Question e99a38ec"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-e47d2524",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_e47d2524.png",
+    "mask_fraction": 0.4621,
+    "answer_image": null,
+    "prompt": "Question e47d2524"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-d5d3ea31",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/infoideas-medium/q_d5d3ea31.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question d5d3ea31"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-b074cc05",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_b074cc05.png",
+    "mask_fraction": 0.8949,
+    "answer_image": null,
+    "prompt": "Question b074cc05"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-1db1a9a6",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_1db1a9a6.png",
+    "mask_fraction": 0.7642,
+    "answer_image": null,
+    "prompt": "Question 1db1a9a6"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-16a4a83b",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/infoideas-medium/q_16a4a83b.png",
+    "mask_fraction": 0.4621,
+    "answer_image": null,
+    "prompt": "Question 16a4a83b"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-a0b58ef0",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_a0b58ef0.png",
+    "mask_fraction": 0.4621,
+    "answer_image": null,
+    "prompt": "Question a0b58ef0"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-3ae2638c",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_3ae2638c.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question 3ae2638c"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-f3f444bc",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_f3f444bc.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question f3f444bc"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-9aa5efc4",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_9aa5efc4.png",
+    "mask_fraction": 0.499,
+    "answer_image": null,
+    "prompt": "Question 9aa5efc4"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-25fc2534",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_25fc2534.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 25fc2534"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-2d2983b3",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_2d2983b3.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question 2d2983b3"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-224428ac",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_224428ac.png",
+    "mask_fraction": 0.8513,
+    "answer_image": null,
+    "prompt": "Question 224428ac"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-d76ea360",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_d76ea360.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question d76ea360"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-84136d69",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_84136d69.png",
+    "mask_fraction": 0.6393,
+    "answer_image": null,
+    "prompt": "Question 84136d69"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-95146ebb",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_95146ebb.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question 95146ebb"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-df654a2b",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_df654a2b.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question df654a2b"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-dc47c2ac",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_dc47c2ac.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question dc47c2ac"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-485962a6",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_485962a6.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question 485962a6"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-bcbcc43f",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_bcbcc43f.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question bcbcc43f"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-d8b78a2b",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_d8b78a2b.png",
+    "mask_fraction": 0.4621,
+    "answer_image": null,
+    "prompt": "Question d8b78a2b"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-23e2421a",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/infoideas-medium/q_23e2421a.png",
+    "mask_fraction": 1.0,
+    "answer_image": "/pdf/infoideas-medium/a_23e2421a.png",
+    "prompt": "Question 23e2421a"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-d047abca",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/infoideas-medium/q_d047abca.png",
+    "mask_fraction": 0.4621,
+    "answer_image": null,
+    "prompt": "Question d047abca"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-df8caadd",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_df8caadd.png",
+    "mask_fraction": 0.6392,
+    "answer_image": null,
+    "prompt": "Question df8caadd"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-98fd50f2",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_98fd50f2.png",
+    "mask_fraction": 0.4621,
+    "answer_image": null,
+    "prompt": "Question 98fd50f2"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-fc57d569",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_fc57d569.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question fc57d569"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-94978129",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_94978129.png",
+    "mask_fraction": 0.6583,
+    "answer_image": null,
+    "prompt": "Question 94978129"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-b4cda84d",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_b4cda84d.png",
+    "mask_fraction": 0.517,
+    "answer_image": null,
+    "prompt": "Question b4cda84d"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-7ffae38a",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_7ffae38a.png",
+    "mask_fraction": 0.4773,
+    "answer_image": null,
+    "prompt": "Question 7ffae38a"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-409058ee",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_409058ee.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question 409058ee"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-299c5303",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_299c5303.png",
+    "mask_fraction": 0.4621,
+    "answer_image": null,
+    "prompt": "Question 299c5303"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-b62cb782",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_b62cb782.png",
+    "mask_fraction": 0.4801,
+    "answer_image": null,
+    "prompt": "Question b62cb782"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-5105ca38",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_5105ca38.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question 5105ca38"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-bcf2f169",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_bcf2f169.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question bcf2f169"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-c188a397",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_c188a397.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question c188a397"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-fbb84fb0",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_fbb84fb0.png",
+    "mask_fraction": 0.4081,
+    "answer_image": null,
+    "prompt": "Question fbb84fb0"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-73d457b6",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_73d457b6.png",
+    "mask_fraction": 0.4801,
+    "answer_image": null,
+    "prompt": "Question 73d457b6"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-cac82f9b",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_cac82f9b.png",
+    "mask_fraction": 0.4621,
+    "answer_image": null,
+    "prompt": "Question cac82f9b"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-7afdcca2",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_7afdcca2.png",
+    "mask_fraction": 0.499,
+    "answer_image": null,
+    "prompt": "Question 7afdcca2"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-923ebfe3",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_923ebfe3.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question 923ebfe3"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-f64ff4fb",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/infoideas-medium/q_f64ff4fb.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question f64ff4fb"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-f2208f98",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/infoideas-medium/q_f2208f98.png",
+    "mask_fraction": 0.4801,
+    "answer_image": null,
+    "prompt": "Question f2208f98"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-87023f34",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_87023f34.png",
+    "mask_fraction": 0.4081,
+    "answer_image": null,
+    "prompt": "Question 87023f34"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-6317295c",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Command of Evidence",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_6317295c.png",
+    "mask_fraction": 0.6034,
+    "answer_image": null,
+    "prompt": "Question 6317295c"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-835545cd",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/infoideas-medium/q_835545cd.png",
+    "mask_fraction": 0.4593,
+    "answer_image": null,
+    "prompt": "Question 835545cd"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-a66f9b8d",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Central Ideas and Details",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/infoideas-medium/q_a66f9b8d.png",
+    "mask_fraction": 0.4621,
+    "answer_image": null,
+    "prompt": "Question a66f9b8d"
+  },
+  {
+    "ext_id": "cb-infoideas-medium-b1fab3e1",
+    "domain": "reading",
+    "topic": "information-ideas",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Inferences",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/infoideas-medium/q_b1fab3e1.png",
+    "mask_fraction": 0.4621,
+    "answer_image": null,
+    "prompt": "Question b1fab3e1"
+  }
+]

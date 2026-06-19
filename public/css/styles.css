@@ -400,12 +400,30 @@ table.data tr:hover td { background: var(--pink-50); }
 .spinner { text-align: center; color: var(--muted); padding: 40px; }
 
 /* ===== Split practice layout: PDF page (left) + answer panel (right) ===== */
+.user-chip {
+  font-weight: 800; color: var(--pink-700);
+  background: var(--pink-100); border-radius: 999px; padding: 4px 12px;
+}
+
+.practice-toolbar { display: flex; justify-content: flex-end; margin-bottom: 12px; }
+
 .practice-split {
   display: grid;
   grid-template-columns: minmax(0, 1.7fr) minmax(360px, 1fr);
   gap: 26px;
   align-items: start;
 }
+
+/* Full-screen test-taking: hide chrome, let both panels use the whole screen */
+body.fullscreen-mode { background: #fff; }
+body.fullscreen-mode .topbar { display: none; }
+body.fullscreen-mode .container.practice-page {
+  max-width: 100vw; padding: 8px 16px 16px;
+}
+body.fullscreen-mode .practice-toolbar { margin-bottom: 6px; }
+body.fullscreen-mode .pdf-pane { position: static; }
+body.fullscreen-mode .pdf-frame { max-height: calc(100vh - 120px); }
+body.fullscreen-mode .answer-pane { max-height: calc(100vh - 70px); overflow-y: auto; }
 .pdf-pane { position: sticky; top: 92px; }
 .answer-pane { position: relative; }
 

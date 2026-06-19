@@ -23,7 +23,11 @@ const path = require('path');
 })();
 
 const repo = require('./repo');
+const auth = require('./auth');
 const { isValidTopic, isValidDifficulty, domainOfTopic } = require('./topics');
+
+// Load the username/password list from COLLEGEBOARD/users.txt on startup.
+auth.loadUsers();
 
 const PORT       = process.env.PORT || 3000;
 const PUBLIC_DIR = path.join(__dirname, 'public');
@@ -38,9 +42,30 @@ const MIME = {
   '.png' : 'image/png',
 };
 
-function sendJson(res, status, data) {
-  res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8' });
+function sendJson(res, status, data, headers) {
+  res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8', ...(headers || {}) });
   res.end(JSON.stringify(data));
+}
+
+const COOKIE = 'sat_auth';
+
+function parseCookies(req) {
+  const out = {};
+  const raw = req.headers.cookie;
+  if (!raw) return out;
+  for (const part of raw.split(';')) {
+    const i = part.indexOf('=');
+    if (i < 0) continue;
+    out[part.slice(0, i).trim()] = decodeURIComponent(part.slice(i + 1).trim());
+  }
+  return out;
+}
+
+function cookieHeader(token, maxAgeDays) {
+  const attrs = ['Path=/', 'HttpOnly', 'SameSite=Lax'];
+  if (maxAgeDays === 0) attrs.push('Max-Age=0');
+  else attrs.push(`Max-Age=${Math.round((maxAgeDays || 30) * 86400)}`);
+  return { 'Set-Cookie': `${COOKIE}=${token}; ${attrs.join('; ')}` };
 }
 
 function readBody(req) {
@@ -75,12 +100,40 @@ async function handleApi(req, res, url) {
   const { pathname } = url;
   const parts = pathname.split('/').filter(Boolean); // ['api', ...]
 
+  const cookies = parseCookies(req);
+
   try {
+    // ---- auth (no session required) ----
+    // POST /api/login  { username, password }
+    if (req.method === 'POST' && pathname === '/api/login') {
+      const body = await readBody(req);
+      const result = auth.login(body.username, body.password);
+      if (!result) return sendJson(res, 401, { error: 'Wrong username or password.' });
+      return sendJson(res, 200, { user: result.user }, cookieHeader(result.token, 30));
+    }
+
+    // POST /api/logout
+    if (req.method === 'POST' && pathname === '/api/logout') {
+      auth.logout(cookies[COOKIE]);
+      return sendJson(res, 200, { ok: true }, cookieHeader('', 0));
+    }
+
+    // ---- everything below requires a logged-in user ----
+    const user = auth.userForToken(cookies[COOKIE]);
+    if (!user) return sendJson(res, 401, { error: 'Not signed in' });
+    const uid = user.id;
+
+    // GET /api/me
+    if (req.method === 'GET' && pathname === '/api/me') {
+      return sendJson(res, 200, { user });
+    }
+
     // GET /api/overview
     if (req.method === 'GET' && pathname === '/api/overview') {
       return sendJson(res, 200, {
-        today:       repo.getTodayProgress(),
-        catalogue:   repo.getCatalogue(),
+        user,
+        today:       repo.getTodayProgress(uid),
+        catalogue:   repo.getCatalogue(uid),
         timeLimit:   repo.TIME_LIMIT,
         sessionSize: repo.SESSION_SIZE,
       });
@@ -94,45 +147,45 @@ async function handleApi(req, res, url) {
       if (!isValidTopic(topic))      return sendJson(res, 400, { error: 'Invalid topic' });
       if (!isValidDifficulty(difficulty)) return sendJson(res, 400, { error: 'difficulty must be "medium" or "hard"' });
       const domain = domainOfTopic(topic);
-      const result = repo.createOrResumeSession(domain, topic, difficulty);
+      const result = repo.createOrResumeSession(uid, domain, topic, difficulty);
       return sendJson(res, 200, result);
     }
 
     // GET /api/sessions/:id
     if (req.method === 'GET' && parts[1] === 'sessions' && parts.length === 3) {
-      const state = repo.getSessionState(Number(parts[2]));
+      const state = repo.getSessionState(uid, Number(parts[2]));
       if (!state) return sendJson(res, 404, { error: 'Session not found' });
       return sendJson(res, 200, state);
     }
 
     // GET /api/sessions/:id/questions/:position
     if (req.method === 'GET' && parts[1] === 'sessions' && parts[3] === 'questions' && parts.length === 5) {
-      const data = repo.getQuestionAt(Number(parts[2]), Number(parts[4]));
+      const data = repo.getQuestionAt(uid, Number(parts[2]), Number(parts[4]));
       if (!data) return sendJson(res, 404, { error: 'Question not found' });
-      repo.setCurrentPosition(Number(parts[2]), Number(parts[4]));
+      repo.setCurrentPosition(uid, Number(parts[2]), Number(parts[4]));
       return sendJson(res, 200, data);
     }
 
     // POST /api/sessions/:id/answer
     if (req.method === 'POST' && parts[1] === 'sessions' && parts[3] === 'answer' && parts.length === 4) {
       const body = await readBody(req);
-      const result = repo.submitAnswer(Number(parts[2]), Number(body.questionId), String(body.selected), Number(body.timeTaken));
+      const result = repo.submitAnswer(uid, Number(parts[2]), Number(body.questionId), String(body.selected), Number(body.timeTaken));
       return sendJson(res, 200, result);
     }
 
     // POST /api/sessions/:id/complete
     if (req.method === 'POST' && parts[1] === 'sessions' && parts[3] === 'complete' && parts.length === 4) {
-      return sendJson(res, 200, repo.completeSession(Number(parts[2])));
+      return sendJson(res, 200, repo.completeSession(uid, Number(parts[2])));
     }
 
     // GET /api/dashboard
     if (req.method === 'GET' && pathname === '/api/dashboard') {
-      return sendJson(res, 200, repo.getDashboard());
+      return sendJson(res, 200, repo.getDashboard(uid));
     }
 
     // GET /api/attempts/:id/review
     if (req.method === 'GET' && parts[1] === 'attempts' && parts[3] === 'review' && parts.length === 4) {
-      const review = repo.getAttemptReview(Number(parts[2]));
+      const review = repo.getAttemptReview(uid, Number(parts[2]));
       if (!review) return sendJson(res, 404, { error: 'Attempt not found' });
       return sendJson(res, 200, review);
     }

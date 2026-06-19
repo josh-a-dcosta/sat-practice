@@ -1,0 +1,7 @@
+# SAT Practice users — one per line:  username,password
+# Lines starting with '#' are ignored. A colon (user:pass) also works.
+# Edit this file in your repo to manage logins; no admin page needed.
+# Passwords are stored as-is (simple shared family use), so keep this file private.
+
+daughter,sat2026
+parent,sat2026

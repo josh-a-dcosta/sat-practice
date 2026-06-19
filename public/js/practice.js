@@ -338,6 +338,26 @@ $('zoomIn').onclick = () => zoomBy(ZOOM_STEP);
 $('zoomOut').onclick = () => zoomBy(-ZOOM_STEP);
 $('zoomReset').onclick = zoomReset;
 
+// ----- Full-screen mode: wider panels using the whole screen -----
+let wideMode = false;
+function setWide(on) {
+  wideMode = on;
+  document.body.classList.toggle('fullscreen-mode', on);
+  $('fullscreenBtn').textContent = on ? '🡼 Exit full screen' : '⛶ Full screen';
+}
+function toggleFullscreen() {
+  setWide(!wideMode);
+  try {
+    if (wideMode && !document.fullscreenElement) document.documentElement.requestFullscreen?.();
+    else if (!wideMode && document.fullscreenElement) document.exitFullscreen?.();
+  } catch (_) { /* layout class still applies even if the API is blocked */ }
+}
+$('fullscreenBtn').onclick = toggleFullscreen;
+document.addEventListener('fullscreenchange', () => {
+  // Pressing Esc leaves browser fullscreen — drop the wide layout too.
+  if (!document.fullscreenElement && wideMode) setWide(false);
+});
+
 window.addEventListener('beforeunload', stopTiming);
 
 if (!sessionId) {

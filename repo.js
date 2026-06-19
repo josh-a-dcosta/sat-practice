@@ -69,7 +69,7 @@ function sprIsCorrect(selected, acceptableJson) {
 // ---------------------------------------------------------------------------
 // catalogue: what's available per topic+difficulty
 // ---------------------------------------------------------------------------
-function getCatalogue() {
+function getCatalogue(userId) {
   const counts = db.prepare(`
     SELECT domain, topic, difficulty, COUNT(*) total FROM questions
     GROUP BY domain, topic, difficulty
@@ -78,13 +78,14 @@ function getCatalogue() {
   const mastered = db.prepare(`
     SELECT q.domain, q.topic, q.difficulty, COUNT(DISTINCT a.question_id) n
     FROM attempts a JOIN questions q ON q.id = a.question_id
-    WHERE a.is_correct = 1
+    WHERE a.is_correct = 1 AND a.user_id = ?
     GROUP BY q.domain, q.topic, q.difficulty
-  `).all();
+  `).all(userId);
 
   const activeSessions = db.prepare(`
-    SELECT domain, topic, difficulty, id FROM sessions WHERE status = 'in_progress'
-  `).all();
+    SELECT domain, topic, difficulty, id FROM sessions
+    WHERE status = 'in_progress' AND user_id = ?
+  `).all(userId);
 
   const masteredMap = {};
   for (const r of mastered) masteredMap[`${r.domain}|${r.topic}|${r.difficulty}`] = r.n;
@@ -118,17 +119,18 @@ function getCatalogue() {
   return catalogue;
 }
 
-function getTodayProgress() {
+function getTodayProgress(userId) {
   const row = db.prepare(`
-    SELECT COUNT(*) n FROM attempts WHERE date(answered_at) = date('now','localtime')
-  `).get();
+    SELECT COUNT(*) n FROM attempts
+    WHERE user_id = ? AND date(answered_at) = date('now','localtime')
+  `).get(userId);
   return { answeredToday: row.n, goal: DAILY_GOAL, met: row.n >= DAILY_GOAL };
 }
 
 // ---------------------------------------------------------------------------
 // question selection for a session
 // ---------------------------------------------------------------------------
-function selectQuestions(domain, topic, difficulty, limit) {
+function selectQuestions(userId, domain, topic, difficulty, limit) {
   const all = db.prepare(
     'SELECT id FROM questions WHERE domain=? AND topic=? AND difficulty=?'
   ).all(domain, topic, difficulty).map((r) => r.id);
@@ -136,16 +138,17 @@ function selectQuestions(domain, topic, difficulty, limit) {
   if (!all.length) return [];
 
   const mastered = new Set(
-    db.prepare('SELECT DISTINCT question_id id FROM attempts WHERE is_correct=1').all().map((r) => r.id)
+    db.prepare('SELECT DISTINCT question_id id FROM attempts WHERE is_correct=1 AND user_id=?').all(userId).map((r) => r.id)
   );
   const attempted = new Set(
-    db.prepare('SELECT DISTINCT question_id id FROM attempts').all().map((r) => r.id)
+    db.prepare('SELECT DISTINCT question_id id FROM attempts WHERE user_id=?').all(userId).map((r) => r.id)
   );
   const inProgress = new Set(
     db.prepare(`
       SELECT sq.question_id id FROM session_questions sq
-      JOIN sessions s ON s.id = sq.session_id WHERE s.status='in_progress'
-    `).all().map((r) => r.id)
+      JOIN sessions s ON s.id = sq.session_id
+      WHERE s.status='in_progress' AND s.user_id=?
+    `).all(userId).map((r) => r.id)
   );
 
   const retake = [], fresh = [];
@@ -159,19 +162,19 @@ function selectQuestions(domain, topic, difficulty, limit) {
 // ---------------------------------------------------------------------------
 // sessions
 // ---------------------------------------------------------------------------
-function getActiveSession(domain, topic, difficulty) {
+function getActiveSession(userId, domain, topic, difficulty) {
   return db.prepare(`
     SELECT * FROM sessions
-    WHERE domain=? AND topic=? AND difficulty=? AND status='in_progress'
+    WHERE user_id=? AND domain=? AND topic=? AND difficulty=? AND status='in_progress'
     ORDER BY created_at DESC LIMIT 1
-  `).get(domain, topic, difficulty);
+  `).get(userId, domain, topic, difficulty);
 }
 
-function createOrResumeSession(domain, topic, difficulty) {
-  const active = getActiveSession(domain, topic, difficulty);
+function createOrResumeSession(userId, domain, topic, difficulty) {
+  const active = getActiveSession(userId, domain, topic, difficulty);
   if (active) return { id: active.id, resumed: true, size: countSQ(active.id) };
 
-  const ids = selectQuestions(domain, topic, difficulty, SESSION_SIZE);
+  const ids = selectQuestions(userId, domain, topic, difficulty, SESSION_SIZE);
   if (!ids.length) {
     const e = new Error(`No questions available for ${topicLabel(topic)} ${difficulty}. Upload questions for this section.`);
     e.status = 409; throw e;
@@ -180,8 +183,8 @@ function createOrResumeSession(domain, topic, difficulty) {
   db.exec('BEGIN');
   try {
     const info = db.prepare(
-      'INSERT INTO sessions (domain, topic, difficulty) VALUES (?,?,?)'
-    ).run(domain, topic, difficulty);
+      'INSERT INTO sessions (user_id, domain, topic, difficulty) VALUES (?,?,?,?)'
+    ).run(userId, domain, topic, difficulty);
     const sid = Number(info.lastInsertRowid);
     const ins = db.prepare('INSERT INTO session_questions (session_id,question_id,position) VALUES (?,?,?)');
     ids.forEach((qid, i) => ins.run(sid, qid, i + 1));
@@ -194,12 +197,12 @@ function countSQ(sid) {
   return db.prepare('SELECT COUNT(*) n FROM session_questions WHERE session_id=?').get(sid).n;
 }
 
-function getSessionRow(sid) {
-  return db.prepare('SELECT * FROM sessions WHERE id=?').get(sid);
+function getSessionRow(userId, sid) {
+  return db.prepare('SELECT * FROM sessions WHERE id=? AND user_id=?').get(sid, userId);
 }
 
-function getSessionState(sid) {
-  const s = getSessionRow(sid);
+function getSessionState(userId, sid) {
+  const s = getSessionRow(userId, sid);
   if (!s) return null;
   const items = db.prepare(`
     SELECT sq.position, sq.question_id,
@@ -218,14 +221,15 @@ function getSessionState(sid) {
   };
 }
 
-function getQuestionAt(sid, position) {
+function getQuestionAt(userId, sid, position) {
+  if (!getSessionRow(userId, sid)) return null;
   const sq = db.prepare('SELECT * FROM session_questions WHERE session_id=? AND position=?').get(sid, position);
   if (!sq) return null;
   const q = parseQ(db.prepare('SELECT * FROM questions WHERE id=?').get(sq.question_id));
   const attempt = db.prepare(
     'SELECT selected, time_taken_seconds FROM attempts WHERE session_id=? AND question_id=?'
   ).get(sid, sq.question_id);
-  const state = getSessionState(sid);
+  const state = getSessionState(userId, sid);
   return {
     position, total: state.total, answeredCount: state.answeredCount,
     question: publicQuestion(q),
@@ -234,12 +238,12 @@ function getQuestionAt(sid, position) {
   };
 }
 
-function setCurrentPosition(sid, position) {
-  db.prepare("UPDATE sessions SET current_position=? WHERE id=? AND status='in_progress'").run(position, sid);
+function setCurrentPosition(userId, sid, position) {
+  db.prepare("UPDATE sessions SET current_position=? WHERE id=? AND user_id=? AND status='in_progress'").run(position, sid, userId);
 }
 
-function submitAnswer(sid, questionId, selected, timeTaken) {
-  const s = getSessionRow(sid);
+function submitAnswer(userId, sid, questionId, selected, timeTaken) {
+  const s = getSessionRow(userId, sid);
   if (!s) { const e = new Error('Session not found'); e.status = 404; throw e; }
   if (s.status !== 'in_progress') { const e = new Error('Session already completed.'); e.status = 409; throw e; }
 
@@ -257,19 +261,19 @@ function submitAnswer(sid, questionId, selected, timeTaken) {
   const t = Math.max(0, Math.min(Number(timeTaken) || 0, 36000));
 
   db.prepare(`
-    INSERT INTO attempts (session_id, question_id, selected, is_correct, time_taken_seconds)
-    VALUES (?,?,?,?,?)
-  `).run(sid, questionId, selected, isCorrect, t);
+    INSERT INTO attempts (user_id, session_id, question_id, selected, is_correct, time_taken_seconds)
+    VALUES (?,?,?,?,?,?)
+  `).run(userId, sid, questionId, selected, isCorrect, t);
 
-  const state = getSessionState(sid);
+  const state = getSessionState(userId, sid);
   return { recorded: true, answeredCount: state.answeredCount, total: state.total, allAnswered: state.allAnswered };
 }
 
-function completeSession(sid) {
-  const s = getSessionRow(sid);
+function completeSession(userId, sid) {
+  const s = getSessionRow(userId, sid);
   if (!s) { const e = new Error('Session not found'); e.status = 404; throw e; }
 
-  const state = getSessionState(sid);
+  const state = getSessionState(userId, sid);
   if (!state.allAnswered) {
     const e = new Error('Answer all questions before finishing.'); e.status = 409; throw e;
   }
@@ -313,8 +317,8 @@ function completeSession(sid) {
 
 // Full review of a single past attempt: question + the student's answer + the
 // correct answer/rationale fully revealed (used by the dashboard click-through).
-function getAttemptReview(attemptId) {
-  const a = db.prepare('SELECT * FROM attempts WHERE id=?').get(attemptId);
+function getAttemptReview(userId, attemptId) {
+  const a = db.prepare('SELECT * FROM attempts WHERE id=? AND user_id=?').get(attemptId, userId);
   if (!a) return null;
   const q = parseQ(db.prepare('SELECT * FROM questions WHERE id=?').get(a.question_id));
   if (!q) return null;
@@ -344,29 +348,30 @@ function getAttemptReview(attemptId) {
 // ---------------------------------------------------------------------------
 // dashboard
 // ---------------------------------------------------------------------------
-function getDashboard() {
-  const catalogue = getCatalogue();
+function getDashboard(userId) {
+  const catalogue = getCatalogue(userId);
   const overall = db.prepare(`
     SELECT COUNT(*) attempts, SUM(is_correct) correct,
            SUM(CASE WHEN is_correct=0 THEN 1 ELSE 0 END) wrong,
            COALESCE(AVG(time_taken_seconds),0) avg_time
-    FROM attempts
-  `).get();
+    FROM attempts WHERE user_id=?
+  `).get(userId);
 
   const byDay = db.prepare(`
     SELECT date(answered_at) day, COUNT(*) total,
            SUM(is_correct) correct, SUM(CASE WHEN is_correct=0 THEN 1 ELSE 0 END) wrong
-    FROM attempts GROUP BY date(answered_at) ORDER BY day
-  `).all();
+    FROM attempts WHERE user_id=? GROUP BY date(answered_at) ORDER BY day
+  `).all(userId);
 
   const byTopic = db.prepare(`
     SELECT q.domain, q.topic, q.difficulty,
            COUNT(*) attempts, SUM(a.is_correct) correct,
            COALESCE(AVG(a.time_taken_seconds),0) avg_time
     FROM attempts a JOIN questions q ON q.id=a.question_id
+    WHERE a.user_id=?
     GROUP BY q.domain, q.topic, q.difficulty
     ORDER BY q.domain, q.topic, q.difficulty
-  `).all();
+  `).all(userId);
 
   // Per-skill performance so she can see exactly which skills need work.
   const bySkill = db.prepare(`
@@ -375,27 +380,29 @@ function getDashboard() {
            SUM(CASE WHEN a.is_correct=0 THEN 1 ELSE 0 END) wrong,
            COALESCE(AVG(a.time_taken_seconds),0) avg_time
     FROM attempts a JOIN questions q ON q.id=a.question_id
+    WHERE a.user_id=?
     GROUP BY q.domain, q.topic, q.difficulty, q.skill
     ORDER BY (CAST(SUM(a.is_correct) AS REAL)/COUNT(*)) ASC, attempts DESC
-  `).all();
+  `).all(userId);
 
   const sessions = db.prepare(`
     SELECT s.id, s.domain, s.topic, s.difficulty, s.status, s.created_at, s.completed_at, s.score,
            (SELECT COUNT(*) FROM session_questions sq WHERE sq.session_id=s.id) total,
            (SELECT COUNT(*) FROM attempts a WHERE a.session_id=s.id) answered
-    FROM sessions s ORDER BY s.created_at DESC
-  `).all();
+    FROM sessions s WHERE s.user_id=? ORDER BY s.created_at DESC
+  `).all(userId);
 
   const attemptRows = db.prepare(`
     SELECT a.id, a.session_id, a.answered_at, q.domain, q.topic, q.difficulty,
            COALESCE(q.skill,'(unspecified)') skill, q.test,
            substr(q.prompt,1,90) prompt, a.selected, q.correct, a.is_correct, a.time_taken_seconds
     FROM attempts a JOIN questions q ON q.id=a.question_id
+    WHERE a.user_id=?
     ORDER BY a.answered_at DESC
-  `).all();
+  `).all(userId);
 
   return {
-    today: getTodayProgress(),
+    today: getTodayProgress(userId),
     catalogue,
     overall: {
       attempts: overall.attempts || 0,
