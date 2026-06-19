@@ -1,3 +1,0 @@
-username|password
-jd|517
-fg|310
