@@ -135,6 +135,7 @@ def main():
         i = j
 
     out = []
+    skipped = []   # (qid, reason) for any question we could not fully parse
     for pageset in questions:
         primary = pageset[0]
         text_all = '\n'.join(info[p]['text'] for p in pageset)
@@ -145,7 +146,8 @@ def main():
 
         qtype, correct = parse_correct(text_all)
         if qtype is None:
-            # no correct answer found anywhere; skip
+            # no correct answer found anywhere; record so the tally flags it
+            skipped.append((qid, 'no correct answer parsed'))
             continue
         choices = ['A','B','C','D'] if qtype == 'mcq' else []
 
@@ -202,6 +204,26 @@ def main():
     print(f'Imported {len(out)} questions ({mcq} multiple-choice, {spr} free-response)')
     print(f'Images -> {IMG_DIR}')
     print(f'Data   -> {data_path}')
+
+    # ---- Reconciliation: every Question ID in the PDF must be accounted for ----
+    pdf_qids = [info[p]['qid'] for p in range(n) if info[p]['qid']]
+    distinct_pdf = set(pdf_qids)
+    extracted = {q['ext_id'].rsplit('-', 1)[-1] for q in out}
+    missing = distinct_pdf - extracted
+    dupes = len(pdf_qids) - len(distinct_pdf)
+    print('\n--- Question tally (PDF vs extracted) ---')
+    print(f'  Question IDs in PDF (distinct): {len(distinct_pdf)}')
+    print(f'  Questions extracted           : {len(extracted)}')
+    if dupes:
+        print(f'  Note: {dupes} duplicate Question ID line(s) in the PDF (counted once).')
+    if missing:
+        print(f'  ❌ MISSING {len(missing)} question(s) — NOT imported:')
+        reasons = dict(skipped)
+        for qid in sorted(missing):
+            print(f'      {qid}  ({reasons.get(qid, "unknown reason")})')
+        print('  ⚠️  Fix parse_correct()/skill logic before relying on this import.')
+        sys.exit(1)
+    print('  ✅ All questions accounted for — none lost.')
 
 def pg_search(pg, phrase):
     try:
