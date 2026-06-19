@@ -15,38 +15,70 @@ For each question we record:
                       masks everything from here down until she reveals it
   - answer_image      extra image for multi-page questions (answer on later page)
 
-USAGE: python3 scripts/import-pdf-pages.py <pdf> <topic> <difficulty> <source-slug>
+USAGE: python3 scripts/import-pdf-pages.py <pdf> [slug]
+
+  <pdf>   path to the College Board PDF
+  [slug]  one of the 16 section slugs in data/expected-counts.json
+          (e.g. advmath-medium). If omitted, it is derived from the file name.
+
+The section's domain/topic/difficulty/expected-count are all looked up from
+data/expected-counts.json, so the file is the single source of truth.
 """
 import sys, os, re, json
 import pdfplumber
 import pypdfium2 as pdfium
 
-PDF   = sys.argv[1] if len(sys.argv) > 1 else 'COLLEGEBOARD/math-algebra-medium-2026-6-17.pdf'
-TOPIC = sys.argv[2] if len(sys.argv) > 2 else 'algebra'
-DIFF  = sys.argv[3] if len(sys.argv) > 3 else 'medium'
-SLUG  = sys.argv[4] if len(sys.argv) > 4 else 'algebra-medium'
-DOMAIN = 'reading' if TOPIC in ('information-ideas','craft-structure','expression-ideas','standard-conventions') else 'math'
-
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-IMG_DIR = os.path.join(ROOT, 'public', 'pdf', SLUG)
-os.makedirs(IMG_DIR, exist_ok=True)
+EXPECTED_FILE = os.path.join(ROOT, 'data', 'expected-counts.json')
 SCALE = 2.0
-
 VALUE_RE = re.compile(r'^-?\$?\d*\.?\d+(?:/\d*\.?\d+)?%?$')
 
-EXPECTED_FILE = os.path.join(ROOT, 'data', 'expected-counts.json')
 
-def expected_count(slug):
-    """Look up the remembered expected question count for this slug, or None."""
-    try:
-        with open(EXPECTED_FILE) as f:
-            manifest = json.load(f)
-    except Exception:
-        return None
-    for s in manifest.get('sections', []):
-        if s.get('slug') == slug:
-            return s.get('expected')
-    return None
+def load_manifest():
+    with open(EXPECTED_FILE) as f:
+        return json.load(f).get('sections', [])
+
+
+def resolve_section(pdf_path, slug_arg):
+    """Find the manifest section for this import, by explicit slug or by
+    matching the PDF file name against the known section slugs."""
+    sections = load_manifest()
+    by_slug = {s['slug']: s for s in sections}
+
+    if slug_arg:
+        if slug_arg not in by_slug:
+            sys.exit(f'ERROR: slug "{slug_arg}" is not in {EXPECTED_FILE}. '
+                     f'Valid slugs: {", ".join(sorted(by_slug))}')
+        return by_slug[slug_arg]
+
+    name = os.path.basename(pdf_path).lower()
+    diff = 'hard' if 'hard' in name else ('medium' if 'medium' in name else None)
+    if not diff:
+        sys.exit(f'ERROR: could not find "medium" or "hard" in file name "{name}". '
+                 f'Pass the slug explicitly, e.g. advmath-hard.')
+    # topic stem = slug without its trailing -medium/-hard; match longest in name
+    stems = sorted({s['slug'].rsplit('-', 1)[0] for s in sections}, key=len, reverse=True)
+    stem = next((st for st in stems if st in name), None)
+    if not stem:
+        sys.exit(f'ERROR: could not recognize the domain in file name "{name}". '
+                 f'Pass the slug explicitly. Known stems: {", ".join(sorted(stems))}')
+    slug = f'{stem}-{diff}'
+    if slug not in by_slug:
+        sys.exit(f'ERROR: derived slug "{slug}" is not in the manifest.')
+    return by_slug[slug]
+
+
+PDF = sys.argv[1] if len(sys.argv) > 1 else 'COLLEGEBOARD/math-algebra-medium-2026-6-17.pdf'
+SECTION = resolve_section(PDF, sys.argv[2] if len(sys.argv) > 2 else None)
+TOPIC = SECTION['topic']
+DIFF = SECTION['difficulty']
+SLUG = SECTION['slug']
+DOMAIN = SECTION['domain']
+EXPECTED = SECTION.get('expected')
+
+IMG_DIR = os.path.join(ROOT, 'public', 'pdf', SLUG)
+DATA_PATH = os.path.join(ROOT, 'data', f'questions.{SLUG}.json')
+os.makedirs(IMG_DIR, exist_ok=True)
 
 def clean_vals(tokens):
     out = []
@@ -209,17 +241,12 @@ def main():
             'prompt': f'Question {qid}',
         })
 
-    data_path = os.path.join(ROOT, 'data', f'questions.{SLUG}.json')
-    with open(data_path, 'w') as f:
-        json.dump(out, f, indent=2)
-
     mcq = sum(1 for q in out if q['qtype'] == 'mcq')
     spr = sum(1 for q in out if q['qtype'] == 'spr')
-    print(f'Imported {len(out)} questions ({mcq} multiple-choice, {spr} free-response)')
+    print(f'Extracted {len(out)} questions ({mcq} multiple-choice, {spr} free-response)')
     print(f'Images -> {IMG_DIR}')
-    print(f'Data   -> {data_path}')
 
-    # ---- Reconciliation: every Question ID in the PDF must be accounted for ----
+    # ---- Reconcile BEFORE writing any data, so a bad import loads nothing ----
     pdf_qids = [info[p]['qid'] for p in range(n) if info[p]['qid']]
     distinct_pdf = set(pdf_qids)
     extracted = {q['ext_id'].rsplit('-', 1)[-1] for q in out}
@@ -233,7 +260,7 @@ def main():
 
     failed = False
     if missing:
-        print(f'  ❌ MISSING {len(missing)} question(s) — NOT imported:')
+        print(f'  ❌ MISSING {len(missing)} question(s):')
         reasons = dict(skipped)
         for qid in sorted(missing):
             print(f'      {qid}  ({reasons.get(qid, "unknown reason")})')
@@ -241,23 +268,33 @@ def main():
     else:
         print('  ✅ Every Question ID in the PDF was extracted — none lost.')
 
-    # ---- Check against the remembered expected count for this section ----
-    expected = expected_count(SLUG)
+    # ---- Must match the remembered expected count for this section ----
     print('\n--- Expected count check (data/expected-counts.json) ---')
-    if expected is None:
-        print(f'  ⚠️  No expected count recorded for slug "{SLUG}". '
-              f'Add one to data/expected-counts.json to enable this check.')
-    elif expected == len(out):
-        print(f'  ✅ Extracted {len(out)} matches the expected {expected} for "{SLUG}".')
+    if EXPECTED is None:
+        print(f'  ❌ No expected count recorded for slug "{SLUG}". '
+              f'Add one to data/expected-counts.json before importing.')
+        failed = True
+    elif EXPECTED == len(out):
+        print(f'  ✅ Extracted {len(out)} matches the expected {EXPECTED} for "{SLUG}".')
     else:
-        print(f'  ❌ Count MISMATCH for "{SLUG}": expected {expected}, extracted {len(out)} '
-              f'(difference {len(out) - expected:+d}).')
+        print(f'  ❌ Count MISMATCH for "{SLUG}": expected {EXPECTED}, extracted {len(out)} '
+              f'(difference {len(out) - EXPECTED:+d}).')
         failed = True
 
     if failed:
-        print('\n⚠️  Import did NOT fully reconcile — fix before relying on this data.')
+        # Hard fail: do NOT write the data file, and remove any stale one so this
+        # domain+difficulty has ZERO questions rather than a wrong/partial set.
+        if os.path.exists(DATA_PATH):
+            os.remove(DATA_PATH)
+            print(f'\n  Removed stale {os.path.basename(DATA_PATH)} so this section stays empty.')
+        print('\n⚠️  Import REJECTED — counts do not match. No questions written for '
+              f'{TOPIC}/{DIFF}. Fix the PDF or parser and re-run.')
         sys.exit(1)
-    print('\n✅ Import reconciled: PDF, extraction, and expected count all agree.')
+
+    with open(DATA_PATH, 'w') as f:
+        json.dump(out, f, indent=2)
+    print(f'\nData  -> {DATA_PATH}')
+    print('✅ Import reconciled: PDF, extraction, and expected count all agree.')
 
 def pg_search(pg, phrase):
     try:
