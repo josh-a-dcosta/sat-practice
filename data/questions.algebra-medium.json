@@ -5,6 +5,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"1764\", \"1765\", \"3/17\"]",
@@ -19,6 +21,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -46,6 +50,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -73,6 +79,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -100,6 +108,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"2\", \"2.6\", \"13/5\"]",
@@ -114,6 +124,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -141,6 +153,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -168,6 +182,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"67\"]",
@@ -182,6 +198,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -209,6 +227,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -236,6 +256,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -263,6 +285,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -290,6 +314,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -317,6 +343,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -344,6 +372,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -371,6 +401,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -398,6 +430,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"0.25\", \"1/4\"]",
@@ -412,6 +446,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"241\"]",
@@ -426,6 +462,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -453,6 +491,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
     "qtype": "mcq",
     "choices": [
       {
@@ -480,6 +520,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -507,6 +549,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -534,6 +578,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
     "qtype": "mcq",
     "choices": [
       {
@@ -561,6 +607,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -588,6 +636,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -615,6 +665,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"49\"]",
@@ -629,6 +681,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"46\"]",
@@ -643,6 +697,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -670,6 +726,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -697,6 +755,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
     "qtype": "mcq",
     "choices": [
       {
@@ -724,6 +784,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"2\"]",
@@ -738,6 +800,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -765,6 +829,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
     "qtype": "mcq",
     "choices": [
       {
@@ -792,6 +858,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -819,6 +887,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"40\"]",
@@ -833,6 +903,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -860,6 +932,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -887,6 +961,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"7\"]",
@@ -901,6 +977,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -928,6 +1006,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -955,6 +1035,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -982,6 +1064,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -1009,6 +1093,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -1036,6 +1122,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"11\"]",
@@ -1050,6 +1138,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -1077,6 +1167,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -1104,6 +1196,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -1131,6 +1225,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -1158,6 +1254,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"3\"]",
@@ -1172,6 +1270,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"2850\"]",
@@ -1186,6 +1286,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
     "qtype": "mcq",
     "choices": [
       {
@@ -1213,6 +1315,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -1240,6 +1344,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -1267,6 +1373,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"45\"]",
@@ -1281,6 +1389,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -1308,6 +1418,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"25\"]",
@@ -1322,6 +1434,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -1349,6 +1463,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -1376,6 +1492,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -1403,6 +1521,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -1430,6 +1550,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -1457,6 +1579,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -1484,6 +1608,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -1511,6 +1637,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"774\"]",
@@ -1525,6 +1653,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"14.66\", \"14.67\", \"44/3\"]",
@@ -1539,6 +1669,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -1566,6 +1698,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -1593,6 +1727,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -1620,6 +1756,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -1647,6 +1785,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -1674,6 +1814,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -1701,6 +1843,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -1728,6 +1872,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
     "qtype": "mcq",
     "choices": [
       {
@@ -1755,6 +1901,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"25\"]",
@@ -1769,6 +1917,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -1796,6 +1946,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"22\", \"22.4\", \"112/5\"]",
@@ -1810,6 +1962,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"42\"]",
@@ -1824,6 +1978,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"-2\"]",
@@ -1838,6 +1994,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"30\"]",
@@ -1852,6 +2010,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -1879,6 +2039,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -1906,6 +2068,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -1933,6 +2097,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -1960,6 +2126,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"34\"]",
@@ -1974,6 +2142,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -2001,6 +2171,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -2028,6 +2200,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -2055,6 +2229,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -2082,6 +2258,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"3500\"]",
@@ -2096,6 +2274,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -2123,6 +2303,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -2150,6 +2332,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"3\"]",
@@ -2164,6 +2348,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
     "qtype": "mcq",
     "choices": [
       {
@@ -2191,6 +2377,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -2218,6 +2406,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -2245,6 +2435,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -2272,6 +2464,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"257\"]",
@@ -2286,6 +2480,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -2313,6 +2509,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -2340,6 +2538,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -2367,6 +2567,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -2394,6 +2596,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"9\"]",
@@ -2408,6 +2612,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -2435,6 +2641,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -2462,6 +2670,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"1\"]",
@@ -2476,6 +2686,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -2503,6 +2715,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"39\"]",
@@ -2517,6 +2731,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -2544,6 +2760,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -2571,6 +2789,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -2598,6 +2818,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -2625,6 +2847,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -2652,6 +2876,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
     "qtype": "mcq",
     "choices": [
       {
@@ -2679,6 +2905,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -2706,6 +2934,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -2733,6 +2963,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"37\"]",
@@ -2747,6 +2979,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -2774,6 +3008,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -2801,6 +3037,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -2828,6 +3066,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -2855,6 +3095,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -2882,6 +3124,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -2909,6 +3153,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"1\"]",
@@ -2923,6 +3169,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -2950,6 +3198,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -2977,6 +3227,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"60\"]",
@@ -2991,6 +3243,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -3018,6 +3272,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -3045,6 +3301,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -3072,6 +3330,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -3099,6 +3359,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
     "qtype": "mcq",
     "choices": [
       {
@@ -3126,6 +3388,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -3153,6 +3417,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
     "qtype": "mcq",
     "choices": [
       {
@@ -3180,6 +3446,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"294\"]",
@@ -3194,6 +3462,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -3221,6 +3491,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"3846\", \"5/13\"]",
@@ -3235,6 +3507,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -3262,6 +3536,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -3289,6 +3565,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -3316,6 +3594,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -3343,6 +3623,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -3370,6 +3652,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -3397,6 +3681,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -3424,6 +3710,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -3451,6 +3739,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -3478,6 +3768,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"16\"]",
@@ -3492,6 +3784,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
     "qtype": "mcq",
     "choices": [
       {
@@ -3519,6 +3813,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -3546,6 +3842,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
     "qtype": "mcq",
     "choices": [
       {
@@ -3573,6 +3871,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -3600,6 +3900,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
     "qtype": "mcq",
     "choices": [
       {
@@ -3627,6 +3929,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"24\"]",
@@ -3641,6 +3945,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
     "qtype": "mcq",
     "choices": [
       {
@@ -3668,6 +3974,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -3695,6 +4003,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -3722,6 +4032,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -3749,6 +4061,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -3776,6 +4090,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"3\"]",
@@ -3790,6 +4106,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -3817,6 +4135,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -3844,6 +4164,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -3871,6 +4193,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
     "qtype": "mcq",
     "choices": [
       {
@@ -3898,6 +4222,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -3925,6 +4251,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -3952,6 +4280,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -3979,6 +4309,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -4006,6 +4338,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"7\"]",
@@ -4020,6 +4354,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -4047,6 +4383,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"13.75\", \"55/4\"]",
@@ -4061,6 +4399,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
     "qtype": "mcq",
     "choices": [
       {
@@ -4088,6 +4428,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -4115,6 +4457,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"1.636\", \"18/11\"]",
@@ -4129,6 +4473,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
     "qtype": "mcq",
     "choices": [
       {
@@ -4156,6 +4502,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"2\"]",
@@ -4170,6 +4518,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"2\"]",
@@ -4184,6 +4534,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"9\"]",
@@ -4198,6 +4550,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -4225,6 +4579,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -4252,6 +4608,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -4279,6 +4637,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -4306,6 +4666,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Systems of two linear equations in two variables",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"18\"]",
@@ -4320,6 +4682,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -4347,6 +4711,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear functions",
     "qtype": "mcq",
     "choices": [
       {
@@ -4374,6 +4740,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
     "qtype": "mcq",
     "choices": [
       {
@@ -4401,6 +4769,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in one variable",
     "qtype": "mcq",
     "choices": [
       {
@@ -4428,6 +4798,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "spr",
     "choices": [],
     "correct": "[\"4.51\", \"451/100\"]",
@@ -4442,6 +4814,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear inequalities in one or two variables",
     "qtype": "mcq",
     "choices": [
       {
@@ -4469,6 +4843,8 @@
     "topic": "algebra",
     "difficulty": "medium",
     "source": "collegeboard",
+    "test": "SAT",
+    "skill": "Linear equations in two variables",
     "qtype": "mcq",
     "choices": [
       {

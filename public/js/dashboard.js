@@ -37,8 +37,57 @@ async function load() {
 
   renderTiles();
   renderCharts();
+  renderSkills();
+  populateSkillFilter();
   renderSessions();
   renderAttempts();
+}
+
+function accClass(acc) {
+  if (acc >= 80) return 'acc-good';
+  if (acc >= 60) return 'acc-ok';
+  return 'acc-low';
+}
+
+function renderSkills() {
+  const rows = DATA.bySkill || [];
+  const tbody = $('skillsTable').querySelector('tbody');
+  const highlight = $('skillHighlight');
+  if (!rows.length) {
+    tbody.innerHTML = '<tr><td colspan="8" class="note">No skills practiced yet. Once she answers questions, her per-skill breakdown shows here.</td></tr>';
+    highlight.innerHTML = '';
+    return;
+  }
+  // Highlight the weakest skill with enough attempts to be meaningful.
+  const ranked = rows.map((r) => ({ ...r, acc: r.attempts ? Math.round((r.correct / r.attempts) * 100) : 0 }));
+  const weak = ranked.filter((r) => r.attempts >= 2).sort((a, b) => a.acc - b.acc)[0] || ranked[0];
+  highlight.innerHTML = `<div class="skill-focus">
+      <span class="skill-focus-emoji">💡</span>
+      <div><b>Top area to work on:</b> ${escapeHtml(weak.skill)}
+      <span class="note">(${weak.acc}% over ${weak.attempts} attempt${weak.attempts === 1 ? '' : 's'} · ${fmtTopic(weak.topic)} · ${weak.difficulty})</span></div>
+    </div>`;
+
+  tbody.innerHTML = ranked.map((r) => {
+    const domainEmoji = r.domain === 'math' ? '🔢' : '📖';
+    return `<tr class="skill-row" data-skill="${escapeHtml(r.skill)}" title="Filter attempts by this skill">
+      <td><b>${escapeHtml(r.skill)}</b></td>
+      <td>${domainEmoji} ${fmtTopic(r.topic)}</td>
+      <td>${r.difficulty === 'hard' ? '🔴' : '🟡'} ${r.difficulty}</td>
+      <td><div class="acc-bar"><span class="${accClass(r.acc)}" style="width:${r.acc}%"></span><em>${r.acc}%</em></div></td>
+      <td>${r.correct}</td>
+      <td>${r.wrong}</td>
+      <td>${r.attempts}</td>
+      <td>${fmtTime(Math.round(r.avg_time))}</td>
+    </tr>`;
+  }).join('');
+}
+
+function populateSkillFilter() {
+  const sel = $('fSkill');
+  if (!sel) return;
+  const skills = [...new Set(allAttempts.map((a) => a.skill).filter(Boolean))].sort();
+  sel.innerHTML = '<option value="">All</option>' +
+    skills.map((s) => `<option value="${escapeHtml(s)}">${escapeHtml(s)}</option>`).join('');
 }
 
 function renderTiles() {
@@ -179,11 +228,13 @@ function getFilteredAttempts() {
   const sec    = $('fSection').value;
   const diff   = $('fDifficulty') ? $('fDifficulty').value : '';
   const result = $('fResult').value;
+  const skill  = $('fSkill') ? $('fSkill').value : '';
   const search = $('fSearch').value.trim().toLowerCase();
   return allAttempts.filter((a) => {
     if (sec    && a.domain !== sec) return false;
     if (diff   && a.difficulty !== diff) return false;
     if (result !== '' && String(a.is_correct) !== result) return false;
+    if (skill  && a.skill !== skill) return false;
     if (search && !a.prompt.toLowerCase().includes(search)) return false;
     return true;
   });
@@ -194,7 +245,7 @@ function renderAttempts() {
   $('rowCount').textContent = `${rows.length} row${rows.length === 1 ? '' : 's'}`;
   const tbody = $('attemptsTable').querySelector('tbody');
   if (!rows.length) {
-    tbody.innerHTML = '<tr><td colspan="7" class="note">No attempts match your filters yet.</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="9" class="note">No attempts match your filters yet.</td></tr>';
     return;
   }
   tbody.innerHTML = rows.map((a) => {
@@ -206,6 +257,7 @@ function renderAttempts() {
     return `<tr>
       <td>${fmtDate(a.answered_at)}</td>
       <td>${domainEmoji} ${topicName}</td>
+      <td>${escapeHtml(a.skill || '—')}</td>
       <td>${a.difficulty === 'hard' ? '🔴' : '🟡'} ${a.difficulty}</td>
       <td><button class="link-cell" data-attempt="${a.id}" title="View this question, your answer, and the solution">${escapeHtml(a.prompt)}${a.prompt.length >= 90 ? '…' : ''} 🔎</button></td>
       <td>${a.selected}</td>
@@ -243,8 +295,12 @@ function renderReview(r) {
     ? '<span class="pill correct">✓ You got this right</span>'
     : '<span class="pill wrong">✗ You missed this one</span>';
 
+  const skillLine = r.skill ? `<div class="note" style="margin-top:2px">🎯 ${escapeHtml(r.skill)}</div>` : '';
   let html = `<div class="review-head">
-      <h2 style="margin:0">${domainEmoji} ${topicName} <span class="note">· ${r.difficulty}</span></h2>
+      <div>
+        <h2 style="margin:0">${domainEmoji} ${topicName} <span class="note">· ${r.difficulty}</span></h2>
+        ${skillLine}
+      </div>
       ${resultPill}
     </div>`;
 
@@ -286,13 +342,18 @@ function renderReview(r) {
 
 function exportCsv() {
   const rows = getFilteredAttempts();
-  const header = ['Date', 'Section', 'Question', 'HerAnswer', 'Correct', 'Result', 'TimeSeconds'];
+  const header = ['Date', 'Test', 'Domain', 'Topic', 'Skill', 'Difficulty', 'Question', 'HerAnswer', 'Correct', 'Result', 'TimeSeconds'];
   const lines = [header.join(',')];
+  const q = (v) => '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"';
   for (const a of rows) {
     const cells = [
       a.answered_at,
-      a.section,
-      '"' + a.prompt.replace(/"/g, '""') + '"',
+      a.test || 'SAT',
+      a.domain,
+      a.topic,
+      q(a.skill || ''),
+      a.difficulty,
+      q(a.prompt),
       a.selected,
       a.correct,
       a.is_correct ? 'correct' : 'wrong',
@@ -309,9 +370,18 @@ function exportCsv() {
   URL.revokeObjectURL(url);
 }
 
-['fSection', 'fResult', 'fDifficulty'].forEach((id) => { const el = $(id); if (el) el.addEventListener('change', renderAttempts); });
+['fSection', 'fResult', 'fDifficulty', 'fSkill'].forEach((id) => { const el = $(id); if (el) el.addEventListener('change', renderAttempts); });
 $('fSearch').addEventListener('input', renderAttempts);
 $('exportBtn').addEventListener('click', exportCsv);
+
+// Click a skill row -> filter the attempts table to that skill and scroll to it
+$('skillsTable').addEventListener('click', (e) => {
+  const row = e.target.closest('.skill-row');
+  if (!row) return;
+  const sel = $('fSkill');
+  if (sel) { sel.value = row.dataset.skill; renderAttempts(); }
+  $('attemptsTable').scrollIntoView({ behavior: 'smooth', block: 'start' });
+});
 
 // Click a question in the attempts table -> open the review modal
 $('attemptsTable').addEventListener('click', (e) => {

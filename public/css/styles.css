@@ -500,6 +500,28 @@ table.data tr:hover td { background: var(--pink-50); }
   border: 2px solid var(--pink-100); border-radius: 12px; margin-bottom: 10px; background: #fff;
 }
 
+/* Per-skill report */
+.skill-focus {
+  display: flex; align-items: center; gap: 12px;
+  background: var(--pink-50); border: 2px solid var(--pink-200);
+  border-radius: 14px; padding: 12px 16px; margin-bottom: 14px;
+}
+.skill-focus-emoji { font-size: 1.6rem; }
+.skill-row { cursor: pointer; }
+.skill-row:hover { background: var(--pink-50); }
+.acc-bar {
+  position: relative; background: var(--pink-100); border-radius: 999px;
+  height: 20px; min-width: 90px; overflow: hidden;
+}
+.acc-bar span { display: block; height: 100%; border-radius: 999px; }
+.acc-bar em {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-style: normal; font-weight: 800; font-size: 0.78rem; color: #5a3548;
+}
+.acc-good { background: var(--green); }
+.acc-ok   { background: var(--amber, #f5a623); }
+.acc-low  { background: var(--pink-400); }
+
 /* Clickable question cell in the attempts table */
 .link-cell {
   background: none; border: none; padding: 0; margin: 0;

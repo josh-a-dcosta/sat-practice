@@ -326,6 +326,7 @@ function getAttemptReview(attemptId) {
   return {
     attemptId: a.id,
     domain: q.domain, topic: q.topic, difficulty: q.difficulty,
+    skill: q.skill || null, test: q.test || 'SAT',
     qtype: q.qtype || 'mcq',
     image: q.image || null,        // full, unmasked page (rationale visible)
     answerImage: q.answer_image || null,
@@ -367,6 +368,17 @@ function getDashboard() {
     ORDER BY q.domain, q.topic, q.difficulty
   `).all();
 
+  // Per-skill performance so she can see exactly which skills need work.
+  const bySkill = db.prepare(`
+    SELECT q.domain, q.topic, q.difficulty, COALESCE(q.skill,'(unspecified)') skill,
+           COUNT(*) attempts, SUM(a.is_correct) correct,
+           SUM(CASE WHEN a.is_correct=0 THEN 1 ELSE 0 END) wrong,
+           COALESCE(AVG(a.time_taken_seconds),0) avg_time
+    FROM attempts a JOIN questions q ON q.id=a.question_id
+    GROUP BY q.domain, q.topic, q.difficulty, q.skill
+    ORDER BY (CAST(SUM(a.is_correct) AS REAL)/COUNT(*)) ASC, attempts DESC
+  `).all();
+
   const sessions = db.prepare(`
     SELECT s.id, s.domain, s.topic, s.difficulty, s.status, s.created_at, s.completed_at, s.score,
            (SELECT COUNT(*) FROM session_questions sq WHERE sq.session_id=s.id) total,
@@ -376,6 +388,7 @@ function getDashboard() {
 
   const attemptRows = db.prepare(`
     SELECT a.id, a.session_id, a.answered_at, q.domain, q.topic, q.difficulty,
+           COALESCE(q.skill,'(unspecified)') skill, q.test,
            substr(q.prompt,1,90) prompt, a.selected, q.correct, a.is_correct, a.time_taken_seconds
     FROM attempts a JOIN questions q ON q.id=a.question_id
     ORDER BY a.answered_at DESC
@@ -391,7 +404,7 @@ function getDashboard() {
       accuracy: overall.attempts ? Math.round((overall.correct / overall.attempts) * 100) : 0,
       avgTime: Math.round(overall.avg_time || 0),
     },
-    byDay, byTopic, sessions, attempts: attemptRows,
+    byDay, byTopic, bySkill, sessions, attempts: attemptRows,
   };
 }
 

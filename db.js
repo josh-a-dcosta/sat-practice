@@ -29,7 +29,9 @@ CREATE TABLE IF NOT EXISTS questions (
   qtype         TEXT NOT NULL DEFAULT 'mcq',
   image         TEXT,
   mask_fraction REAL,
-  answer_image  TEXT
+  answer_image  TEXT,
+  skill         TEXT,
+  test          TEXT NOT NULL DEFAULT 'SAT'
 );
 
 CREATE TABLE IF NOT EXISTS sessions (
@@ -77,8 +79,11 @@ for (const [col, def] of [
   ['image', 'TEXT'],
   ['mask_fraction', 'REAL'],
   ['answer_image', 'TEXT'],
+  ['skill', 'TEXT'],
+  ['test', "TEXT NOT NULL DEFAULT 'SAT'"],
 ]) {
   try { db.exec(`ALTER TABLE questions ADD COLUMN ${col} ${def}`); } catch (_) { /* already exists */ }
 }
+db.exec('CREATE INDEX IF NOT EXISTS idx_q_skill ON questions(skill);');
 
 module.exports = { db, DB_PATH };

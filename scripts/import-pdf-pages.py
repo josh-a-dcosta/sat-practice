@@ -42,6 +42,37 @@ def clean_vals(tokens):
             out.append(t)
     return out
 
+def group_lines(words):
+    lines = {}
+    for w in words:
+        lines.setdefault(round(w['top']), []).append(w)
+    return [sorted(lines[k], key=lambda w: w['x0']) for k in sorted(lines)]
+
+def extract_skill(page):
+    """Read the 'Skill' cell from the College Board metadata table using the
+    header column x-positions. The skill text can wrap across several lines."""
+    words = page.extract_words()
+    lines = group_lines(words)
+    skill_x = diff_x = hidx = None
+    for i, ln in enumerate(lines):
+        texts = [w['text'] for w in ln]
+        if 'Skill' in texts and 'Difficulty' in texts and 'Domain' in texts:
+            hidx = i
+            skill_x = next(w['x0'] for w in ln if w['text'] == 'Skill')
+            diff_x = next(w['x0'] for w in ln if w['text'] == 'Difficulty')
+            break
+    if hidx is None:
+        return None
+    out = []
+    for ln in lines[hidx + 1:]:
+        txt = ' '.join(w['text'] for w in ln).strip()
+        if txt.startswith(('Question', 'Answer', 'Rationale')):
+            break
+        for w in ln:
+            if skill_x - 3 <= w['x0'] < diff_x - 3:
+                out.append(w['text'])
+    return ' '.join(out).strip() or None
+
 def parse_correct(text):
     # 1) Explicit "Correct Answer:" label (multiple choice or some grid-ins)
     m = re.search(r'Correct Answer:\s*(.+)', text)
@@ -109,10 +140,8 @@ def main():
         text_all = '\n'.join(info[p]['text'] for p in pageset)
         qid = info[primary]['qid']
 
-        # skill (sub-topic) from the metadata table row
-        skill = ''
-        sm = re.search(r'SAT\s+(?:Math|Reading and Writing|Reading & Writing)\s+\S.*?\n?(.*?)\n?(?:Medium|Hard|Easy)', info[primary]['text'])
-        # simpler: capture text between Domain value and Difficulty word is unreliable; skip if messy
+        # skill (sub-topic) from the metadata table row, read by column position
+        skill = extract_skill(pages[primary])
 
         qtype, correct = parse_correct(text_all)
         if qtype is None:
@@ -154,6 +183,7 @@ def main():
             'ext_id': f'cb-{SLUG}-{qid}',
             'domain': DOMAIN, 'topic': TOPIC, 'difficulty': DIFF,
             'source': 'collegeboard',
+            'test': 'SAT', 'skill': skill,
             'qtype': qtype,
             'choices': [{'label': c} for c in choices],
             'correct': correct if qtype == 'mcq' else json.dumps(correct),
