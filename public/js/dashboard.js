@@ -207,13 +207,81 @@ function renderAttempts() {
       <td>${fmtDate(a.answered_at)}</td>
       <td>${domainEmoji} ${topicName}</td>
       <td>${a.difficulty === 'hard' ? '🔴' : '🟡'} ${a.difficulty}</td>
-      <td>${escapeHtml(a.prompt)}${a.prompt.length >= 90 ? '…' : ''}</td>
+      <td><button class="link-cell" data-attempt="${a.id}" title="View this question, your answer, and the solution">${escapeHtml(a.prompt)}${a.prompt.length >= 90 ? '…' : ''} 🔎</button></td>
       <td>${a.selected}</td>
       <td>${a.correct}</td>
       <td>${res}</td>
       <td>${fmtTime(a.time_taken_seconds)}</td>
     </tr>`;
   }).join('');
+}
+
+// ---- Question review modal -------------------------------------------------
+async function openReview(attemptId) {
+  const modal = $('reviewModal');
+  const body = $('reviewBody');
+  body.innerHTML = '<div class="spinner">Loading…</div>';
+  modal.classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+  try {
+    const r = await api('GET', `/api/attempts/${attemptId}/review`);
+    renderReview(r);
+  } catch (e) {
+    body.innerHTML = `<p class="note">Could not load this question: ${escapeHtml(e.message)}</p>`;
+  }
+}
+
+function closeReview() {
+  $('reviewModal').classList.add('hidden');
+  document.body.style.overflow = '';
+}
+
+function renderReview(r) {
+  const domainEmoji = r.domain === 'math' ? '🔢' : '📖';
+  const topicName = fmtTopic(r.topic);
+  const resultPill = r.isCorrect
+    ? '<span class="pill correct">✓ You got this right</span>'
+    : '<span class="pill wrong">✗ You missed this one</span>';
+
+  let html = `<div class="review-head">
+      <h2 style="margin:0">${domainEmoji} ${topicName} <span class="note">· ${r.difficulty}</span></h2>
+      ${resultPill}
+    </div>`;
+
+  if (r.image) {
+    // The full, unmasked page already shows the question AND the rationale.
+    html += `<img class="review-img" src="${r.image}" alt="Question" />`;
+    if (r.answerImage) html += `<img class="review-img" src="${r.answerImage}" alt="Answer continued" />`;
+    html += `<div class="ans-row">
+        <span class="tag-wrong">Your answer: ${escapeHtml(r.selected || '(no answer)')}</span>
+        <span class="tag-right">Correct answer: ${escapeHtml(r.correct)}</span>
+      </div>
+      <p class="note">☝️ The full worked solution and rationale are shown on the page above.</p>`;
+  } else {
+    if (r.passage) html += `<div class="passage">${escapeHtml(r.passage)}</div>`;
+    html += `<div class="prompt" style="font-size:1.1rem; font-weight:700; margin:8px 0">${escapeHtml(r.prompt)}</div>`;
+    if (r.choices && r.choices.length) {
+      html += '<div class="review-choices">';
+      for (const c of r.choices) {
+        const isCorrect = c.label === r.correct;
+        const isYours = c.label === r.selected;
+        let cls = 'review-choice';
+        if (isCorrect) cls += ' is-correct';
+        else if (isYours) cls += ' is-yours';
+        const tags = `${isCorrect ? ' ✓ correct' : ''}${isYours && !isCorrect ? ' ← your answer' : ''}${isYours && isCorrect ? ' ← your answer' : ''}`;
+        html += `<div class="${cls}"><b>${c.label}.</b> ${escapeHtml(c.text || '')}<span class="choice-tag">${tags}</span></div>`;
+      }
+      html += '</div>';
+    } else {
+      html += `<div class="ans-row">
+          <span class="tag-wrong">Your answer: ${escapeHtml(r.selected || '(no answer)')}</span>
+          <span class="tag-right">Correct answer: ${escapeHtml(r.correct)}</span>
+        </div>`;
+    }
+    if (r.explanation) html += `<div class="explanation"><b>Why:</b> ${escapeHtml(r.explanation)}</div>`;
+  }
+
+  $('reviewBody').innerHTML = html;
 }
 
 function exportCsv() {
@@ -244,6 +312,15 @@ function exportCsv() {
 ['fSection', 'fResult', 'fDifficulty'].forEach((id) => { const el = $(id); if (el) el.addEventListener('change', renderAttempts); });
 $('fSearch').addEventListener('input', renderAttempts);
 $('exportBtn').addEventListener('click', exportCsv);
+
+// Click a question in the attempts table -> open the review modal
+$('attemptsTable').addEventListener('click', (e) => {
+  const btn = e.target.closest('.link-cell');
+  if (btn) openReview(Number(btn.dataset.attempt));
+});
+$('reviewClose').addEventListener('click', closeReview);
+$('reviewModal').addEventListener('click', (e) => { if (e.target === $('reviewModal')) closeReview(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeReview(); });
 
 load().catch((e) => {
   $('statTiles').innerHTML = `<p class="note">Could not load dashboard: ${e.message}</p>`;

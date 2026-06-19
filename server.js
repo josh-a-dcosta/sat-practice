@@ -130,6 +130,13 @@ async function handleApi(req, res, url) {
       return sendJson(res, 200, repo.getDashboard());
     }
 
+    // GET /api/attempts/:id/review
+    if (req.method === 'GET' && parts[1] === 'attempts' && parts[3] === 'review' && parts.length === 4) {
+      const review = repo.getAttemptReview(Number(parts[2]));
+      if (!review) return sendJson(res, 404, { error: 'Attempt not found' });
+      return sendJson(res, 200, review);
+    }
+
     return sendJson(res, 404, { error: 'Unknown endpoint' });
   } catch (err) {
     const status = err.status || 500;

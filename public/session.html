@@ -28,8 +28,15 @@
           </div>
 
           <!-- Image-based (real PDF) question -->
+          <div class="pdf-tools hidden" id="pdfTools">
+            <span class="pdf-tools-label">🔍 Zoom</span>
+            <button class="zoom-btn" id="zoomOut" type="button" aria-label="Zoom out">➖</button>
+            <span class="zoom-level" id="zoomLevel">100%</span>
+            <button class="zoom-btn" id="zoomIn" type="button" aria-label="Zoom in">➕</button>
+            <button class="zoom-btn zoom-reset" id="zoomReset" type="button">⤢ Fit</button>
+          </div>
           <div class="pdf-frame hidden" id="pdfFrame">
-            <div class="pdf-inner">
+            <div class="pdf-inner" id="pdfInner">
               <img id="qImage" alt="Question" />
               <div class="answer-mask" id="answerMask">
                 <div class="mask-inner">

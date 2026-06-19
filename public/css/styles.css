@@ -412,15 +412,40 @@ table.data tr:hover td { background: var(--pink-50); }
   .pdf-pane { position: static; }
 }
 
+/* Zoom toolbar for the PDF question image */
+.pdf-tools {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.pdf-tools-label { font-weight: 800; color: var(--pink-600); margin-right: 2px; }
+.zoom-btn {
+  border: 2px solid var(--pink-200);
+  background: #fff;
+  color: var(--pink-700);
+  font-weight: 800;
+  border-radius: 10px;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.95rem;
+  line-height: 1;
+}
+.zoom-btn:hover { border-color: var(--pink-400); background: var(--pink-50); }
+.zoom-btn:disabled { opacity: 0.4; cursor: default; }
+.zoom-reset { margin-left: 4px; }
+.zoom-level { font-weight: 800; color: var(--pink-700); min-width: 48px; text-align: center; }
+
 /* The rendered PDF page with a reveal-able answer mask */
 .pdf-frame {
   border: 2px solid var(--pink-100);
   border-radius: 14px;
   background: #fff;
   max-height: 72vh;
-  overflow-y: auto;
+  overflow: auto;                       /* pan in both directions when zoomed */
 }
-.pdf-inner { position: relative; }      /* positioning context = image height */
+.pdf-inner { position: relative; width: 100%; }  /* positioning context; width drives zoom */
 .pdf-frame #qImage { display: block; width: 100%; height: auto; }
 
 .answer-mask {
@@ -472,3 +497,44 @@ table.data tr:hover td { background: var(--pink-50); }
   display: block; width: 100%; height: auto;
   border: 2px solid var(--pink-100); border-radius: 12px; margin-bottom: 10px; background: #fff;
 }
+
+/* Clickable question cell in the attempts table */
+.link-cell {
+  background: none; border: none; padding: 0; margin: 0;
+  font: inherit; text-align: left; color: var(--pink-700);
+  font-weight: 700; cursor: pointer; text-decoration: underline;
+  text-decoration-color: var(--pink-200); text-underline-offset: 3px;
+}
+.link-cell:hover { color: var(--pink-500); text-decoration-color: var(--pink-400); }
+
+/* Question review modal */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 100;
+  background: rgba(60, 20, 40, 0.45);
+  display: flex; align-items: flex-start; justify-content: center;
+  padding: 28px 16px; overflow-y: auto;
+}
+.modal-card {
+  position: relative; width: 100%; max-width: 760px;
+  background: var(--pink-50, #fff5f9); border-radius: 18px;
+  border: 2px solid var(--pink-100);
+  box-shadow: 0 18px 50px rgba(120, 30, 70, 0.25);
+  padding: 26px 24px; margin: auto;
+}
+.modal-close {
+  position: absolute; top: 14px; right: 14px;
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 2px solid var(--pink-200); background: #fff;
+  color: var(--pink-700); font-weight: 800; cursor: pointer; font-size: 1rem;
+}
+.modal-close:hover { background: var(--pink-100); }
+.review-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 14px; }
+.modal-card .ans-row { display: flex; gap: 18px; flex-wrap: wrap; margin: 10px 0; font-weight: 700; }
+.review-choices { display: flex; flex-direction: column; gap: 8px; margin: 10px 0; }
+.review-choice {
+  border: 2px solid var(--pink-100); border-radius: 12px; padding: 10px 14px; background: #fff;
+}
+.review-choice.is-correct { border-color: var(--green); background: #e9f9f1; }
+.review-choice.is-yours { border-color: var(--pink-400); background: var(--pink-100); }
+.choice-tag { font-weight: 800; color: var(--muted); margin-left: 6px; font-size: 0.85rem; }
+.review-choice.is-correct .choice-tag { color: var(--green); }

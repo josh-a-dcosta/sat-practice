@@ -311,6 +311,35 @@ function completeSession(sid) {
   };
 }
 
+// Full review of a single past attempt: question + the student's answer + the
+// correct answer/rationale fully revealed (used by the dashboard click-through).
+function getAttemptReview(attemptId) {
+  const a = db.prepare('SELECT * FROM attempts WHERE id=?').get(attemptId);
+  if (!a) return null;
+  const q = parseQ(db.prepare('SELECT * FROM questions WHERE id=?').get(a.question_id));
+  if (!q) return null;
+
+  let correctDisplay = q.correct;
+  if (q.qtype === 'spr') {
+    try { correctDisplay = JSON.parse(q.correct).join(', '); } catch (_) { /* keep raw */ }
+  }
+  return {
+    attemptId: a.id,
+    domain: q.domain, topic: q.topic, difficulty: q.difficulty,
+    qtype: q.qtype || 'mcq',
+    image: q.image || null,        // full, unmasked page (rationale visible)
+    answerImage: q.answer_image || null,
+    passage: q.passage, prompt: q.prompt,
+    choices: q.choices,
+    selected: a.selected,
+    correct: correctDisplay,
+    isCorrect: !!a.is_correct,
+    explanation: q.explanation || null,
+    timeTaken: a.time_taken_seconds,
+    answeredAt: a.answered_at,
+  };
+}
+
 // ---------------------------------------------------------------------------
 // dashboard
 // ---------------------------------------------------------------------------
@@ -372,5 +401,5 @@ module.exports = {
   createOrResumeSession, getSessionState,
   getQuestionAt, setCurrentPosition,
   submitAnswer, completeSession,
-  getDashboard, getActiveSession,
+  getDashboard, getActiveSession, getAttemptReview,
 };

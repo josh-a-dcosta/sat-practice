@@ -7,6 +7,8 @@ let pos = 1;                 // current position
 let current = null;          // current question payload
 let pendingSelection = null; // mcq label or spr text not yet submitted
 let timeLimit = 120;
+let pdfZoom = 1;             // image zoom level, persists across questions
+const ZOOM_MIN = 1, ZOOM_MAX = 3, ZOOM_STEP = 0.25;
 
 const accum = {};            // pos -> seconds accumulated
 let viewStart = null;
@@ -116,7 +118,9 @@ async function loadQuestion(p) {
   if (q.image) {
     textQ.classList.add('hidden');
     pdfFrame.classList.remove('hidden');
+    $('pdfTools').classList.remove('hidden');
     $('qImage').src = q.image;
+    applyZoom();
     const mask = $('answerMask');
     const frac = (q.maskFraction != null ? q.maskFraction : 1);
     mask.style.top = (frac * 100) + '%';
@@ -125,6 +129,7 @@ async function loadQuestion(p) {
     answerExtra.removeAttribute('src');
   } else {
     pdfFrame.classList.add('hidden');
+    $('pdfTools').classList.add('hidden');
     textQ.classList.remove('hidden');
     const passEl = $('passage');
     if (q.passage) { passEl.textContent = q.passage; passEl.classList.remove('hidden'); }
@@ -199,6 +204,17 @@ async function loadQuestion(p) {
 
   renderMap();
 }
+
+function applyZoom() {
+  pdfZoom = Math.max(ZOOM_MIN, Math.min(ZOOM_MAX, pdfZoom));
+  $('pdfInner').style.width = (pdfZoom * 100) + '%';
+  $('zoomLevel').textContent = Math.round(pdfZoom * 100) + '%';
+  $('zoomOut').disabled = pdfZoom <= ZOOM_MIN;
+  $('zoomIn').disabled = pdfZoom >= ZOOM_MAX;
+}
+
+function zoomBy(delta) { pdfZoom += delta; applyZoom(); }
+function zoomReset() { pdfZoom = 1; applyZoom(); }
 
 function revealAnswer() {
   $('answerMask').classList.add('hidden');
@@ -318,6 +334,9 @@ $('nextBtn').onclick = () => gotoPosition(pos + 1);
 $('submitBtn').onclick = submitAnswer;
 $('finishBtn').onclick = finishSession;
 $('revealBtn').onclick = revealAnswer;
+$('zoomIn').onclick = () => zoomBy(ZOOM_STEP);
+$('zoomOut').onclick = () => zoomBy(-ZOOM_STEP);
+$('zoomReset').onclick = zoomReset;
 
 window.addEventListener('beforeunload', stopTiming);
 
