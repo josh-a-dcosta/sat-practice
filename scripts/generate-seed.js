@@ -280,13 +280,18 @@ for (const item of readingItems) {
 }
 
 // ---- Write files -----------------------------------------------------------
+// Topics that have a real College Board PDF import (data/questions.<slug>.json)
+// are left out of the generated starter bank so their pools stay 100% real.
+const REAL_TOPICS = new Set(['algebra']);
+const mathOut = mathBank.filter((q) => !REAL_TOPICS.has(q.topic));
+
 const dataDir = path.join(__dirname, '..', 'data');
 fs.mkdirSync(dataDir, { recursive: true });
-fs.writeFileSync(path.join(dataDir, 'questions.math.json'), JSON.stringify(mathBank, null, 2));
+fs.writeFileSync(path.join(dataDir, 'questions.math.json'), JSON.stringify(mathOut, null, 2));
 fs.writeFileSync(path.join(dataDir, 'questions.reading.json'), JSON.stringify(readingBank, null, 2));
 
 const mathByTopic = {};
-for (const q of mathBank) { mathByTopic[q.topic] = (mathByTopic[q.topic] || 0) + 1; }
+for (const q of mathOut) { mathByTopic[q.topic] = (mathByTopic[q.topic] || 0) + 1; }
 const readByTopic = {};
 for (const q of readingBank) { readByTopic[q.topic] = (readByTopic[q.topic] || 0) + 1; }
 

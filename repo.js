@@ -28,8 +28,42 @@ function publicQuestion(q) {
     difficulty: q.difficulty,
     passage: q.passage,
     prompt: q.prompt,
-    choices: q.choices.map((c) => ({ label: c.label, text: c.text })),
+    qtype: q.qtype || 'mcq',
+    image: q.image || null,
+    maskFraction: q.mask_fraction != null ? q.mask_fraction : null,
+    answerImage: q.answer_image || null,
+    // For image questions the choice text lives in the picture, so only labels
+    // are sent; for text questions we send the full choice text.
+    choices: q.choices.map((c) => ({ label: c.label, text: c.text || '' })),
   };
+}
+
+// Normalize a student-produced response for tolerant comparison.
+function toNumber(s) {
+  if (s == null) return NaN;
+  let t = String(s).trim().replace(/\s+/g, '');
+  const frac = t.match(/^(-?\d*\.?\d+)\/(-?\d*\.?\d+)$/);
+  if (frac) { const d = parseFloat(frac[2]); return d ? parseFloat(frac[1]) / d : NaN; }
+  if (t.endsWith('%')) { const v = parseFloat(t.slice(0, -1)); return isNaN(v) ? NaN : v / 100; }
+  return parseFloat(t);
+}
+
+function sprIsCorrect(selected, acceptableJson) {
+  let acceptable;
+  try { acceptable = JSON.parse(acceptableJson); } catch (_) { acceptable = [acceptableJson]; }
+  if (!Array.isArray(acceptable)) acceptable = [acceptable];
+  const norm = (x) => String(x).trim().replace(/\s+/g, '').toLowerCase();
+  const sel = norm(selected);
+  if (!sel) return false;
+  for (const a of acceptable) {
+    if (norm(a) === sel) return true;
+    const an = toNumber(a), sn = toNumber(selected);
+    if (!isNaN(an) && !isNaN(sn)) {
+      const tol = Math.max(0.001, Math.abs(an) * 0.01);
+      if (Math.abs(an - sn) <= tol) return true;
+    }
+  }
+  return false;
 }
 
 // ---------------------------------------------------------------------------
@@ -216,8 +250,10 @@ function submitAnswer(sid, questionId, selected, timeTaken) {
     const e = new Error('Already answered this question in this session.'); e.status = 409; throw e;
   }
 
-  const correct = db.prepare('SELECT correct FROM questions WHERE id=?').get(questionId).correct;
-  const isCorrect = correct === selected ? 1 : 0;
+  const qrow = db.prepare('SELECT correct, qtype FROM questions WHERE id=?').get(questionId);
+  const isCorrect = (qrow.qtype === 'spr')
+    ? (sprIsCorrect(selected, qrow.correct) ? 1 : 0)
+    : (qrow.correct === selected ? 1 : 0);
   const t = Math.max(0, Math.min(Number(timeTaken) || 0, 36000));
 
   db.prepare(`
@@ -254,9 +290,14 @@ function completeSession(sid) {
 
   const review = attempts.filter((a) => !a.is_correct).map((a) => {
     const q = parseQ(db.prepare('SELECT * FROM questions WHERE id=?').get(a.question_id));
+    let correctDisplay = q.correct;
+    if (q.qtype === 'spr') {
+      try { correctDisplay = JSON.parse(q.correct).join(', '); } catch (_) { /* keep raw */ }
+    }
     return {
       position: a.position, passage: q.passage, prompt: q.prompt,
-      choices: q.choices, selected: a.selected, correct: q.correct, explanation: q.explanation,
+      qtype: q.qtype, image: q.image, answerImage: q.answer_image,
+      choices: q.choices, selected: a.selected, correct: correctDisplay, explanation: q.explanation,
     };
   });
 

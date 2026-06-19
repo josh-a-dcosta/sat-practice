@@ -4,29 +4,34 @@ const fs = require('fs');
 const path = require('path');
 const { db } = require('../db');
 
-const files = [
-  path.join(__dirname, '..', 'data', 'questions.math.json'),
-  path.join(__dirname, '..', 'data', 'questions.reading.json'),
-];
+// Load every data/questions.*.json file (starter banks + imported PDF banks).
+const dataDir = path.join(__dirname, '..', 'data');
+const files = fs.readdirSync(dataDir)
+  .filter((f) => /^questions\..+\.json$/.test(f))
+  .map((f) => path.join(dataDir, f));
 
 const upsert = db.prepare(`
-  INSERT INTO questions (ext_id, domain, topic, difficulty, passage, prompt, choices, correct, explanation, source)
-  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+  INSERT INTO questions
+    (ext_id, domain, topic, difficulty, passage, prompt, choices, correct, explanation, source, qtype, image, mask_fraction, answer_image)
+  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   ON CONFLICT(ext_id) DO UPDATE SET
-    domain      = excluded.domain,
-    topic       = excluded.topic,
-    difficulty  = excluded.difficulty,
-    passage     = excluded.passage,
-    prompt      = excluded.prompt,
-    choices     = excluded.choices,
-    correct     = excluded.correct,
-    explanation = excluded.explanation,
-    source      = excluded.source
+    domain        = excluded.domain,
+    topic         = excluded.topic,
+    difficulty    = excluded.difficulty,
+    passage       = excluded.passage,
+    prompt        = excluded.prompt,
+    choices       = excluded.choices,
+    correct       = excluded.correct,
+    explanation   = excluded.explanation,
+    source        = excluded.source,
+    qtype         = excluded.qtype,
+    image         = excluded.image,
+    mask_fraction = excluded.mask_fraction,
+    answer_image  = excluded.answer_image
 `);
 
 let total = 0;
 for (const file of files) {
-  if (!fs.existsSync(file)) { console.warn(`Skipping missing: ${file}`); continue; }
   const items = JSON.parse(fs.readFileSync(file, 'utf8'));
   for (const q of items) {
     upsert.run(
@@ -34,6 +39,8 @@ for (const file of files) {
       q.passage ?? null, q.prompt,
       JSON.stringify(q.choices), q.correct,
       q.explanation ?? '', q.source ?? 'starter',
+      q.qtype ?? 'mcq', q.image ?? null,
+      q.mask_fraction ?? null, q.answer_image ?? null,
     );
     total++;
   }

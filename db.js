@@ -15,17 +15,21 @@ db.exec('PRAGMA foreign_keys = ON;');
 
 db.exec(`
 CREATE TABLE IF NOT EXISTS questions (
-  id          INTEGER PRIMARY KEY AUTOINCREMENT,
-  ext_id      TEXT UNIQUE NOT NULL,
-  domain      TEXT NOT NULL CHECK (domain IN ('math','reading')),
-  topic       TEXT NOT NULL,
-  difficulty  TEXT NOT NULL DEFAULT 'medium' CHECK (difficulty IN ('medium','hard')),
-  passage     TEXT,
-  prompt      TEXT NOT NULL,
-  choices     TEXT NOT NULL,
-  correct     TEXT NOT NULL,
-  explanation TEXT NOT NULL DEFAULT '',
-  source      TEXT NOT NULL DEFAULT 'starter'
+  id            INTEGER PRIMARY KEY AUTOINCREMENT,
+  ext_id        TEXT UNIQUE NOT NULL,
+  domain        TEXT NOT NULL CHECK (domain IN ('math','reading')),
+  topic         TEXT NOT NULL,
+  difficulty    TEXT NOT NULL DEFAULT 'medium' CHECK (difficulty IN ('medium','hard')),
+  passage       TEXT,
+  prompt        TEXT NOT NULL,
+  choices       TEXT NOT NULL,
+  correct       TEXT NOT NULL,
+  explanation   TEXT NOT NULL DEFAULT '',
+  source        TEXT NOT NULL DEFAULT 'starter',
+  qtype         TEXT NOT NULL DEFAULT 'mcq',
+  image         TEXT,
+  mask_fraction REAL,
+  answer_image  TEXT
 );
 
 CREATE TABLE IF NOT EXISTS sessions (
@@ -65,5 +69,16 @@ CREATE INDEX IF NOT EXISTS idx_attempts_answered   ON attempts(answered_at);
 CREATE INDEX IF NOT EXISTS idx_sq_session          ON session_questions(session_id);
 CREATE INDEX IF NOT EXISTS idx_q_domain_topic_diff ON questions(domain, topic, difficulty);
 `);
+
+// Lightweight migration: add columns to questions tables created before the
+// PDF-image fields existed (e.g. an existing Railway /data volume).
+for (const [col, def] of [
+  ['qtype', "TEXT NOT NULL DEFAULT 'mcq'"],
+  ['image', 'TEXT'],
+  ['mask_fraction', 'REAL'],
+  ['answer_image', 'TEXT'],
+]) {
+  try { db.exec(`ALTER TABLE questions ADD COLUMN ${col} ${def}`); } catch (_) { /* already exists */ }
+}
 
 module.exports = { db, DB_PATH };

@@ -16,39 +16,76 @@
     </div>
   </div>
 
-  <div class="container">
+  <div class="container wide">
     <!-- QUESTION VIEW -->
     <div id="questionView">
-      <div class="card">
-        <div class="q-header">
-          <div>
+      <div class="practice-split">
+        <!-- LEFT: the real PDF question page -->
+        <div class="card pdf-pane">
+          <div class="q-header">
             <span class="q-counter" id="counter">Question</span>
             <span class="note" id="sectionLabel" style="font-weight:700"></span>
           </div>
-          <div class="timer" id="timer">2:00</div>
+
+          <!-- Image-based (real PDF) question -->
+          <div class="pdf-frame hidden" id="pdfFrame">
+            <div class="pdf-inner">
+              <img id="qImage" alt="Question" />
+              <div class="answer-mask" id="answerMask">
+                <div class="mask-inner">
+                  <div class="mask-lock">🔒</div>
+                  <div class="mask-text">Answer &amp; explanation are hidden so you can think it through.</div>
+                  <button class="btn btn-ghost" id="revealBtn" type="button">👀 Peek at the answer</button>
+                  <div class="mask-sub">(Peeking won't change your score — answer in the panel either way.)</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <img id="answerImage" class="answer-extra hidden" alt="Answer continued" />
+
+          <!-- Text-based question (other topics) -->
+          <div class="text-question hidden" id="textQuestion">
+            <div class="passage hidden" id="passage"></div>
+            <div class="prompt" id="prompt"></div>
+          </div>
         </div>
-        <div class="goal-bar" style="margin:6px 0 18px"><span id="progressFill" style="width:0%"></span></div>
 
-        <div class="passage hidden" id="passage"></div>
-        <div class="prompt" id="prompt">Loading…</div>
-        <div class="choices" id="choices"></div>
+        <!-- RIGHT: answer + controls -->
+        <div class="card answer-pane">
+          <div class="timer-row">
+            <div class="timer" id="timer">2:00</div>
+          </div>
+          <div class="goal-bar" style="margin:6px 0 18px"><span id="progressFill" style="width:0%"></span></div>
 
-        <div class="locked-note hidden" id="lockedNote">🔒 Answer locked in for this question. You can move on!</div>
+          <p class="answer-hint" id="answerHint">Choose your answer below 💭</p>
 
-        <div class="q-actions">
-          <button class="btn btn-ghost" id="prevBtn">← Previous</button>
-          <button class="btn btn-primary" id="submitBtn" disabled>Submit answer</button>
-          <button class="btn btn-ghost" id="nextBtn">Next →</button>
+          <!-- Multiple choice -->
+          <div class="choices" id="choices"></div>
+
+          <!-- Free response -->
+          <div class="spr-wrap hidden" id="sprWrap">
+            <label class="spr-label" for="sprInput">Type your answer:</label>
+            <input type="text" id="sprInput" class="spr-input" autocomplete="off"
+                   placeholder="e.g. 3/17 or 0.176" />
+            <p class="note">Enter a number, fraction (like 3/4), or decimal.</p>
+          </div>
+
+          <div class="locked-note hidden" id="lockedNote">🔒 Answer locked in for this question. You can move on!</div>
+
+          <div class="q-actions">
+            <button class="btn btn-ghost" id="prevBtn">← Previous</button>
+            <button class="btn btn-primary" id="submitBtn" disabled>Submit answer</button>
+            <button class="btn btn-ghost" id="nextBtn">Next →</button>
+          </div>
+
+          <hr class="soft-rule" />
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px">
+            <strong>Your questions</strong>
+            <button class="btn btn-primary" id="finishBtn" disabled>🎉 Finish</button>
+          </div>
+          <p class="note" id="finishNote">Answer every question to finish. Jump around with the map.</p>
+          <div class="map" id="map"></div>
         </div>
-      </div>
-
-      <div class="card">
-        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px">
-          <h2 style="margin:0">Your questions</h2>
-          <button class="btn btn-primary" id="finishBtn" disabled>🎉 Finish &amp; see results</button>
-        </div>
-        <p class="note" id="finishNote">Answer every question to finish. You can jump around using the map below.</p>
-        <div class="map" id="map"></div>
       </div>
     </div>
 
@@ -71,7 +108,7 @@
 
       <div class="card" id="reviewCard">
         <h2>📚 Let's learn from the tricky ones</h2>
-        <p class="note">Here are the questions to review, with the correct answer and an explanation. Understand these — you'll get a chance to retake them in a future session!</p>
+        <p class="note">Here are the questions to review, with the correct answer revealed. Understand these — you'll get a chance to retake them in a future session!</p>
         <div id="reviewList"></div>
       </div>
 

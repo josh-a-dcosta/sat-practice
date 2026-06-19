@@ -1,0 +1,4493 @@
+[
+  {
+    "ext_id": "cb-algebra-medium-002dba45",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"1764\", \"1765\", \"3/17\"]",
+    "image": "/pdf/algebra-medium/q_002dba45.png",
+    "mask_fraction": 0.2193,
+    "answer_image": null,
+    "prompt": "Question 002dba45"
+  },
+  {
+    "ext_id": "cb-algebra-medium-f224df07",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_f224df07.png",
+    "mask_fraction": 0.3949,
+    "answer_image": null,
+    "prompt": "Question f224df07"
+  },
+  {
+    "ext_id": "cb-algebra-medium-cb8f449f",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_cb8f449f.png",
+    "mask_fraction": 0.4971,
+    "answer_image": null,
+    "prompt": "Question cb8f449f"
+  },
+  {
+    "ext_id": "cb-algebra-medium-548a4929",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_548a4929.png",
+    "mask_fraction": 0.3523,
+    "answer_image": null,
+    "prompt": "Question 548a4929"
+  },
+  {
+    "ext_id": "cb-algebra-medium-e62cfe5f",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"2\", \"2.6\", \"13/5\"]",
+    "image": "/pdf/algebra-medium/q_e62cfe5f.png",
+    "mask_fraction": 0.2528,
+    "answer_image": null,
+    "prompt": "Question e62cfe5f"
+  },
+  {
+    "ext_id": "cb-algebra-medium-01682aa5",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_01682aa5.png",
+    "mask_fraction": 0.3466,
+    "answer_image": null,
+    "prompt": "Question 01682aa5"
+  },
+  {
+    "ext_id": "cb-algebra-medium-9b0a4eae",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_9b0a4eae.png",
+    "mask_fraction": 0.7396,
+    "answer_image": null,
+    "prompt": "Question 9b0a4eae"
+  },
+  {
+    "ext_id": "cb-algebra-medium-e3cf671f",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"67\"]",
+    "image": "/pdf/algebra-medium/q_e3cf671f.png",
+    "mask_fraction": 0.2159,
+    "answer_image": null,
+    "prompt": "Question e3cf671f"
+  },
+  {
+    "ext_id": "cb-algebra-medium-e723bd67",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_e723bd67.png",
+    "mask_fraction": 0.6619,
+    "answer_image": null,
+    "prompt": "Question e723bd67"
+  },
+  {
+    "ext_id": "cb-algebra-medium-a5834ea4",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-medium/q_a5834ea4.png",
+    "mask_fraction": 0.6752,
+    "answer_image": null,
+    "prompt": "Question a5834ea4"
+  },
+  {
+    "ext_id": "cb-algebra-medium-bf4a8b6a",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_bf4a8b6a.png",
+    "mask_fraction": 0.3864,
+    "answer_image": null,
+    "prompt": "Question bf4a8b6a"
+  },
+  {
+    "ext_id": "cb-algebra-medium-0451d754",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-medium/q_0451d754.png",
+    "mask_fraction": 0.3447,
+    "answer_image": null,
+    "prompt": "Question 0451d754"
+  },
+  {
+    "ext_id": "cb-algebra-medium-7e3f8363",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_7e3f8363.png",
+    "mask_fraction": 0.3466,
+    "answer_image": null,
+    "prompt": "Question 7e3f8363"
+  },
+  {
+    "ext_id": "cb-algebra-medium-0dd6227f",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-medium/q_0dd6227f.png",
+    "mask_fraction": 0.3494,
+    "answer_image": null,
+    "prompt": "Question 0dd6227f"
+  },
+  {
+    "ext_id": "cb-algebra-medium-9e5863bd",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_9e5863bd.png",
+    "mask_fraction": 0.3854,
+    "answer_image": null,
+    "prompt": "Question 9e5863bd"
+  },
+  {
+    "ext_id": "cb-algebra-medium-7efe5495",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_7efe5495.png",
+    "mask_fraction": 0.4034,
+    "answer_image": null,
+    "prompt": "Question 7efe5495"
+  },
+  {
+    "ext_id": "cb-algebra-medium-1087f6c4",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"0.25\", \"1/4\"]",
+    "image": "/pdf/algebra-medium/q_1087f6c4.png",
+    "mask_fraction": 0.2827,
+    "answer_image": null,
+    "prompt": "Question 1087f6c4"
+  },
+  {
+    "ext_id": "cb-algebra-medium-c1bd5301",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"241\"]",
+    "image": "/pdf/algebra-medium/q_c1bd5301.png",
+    "mask_fraction": 0.2528,
+    "answer_image": null,
+    "prompt": "Question c1bd5301"
+  },
+  {
+    "ext_id": "cb-algebra-medium-71189542",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_71189542.png",
+    "mask_fraction": 0.4081,
+    "answer_image": null,
+    "prompt": "Question 71189542"
+  },
+  {
+    "ext_id": "cb-algebra-medium-9d4270fe",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_9d4270fe.png",
+    "mask_fraction": 0.3949,
+    "answer_image": null,
+    "prompt": "Question 9d4270fe"
+  },
+  {
+    "ext_id": "cb-algebra-medium-64c85440",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_64c85440.png",
+    "mask_fraction": 0.4129,
+    "answer_image": null,
+    "prompt": "Question 64c85440"
+  },
+  {
+    "ext_id": "cb-algebra-medium-0c541d87",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_0c541d87.png",
+    "mask_fraction": 0.3684,
+    "answer_image": null,
+    "prompt": "Question 0c541d87"
+  },
+  {
+    "ext_id": "cb-algebra-medium-7a5a74a6",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-medium/q_7a5a74a6.png",
+    "mask_fraction": 0.4905,
+    "answer_image": null,
+    "prompt": "Question 7a5a74a6"
+  },
+  {
+    "ext_id": "cb-algebra-medium-3c03cbd8",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_3c03cbd8.png",
+    "mask_fraction": 0.3769,
+    "answer_image": null,
+    "prompt": "Question 3c03cbd8"
+  },
+  {
+    "ext_id": "cb-algebra-medium-0b221d05",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_0b221d05.png",
+    "mask_fraction": 0.7112,
+    "answer_image": null,
+    "prompt": "Question 0b221d05"
+  },
+  {
+    "ext_id": "cb-algebra-medium-7625073d",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"49\"]",
+    "image": "/pdf/algebra-medium/q_7625073d.png",
+    "mask_fraction": 0.2367,
+    "answer_image": null,
+    "prompt": "Question 7625073d"
+  },
+  {
+    "ext_id": "cb-algebra-medium-c5e38487",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"46\"]",
+    "image": "/pdf/algebra-medium/q_c5e38487.png",
+    "mask_fraction": 0.2547,
+    "answer_image": null,
+    "prompt": "Question c5e38487"
+  },
+  {
+    "ext_id": "cb-algebra-medium-968e9e51",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_968e9e51.png",
+    "mask_fraction": 0.4441,
+    "answer_image": null,
+    "prompt": "Question 968e9e51"
+  },
+  {
+    "ext_id": "cb-algebra-medium-9f3cb472",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_9f3cb472.png",
+    "mask_fraction": 0.3523,
+    "answer_image": null,
+    "prompt": "Question 9f3cb472"
+  },
+  {
+    "ext_id": "cb-algebra-medium-aa85b138",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-medium/q_aa85b138.png",
+    "mask_fraction": 0.3977,
+    "answer_image": null,
+    "prompt": "Question aa85b138"
+  },
+  {
+    "ext_id": "cb-algebra-medium-15daa8d6",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"2\"]",
+    "image": "/pdf/algebra-medium/q_15daa8d6.png",
+    "mask_fraction": 0.2471,
+    "answer_image": null,
+    "prompt": "Question 15daa8d6"
+  },
+  {
+    "ext_id": "cb-algebra-medium-d7c8ba0b",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_d7c8ba0b.png",
+    "mask_fraction": 0.3504,
+    "answer_image": null,
+    "prompt": "Question d7c8ba0b"
+  },
+  {
+    "ext_id": "cb-algebra-medium-12ee1edc",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_12ee1edc.png",
+    "mask_fraction": 0.3854,
+    "answer_image": null,
+    "prompt": "Question 12ee1edc"
+  },
+  {
+    "ext_id": "cb-algebra-medium-99ea3715",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_99ea3715.png",
+    "mask_fraction": 0.3485,
+    "answer_image": null,
+    "prompt": "Question 99ea3715"
+  },
+  {
+    "ext_id": "cb-algebra-medium-38a43902",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"40\"]",
+    "image": "/pdf/algebra-medium/q_38a43902.png",
+    "mask_fraction": 0.2898,
+    "answer_image": null,
+    "prompt": "Question 38a43902"
+  },
+  {
+    "ext_id": "cb-algebra-medium-620fe971",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_620fe971.png",
+    "mask_fraction": 0.429,
+    "answer_image": null,
+    "prompt": "Question 620fe971"
+  },
+  {
+    "ext_id": "cb-algebra-medium-6a87902f",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_6a87902f.png",
+    "mask_fraction": 0.4261,
+    "answer_image": null,
+    "prompt": "Question 6a87902f"
+  },
+  {
+    "ext_id": "cb-algebra-medium-17d80dc3",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"7\"]",
+    "image": "/pdf/algebra-medium/q_17d80dc3.png",
+    "mask_fraction": 0.2159,
+    "answer_image": null,
+    "prompt": "Question 17d80dc3"
+  },
+  {
+    "ext_id": "cb-algebra-medium-1c29bfd1",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_1c29bfd1.png",
+    "mask_fraction": 0.3703,
+    "answer_image": null,
+    "prompt": "Question 1c29bfd1"
+  },
+  {
+    "ext_id": "cb-algebra-medium-dd875c97",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_dd875c97.png",
+    "mask_fraction": 0.4034,
+    "answer_image": null,
+    "prompt": "Question dd875c97"
+  },
+  {
+    "ext_id": "cb-algebra-medium-6e6a3241",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_6e6a3241.png",
+    "mask_fraction": 0.6884,
+    "answer_image": null,
+    "prompt": "Question 6e6a3241"
+  },
+  {
+    "ext_id": "cb-algebra-medium-e470e19d",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_e470e19d.png",
+    "mask_fraction": 0.3466,
+    "answer_image": null,
+    "prompt": "Question e470e19d"
+  },
+  {
+    "ext_id": "cb-algebra-medium-af711d1b",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_af711d1b.png",
+    "mask_fraction": 0.4697,
+    "answer_image": null,
+    "prompt": "Question af711d1b"
+  },
+  {
+    "ext_id": "cb-algebra-medium-f7e39fe9",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"11\"]",
+    "image": "/pdf/algebra-medium/q_f7e39fe9.png",
+    "mask_fraction": 0.2831,
+    "answer_image": null,
+    "prompt": "Question f7e39fe9"
+  },
+  {
+    "ext_id": "cb-algebra-medium-f5929f7a",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_f5929f7a.png",
+    "mask_fraction": 0.4148,
+    "answer_image": null,
+    "prompt": "Question f5929f7a"
+  },
+  {
+    "ext_id": "cb-algebra-medium-51568fb9",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_51568fb9.png",
+    "mask_fraction": 0.3456,
+    "answer_image": null,
+    "prompt": "Question 51568fb9"
+  },
+  {
+    "ext_id": "cb-algebra-medium-5cf1bbc9",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_5cf1bbc9.png",
+    "mask_fraction": 0.7178,
+    "answer_image": null,
+    "prompt": "Question 5cf1bbc9"
+  },
+  {
+    "ext_id": "cb-algebra-medium-74c03c21",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-medium/q_74c03c21.png",
+    "mask_fraction": 0.4526,
+    "answer_image": null,
+    "prompt": "Question 74c03c21"
+  },
+  {
+    "ext_id": "cb-algebra-medium-9c7741c6",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"3\"]",
+    "image": "/pdf/algebra-medium/q_9c7741c6.png",
+    "mask_fraction": 0.2424,
+    "answer_image": null,
+    "prompt": "Question 9c7741c6"
+  },
+  {
+    "ext_id": "cb-algebra-medium-c81f1c2f",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"2850\"]",
+    "image": "/pdf/algebra-medium/q_c81f1c2f.png",
+    "mask_fraction": 0.2632,
+    "answer_image": null,
+    "prompt": "Question c81f1c2f"
+  },
+  {
+    "ext_id": "cb-algebra-medium-018a2704",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_018a2704.png",
+    "mask_fraction": 0.3362,
+    "answer_image": null,
+    "prompt": "Question 018a2704"
+  },
+  {
+    "ext_id": "cb-algebra-medium-8a87c2c8",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_8a87c2c8.png",
+    "mask_fraction": 0.4043,
+    "answer_image": null,
+    "prompt": "Question 8a87c2c8"
+  },
+  {
+    "ext_id": "cb-algebra-medium-9a216c0f",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_9a216c0f.png",
+    "mask_fraction": 0.4915,
+    "answer_image": null,
+    "prompt": "Question 9a216c0f"
+  },
+  {
+    "ext_id": "cb-algebra-medium-0d5495a6",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"45\"]",
+    "image": "/pdf/algebra-medium/q_0d5495a6.png",
+    "mask_fraction": 0.2453,
+    "answer_image": null,
+    "prompt": "Question 0d5495a6"
+  },
+  {
+    "ext_id": "cb-algebra-medium-ed92fb68",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_ed92fb68.png",
+    "mask_fraction": 0.4204,
+    "answer_image": null,
+    "prompt": "Question ed92fb68"
+  },
+  {
+    "ext_id": "cb-algebra-medium-6ba39da5",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"25\"]",
+    "image": "/pdf/algebra-medium/q_6ba39da5.png",
+    "mask_fraction": 0.2831,
+    "answer_image": null,
+    "prompt": "Question 6ba39da5"
+  },
+  {
+    "ext_id": "cb-algebra-medium-bbb0359a",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_bbb0359a.png",
+    "mask_fraction": 0.3892,
+    "answer_image": null,
+    "prompt": "Question bbb0359a"
+  },
+  {
+    "ext_id": "cb-algebra-medium-606cdce7",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_606cdce7.png",
+    "mask_fraction": 0.4716,
+    "answer_image": null,
+    "prompt": "Question 606cdce7"
+  },
+  {
+    "ext_id": "cb-algebra-medium-3e9eaffc",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_3e9eaffc.png",
+    "mask_fraction": 0.374,
+    "answer_image": null,
+    "prompt": "Question 3e9eaffc"
+  },
+  {
+    "ext_id": "cb-algebra-medium-483d208d",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_483d208d.png",
+    "mask_fraction": 0.3721,
+    "answer_image": null,
+    "prompt": "Question 483d208d"
+  },
+  {
+    "ext_id": "cb-algebra-medium-19fdf387",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_19fdf387.png",
+    "mask_fraction": 0.3788,
+    "answer_image": null,
+    "prompt": "Question 19fdf387"
+  },
+  {
+    "ext_id": "cb-algebra-medium-a775af14",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_a775af14.png",
+    "mask_fraction": 0.3466,
+    "answer_image": null,
+    "prompt": "Question a775af14"
+  },
+  {
+    "ext_id": "cb-algebra-medium-9551cd91",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_9551cd91.png",
+    "mask_fraction": 0.4735,
+    "answer_image": null,
+    "prompt": "Question 9551cd91"
+  },
+  {
+    "ext_id": "cb-algebra-medium-ebd457f4",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"774\"]",
+    "image": "/pdf/algebra-medium/q_ebd457f4.png",
+    "mask_fraction": 0.2339,
+    "answer_image": null,
+    "prompt": "Question ebd457f4"
+  },
+  {
+    "ext_id": "cb-algebra-medium-e0f59119",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"14.66\", \"14.67\", \"44/3\"]",
+    "image": "/pdf/algebra-medium/q_e0f59119.png",
+    "mask_fraction": 0.2193,
+    "answer_image": null,
+    "prompt": "Question e0f59119"
+  },
+  {
+    "ext_id": "cb-algebra-medium-6c5c2a81",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-medium/q_6c5c2a81.png",
+    "mask_fraction": 0.3475,
+    "answer_image": null,
+    "prompt": "Question 6c5c2a81"
+  },
+  {
+    "ext_id": "cb-algebra-medium-dae126d7",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_dae126d7.png",
+    "mask_fraction": 0.4593,
+    "answer_image": null,
+    "prompt": "Question dae126d7"
+  },
+  {
+    "ext_id": "cb-algebra-medium-bf5f80c6",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_bf5f80c6.png",
+    "mask_fraction": 0.3854,
+    "answer_image": null,
+    "prompt": "Question bf5f80c6"
+  },
+  {
+    "ext_id": "cb-algebra-medium-c307283c",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_c307283c.png",
+    "mask_fraction": 0.7093,
+    "answer_image": null,
+    "prompt": "Question c307283c"
+  },
+  {
+    "ext_id": "cb-algebra-medium-a0489274",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-medium/q_a0489274.png",
+    "mask_fraction": 0.4138,
+    "answer_image": null,
+    "prompt": "Question a0489274"
+  },
+  {
+    "ext_id": "cb-algebra-medium-80da233d",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_80da233d.png",
+    "mask_fraction": 0.3949,
+    "answer_image": null,
+    "prompt": "Question 80da233d"
+  },
+  {
+    "ext_id": "cb-algebra-medium-271f7e3f",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-medium/q_271f7e3f.png",
+    "mask_fraction": 0.465,
+    "answer_image": null,
+    "prompt": "Question 271f7e3f"
+  },
+  {
+    "ext_id": "cb-algebra-medium-70e29454",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-medium/q_70e29454.png",
+    "mask_fraction": 0.4034,
+    "answer_image": null,
+    "prompt": "Question 70e29454"
+  },
+  {
+    "ext_id": "cb-algebra-medium-b78cd5df",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"25\"]",
+    "image": "/pdf/algebra-medium/q_b78cd5df.png",
+    "mask_fraction": 0.2367,
+    "answer_image": null,
+    "prompt": "Question b78cd5df"
+  },
+  {
+    "ext_id": "cb-algebra-medium-b31c3117",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_b31c3117.png",
+    "mask_fraction": 0.4394,
+    "answer_image": null,
+    "prompt": "Question b31c3117"
+  },
+  {
+    "ext_id": "cb-algebra-medium-f09097b1",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"22\", \"22.4\", \"112/5\"]",
+    "image": "/pdf/algebra-medium/q_f09097b1.png",
+    "mask_fraction": 0.2727,
+    "answer_image": null,
+    "prompt": "Question f09097b1"
+  },
+  {
+    "ext_id": "cb-algebra-medium-bf749912",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"42\"]",
+    "image": "/pdf/algebra-medium/q_bf749912.png",
+    "mask_fraction": 0.25,
+    "answer_image": null,
+    "prompt": "Question bf749912"
+  },
+  {
+    "ext_id": "cb-algebra-medium-c17d9ba9",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"-2\"]",
+    "image": "/pdf/algebra-medium/q_c17d9ba9.png",
+    "mask_fraction": 0.2187,
+    "answer_image": null,
+    "prompt": "Question c17d9ba9"
+  },
+  {
+    "ext_id": "cb-algebra-medium-c5082ce3",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"30\"]",
+    "image": "/pdf/algebra-medium/q_c5082ce3.png",
+    "mask_fraction": 0.25,
+    "answer_image": null,
+    "prompt": "Question c5082ce3"
+  },
+  {
+    "ext_id": "cb-algebra-medium-2e0290c3",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-medium/q_2e0290c3.png",
+    "mask_fraction": 0.7339,
+    "answer_image": null,
+    "prompt": "Question 2e0290c3"
+  },
+  {
+    "ext_id": "cb-algebra-medium-b00ad7f2",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_b00ad7f2.png",
+    "mask_fraction": 0.4223,
+    "answer_image": null,
+    "prompt": "Question b00ad7f2"
+  },
+  {
+    "ext_id": "cb-algebra-medium-c651cc56",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-medium/q_c651cc56.png",
+    "mask_fraction": 0.4318,
+    "answer_image": null,
+    "prompt": "Question c651cc56"
+  },
+  {
+    "ext_id": "cb-algebra-medium-ecca0603",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_ecca0603.png",
+    "mask_fraction": 0.6799,
+    "answer_image": null,
+    "prompt": "Question ecca0603"
+  },
+  {
+    "ext_id": "cb-algebra-medium-79cf8505",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"34\"]",
+    "image": "/pdf/algebra-medium/q_79cf8505.png",
+    "mask_fraction": 0.2367,
+    "answer_image": null,
+    "prompt": "Question 79cf8505"
+  },
+  {
+    "ext_id": "cb-algebra-medium-c22b5f25",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_c22b5f25.png",
+    "mask_fraction": 0.4413,
+    "answer_image": null,
+    "prompt": "Question c22b5f25"
+  },
+  {
+    "ext_id": "cb-algebra-medium-6cb9bf45",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_6cb9bf45.png",
+    "mask_fraction": 0.6534,
+    "answer_image": null,
+    "prompt": "Question 6cb9bf45"
+  },
+  {
+    "ext_id": "cb-algebra-medium-11e1ab81",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_11e1ab81.png",
+    "mask_fraction": 0.5521,
+    "answer_image": null,
+    "prompt": "Question 11e1ab81"
+  },
+  {
+    "ext_id": "cb-algebra-medium-df78b361",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_df78b361.png",
+    "mask_fraction": 0.3769,
+    "answer_image": null,
+    "prompt": "Question df78b361"
+  },
+  {
+    "ext_id": "cb-algebra-medium-4fe4fd7c",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"3500\"]",
+    "image": "/pdf/algebra-medium/q_4fe4fd7c.png",
+    "mask_fraction": 0.2642,
+    "answer_image": null,
+    "prompt": "Question 4fe4fd7c"
+  },
+  {
+    "ext_id": "cb-algebra-medium-c41e5688",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_c41e5688.png",
+    "mask_fraction": 0.7112,
+    "answer_image": null,
+    "prompt": "Question c41e5688"
+  },
+  {
+    "ext_id": "cb-algebra-medium-0d1b1e35",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_0d1b1e35.png",
+    "mask_fraction": 0.357,
+    "answer_image": null,
+    "prompt": "Question 0d1b1e35"
+  },
+  {
+    "ext_id": "cb-algebra-medium-79be5180",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"3\"]",
+    "image": "/pdf/algebra-medium/q_79be5180.png",
+    "mask_fraction": 0.286,
+    "answer_image": null,
+    "prompt": "Question 79be5180"
+  },
+  {
+    "ext_id": "cb-algebra-medium-620abf36",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_620abf36.png",
+    "mask_fraction": 0.3371,
+    "answer_image": null,
+    "prompt": "Question 620abf36"
+  },
+  {
+    "ext_id": "cb-algebra-medium-d62ad380",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_d62ad380.png",
+    "mask_fraction": 0.5947,
+    "answer_image": null,
+    "prompt": "Question d62ad380"
+  },
+  {
+    "ext_id": "cb-algebra-medium-2f34cd1c",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-medium/q_2f34cd1c.png",
+    "mask_fraction": 0.3721,
+    "answer_image": null,
+    "prompt": "Question 2f34cd1c"
+  },
+  {
+    "ext_id": "cb-algebra-medium-092ad67d",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-medium/q_092ad67d.png",
+    "mask_fraction": 0.4043,
+    "answer_image": null,
+    "prompt": "Question 092ad67d"
+  },
+  {
+    "ext_id": "cb-algebra-medium-3122fc7b",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"257\"]",
+    "image": "/pdf/algebra-medium/q_3122fc7b.png",
+    "mask_fraction": 0.2339,
+    "answer_image": null,
+    "prompt": "Question 3122fc7b"
+  },
+  {
+    "ext_id": "cb-algebra-medium-d9733ed9",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_d9733ed9.png",
+    "mask_fraction": 0.6525,
+    "answer_image": null,
+    "prompt": "Question d9733ed9"
+  },
+  {
+    "ext_id": "cb-algebra-medium-23dedddd",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_23dedddd.png",
+    "mask_fraction": 0.3466,
+    "answer_image": null,
+    "prompt": "Question 23dedddd"
+  },
+  {
+    "ext_id": "cb-algebra-medium-c8fb6bcb",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-medium/q_c8fb6bcb.png",
+    "mask_fraction": 0.3797,
+    "answer_image": null,
+    "prompt": "Question c8fb6bcb"
+  },
+  {
+    "ext_id": "cb-algebra-medium-d909cd31",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_d909cd31.png",
+    "mask_fraction": 0.4053,
+    "answer_image": null,
+    "prompt": "Question d909cd31"
+  },
+  {
+    "ext_id": "cb-algebra-medium-a91a2b75",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"9\"]",
+    "image": "/pdf/algebra-medium/q_a91a2b75.png",
+    "mask_fraction": 0.2159,
+    "answer_image": null,
+    "prompt": "Question a91a2b75"
+  },
+  {
+    "ext_id": "cb-algebra-medium-56dc8045",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_56dc8045.png",
+    "mask_fraction": 0.3807,
+    "answer_image": null,
+    "prompt": "Question 56dc8045"
+  },
+  {
+    "ext_id": "cb-algebra-medium-92aa3a94",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-medium/q_92aa3a94.png",
+    "mask_fraction": 0.3466,
+    "answer_image": null,
+    "prompt": "Question 92aa3a94"
+  },
+  {
+    "ext_id": "cb-algebra-medium-4f669597",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"1\"]",
+    "image": "/pdf/algebra-medium/q_4f669597.png",
+    "mask_fraction": 0.2453,
+    "answer_image": null,
+    "prompt": "Question 4f669597"
+  },
+  {
+    "ext_id": "cb-algebra-medium-f2bbd43d",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_f2bbd43d.png",
+    "mask_fraction": 0.3949,
+    "answer_image": null,
+    "prompt": "Question f2bbd43d"
+  },
+  {
+    "ext_id": "cb-algebra-medium-c01f4a95",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"39\"]",
+    "image": "/pdf/algebra-medium/q_c01f4a95.png",
+    "mask_fraction": 0.2453,
+    "answer_image": null,
+    "prompt": "Question c01f4a95"
+  },
+  {
+    "ext_id": "cb-algebra-medium-431c3038",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_431c3038.png",
+    "mask_fraction": 0.3949,
+    "answer_image": null,
+    "prompt": "Question 431c3038"
+  },
+  {
+    "ext_id": "cb-algebra-medium-bd45df49",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_bd45df49.png",
+    "mask_fraction": 0.4091,
+    "answer_image": null,
+    "prompt": "Question bd45df49"
+  },
+  {
+    "ext_id": "cb-algebra-medium-4b0c156b",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_4b0c156b.png",
+    "mask_fraction": 0.3523,
+    "answer_image": null,
+    "prompt": "Question 4b0c156b"
+  },
+  {
+    "ext_id": "cb-algebra-medium-868fc236",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-medium/q_868fc236.png",
+    "mask_fraction": 0.5388,
+    "answer_image": null,
+    "prompt": "Question 868fc236"
+  },
+  {
+    "ext_id": "cb-algebra-medium-79784c23",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_79784c23.png",
+    "mask_fraction": 0.4072,
+    "answer_image": null,
+    "prompt": "Question 79784c23"
+  },
+  {
+    "ext_id": "cb-algebra-medium-ce314070",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_ce314070.png",
+    "mask_fraction": 0.4337,
+    "answer_image": null,
+    "prompt": "Question ce314070"
+  },
+  {
+    "ext_id": "cb-algebra-medium-7e1bff94",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_7e1bff94.png",
+    "mask_fraction": 0.4337,
+    "answer_image": null,
+    "prompt": "Question 7e1bff94"
+  },
+  {
+    "ext_id": "cb-algebra-medium-946ab892",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_946ab892.png",
+    "mask_fraction": 0.3466,
+    "answer_image": null,
+    "prompt": "Question 946ab892"
+  },
+  {
+    "ext_id": "cb-algebra-medium-feb78194",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"37\"]",
+    "image": "/pdf/algebra-medium/q_feb78194.png",
+    "mask_fraction": 0.25,
+    "answer_image": null,
+    "prompt": "Question feb78194"
+  },
+  {
+    "ext_id": "cb-algebra-medium-9f6f96ff",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_9f6f96ff.png",
+    "mask_fraction": 0.3684,
+    "answer_image": null,
+    "prompt": "Question 9f6f96ff"
+  },
+  {
+    "ext_id": "cb-algebra-medium-6e50ce28",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_6e50ce28.png",
+    "mask_fraction": 0.4953,
+    "answer_image": null,
+    "prompt": "Question 6e50ce28"
+  },
+  {
+    "ext_id": "cb-algebra-medium-62ef6f73",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_62ef6f73.png",
+    "mask_fraction": 0.3579,
+    "answer_image": null,
+    "prompt": "Question 62ef6f73"
+  },
+  {
+    "ext_id": "cb-algebra-medium-2875ba81",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_2875ba81.png",
+    "mask_fraction": 0.3892,
+    "answer_image": null,
+    "prompt": "Question 2875ba81"
+  },
+  {
+    "ext_id": "cb-algebra-medium-0ef4a7b6",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_0ef4a7b6.png",
+    "mask_fraction": 0.3854,
+    "answer_image": null,
+    "prompt": "Question 0ef4a7b6"
+  },
+  {
+    "ext_id": "cb-algebra-medium-265f2a53",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_265f2a53.png",
+    "mask_fraction": 0.3551,
+    "answer_image": null,
+    "prompt": "Question 265f2a53"
+  },
+  {
+    "ext_id": "cb-algebra-medium-4e400635",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"1\"]",
+    "image": "/pdf/algebra-medium/q_4e400635.png",
+    "mask_fraction": 0.286,
+    "answer_image": null,
+    "prompt": "Question 4e400635"
+  },
+  {
+    "ext_id": "cb-algebra-medium-dcc4886a",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_dcc4886a.png",
+    "mask_fraction": 0.41,
+    "answer_image": null,
+    "prompt": "Question dcc4886a"
+  },
+  {
+    "ext_id": "cb-algebra-medium-0cadb20e",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_0cadb20e.png",
+    "mask_fraction": 0.3343,
+    "answer_image": null,
+    "prompt": "Question 0cadb20e"
+  },
+  {
+    "ext_id": "cb-algebra-medium-ce6b52d8",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"60\"]",
+    "image": "/pdf/algebra-medium/q_ce6b52d8.png",
+    "mask_fraction": 0.2187,
+    "answer_image": null,
+    "prompt": "Question ce6b52d8"
+  },
+  {
+    "ext_id": "cb-algebra-medium-6daf8d70",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_6daf8d70.png",
+    "mask_fraction": 0.5,
+    "answer_image": null,
+    "prompt": "Question 6daf8d70"
+  },
+  {
+    "ext_id": "cb-algebra-medium-f81a0503",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_f81a0503.png",
+    "mask_fraction": 0.3504,
+    "answer_image": null,
+    "prompt": "Question f81a0503"
+  },
+  {
+    "ext_id": "cb-algebra-medium-68f343c9",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_68f343c9.png",
+    "mask_fraction": 0.3343,
+    "answer_image": null,
+    "prompt": "Question 68f343c9"
+  },
+  {
+    "ext_id": "cb-algebra-medium-34aca984",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_34aca984.png",
+    "mask_fraction": 0.3485,
+    "answer_image": null,
+    "prompt": "Question 34aca984"
+  },
+  {
+    "ext_id": "cb-algebra-medium-76f29fa5",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_76f29fa5.png",
+    "mask_fraction": 0.3854,
+    "answer_image": null,
+    "prompt": "Question 76f29fa5"
+  },
+  {
+    "ext_id": "cb-algebra-medium-042aa429",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_042aa429.png",
+    "mask_fraction": 0.3343,
+    "answer_image": null,
+    "prompt": "Question 042aa429"
+  },
+  {
+    "ext_id": "cb-algebra-medium-5ab9903f",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_5ab9903f.png",
+    "mask_fraction": 0.3665,
+    "answer_image": null,
+    "prompt": "Question 5ab9903f"
+  },
+  {
+    "ext_id": "cb-algebra-medium-d0a2fed5",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"294\"]",
+    "image": "/pdf/algebra-medium/q_d0a2fed5.png",
+    "mask_fraction": 0.2187,
+    "answer_image": null,
+    "prompt": "Question d0a2fed5"
+  },
+  {
+    "ext_id": "cb-algebra-medium-c39dbbdf",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-medium/q_c39dbbdf.png",
+    "mask_fraction": 0.3466,
+    "answer_image": null,
+    "prompt": "Question c39dbbdf"
+  },
+  {
+    "ext_id": "cb-algebra-medium-ca452900",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"3846\", \"5/13\"]",
+    "image": "/pdf/algebra-medium/q_ca452900.png",
+    "mask_fraction": 0.2193,
+    "answer_image": null,
+    "prompt": "Question ca452900"
+  },
+  {
+    "ext_id": "cb-algebra-medium-e77a76ce",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_e77a76ce.png",
+    "mask_fraction": 0.465,
+    "answer_image": null,
+    "prompt": "Question e77a76ce"
+  },
+  {
+    "ext_id": "cb-algebra-medium-b2fe7ab6",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_b2fe7ab6.png",
+    "mask_fraction": 0.464,
+    "answer_image": null,
+    "prompt": "Question b2fe7ab6"
+  },
+  {
+    "ext_id": "cb-algebra-medium-1bc11c4e",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_1bc11c4e.png",
+    "mask_fraction": 0.3807,
+    "answer_image": null,
+    "prompt": "Question 1bc11c4e"
+  },
+  {
+    "ext_id": "cb-algebra-medium-b3c7ca1d",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_b3c7ca1d.png",
+    "mask_fraction": 0.465,
+    "answer_image": null,
+    "prompt": "Question b3c7ca1d"
+  },
+  {
+    "ext_id": "cb-algebra-medium-23c5d458",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_23c5d458.png",
+    "mask_fraction": 0.4631,
+    "answer_image": null,
+    "prompt": "Question 23c5d458"
+  },
+  {
+    "ext_id": "cb-algebra-medium-113b938e",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_113b938e.png",
+    "mask_fraction": 0.4138,
+    "answer_image": null,
+    "prompt": "Question 113b938e"
+  },
+  {
+    "ext_id": "cb-algebra-medium-2e1a7f66",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_2e1a7f66.png",
+    "mask_fraction": 0.3949,
+    "answer_image": null,
+    "prompt": "Question 2e1a7f66"
+  },
+  {
+    "ext_id": "cb-algebra-medium-5e422ff9",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_5e422ff9.png",
+    "mask_fraction": 0.4328,
+    "answer_image": null,
+    "prompt": "Question 5e422ff9"
+  },
+  {
+    "ext_id": "cb-algebra-medium-637022d2",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_637022d2.png",
+    "mask_fraction": 0.3835,
+    "answer_image": null,
+    "prompt": "Question 637022d2"
+  },
+  {
+    "ext_id": "cb-algebra-medium-74c98c82",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"16\"]",
+    "image": "/pdf/algebra-medium/q_74c98c82.png",
+    "mask_fraction": 0.2367,
+    "answer_image": null,
+    "prompt": "Question 74c98c82"
+  },
+  {
+    "ext_id": "cb-algebra-medium-36ab4122",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-medium/q_36ab4122.png",
+    "mask_fraction": 0.3949,
+    "answer_image": null,
+    "prompt": "Question 36ab4122"
+  },
+  {
+    "ext_id": "cb-algebra-medium-295a41f0",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-medium/q_295a41f0.png",
+    "mask_fraction": 0.7424,
+    "answer_image": null,
+    "prompt": "Question 295a41f0"
+  },
+  {
+    "ext_id": "cb-algebra-medium-1ce51655",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_1ce51655.png",
+    "mask_fraction": 0.3542,
+    "answer_image": null,
+    "prompt": "Question 1ce51655"
+  },
+  {
+    "ext_id": "cb-algebra-medium-e9ef0e6b",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-medium/q_e9ef0e6b.png",
+    "mask_fraction": 0.3854,
+    "answer_image": null,
+    "prompt": "Question e9ef0e6b"
+  },
+  {
+    "ext_id": "cb-algebra-medium-5a7ab8e8",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_5a7ab8e8.png",
+    "mask_fraction": 0.3873,
+    "answer_image": null,
+    "prompt": "Question 5a7ab8e8"
+  },
+  {
+    "ext_id": "cb-algebra-medium-55447be2",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"24\"]",
+    "image": "/pdf/algebra-medium/q_55447be2.png",
+    "mask_fraction": 0.2907,
+    "answer_image": null,
+    "prompt": "Question 55447be2"
+  },
+  {
+    "ext_id": "cb-algebra-medium-40049d49",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_40049d49.png",
+    "mask_fraction": 0.3703,
+    "answer_image": null,
+    "prompt": "Question 40049d49"
+  },
+  {
+    "ext_id": "cb-algebra-medium-2704399f",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_2704399f.png",
+    "mask_fraction": 0.6865,
+    "answer_image": null,
+    "prompt": "Question 2704399f"
+  },
+  {
+    "ext_id": "cb-algebra-medium-f02b4509",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_f02b4509.png",
+    "mask_fraction": 0.3542,
+    "answer_image": null,
+    "prompt": "Question f02b4509"
+  },
+  {
+    "ext_id": "cb-algebra-medium-a94ed4e0",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_a94ed4e0.png",
+    "mask_fraction": 0.4053,
+    "answer_image": null,
+    "prompt": "Question a94ed4e0"
+  },
+  {
+    "ext_id": "cb-algebra-medium-686b7cad",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_686b7cad.png",
+    "mask_fraction": 0.3958,
+    "answer_image": null,
+    "prompt": "Question 686b7cad"
+  },
+  {
+    "ext_id": "cb-algebra-medium-1f0966db",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"3\"]",
+    "image": "/pdf/algebra-medium/q_1f0966db.png",
+    "mask_fraction": 0.2159,
+    "answer_image": null,
+    "prompt": "Question 1f0966db"
+  },
+  {
+    "ext_id": "cb-algebra-medium-90bd9ef8",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-medium/q_90bd9ef8.png",
+    "mask_fraction": 0.4337,
+    "answer_image": null,
+    "prompt": "Question 90bd9ef8"
+  },
+  {
+    "ext_id": "cb-algebra-medium-6f6dfe3e",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_6f6dfe3e.png",
+    "mask_fraction": 0.4602,
+    "answer_image": null,
+    "prompt": "Question 6f6dfe3e"
+  },
+  {
+    "ext_id": "cb-algebra-medium-8f0c82e2",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-medium/q_8f0c82e2.png",
+    "mask_fraction": 0.3485,
+    "answer_image": null,
+    "prompt": "Question 8f0c82e2"
+  },
+  {
+    "ext_id": "cb-algebra-medium-5ad9eff0",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-medium/q_5ad9eff0.png",
+    "mask_fraction": 0.4062,
+    "answer_image": null,
+    "prompt": "Question 5ad9eff0"
+  },
+  {
+    "ext_id": "cb-algebra-medium-038d87d7",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_038d87d7.png",
+    "mask_fraction": 0.3769,
+    "answer_image": null,
+    "prompt": "Question 038d87d7"
+  },
+  {
+    "ext_id": "cb-algebra-medium-441558e7",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_441558e7.png",
+    "mask_fraction": 0.3703,
+    "answer_image": null,
+    "prompt": "Question 441558e7"
+  },
+  {
+    "ext_id": "cb-algebra-medium-e3bbde69",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-medium/q_e3bbde69.png",
+    "mask_fraction": 0.4214,
+    "answer_image": null,
+    "prompt": "Question e3bbde69"
+  },
+  {
+    "ext_id": "cb-algebra-medium-f0773a55",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_f0773a55.png",
+    "mask_fraction": 0.7434,
+    "answer_image": null,
+    "prompt": "Question f0773a55"
+  },
+  {
+    "ext_id": "cb-algebra-medium-b544a348",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"7\"]",
+    "image": "/pdf/algebra-medium/q_b544a348.png",
+    "mask_fraction": 0.2803,
+    "answer_image": null,
+    "prompt": "Question b544a348"
+  },
+  {
+    "ext_id": "cb-algebra-medium-400798d6",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_400798d6.png",
+    "mask_fraction": 0.4034,
+    "answer_image": null,
+    "prompt": "Question 400798d6"
+  },
+  {
+    "ext_id": "cb-algebra-medium-9ed4c1a2",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"13.75\", \"55/4\"]",
+    "image": "/pdf/algebra-medium/q_9ed4c1a2.png",
+    "mask_fraction": 0.2193,
+    "answer_image": null,
+    "prompt": "Question 9ed4c1a2"
+  },
+  {
+    "ext_id": "cb-algebra-medium-45bba652",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_45bba652.png",
+    "mask_fraction": 0.3665,
+    "answer_image": null,
+    "prompt": "Question 45bba652"
+  },
+  {
+    "ext_id": "cb-algebra-medium-53487897",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_53487897.png",
+    "mask_fraction": 0.3617,
+    "answer_image": null,
+    "prompt": "Question 53487897"
+  },
+  {
+    "ext_id": "cb-algebra-medium-fb43b85f",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"1.636\", \"18/11\"]",
+    "image": "/pdf/algebra-medium/q_fb43b85f.png",
+    "mask_fraction": 0.2193,
+    "answer_image": null,
+    "prompt": "Question fb43b85f"
+  },
+  {
+    "ext_id": "cb-algebra-medium-eafdbbbd",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_eafdbbbd.png",
+    "mask_fraction": 0.3693,
+    "answer_image": null,
+    "prompt": "Question eafdbbbd"
+  },
+  {
+    "ext_id": "cb-algebra-medium-3ce92ce8",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"2\"]",
+    "image": "/pdf/algebra-medium/q_3ce92ce8.png",
+    "mask_fraction": 0.2453,
+    "answer_image": null,
+    "prompt": "Question 3ce92ce8"
+  },
+  {
+    "ext_id": "cb-algebra-medium-8a6de407",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"2\"]",
+    "image": "/pdf/algebra-medium/q_8a6de407.png",
+    "mask_fraction": 0.2225,
+    "answer_image": null,
+    "prompt": "Question 8a6de407"
+  },
+  {
+    "ext_id": "cb-algebra-medium-a4989860",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"9\"]",
+    "image": "/pdf/algebra-medium/q_a4989860.png",
+    "mask_fraction": 0.2367,
+    "answer_image": null,
+    "prompt": "Question a4989860"
+  },
+  {
+    "ext_id": "cb-algebra-medium-36f068e2",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-medium/q_36f068e2.png",
+    "mask_fraction": 1.0,
+    "answer_image": "/pdf/algebra-medium/a_36f068e2.png",
+    "prompt": "Question 36f068e2"
+  },
+  {
+    "ext_id": "cb-algebra-medium-d02193fb",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_d02193fb.png",
+    "mask_fraction": 0.7064,
+    "answer_image": null,
+    "prompt": "Question d02193fb"
+  },
+  {
+    "ext_id": "cb-algebra-medium-63be6c9a",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "C",
+    "image": "/pdf/algebra-medium/q_63be6c9a.png",
+    "mask_fraction": 0.3542,
+    "answer_image": null,
+    "prompt": "Question 63be6c9a"
+  },
+  {
+    "ext_id": "cb-algebra-medium-65833256",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_65833256.png",
+    "mask_fraction": 0.4176,
+    "answer_image": null,
+    "prompt": "Question 65833256"
+  },
+  {
+    "ext_id": "cb-algebra-medium-e53688cb",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"18\"]",
+    "image": "/pdf/algebra-medium/q_e53688cb.png",
+    "mask_fraction": 0.286,
+    "answer_image": null,
+    "prompt": "Question e53688cb"
+  },
+  {
+    "ext_id": "cb-algebra-medium-41fdc0b8",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "A",
+    "image": "/pdf/algebra-medium/q_41fdc0b8.png",
+    "mask_fraction": 0.5227,
+    "answer_image": null,
+    "prompt": "Question 41fdc0b8"
+  },
+  {
+    "ext_id": "cb-algebra-medium-8ad64841",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_8ad64841.png",
+    "mask_fraction": 0.3646,
+    "answer_image": null,
+    "prompt": "Question 8ad64841"
+  },
+  {
+    "ext_id": "cb-algebra-medium-f60aa0dc",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_f60aa0dc.png",
+    "mask_fraction": 0.3381,
+    "answer_image": null,
+    "prompt": "Question f60aa0dc"
+  },
+  {
+    "ext_id": "cb-algebra-medium-8c515062",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_8c515062.png",
+    "mask_fraction": 0.3542,
+    "answer_image": null,
+    "prompt": "Question 8c515062"
+  },
+  {
+    "ext_id": "cb-algebra-medium-a04190b7",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "spr",
+    "choices": [],
+    "correct": "[\"4.51\", \"451/100\"]",
+    "image": "/pdf/algebra-medium/q_a04190b7.png",
+    "mask_fraction": 0.2553,
+    "answer_image": null,
+    "prompt": "Question a04190b7"
+  },
+  {
+    "ext_id": "cb-algebra-medium-948087f2",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "D",
+    "image": "/pdf/algebra-medium/q_948087f2.png",
+    "mask_fraction": 0.4498,
+    "answer_image": null,
+    "prompt": "Question 948087f2"
+  },
+  {
+    "ext_id": "cb-algebra-medium-00b9bd37",
+    "domain": "math",
+    "topic": "algebra",
+    "difficulty": "medium",
+    "source": "collegeboard",
+    "qtype": "mcq",
+    "choices": [
+      {
+        "label": "A"
+      },
+      {
+        "label": "B"
+      },
+      {
+        "label": "C"
+      },
+      {
+        "label": "D"
+      }
+    ],
+    "correct": "B",
+    "image": "/pdf/algebra-medium/q_00b9bd37.png",
+    "mask_fraction": 0.5824,
+    "answer_image": null,
+    "prompt": "Question 00b9bd37"
+  }
+]
