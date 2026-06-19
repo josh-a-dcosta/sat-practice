@@ -3,5 +3,5 @@
 # Edit this file in your repo to manage logins; no admin page needed.
 # Passwords are stored as-is (simple shared family use), so keep this file private.
 
-daughter,sat2026
-parent,sat2026
+jd,sat265
+fg,sat263
