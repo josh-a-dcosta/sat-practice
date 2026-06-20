@@ -31,6 +31,7 @@
       </div>
     </div>
 
+    <div id="activeBanner"></div>
     <div id="domainSections"><div class="spinner">Loading…</div></div>
 
     <div class="card center">
@@ -46,8 +47,24 @@
       { domain: 'reading', emoji: '📖', label: 'Reading & Writing' },
     ];
 
+    let ACTIVE = null;
+
     async function load() {
       const data = await api('GET', '/api/overview');
+      ACTIVE = data.activeSession || null;
+
+      // Active-attempt banner: only one attempt allowed at a time.
+      const ab = document.getElementById('activeBanner');
+      if (ACTIVE) {
+        const emoji = ACTIVE.domain === 'math' ? '🔢' : '📖';
+        ab.innerHTML = `<div class="card" style="border:2px solid var(--amber)">
+          <h2 style="margin:0 0 6px">▶ Finish your active attempt first</h2>
+          <p class="note" style="margin:0 0 14px">You're in the middle of <b>${emoji} ${escapeHtml(ACTIVE.topicName)} (${ACTIVE.difficulty})</b> — ${ACTIVE.answeredCount}/${ACTIVE.total} done. Only one attempt can be open at a time.</p>
+          <a class="btn btn-primary btn-lg" href="/session.html?id=${ACTIVE.id}">Resume attempt →</a>
+        </div>`;
+      } else {
+        ab.innerHTML = '';
+      }
 
       // Goal banner
       const t = data.today;
@@ -125,12 +142,28 @@
 
     async function startSection(section) { /* legacy — unused */ }
 
+    function escapeHtml(s) {
+      return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
     async function startSession(topic, difficulty) {
+      // Block starting a new attempt while one is active (server also enforces).
+      if (ACTIVE && !(ACTIVE.topic === topic && ACTIVE.difficulty === difficulty)) {
+        if (confirm(`You have an active ${ACTIVE.topicName} (${ACTIVE.difficulty}) attempt. Resume it now?`)) {
+          window.location.href = `/session.html?id=${ACTIVE.id}`;
+        }
+        return;
+      }
       try {
         const result = await api('POST', '/api/sessions', { topic, difficulty });
         window.location.href = `/session.html?id=${result.id}`;
       } catch (e) {
-        alert(e.message);
+        if (e.data && e.data.activeSessionId &&
+            confirm(`${e.message} Resume it now?`)) {
+          window.location.href = `/session.html?id=${e.data.activeSessionId}`;
+        } else {
+          alert(e.message);
+        }
       }
     }
 

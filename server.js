@@ -144,10 +144,12 @@ async function handleApi(req, res, url) {
     if (req.method === 'GET' && pathname === '/api/overview') {
       return sendJson(res, 200, {
         user,
-        today:       repo.getTodayProgress(uid),
-        catalogue:   repo.getCatalogue(uid),
-        timeLimit:   repo.TIME_LIMIT,
-        sessionSize: repo.SESSION_SIZE,
+        today:        repo.getTodayProgress(uid),
+        catalogue:    repo.getCatalogue(uid),
+        activeSession: repo.activeSessionInfo(uid),
+        timeLimits:   repo.TIME_LIMITS,
+        sessionSize:  repo.SESSION_SIZE,
+        sessionMinutes: repo.SESSION_MINUTES,
       });
     }
 
@@ -185,9 +187,47 @@ async function handleApi(req, res, url) {
       return sendJson(res, 200, result);
     }
 
+    // POST /api/sessions/:id/peek  { questionId, timeTaken }
+    if (req.method === 'POST' && parts[1] === 'sessions' && parts[3] === 'peek' && parts.length === 4) {
+      const body = await readBody(req);
+      return sendJson(res, 200, repo.peekQuestion(uid, Number(parts[2]), Number(body.questionId), Number(body.timeTaken)));
+    }
+
+    // POST /api/sessions/:id/timeout  { questionId, timeTaken }
+    if (req.method === 'POST' && parts[1] === 'sessions' && parts[3] === 'timeout' && parts.length === 4) {
+      const body = await readBody(req);
+      return sendJson(res, 200, repo.timeoutQuestion(uid, Number(parts[2]), Number(body.questionId), Number(body.timeTaken)));
+    }
+
+    // POST /api/sessions/:id/progress  { position, elapsed }   (pause/heartbeat)
+    if (req.method === 'POST' && parts[1] === 'sessions' && parts[3] === 'progress' && parts.length === 4) {
+      const body = await readBody(req);
+      repo.saveProgress(uid, Number(parts[2]), Number(body.position), Number(body.elapsed));
+      return sendJson(res, 200, { ok: true });
+    }
+
     // POST /api/sessions/:id/complete
     if (req.method === 'POST' && parts[1] === 'sessions' && parts[3] === 'complete' && parts.length === 4) {
       return sendJson(res, 200, repo.completeSession(uid, Number(parts[2])));
+    }
+
+    // ---- tasks / plan ----
+    if (req.method === 'GET' && pathname === '/api/tasks') {
+      return sendJson(res, 200, { tasks: repo.listTasks(uid) });
+    }
+    if (req.method === 'POST' && pathname === '/api/tasks') {
+      const body = await readBody(req);
+      return sendJson(res, 200, repo.addTask(uid, body));
+    }
+    if (req.method === 'POST' && parts[1] === 'tasks' && parts.length === 3) {
+      const body = await readBody(req);
+      return sendJson(res, 200, repo.setTaskStatus(uid, Number(parts[2]), String(body.status || 'open')));
+    }
+    if (req.method === 'DELETE' && parts[1] === 'tasks' && parts.length === 3) {
+      return sendJson(res, 200, repo.deleteTask(uid, Number(parts[2])));
+    }
+    if (req.method === 'POST' && pathname === '/api/plan/generate') {
+      return sendJson(res, 200, repo.generatePlan(uid));
     }
 
     // GET /api/dashboard
@@ -206,7 +246,9 @@ async function handleApi(req, res, url) {
   } catch (err) {
     const status = err.status || 500;
     if (status === 500) console.error('API error:', err);
-    return sendJson(res, status, { error: err.message || 'Server error' });
+    const payload = { error: err.message || 'Server error' };
+    if (err.activeSessionId) payload.activeSessionId = err.activeSessionId;
+    return sendJson(res, status, payload);
   }
 }
 

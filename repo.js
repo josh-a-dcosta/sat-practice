@@ -5,7 +5,13 @@ const { TAXONOMY, isValidTopic, isValidDifficulty, domainOfTopic, topicLabel } =
 
 const SESSION_SIZE = 40;
 const DAILY_GOAL   = 40;
-const TIME_LIMIT   = 120; // seconds per question
+const TIME_LIMIT   = 120; // legacy default (medium)
+const TIME_LIMITS  = { medium: 120, hard: 150 }; // 2:00 medium, 2:30 hard
+const SESSION_MINUTES = 90;
+
+function timeLimitFor(difficulty) {
+  return TIME_LIMITS[difficulty] || TIME_LIMIT;
+}
 
 function shuffle(arr) {
   for (let i = arr.length - 1; i > 0; i--) {
@@ -162,17 +168,42 @@ function selectQuestions(userId, domain, topic, difficulty, limit) {
 // ---------------------------------------------------------------------------
 // sessions
 // ---------------------------------------------------------------------------
-function getActiveSession(userId, domain, topic, difficulty) {
-  return db.prepare(`
+// A user may have only ONE in-progress attempt at a time across all domains.
+// If several somehow exist, keep one (math first, then most recent) and delete
+// the rest so we converge to a single active attempt.
+function getActiveAny(userId) {
+  const rows = db.prepare(`
     SELECT * FROM sessions
-    WHERE user_id=? AND domain=? AND topic=? AND difficulty=? AND status='in_progress'
-    ORDER BY created_at DESC LIMIT 1
-  `).get(userId, domain, topic, difficulty);
+    WHERE user_id=? AND status='in_progress'
+    ORDER BY (domain='math') DESC, created_at DESC
+  `).all(userId);
+  if (rows.length > 1) {
+    const del = db.prepare('DELETE FROM sessions WHERE id=?');
+    for (let i = 1; i < rows.length; i++) del.run(rows[i].id); // cascades sq + attempts
+  }
+  return rows[0] || null;
+}
+
+function activeSessionInfo(userId) {
+  const a = getActiveAny(userId);
+  if (!a) return null;
+  const st = getSessionState(userId, a.id);
+  return {
+    id: a.id, domain: a.domain, topic: a.topic, difficulty: a.difficulty,
+    topicName: topicLabel(a.topic),
+    answeredCount: st ? st.answeredCount : 0, total: st ? st.total : 0,
+  };
 }
 
 function createOrResumeSession(userId, domain, topic, difficulty) {
-  const active = getActiveSession(userId, domain, topic, difficulty);
-  if (active) return { id: active.id, resumed: true, size: countSQ(active.id) };
+  const active = getActiveAny(userId);
+  if (active) {
+    if (active.domain === domain && active.topic === topic && active.difficulty === difficulty) {
+      return { id: active.id, resumed: true, size: countSQ(active.id) };
+    }
+    const e = new Error(`Finish your active ${topicLabel(active.topic)} (${active.difficulty}) attempt before starting a new one.`);
+    e.status = 409; e.activeSessionId = active.id; throw e;
+  }
 
   const ids = selectQuestions(userId, domain, topic, difficulty, SESSION_SIZE);
   if (!ids.length) {
@@ -221,52 +252,115 @@ function getSessionState(userId, sid) {
   };
 }
 
+function runningScore(sid) {
+  const r = db.prepare('SELECT COUNT(*) answered, COALESCE(SUM(is_correct),0) score FROM attempts WHERE session_id=?').get(sid);
+  const total = countSQ(sid);
+  return { answered: r.answered, score: r.score, total, accuracy: r.answered ? Math.round((r.score / r.answered) * 100) : 0 };
+}
+
+// Reveal info for a resolved question (correct answer, rationale, flags).
+function attemptFeedback(q, attempt) {
+  let correctDisplay = q.correct, correctLabel = null;
+  if (q.qtype === 'spr') {
+    try { correctDisplay = JSON.parse(q.correct).join(', '); } catch (_) { /* keep raw */ }
+  } else {
+    correctLabel = q.correct;
+    const c = q.choices.find((x) => x.label === q.correct);
+    correctDisplay = c ? `${c.label}. ${c.text || ''}`.trim() : q.correct;
+  }
+  return {
+    isCorrect: !!attempt.is_correct,
+    peeked: !!attempt.peeked,
+    overLimit: !!attempt.over_limit,
+    correct: correctDisplay,
+    correctLabel,
+    explanation: q.explanation || null,
+    answerImage: q.answer_image || null,
+    selected: attempt.selected || '',
+    timeTaken: attempt.time_taken_seconds,
+  };
+}
+
 function getQuestionAt(userId, sid, position) {
   if (!getSessionRow(userId, sid)) return null;
   const sq = db.prepare('SELECT * FROM session_questions WHERE session_id=? AND position=?').get(sid, position);
   if (!sq) return null;
   const q = parseQ(db.prepare('SELECT * FROM questions WHERE id=?').get(sq.question_id));
-  const attempt = db.prepare(
-    'SELECT selected, time_taken_seconds FROM attempts WHERE session_id=? AND question_id=?'
-  ).get(sid, sq.question_id);
+  const attempt = db.prepare('SELECT * FROM attempts WHERE session_id=? AND question_id=?').get(sid, sq.question_id);
   const state = getSessionState(userId, sid);
-  return {
+  const limit = timeLimitFor(q.difficulty);
+  const out = {
     position, total: state.total, answeredCount: state.answeredCount,
     question: publicQuestion(q),
-    answered: !!attempt, selected: attempt ? attempt.selected : null,
-    timeLimit: TIME_LIMIT,
+    timeLimit: limit,
+    elapsedSeconds: attempt ? attempt.time_taken_seconds : (sq.elapsed_seconds || 0),
+    peeked: !!sq.peeked || (attempt ? !!attempt.peeked : false),
+    answered: !!attempt,
+    selected: attempt ? attempt.selected : null,
+    running: runningScore(sid),
   };
+  // Resolved questions reveal the answer; unanswered ones never include it.
+  if (attempt) out.feedback = attemptFeedback(q, attempt);
+  return out;
 }
 
 function setCurrentPosition(userId, sid, position) {
   db.prepare("UPDATE sessions SET current_position=? WHERE id=? AND user_id=? AND status='in_progress'").run(position, sid, userId);
 }
 
-function submitAnswer(userId, sid, questionId, selected, timeTaken) {
+// Persist time spent on a (still unresolved) question so a pause/resume keeps it.
+function saveProgress(userId, sid, position, elapsed) {
+  if (!getSessionRow(userId, sid)) return false;
+  const e = Math.max(0, Math.min(Number(elapsed) || 0, 36000));
+  db.prepare('UPDATE session_questions SET elapsed_seconds=? WHERE session_id=? AND position=?').run(e, sid, position);
+  return true;
+}
+
+// Resolve a question exactly once — by answering, peeking, or timing out.
+function resolveQuestion(userId, sid, questionId, opts) {
   const s = getSessionRow(userId, sid);
   if (!s) { const e = new Error('Session not found'); e.status = 404; throw e; }
   if (s.status !== 'in_progress') { const e = new Error('Session already completed.'); e.status = 409; throw e; }
-
   const sq = db.prepare('SELECT * FROM session_questions WHERE session_id=? AND question_id=?').get(sid, questionId);
   if (!sq) { const e = new Error('Question not in this session.'); e.status = 400; throw e; }
+  const q = parseQ(db.prepare('SELECT * FROM questions WHERE id=?').get(questionId));
+  const limit = timeLimitFor(q.difficulty);
 
-  if (db.prepare('SELECT id FROM attempts WHERE session_id=? AND question_id=?').get(sid, questionId)) {
-    const e = new Error('Already answered this question in this session.'); e.status = 409; throw e;
+  let attempt = db.prepare('SELECT * FROM attempts WHERE session_id=? AND question_id=?').get(sid, questionId);
+  if (!attempt) {
+    const elapsed = Math.max(0, Math.min(Number(opts.elapsed) || 0, 36000));
+    const overLimit = (opts.timedOut || elapsed > limit + 1) ? 1 : 0;
+    const peeked = opts.peeked ? 1 : 0;
+    let selected = '', isCorrect = 0;
+    if (!opts.peeked && !opts.timedOut && opts.selected != null && String(opts.selected) !== '') {
+      selected = String(opts.selected);
+      isCorrect = (q.qtype === 'spr') ? (sprIsCorrect(selected, q.correct) ? 1 : 0) : (q.correct === selected ? 1 : 0);
+    }
+    db.prepare(`
+      INSERT INTO attempts (user_id, session_id, question_id, selected, is_correct, time_taken_seconds, over_limit, peeked)
+      VALUES (?,?,?,?,?,?,?,?)
+    `).run(userId, sid, questionId, selected, isCorrect, elapsed, overLimit, peeked);
+    if (peeked) db.prepare('UPDATE session_questions SET peeked=1 WHERE id=?').run(sq.id);
+    attempt = db.prepare('SELECT * FROM attempts WHERE session_id=? AND question_id=?').get(sid, questionId);
   }
-
-  const qrow = db.prepare('SELECT correct, qtype FROM questions WHERE id=?').get(questionId);
-  const isCorrect = (qrow.qtype === 'spr')
-    ? (sprIsCorrect(selected, qrow.correct) ? 1 : 0)
-    : (qrow.correct === selected ? 1 : 0);
-  const t = Math.max(0, Math.min(Number(timeTaken) || 0, 36000));
-
-  db.prepare(`
-    INSERT INTO attempts (user_id, session_id, question_id, selected, is_correct, time_taken_seconds)
-    VALUES (?,?,?,?,?,?)
-  `).run(userId, sid, questionId, selected, isCorrect, t);
-
   const state = getSessionState(userId, sid);
-  return { recorded: true, answeredCount: state.answeredCount, total: state.total, allAnswered: state.allAnswered };
+  return {
+    resolved: true,
+    ...attemptFeedback(q, attempt),
+    timeLimit: limit,
+    running: runningScore(sid),
+    answeredCount: state.answeredCount, total: state.total, allAnswered: state.allAnswered,
+  };
+}
+
+function submitAnswer(userId, sid, questionId, selected, timeTaken) {
+  return resolveQuestion(userId, sid, questionId, { selected, elapsed: timeTaken });
+}
+function peekQuestion(userId, sid, questionId, timeTaken) {
+  return resolveQuestion(userId, sid, questionId, { peeked: true, elapsed: timeTaken });
+}
+function timeoutQuestion(userId, sid, questionId, timeTaken) {
+  return resolveQuestion(userId, sid, questionId, { timedOut: true, elapsed: timeTaken });
 }
 
 function completeSession(userId, sid) {
@@ -279,7 +373,8 @@ function completeSession(userId, sid) {
   }
 
   const attempts = db.prepare(`
-    SELECT a.question_id, a.selected, a.is_correct, a.time_taken_seconds, sq.position
+    SELECT a.question_id, a.selected, a.is_correct, a.time_taken_seconds,
+           a.over_limit, a.peeked, sq.position
     FROM attempts a JOIN session_questions sq
       ON sq.session_id=a.session_id AND sq.question_id=a.question_id
     WHERE a.session_id=? ORDER BY sq.position
@@ -287,6 +382,8 @@ function completeSession(userId, sid) {
 
   const score = attempts.filter((a) => a.is_correct).length;
   const totalTime = attempts.reduce((acc, a) => acc + a.time_taken_seconds, 0);
+  const peekedCount = attempts.filter((a) => a.peeked).length;
+  const overLimitCount = attempts.filter((a) => a.over_limit).length;
 
   if (s.status !== 'completed') {
     db.prepare("UPDATE sessions SET status='completed', completed_at=datetime('now'), score=? WHERE id=?").run(score, sid);
@@ -301,6 +398,8 @@ function completeSession(userId, sid) {
     return {
       position: a.position, passage: q.passage, prompt: q.prompt,
       qtype: q.qtype, image: q.image, answerImage: q.answer_image,
+      skill: q.skill, difficulty: q.difficulty,
+      timeTaken: a.time_taken_seconds, overLimit: !!a.over_limit, peeked: !!a.peeked,
       choices: q.choices, selected: a.selected, correct: correctDisplay, explanation: q.explanation,
     };
   });
@@ -311,6 +410,7 @@ function completeSession(userId, sid) {
     accuracy: attempts.length ? Math.round((score / attempts.length) * 100) : 0,
     totalTimeSeconds: totalTime,
     avgTimeSeconds: attempts.length ? Math.round(totalTime / attempts.length) : 0,
+    peekedCount, overLimitCount,
     review,
   };
 }
@@ -395,10 +495,33 @@ function getDashboard(userId) {
   const attemptRows = db.prepare(`
     SELECT a.id, a.session_id, a.answered_at, q.domain, q.topic, q.difficulty,
            COALESCE(q.skill,'(unspecified)') skill, q.test,
-           substr(q.prompt,1,90) prompt, a.selected, q.correct, a.is_correct, a.time_taken_seconds
+           substr(q.prompt,1,90) prompt, a.selected, q.correct, a.is_correct,
+           a.time_taken_seconds, a.over_limit, a.peeked
     FROM attempts a JOIN questions q ON q.id=a.question_id
     WHERE a.user_id=?
     ORDER BY a.answered_at DESC
+  `).all(userId);
+
+  // Weekly trends (week = ISO %Y-%W) for accuracy + timing, by domain and skill.
+  const weeklyByDomain = db.prepare(`
+    SELECT strftime('%Y-%W', a.answered_at) week, MIN(date(a.answered_at)) week_start,
+           q.domain, COUNT(*) attempts, SUM(a.is_correct) correct,
+           COALESCE(AVG(a.time_taken_seconds),0) avg_time
+    FROM attempts a JOIN questions q ON q.id=a.question_id
+    WHERE a.user_id=?
+    GROUP BY week, q.domain ORDER BY week, q.domain
+  `).all(userId);
+
+  const weeklyBySkill = db.prepare(`
+    SELECT strftime('%Y-%W', a.answered_at) week, MIN(date(a.answered_at)) week_start,
+           q.domain, q.topic, q.difficulty, COALESCE(q.skill,'(unspecified)') skill,
+           COUNT(*) attempts, SUM(a.is_correct) correct,
+           SUM(a.over_limit) over_limit, SUM(a.peeked) peeked,
+           COALESCE(AVG(a.time_taken_seconds),0) avg_time
+    FROM attempts a JOIN questions q ON q.id=a.question_id
+    WHERE a.user_id=?
+    GROUP BY week, q.domain, q.topic, q.difficulty, q.skill
+    ORDER BY week, q.domain, q.skill
   `).all(userId);
 
   return {
@@ -412,14 +535,129 @@ function getDashboard(userId) {
       avgTime: Math.round(overall.avg_time || 0),
     },
     byDay, byTopic, bySkill, sessions, attempts: attemptRows,
+    weeklyByDomain, weeklyBySkill,
+    weeklyReports: buildWeeklyReports(weeklyByDomain, weeklyBySkill),
   };
 }
 
+// ---------------------------------------------------------------------------
+// Weekly plain-English report (per week): strengths, focus areas, timing.
+// ---------------------------------------------------------------------------
+function buildWeeklyReports(weeklyByDomain, weeklyBySkill) {
+  const weeks = {};
+  for (const r of weeklyByDomain) {
+    weeks[r.week] = weeks[r.week] || { week: r.week, weekStart: r.week_start, domains: [], skills: [] };
+    weeks[r.week].domains.push(r);
+  }
+  for (const r of weeklyBySkill) {
+    weeks[r.week] = weeks[r.week] || { week: r.week, weekStart: r.week_start, domains: [], skills: [] };
+    weeks[r.week].skills.push(r);
+  }
+  const fmtPct = (c, n) => (n ? Math.round((c / n) * 100) : 0);
+  const out = [];
+  for (const w of Object.values(weeks).sort((a, b) => b.week.localeCompare(a.week))) {
+    const skills = w.skills.map((s) => ({
+      ...s, acc: fmtPct(s.correct, s.attempts), avg: Math.round(s.avg_time),
+      label: `${topicLabel(s.topic)} · ${s.skill} (${s.difficulty})`,
+    }));
+    const enough = skills.filter((s) => s.attempts >= 3);
+    const pool = enough.length ? enough : skills;
+    const strengths = [...pool].sort((a, b) => b.acc - a.acc).slice(0, 3).filter((s) => s.acc >= 70);
+    const focus = [...pool].sort((a, b) => a.acc - b.acc).slice(0, 3).filter((s) => s.acc < 70);
+    const slow = [...skills].sort((a, b) => b.avg - a.avg).slice(0, 2).filter((s) => s.avg > 0);
+    const totalA = w.domains.reduce((x, d) => x + d.attempts, 0);
+    const totalC = w.domains.reduce((x, d) => x + d.correct, 0);
+
+    const lines = [];
+    lines.push(`You answered ${totalA} questions this week at ${fmtPct(totalC, totalA)}% overall accuracy.`);
+    if (strengths.length) lines.push(`💪 Strong: ${strengths.map((s) => `${s.label} ${s.acc}%`).join('; ')}.`);
+    if (focus.length) lines.push(`🎯 Work on: ${focus.map((s) => `${s.label} ${s.acc}%`).join('; ')}. Try a focused set of ~10 of these.`);
+    if (slow.length) lines.push(`⏱️ Slowest: ${slow.map((s) => `${s.label} (~${Math.round(s.avg)}s/q)`).join('; ')} — practice for speed.`);
+    if (!strengths.length && !focus.length) lines.push('Keep going — a bit more practice will reveal your trends!');
+
+    out.push({ week: w.week, weekStart: w.weekStart, text: lines.join(' '), strengths, focus, slow, domains: w.domains });
+  }
+  return out;
+}
+
+// ---------------------------------------------------------------------------
+// tasks + improvement plan (Wed/Sat focus work)
+// ---------------------------------------------------------------------------
+function listTasks(userId) {
+  return db.prepare(`
+    SELECT * FROM tasks WHERE user_id=?
+    ORDER BY (status='done'), COALESCE(due_date,'9999'), id
+  `).all(userId);
+}
+
+function addTask(userId, t) {
+  const info = db.prepare(`
+    INSERT INTO tasks (user_id, due_date, domain, topic, difficulty, skill, title, detail)
+    VALUES (?,?,?,?,?,?,?,?)
+  `).run(userId, t.due_date || null, t.domain || null, t.topic || null,
+         t.difficulty || null, t.skill || null, String(t.title || 'Practice task'), t.detail || null);
+  return db.prepare('SELECT * FROM tasks WHERE id=?').get(Number(info.lastInsertRowid));
+}
+
+function setTaskStatus(userId, taskId, status) {
+  const st = status === 'done' ? 'done' : 'open';
+  db.prepare(`UPDATE tasks SET status=?, completed_at=CASE WHEN ?='done' THEN datetime('now') ELSE NULL END
+              WHERE id=? AND user_id=?`).run(st, st, taskId, userId);
+  return db.prepare('SELECT * FROM tasks WHERE id=? AND user_id=?').get(taskId, userId);
+}
+
+function deleteTask(userId, taskId) {
+  db.prepare('DELETE FROM tasks WHERE id=? AND user_id=?').run(taskId, userId);
+  return { ok: true };
+}
+
+function nextWeekday(from, weekday) { // weekday: 0=Sun..6=Sat
+  const d = new Date(from);
+  const diff = (weekday - d.getDay() + 7) % 7 || 7;
+  d.setDate(d.getDate() + diff);
+  return d.toISOString().slice(0, 10);
+}
+
+// Build Wed/Sat focus tasks from the weakest skills (idempotent on open tasks).
+function generatePlan(userId) {
+  const weak = db.prepare(`
+    SELECT q.domain, q.topic, q.difficulty, COALESCE(q.skill,'(unspecified)') skill,
+           COUNT(*) attempts, SUM(a.is_correct) correct
+    FROM attempts a JOIN questions q ON q.id=a.question_id
+    WHERE a.user_id=?
+    GROUP BY q.domain, q.topic, q.difficulty, q.skill
+    HAVING attempts >= 3
+    ORDER BY (CAST(SUM(a.is_correct) AS REAL)/COUNT(*)) ASC, attempts DESC
+    LIMIT 6
+  `).all(userId);
+
+  const existing = new Set(
+    db.prepare("SELECT skill||'|'||difficulty k FROM tasks WHERE user_id=? AND status='open'").all(userId).map((r) => r.k)
+  );
+  const today = new Date();
+  const wed = nextWeekday(today, 3);
+  const sat = nextWeekday(today, 6);
+  const created = [];
+  weak.forEach((s, i) => {
+    const key = `${s.skill}|${s.difficulty}`;
+    if (existing.has(key)) return;
+    const acc = s.attempts ? Math.round((s.correct / s.attempts) * 100) : 0;
+    created.push(addTask(userId, {
+      due_date: i % 2 === 0 ? wed : sat,
+      domain: s.domain, topic: s.topic, difficulty: s.difficulty, skill: s.skill,
+      title: `Practice: ${topicLabel(s.topic)} — ${s.skill} (${s.difficulty})`,
+      detail: `Currently ${acc}%. Review explanations and redo ~10 questions to push above 70%.`,
+    }));
+  });
+  return { created, weak };
+}
+
 module.exports = {
-  SESSION_SIZE, DAILY_GOAL, TIME_LIMIT,
-  getCatalogue, getTodayProgress,
+  SESSION_SIZE, DAILY_GOAL, TIME_LIMIT, TIME_LIMITS, SESSION_MINUTES, timeLimitFor,
+  getCatalogue, getTodayProgress, activeSessionInfo,
   createOrResumeSession, getSessionState,
-  getQuestionAt, setCurrentPosition,
-  submitAnswer, completeSession,
-  getDashboard, getActiveSession, getAttemptReview,
+  getQuestionAt, setCurrentPosition, saveProgress,
+  submitAnswer, peekQuestion, timeoutQuestion, completeSession,
+  getDashboard, getAttemptReview,
+  listTasks, addTask, setTaskStatus, deleteTask, generatePlan,
 };

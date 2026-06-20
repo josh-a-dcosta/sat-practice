@@ -62,10 +62,12 @@ CREATE TABLE IF NOT EXISTS sessions (
 );
 
 CREATE TABLE IF NOT EXISTS session_questions (
-  id          INTEGER PRIMARY KEY AUTOINCREMENT,
-  session_id  INTEGER NOT NULL REFERENCES sessions(id) ON DELETE CASCADE,
-  question_id INTEGER NOT NULL REFERENCES questions(id),
-  position    INTEGER NOT NULL,
+  id              INTEGER PRIMARY KEY AUTOINCREMENT,
+  session_id      INTEGER NOT NULL REFERENCES sessions(id) ON DELETE CASCADE,
+  question_id     INTEGER NOT NULL REFERENCES questions(id),
+  position        INTEGER NOT NULL,
+  elapsed_seconds INTEGER NOT NULL DEFAULT 0,
+  peeked          INTEGER NOT NULL DEFAULT 0,
   UNIQUE (session_id, position),
   UNIQUE (session_id, question_id)
 );
@@ -78,8 +80,25 @@ CREATE TABLE IF NOT EXISTS attempts (
   selected           TEXT NOT NULL,
   is_correct         INTEGER NOT NULL,
   time_taken_seconds INTEGER NOT NULL DEFAULT 0,
+  over_limit         INTEGER NOT NULL DEFAULT 0,
+  peeked             INTEGER NOT NULL DEFAULT 0,
   answered_at        TEXT NOT NULL DEFAULT (datetime('now')),
   UNIQUE (session_id, question_id)
+);
+
+CREATE TABLE IF NOT EXISTS tasks (
+  id           INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id      INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  due_date     TEXT,
+  domain       TEXT,
+  topic        TEXT,
+  difficulty   TEXT,
+  skill        TEXT,
+  title        TEXT NOT NULL,
+  detail       TEXT,
+  status       TEXT NOT NULL DEFAULT 'open' CHECK (status IN ('open','done')),
+  created_at   TEXT NOT NULL DEFAULT (datetime('now')),
+  completed_at TEXT
 );
 
 CREATE INDEX IF NOT EXISTS idx_attempts_question   ON attempts(question_id);
@@ -108,5 +127,12 @@ try { db.exec('ALTER TABLE sessions ADD COLUMN user_id INTEGER'); } catch (_) { 
 try { db.exec('ALTER TABLE attempts ADD COLUMN user_id INTEGER'); } catch (_) { /* already exists */ }
 db.exec('CREATE INDEX IF NOT EXISTS idx_sessions_user ON sessions(user_id);');
 db.exec('CREATE INDEX IF NOT EXISTS idx_attempts_user ON attempts(user_id);');
+
+// Phase 2 columns: per-question timing/peek state + attempt flags.
+try { db.exec('ALTER TABLE session_questions ADD COLUMN elapsed_seconds INTEGER NOT NULL DEFAULT 0'); } catch (_) { /* exists */ }
+try { db.exec('ALTER TABLE session_questions ADD COLUMN peeked INTEGER NOT NULL DEFAULT 0'); } catch (_) { /* exists */ }
+try { db.exec('ALTER TABLE attempts ADD COLUMN over_limit INTEGER NOT NULL DEFAULT 0'); } catch (_) { /* exists */ }
+try { db.exec('ALTER TABLE attempts ADD COLUMN peeked INTEGER NOT NULL DEFAULT 0'); } catch (_) { /* exists */ }
+db.exec('CREATE INDEX IF NOT EXISTS idx_tasks_user ON tasks(user_id);');
 
 module.exports = { db, DB_PATH };

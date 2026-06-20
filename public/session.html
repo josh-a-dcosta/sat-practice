@@ -47,7 +47,7 @@
                   <div class="mask-lock">🔒</div>
                   <div class="mask-text">Answer &amp; explanation are hidden so you can think it through.</div>
                   <button class="btn btn-ghost" id="revealBtn" type="button">👀 Peek at the answer</button>
-                  <div class="mask-sub">(Peeking won't change your score — answer in the panel either way.)</div>
+                  <div class="mask-sub">Peeking locks this question (it won't count as correct) — try your best first! 💪</div>
                 </div>
               </div>
             </div>
@@ -64,9 +64,19 @@
         <!-- RIGHT: answer + controls -->
         <div class="card answer-pane">
           <div class="timer-row">
+            <div class="scoreboard" id="scoreboard">⭐ <b id="scNum">0 / 0</b> <span class="note" id="scAcc">0%</span></div>
             <div class="timer" id="timer">2:00</div>
           </div>
           <div class="goal-bar" style="margin:6px 0 18px"><span id="progressFill" style="width:0%"></span></div>
+
+          <!-- Immediate feedback after answering / peeking / timing out -->
+          <div class="feedback hidden" id="feedback">
+            <div class="fb-emoji" id="fbEmoji">⭐</div>
+            <div class="fb-title" id="fbTitle">Correct!</div>
+            <div class="fb-msg" id="fbMsg"></div>
+            <div class="explanation hidden" id="fbExplain"></div>
+            <button class="btn btn-primary" id="fbNext" type="button">Next question →</button>
+          </div>
 
           <p class="answer-hint" id="answerHint">Choose your answer below 💭</p>
 

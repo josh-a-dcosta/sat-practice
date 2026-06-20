@@ -653,3 +653,26 @@ body.fullscreen-mode .answer-pane { max-height: calc(100vh - 70px); overflow-y: 
   display: inline-flex; align-items: center; justify-content: center; margin-left: 16px;
 }
 .mode-toggle:hover { background: var(--pink-100); }
+
+/* ----- Practice: live scoreboard + immediate feedback ----- */
+.timer-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.scoreboard {
+  font-weight: 800; color: var(--pink-600);
+  background: var(--pink-50); border: 2px solid var(--pink-200);
+  border-radius: 999px; padding: 6px 14px;
+}
+.scoreboard .note { color: var(--muted); font-weight: 700; margin-left: 4px; }
+.feedback {
+  border-radius: 16px; padding: 16px 18px; margin-bottom: 16px; text-align: center;
+  border: 2px solid var(--pink-200); background: var(--pink-50);
+}
+.feedback.good { border-color: var(--green); background: #e9f9f1; }
+.feedback.bad  { border-color: var(--amber); background: #fff7e8; }
+.feedback .fb-emoji { font-size: 2.4rem; line-height: 1; }
+.feedback .fb-title { font-weight: 800; font-size: 1.2rem; margin: 4px 0 6px; }
+.feedback .fb-msg { color: var(--ink); margin-bottom: 10px; }
+.feedback .explanation { text-align: left; }
+.opt.is-correct { border-color: var(--green); background: #e9f9f1; }
+:root[data-mode="dark"] .feedback.good { background: #14361f; }
+:root[data-mode="dark"] .feedback.bad  { background: #33290f; }
+:root[data-mode="dark"] .opt.is-correct { background: #14361f; }
