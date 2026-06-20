@@ -191,14 +191,18 @@ function renderCalendar() {
   const plan = ['Math + Reading', 'Math + Reading', 'Focus work', 'Math + Reading', 'Math + Reading', 'Focus work', 'Rest'];
 
   // last 2 weeks before exam are full-length tests
-  const testStart = new Date(EXAM); testStart.setDate(EXAM.getDate() - 14);
+  // Full-length tests = the last 2 calendar weeks (exam week + the one before),
+  // i.e. weeks whose Monday is on/after testStartMonday. This keeps the 7
+  // practice weeks intact when starting around Jun 22.
+  const examMonday = new Date(EXAM); examMonday.setDate(EXAM.getDate() - ((EXAM.getDay() + 6) % 7));
+  const testStartMonday = new Date(examMonday); testStartMonday.setDate(examMonday.getDate() - 7);
 
   let html = '';
   let wk = new Date(start);
   let n = 0;
   while (wk <= EXAM && n < 12) {
     const weekEnd = new Date(wk); weekEnd.setDate(wk.getDate() + 6);
-    const isTestWeek = weekEnd >= testStart;
+    const isTestWeek = wk >= testStartMonday;
     const isThisWeek = today >= wk && today <= weekEnd;
     html += `<div class="cal-week ${isThisWeek ? 'current' : ''}">
       <div class="cal-week-head">Week of ${wk.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}
