@@ -37,10 +37,191 @@ async function load() {
 
   renderTiles();
   renderCharts();
+  renderWeeklyTrends();
+  renderWeeklyReport();
   renderSkills();
   populateSkillFilter();
   renderSessions();
   renderAttempts();
+  renderCalendar();
+  loadTasks();
+}
+
+// ---- Weekly trends + domain→skill drilldown -------------------------------
+const SERIES_COLORS = ['#ff4d94', '#2f7dff', '#2bb673', '#f5a623', '#c084fc', '#fb923c', '#60a5fa', '#f87171'];
+
+function weekLabel(weekStart) {
+  if (!weekStart) return '';
+  const d = new Date(weekStart + 'T00:00:00');
+  return d.toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+}
+
+function pivotWeeks(rows) {
+  const weeks = [];
+  const seen = new Set();
+  for (const r of rows) { if (!seen.has(r.week)) { seen.add(r.week); weeks.push({ week: r.week, start: r.week_start }); } }
+  weeks.sort((a, b) => a.week.localeCompare(b.week));
+  return weeks;
+}
+
+function lineChart(id, labels, datasets, opts) {
+  makeChart(id, {
+    type: 'line',
+    data: { labels, datasets: datasets.map((d, i) => ({
+      label: d.label, data: d.data, borderColor: SERIES_COLORS[i % SERIES_COLORS.length],
+      backgroundColor: SERIES_COLORS[i % SERIES_COLORS.length] + '33', tension: 0.3, spanGaps: true, fill: false,
+    })) },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      scales: { y: { beginAtZero: true, ...(opts && opts.y) } },
+      plugins: { legend: { position: 'bottom', labels: { boxWidth: 12 } } },
+    },
+  });
+}
+
+function renderWeeklyTrends() {
+  const dom = DATA.weeklyByDomain || [];
+  const weeks = pivotWeeks(dom);
+  const labels = weeks.map((w) => weekLabel(w.start));
+  const acc = (correct, attempts) => (attempts ? Math.round((correct / attempts) * 100) : null);
+
+  // Domain-level
+  const domains = [['math', '🔢 Math'], ['reading', '📖 Reading']];
+  const accSets = domains.map(([d, lbl]) => ({ label: lbl, data: weeks.map((w) => {
+    const r = dom.find((x) => x.week === w.week && x.domain === d); return r ? acc(r.correct, r.attempts) : null;
+  }) }));
+  const timeSets = domains.map(([d, lbl]) => ({ label: lbl, data: weeks.map((w) => {
+    const r = dom.find((x) => x.week === w.week && x.domain === d); return r ? Math.round(r.avg_time) : null;
+  }) }));
+  lineChart('wkDomainAcc', labels, accSets, { y: { max: 100, ticks: { callback: (v) => v + '%' } } });
+  lineChart('wkDomainTime', labels, timeSets, { y: { ticks: { callback: (v) => v + 's' } } });
+
+  renderSkillTrends();
+}
+
+function renderSkillTrends() {
+  const dsel = $('trendDomain') ? $('trendDomain').value : 'math';
+  const rows = (DATA.weeklyBySkill || []).filter((r) => r.domain === dsel);
+  const weeks = pivotWeeks(rows);
+  const labels = weeks.map((w) => weekLabel(w.start));
+  // top skills by total attempts
+  const totals = {};
+  for (const r of rows) { const k = `${r.skill} (${r.difficulty})`; totals[k] = (totals[k] || 0) + r.attempts; }
+  const skills = Object.keys(totals).sort((a, b) => totals[b] - totals[a]).slice(0, 8);
+  const acc = (c, n) => (n ? Math.round((c / n) * 100) : null);
+  const accSets = skills.map((k) => ({ label: k, data: weeks.map((w) => {
+    const r = rows.find((x) => x.week === w.week && `${x.skill} (${x.difficulty})` === k); return r ? acc(r.correct, r.attempts) : null;
+  }) }));
+  const timeSets = skills.map((k) => ({ label: k, data: weeks.map((w) => {
+    const r = rows.find((x) => x.week === w.week && `${x.skill} (${x.difficulty})` === k); return r ? Math.round(r.avg_time) : null;
+  }) }));
+  const dlabel = dsel === 'math' ? 'Math' : 'Reading';
+  $('wkSkillAccH').textContent = `Accuracy by skill — ${dlabel}`;
+  $('wkSkillTimeH').textContent = `Avg time by skill — ${dlabel}`;
+  if (!skills.length) {
+    ['wkSkillAcc', 'wkSkillTime'].forEach((id) => { if (charts[id]) charts[id].destroy(); });
+    return;
+  }
+  lineChart('wkSkillAcc', labels, accSets, { y: { max: 100, ticks: { callback: (v) => v + '%' } } });
+  lineChart('wkSkillTime', labels, timeSets, { y: { ticks: { callback: (v) => v + 's' } } });
+}
+
+function renderWeeklyReport() {
+  const reps = DATA.weeklyReports || [];
+  const el = $('weeklyReport');
+  if (!reps.length) { el.innerHTML = '<p class="note">Practice a few questions and your first weekly report will appear here. 🌱</p>'; return; }
+  el.innerHTML = reps.map((r, i) => {
+    const chips = (arr, cls) => arr.map((s) => `<span class="rep-chip ${cls}">${escapeHtml(s.label)} · ${s.acc}%</span>`).join('');
+    return `<div class="report-week ${i === 0 ? 'latest' : ''}">
+      <div class="report-head"><b>Week of ${escapeHtml(weekLabel(r.weekStart))}</b>${i === 0 ? ' <span class="rep-chip latest-tag">latest</span>' : ''}</div>
+      <p style="margin:6px 0">${escapeHtml(r.text)}</p>
+      ${r.strengths.length ? `<div class="rep-row">💪 Strengths: ${chips(r.strengths, 'good')}</div>` : ''}
+      ${r.focus.length ? `<div class="rep-row">🎯 Focus: ${chips(r.focus, 'bad')}</div>` : ''}
+    </div>`;
+  }).join('');
+}
+
+// ---- Tasks / focus plan ----------------------------------------------------
+async function loadTasks() {
+  try {
+    const { tasks } = await api('GET', '/api/tasks');
+    renderTasks(tasks);
+  } catch (_) { /* ignore */ }
+}
+
+function renderTasks(tasks) {
+  const el = $('taskList');
+  if (!tasks.length) {
+    el.innerHTML = '<p class="note">No focus tasks yet. Click “Build my plan” to turn your weak skills into a checklist. ✨</p>';
+    return;
+  }
+  el.innerHTML = tasks.map((t) => {
+    const done = t.status === 'done';
+    const due = t.due_date ? `<span class="task-due">📅 ${escapeHtml(t.due_date)}</span>` : '';
+    return `<div class="task-item ${done ? 'done' : ''}">
+      <label><input type="checkbox" data-task="${t.id}" ${done ? 'checked' : ''}/>
+        <span><b>${escapeHtml(t.title)}</b>${t.detail ? `<br><span class="note">${escapeHtml(t.detail)}</span>` : ''}</span></label>
+      <span style="margin-left:auto; display:flex; gap:10px; align-items:center">${due}
+        <button class="task-del" data-del="${t.id}" title="Delete">✕</button></span>
+    </div>`;
+  }).join('');
+}
+
+async function toggleTask(id, done) {
+  await api('POST', `/api/tasks/${id}`, { status: done ? 'done' : 'open' });
+  loadTasks();
+}
+async function deleteTask(id) { await api('DELETE', `/api/tasks/${id}`); loadTasks(); }
+async function generatePlan() {
+  const r = await api('POST', '/api/plan/generate');
+  showToast(r.created.length ? `Added ${r.created.length} focus task(s) 🎯` : 'No new weak skills to add yet — great!');
+  loadTasks();
+}
+
+// ---- Study calendar (countdown to Aug 22) ---------------------------------
+function renderCalendar() {
+  const EXAM = new Date('2026-08-22T00:00:00');
+  const cal = $('calendar');
+  const activeDays = new Set((DATA.byDay || []).map((d) => d.day)); // YYYY-MM-DD with activity
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  // Monday of this week
+  const start = new Date(today); start.setDate(today.getDate() - ((today.getDay() + 6) % 7));
+  const fmt = (d) => d.toISOString().slice(0, 10);
+  const dayNames = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+  const plan = ['Math + Reading', 'Math + Reading', 'Focus work', 'Math + Reading', 'Math + Reading', 'Focus work', 'Rest'];
+
+  // last 2 weeks before exam are full-length tests
+  const testStart = new Date(EXAM); testStart.setDate(EXAM.getDate() - 14);
+
+  let html = '';
+  let wk = new Date(start);
+  let n = 0;
+  while (wk <= EXAM && n < 12) {
+    const weekEnd = new Date(wk); weekEnd.setDate(wk.getDate() + 6);
+    const isTestWeek = weekEnd >= testStart;
+    const isThisWeek = today >= wk && today <= weekEnd;
+    html += `<div class="cal-week ${isThisWeek ? 'current' : ''}">
+      <div class="cal-week-head">Week of ${wk.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}
+        <span class="cal-badge ${isTestWeek ? 'test' : 'practice'}">${isTestWeek ? '📝 Full tests' : '📚 Practice'}</span></div>
+      <div class="cal-days">`;
+    for (let i = 0; i < 7; i++) {
+      const d = new Date(wk); d.setDate(wk.getDate() + i);
+      const ds = fmt(d);
+      const past = d < today, isToday = ds === fmt(today);
+      const beyond = d > EXAM;
+      const did = activeDays.has(ds);
+      const label = isTestWeek ? (i === 5 ? 'Full test' : (i === 6 ? 'Rest' : 'Review')) : plan[i];
+      html += `<div class="cal-day ${isToday ? 'today' : ''} ${past ? 'past' : ''} ${beyond ? 'beyond' : ''} ${did ? 'did' : ''}">
+        <span class="cal-dn">${dayNames[i]} ${d.getDate()}</span>
+        <span class="cal-plan">${did ? '✅ ' : ''}${beyond ? '—' : label}</span>
+      </div>`;
+    }
+    html += `</div></div>`;
+    wk.setDate(wk.getDate() + 7); n++;
+  }
+  const weeksLeft = Math.max(0, Math.ceil((EXAM - today) / (7 * 86400000)));
+  $('calIntro').textContent = `${weeksLeft} week(s) until Aug 22. Mon/Tue/Thu/Fri = Math + Reading sessions; Wed/Sat = focus work; last 2 weeks = full-length tests. ✅ = you practiced that day.`;
+  cal.innerHTML = html;
 }
 
 function accClass(acc) {
@@ -274,6 +455,7 @@ async function openReview(attemptId) {
   const body = $('reviewBody');
   body.innerHTML = '<div class="spinner">Loading…</div>';
   modal.classList.remove('hidden');
+  $('reviewCardEl').classList.add('expanded');   // full-screen layout by default
   document.body.style.overflow = 'hidden';
   try {
     const r = await api('GET', `/api/attempts/${attemptId}/review`);
@@ -418,6 +600,27 @@ $('attemptsTable').addEventListener('click', (e) => {
   const btn = e.target.closest('.link-cell');
   if (btn) openReview(Number(btn.dataset.attempt));
 });
+// Weekly-trends drilldown
+if ($('trendDomain')) $('trendDomain').addEventListener('change', renderSkillTrends);
+// Tasks
+$('genPlanBtn').addEventListener('click', () => generatePlan().catch((e) => showToast(e.message)));
+$('addTaskForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const title = $('taskTitle').value.trim();
+  if (!title) return;
+  await api('POST', '/api/tasks', { title });
+  $('taskTitle').value = '';
+  loadTasks();
+});
+$('taskList').addEventListener('change', (e) => {
+  const cb = e.target.closest('input[data-task]');
+  if (cb) toggleTask(Number(cb.dataset.task), cb.checked);
+});
+$('taskList').addEventListener('click', (e) => {
+  const del = e.target.closest('[data-del]');
+  if (del) deleteTask(Number(del.dataset.del));
+});
+
 $('reviewClose').addEventListener('click', closeReview);
 $('reviewModal').addEventListener('click', (e) => { if (e.target === $('reviewModal')) closeReview(); });
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && !document.fullscreenElement) closeReview(); });

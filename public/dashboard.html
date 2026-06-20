@@ -56,6 +56,54 @@
       </div>
     </div>
 
+    <!-- Weekly trends with domain -> skill drilldown -->
+    <div class="card">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px">
+        <h2 style="margin:0">📈 Weekly trends</h2>
+        <label class="note">Drill into
+          <select id="trendDomain">
+            <option value="math">🔢 Math</option>
+            <option value="reading">📖 Reading &amp; Writing</option>
+          </select>
+        </label>
+      </div>
+      <p class="note">Accuracy and time per week. Top charts are by domain — pick a domain to see its skills below.</p>
+      <div class="dash-grid">
+        <div><h3 class="mini-h">Accuracy by domain</h3><div class="chart-box"><canvas id="wkDomainAcc"></canvas></div></div>
+        <div><h3 class="mini-h">Avg time by domain</h3><div class="chart-box"><canvas id="wkDomainTime"></canvas></div></div>
+        <div><h3 class="mini-h" id="wkSkillAccH">Accuracy by skill</h3><div class="chart-box"><canvas id="wkSkillAcc"></canvas></div></div>
+        <div><h3 class="mini-h" id="wkSkillTimeH">Avg time by skill</h3><div class="chart-box"><canvas id="wkSkillTime"></canvas></div></div>
+      </div>
+    </div>
+
+    <!-- Plain-English weekly report -->
+    <div class="card">
+      <h2>📝 Weekly report</h2>
+      <p class="note">An easy-to-read summary of where you're strong and what to practice — updated each week.</p>
+      <div id="weeklyReport"></div>
+    </div>
+
+    <!-- Focus tasks / improvement plan -->
+    <div class="card">
+      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px">
+        <h2 style="margin:0">✅ Focus tasks (Wed &amp; Sat)</h2>
+        <button class="btn btn-primary" id="genPlanBtn" type="button">✨ Build my plan from weak skills</button>
+      </div>
+      <p class="note">Extra practice you're doing on your weak skills — check them off so Dad can see the effort! 💪</p>
+      <form id="addTaskForm" class="filters" style="margin-bottom:12px">
+        <input type="text" id="taskTitle" placeholder="Add your own task…" style="flex:1; min-width:200px" />
+        <button class="btn btn-ghost" type="submit">➕ Add</button>
+      </form>
+      <div id="taskList"></div>
+    </div>
+
+    <!-- Study calendar / countdown -->
+    <div class="card">
+      <h2>🗓️ Study calendar — countdown to SAT (Aug 22)</h2>
+      <p class="note" id="calIntro">7 weeks of practice, then 2 weeks of full-length tests. Mon/Tue/Thu/Fri = a Math + a Reading session; Wed/Sat = focus work; Sun = rest.</p>
+      <div id="calendar"></div>
+    </div>
+
     <div class="card">
       <h2>🎯 Skills to focus on</h2>
       <p class="note">Every College Board skill she has practiced, weakest first — so it's clear where to spend more time. Click a row to filter the attempts below.</p>

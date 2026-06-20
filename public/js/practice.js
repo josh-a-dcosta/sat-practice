@@ -387,6 +387,7 @@ async function showResults() {
   $('questionView').classList.add('hidden');
   $('resultsView').classList.remove('hidden');
   document.body.classList.remove('fullscreen-mode');
+  clearBacklog();
   renderScorecard(r);
 }
 
@@ -443,6 +444,23 @@ function renderScorecard(r) {
   }
 }
 
+// 90-minute session reminder so 40 questions don't pile up into a backlog.
+function checkBacklog() {
+  const key = `sessStart_${sessionId}`;
+  let start = Number(localStorage.getItem(key));
+  if (!start) { start = Date.now(); localStorage.setItem(key, String(start)); }
+  const mins = (Date.now() - start) / 60000;
+  const remindKey = `sessRemind_${sessionId}`;
+  if (mins >= 90 && !localStorage.getItem(remindKey) && (!state || state.answeredCount < state.total)) {
+    localStorage.setItem(remindKey, '1');
+    showToast("⏰ 90 minutes in! Try to finish your 40 today so it doesn't pile up — you've got this! 💪");
+  }
+}
+function clearBacklog() {
+  localStorage.removeItem(`sessStart_${sessionId}`);
+  localStorage.removeItem(`sessRemind_${sessionId}`);
+}
+
 function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
 function escapeHtml(s) {
   return String(s)
@@ -475,6 +493,8 @@ if (!sessionId) {
   document.querySelector('.container').innerHTML = '<div class="card center"><h2>No session selected</h2><a class="btn btn-primary" href="/">Go Home</a></div>';
 } else {
   setWide(true); // full-screen practice by default
+  checkBacklog();
+  setInterval(checkBacklog, 60000);
   loadState().catch((e) => {
     document.querySelector('.container').innerHTML = `<div class="card center"><h2>Could not load session</h2><p class="note">${e.message}</p><a class="btn btn-primary" href="/">Go Home</a></div>`;
   });
