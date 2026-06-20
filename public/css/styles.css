@@ -39,11 +39,20 @@
   --pink-50:  #242a37;
   --pink-100: #2f3645;
   --pink-200: #3b4354;
-  --ink: #e8ebf2;
-  --muted: #9aa1b2;
+  --ink: #ffffff;
+  --muted: #c3c9d6;
   --white: #1c212c;
   --shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
   --shadow-sm: 0 6px 18px rgba(0, 0, 0, 0.40);
+}
+/* Gray theme accent is dark by design — lighten it in dark mode so headings,
+   the brand, counters and labels read as crisp light text. */
+:root[data-mode="dark"][data-theme="gray"],
+:root[data-mode="dark"]:not([data-theme="pink"]):not([data-theme="blue"]) {
+  --pink-400: #9aa1b2;
+  --pink-500: #aeb6c7;
+  --pink-600: #d7dbe6;
+  --pink-700: #f0f2f7;
 }
 
 * { box-sizing: border-box; }
