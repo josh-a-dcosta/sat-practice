@@ -713,3 +713,40 @@ body.fullscreen-mode .answer-pane { max-height: calc(100vh - 70px); overflow-y: 
 .cal-day.past:not(.did) { opacity: 0.6; }
 .cal-day.beyond { opacity: 0.4; }
 @media (max-width: 700px) { .cal-days { grid-template-columns: repeat(2, 1fr); } }
+
+/* ----- Login splash: aspirational background ----- */
+body.login-page {
+  background: radial-gradient(1200px 600px at 50% -10%, #2a2140 0%, #1a1330 35%, #0e0b1c 100%);
+  min-height: 100vh; overflow-x: hidden;
+}
+.login-splash { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.login-splash span {
+  position: absolute; opacity: 0.16; filter: drop-shadow(0 6px 14px rgba(0,0,0,0.5));
+  animation: floaty 7s ease-in-out infinite;
+}
+.login-splash span:nth-child(even) { animation-duration: 9s; animation-direction: reverse; }
+.login-splash span:nth-child(3n) { animation-duration: 11s; }
+@keyframes floaty { 50% { transform: translateY(-14px) rotate(3deg); } }
+
+.login-wrap { position: relative; z-index: 1; }
+.login-card {
+  margin-top: 8vh;
+  background: rgba(28, 33, 44, 0.82);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 0 24px 70px rgba(0,0,0,0.55);
+  color: #eef0f6;
+}
+.login-card h1 { color: #fff; }
+.login-card .subtitle { color: #c7ccda; }
+.login-card .dream-line {
+  font-weight: 800; font-size: 1.15rem; margin: 2px 0 8px;
+  background: linear-gradient(90deg, #ffd86b, #ff8bce, #7aa2ff);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.login-card .spr-input { background: rgba(255,255,255,0.06); color: #fff; border-color: rgba(255,255,255,0.18); }
+.login-card .spr-input::placeholder { color: #9aa1b2; }
+.login-card .spr-label { color: #c7ccda; }
+.login-card .btn-primary { background: linear-gradient(135deg, #ff8bce, #ffd86b); color: #2a1430; }
+@media (max-width: 560px) { .login-splash span { font-size: 2.6rem !important; opacity: 0.12; } }
+:root[data-mode="dark"] .passage { color: var(--ink); }

@@ -5,11 +5,11 @@ const THEME_ICON = { pink: '🌸', blue: '⚽', gray: '🎓' };
 
 function brandIcon(theme) { return THEME_ICON[theme] || THEME_ICON.gray; }
 
-// Resolve the initial mode: saved choice, else the OS preference.
+// Resolve the initial mode: saved choice, else default to dark.
 function initialMode() {
   const saved = localStorage.getItem('mode');
   if (saved === 'light' || saved === 'dark') return saved;
-  return (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+  return 'dark';
 }
 
 function applyMode(mode) {

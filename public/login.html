@@ -3,24 +3,41 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sign in 🌸 SAT Practice</title>
-  <script>(function(){try{var m=localStorage.getItem('mode');if(m!=='light'&&m!=='dark')m=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.mode=m;document.documentElement.dataset.theme='gray';}catch(e){}})();</script>
+  <title>Sign in 🎓 SAT Practice</title>
+  <script>(function(){try{var m=localStorage.getItem('mode');if(m!=='light'&&m!=='dark')m='dark';document.documentElement.dataset.mode=m;document.documentElement.dataset.theme='gray';}catch(e){}})();</script>
   <link rel="stylesheet" href="/css/styles.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>" />
 </head>
-<body>
-  <div class="container" style="max-width:440px">
-    <div class="card center" style="margin-top:48px">
-      <div class="big" style="font-size:3rem">🌸</div>
+<body class="login-page">
+  <!-- Aspirational splash: what hard work can unlock -->
+  <div class="login-splash" aria-hidden="true">
+    <span style="top:8%;left:6%;font-size:5rem">🏎️</span>
+    <span style="top:16%;left:78%;font-size:5.5rem">✈️</span>
+    <span style="top:64%;left:4%;font-size:5rem">🏰</span>
+    <span style="top:72%;left:82%;font-size:5rem">🛍️</span>
+    <span style="top:38%;left:88%;font-size:4rem">💎</span>
+    <span style="top:80%;left:46%;font-size:4.5rem">🛥️</span>
+    <span style="top:6%;left:44%;font-size:4rem">🏝️</span>
+    <span style="top:46%;left:2%;font-size:4.5rem">💰</span>
+    <span style="top:24%;left:24%;font-size:3.4rem">🚗</span>
+    <span style="top:58%;left:62%;font-size:3.6rem">🏠</span>
+    <span style="top:30%;left:60%;font-size:3rem">🌴</span>
+    <span style="top:88%;left:22%;font-size:3.2rem">🎉</span>
+  </div>
+
+  <div class="container login-wrap" style="max-width:460px">
+    <div class="card center login-card">
+      <div class="big" style="font-size:3.2rem">🎓</div>
       <h1>SAT Practice</h1>
-      <p class="subtitle">Sign in to see your own questions and progress.</p>
+      <p class="dream-line">Dream big. Study hard. 🚀</p>
+      <p class="subtitle">Every question you master is a step toward the life you want — 🏎️ ✈️ 🏰 🛍️. Let's earn it!</p>
       <form id="loginForm" style="margin-top:18px; text-align:left">
         <label class="spr-label" for="username">Username</label>
         <input class="spr-input" id="username" type="text" autocomplete="username" autofocus />
         <label class="spr-label" for="password" style="margin-top:14px">Password</label>
         <input class="spr-input" id="password" type="password" autocomplete="current-password" />
         <p class="note" id="err" style="color:var(--pink-600); min-height:20px; margin:10px 0 0"></p>
-        <button class="btn btn-primary btn-lg" type="submit" style="width:100%; margin-top:8px">Sign in 💖</button>
+        <button class="btn btn-primary btn-lg" type="submit" style="width:100%; margin-top:8px">Sign in &amp; chase the dream 🎯</button>
       </form>
     </div>
   </div>
