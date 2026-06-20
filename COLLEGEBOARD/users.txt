@@ -2,7 +2,7 @@
 # theme is optional: pink | blue | gray  (default gray). A colon also works.
 # Lines starting with '#' are ignored. Keep this file private.
 
-ad,dad,green
+ad,dad,yellow
 jd,sat265,pink
 fg,sat263,blue
 aj,sir,gray
