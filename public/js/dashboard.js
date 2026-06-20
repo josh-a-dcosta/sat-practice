@@ -44,7 +44,7 @@ async function load() {
   renderAttempts();
   renderCalendar();
   loadTasks();
-  showView(localStorage.getItem('dashView') || 'dashboard');
+  showView('dashboard');   // charts are the default; menu buttons show other sections
 }
 
 // Switch which dashboard section is visible (charts render on show so they

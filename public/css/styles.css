@@ -837,3 +837,7 @@ body.login-page {
 .report-list > li { margin: 6px 0; }
 .report-list ul { margin: 4px 0 4px 0; padding-left: 20px; }
 .report-list ul li { margin: 3px 0; }
+
+/* Session toolbar: keep Home/Dashboard reachable even in full screen */
+.toolbar-left { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.toolbar-left .btn { padding: 9px 16px; }
