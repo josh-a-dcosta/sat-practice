@@ -113,11 +113,11 @@ a { color: var(--pink-600); }
 .navlinks a:hover { color: var(--pink-600); }
 
 .container {
-  max-width: 920px;
+  max-width: min(1500px, 95vw);
   margin: 0 auto;
   padding: 28px 20px 80px;
 }
-.container.wide { max-width: 1180px; }
+.container.wide { max-width: min(1800px, 96vw); }
 /* Practice page uses nearly the full screen so the question image is big & readable */
 .container.practice-page { max-width: min(1840px, 97vw); padding-left: 24px; padding-right: 24px; }
 
@@ -841,3 +841,19 @@ body.login-page {
 /* Session toolbar: keep Home/Dashboard reachable even in full screen */
 .toolbar-left { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .toolbar-left .btn { padding: 9px 16px; }
+
+/* Glow the whole button on hover (not just the text) */
+.btn:hover { transform: translateY(-1px); box-shadow: 0 0 18px var(--pink-300), 0 8px 22px rgba(0,0,0,0.18); }
+.nav-btn:hover,
+.dash-menu .menu-btn:hover,
+.home-tab:hover,
+.diff-btn:not([disabled]):hover,
+.zoom-btn:hover,
+.mode-toggle:hover {
+  box-shadow: 0 0 16px var(--pink-300), 0 4px 14px rgba(0,0,0,0.14);
+}
+.nav-btn.active:hover,
+.dash-menu .menu-btn.active:hover,
+.home-tab.active:hover {
+  box-shadow: 0 0 20px var(--pink-400), 0 6px 18px rgba(0,0,0,0.2);
+}
