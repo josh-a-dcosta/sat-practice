@@ -74,8 +74,22 @@ function mountModeToggle() {
   applyMode(document.documentElement.dataset.mode || 'light');
 }
 
+// Highlight the nav button for the page currently being viewed.
+function markActiveNav() {
+  const path = location.pathname;
+  const onHome = (path === '/' || path.endsWith('/index.html'));
+  const onDash = path.endsWith('/dashboard.html');
+  document.querySelectorAll('.navlinks .nav-btn').forEach((a) => {
+    const href = a.getAttribute('href') || '';
+    const isHome = (href === '/' || href.endsWith('/index.html'));
+    const isDash = href.includes('dashboard');
+    if ((isHome && onHome) || (isDash && onDash)) a.classList.add('active');
+  });
+}
+
 // Show the signed-in user + a log-out link, and apply their accent theme.
 async function mountUserMenu() {
+  markActiveNav();
   mountModeToggle();
   const nav = document.querySelector('.navlinks');
   if (!nav) return;

@@ -788,3 +788,34 @@ body.login-page {
 .cal-panel-head .task-del { margin-left: auto; }
 .cal-attempt { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 8px 0; border-top: 1px solid var(--pink-100); }
 .cal-attempt:first-of-type { border-top: none; }
+
+/* ----- Standout nav buttons + active page indicator ----- */
+.navlinks { display: flex; align-items: center; }
+.navlinks .nav-btn {
+  margin-left: 12px; padding: 8px 16px; border-radius: 999px;
+  border: 2px solid var(--pink-300); background: var(--pink-50);
+  color: var(--pink-700); font-weight: 800;
+}
+.navlinks .nav-btn:hover { background: var(--pink-100); color: var(--pink-700); }
+.navlinks .nav-btn.active {
+  background: linear-gradient(135deg, var(--pink-500), var(--pink-400));
+  color: #fff; border-color: transparent; text-shadow: 0 1px 2px rgba(0,0,0,0.25);
+  box-shadow: var(--shadow-sm);
+}
+/* breathing room between the mode toggle and the username */
+.user-chip { margin-left: 18px; }
+
+/* ----- Home: Math / Reading tabs (no scrolling) ----- */
+.home-tabs { display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
+.home-tab {
+  flex: 1; min-width: 140px; padding: 14px 18px; border-radius: 16px;
+  border: 2px solid var(--pink-200); background: var(--white);
+  color: var(--pink-700); font-weight: 800; font-size: 1.1rem; cursor: pointer;
+  transition: transform 0.1s ease, border-color 0.12s, background 0.12s;
+}
+.home-tab:hover { border-color: var(--pink-400); transform: translateY(-2px); }
+.home-tab.active {
+  background: linear-gradient(135deg, var(--pink-500), var(--pink-400));
+  color: #fff; border-color: transparent; box-shadow: var(--shadow-sm);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.25);
+}
