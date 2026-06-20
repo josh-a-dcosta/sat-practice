@@ -326,7 +326,14 @@ h2 { font-size: 1.4rem; margin: 0 0 14px; }
   cursor: pointer;
 }
 .map button.answered { background: var(--pink-200); color: var(--pink-700); border-color: var(--pink-300); }
-.map button.current { border-color: var(--pink-500); box-shadow: 0 0 0 3px var(--pink-100); color: var(--pink-600); }
+.map button.correct { border-color: var(--green); border-width: 3px; color: var(--green); background: transparent; }
+.map button.wrong { border-color: #e23b5a; border-width: 3px; color: #e23b5a; background: transparent; }
+.map button.current { box-shadow: 0 0 0 3px var(--pink-100); }
+:root[data-mode="dark"] .map button.correct { color: #4ee08a; border-color: #4ee08a; }
+:root[data-mode="dark"] .map button.wrong { color: #ff7088; border-color: #ff7088; }
+.map-legend { margin: 12px 0 4px; }
+.done-tag { font-weight: 800; color: var(--green); }
+.done-score { font-weight: 800; color: var(--pink-600); }
 
 /* Encouragement toast */
 .toast {
@@ -452,7 +459,7 @@ table.data tr:hover td { background: var(--pink-50); }
   background: var(--pink-100); border-radius: 999px; padding: 4px 12px;
 }
 
-.practice-toolbar { display: flex; justify-content: flex-end; margin-bottom: 12px; }
+.practice-toolbar { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 12px; flex-wrap: wrap; }
 
 .practice-split {
   display: grid;
@@ -765,3 +772,13 @@ body.login-page {
 .login-card .btn-primary { background: linear-gradient(135deg, #ff8bce, #ffd86b); color: #2a1430; }
 @media (max-width: 560px) { .login-splash span { font-size: 2.6rem !important; opacity: 0.12; } }
 :root[data-mode="dark"] .passage { color: var(--ink); }
+
+/* Calendar: clickable days with completed attempts + day panel */
+.cal-day.has-attempts { cursor: pointer; border-color: var(--green); }
+.cal-day.has-attempts:hover { background: var(--pink-100); }
+.cal-att-badge { display: block; margin-top: 4px; font-weight: 800; color: var(--green); font-size: 0.72rem; }
+.cal-day-panel { border: 2px solid var(--pink-200); border-radius: 14px; padding: 14px 16px; margin-bottom: 14px; background: var(--pink-50); }
+.cal-panel-head { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.cal-panel-head .task-del { margin-left: auto; }
+.cal-attempt { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 8px 0; border-top: 1px solid var(--pink-100); }
+.cal-attempt:first-of-type { border-top: none; }

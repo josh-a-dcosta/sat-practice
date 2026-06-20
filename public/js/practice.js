@@ -10,6 +10,7 @@ let pendingSelection = null; // mcq label or spr text not yet submitted
 let timeLimit = 120;
 let elapsed = 0;             // seconds spent on the current question
 let resolved = false;        // current question already answered/peeked/timed-out
+let reviewMode = false;      // attempt completed — review answers, no timing
 let viewStart = null;        // wall-clock when the current view started timing
 let ticker = null;
 let heartbeat = null;
@@ -95,12 +96,45 @@ async function loadState() {
   const domainEmoji = state.domain === 'math' ? '🔢' : '📖';
   const diffLabel = state.difficulty === 'hard' ? '🔴 Hard' : '🟡 Medium';
   $('sectionLabel').textContent = `${domainEmoji} ${titleCase(state.topic)} · ${diffLabel}`;
-  if (state.status === 'completed') return showResults();
   renderMap();
-  updateFinish();
-  pos = state.currentPosition || 1;
+  if (state.status === 'completed') {
+    enterReviewUI();
+    pos = firstWrong() || state.currentPosition || 1;
+  } else {
+    updateFinish();
+    pos = state.currentPosition || 1;
+  }
   await loadQuestion(pos);
 }
+
+function firstWrong() {
+  const w = state.items.find((i) => i.answered && !i.correct);
+  return w ? w.position : null;
+}
+
+// Switch the screen into "attempt complete" review mode.
+function enterReviewUI() {
+  reviewMode = true;
+  stopTiming(); stopHeartbeat();
+  $('finishControls').classList.add('hidden');
+  $('doneControls').classList.remove('hidden');
+  $('pauseBtn').classList.add('hidden');
+  $('doneTag').classList.remove('hidden');
+  const pl = $('pauseLink'); if (pl) pl.classList.add('hidden');
+  const correct = state.items.filter((i) => i.correct).length;
+  $('doneScore').textContent = `Score ${correct} / ${state.items.length}`;
+  $('finishNote').textContent = 'All done! 🎉 Tap any 🟥 box to revisit it with the answer and explanation.';
+}
+
+async function completeAndReview() {
+  try {
+    await api('POST', `/api/sessions/${sessionId}/complete`);
+    await refreshState();
+    enterReviewUI();
+  } catch (e) { showToast(e.message); }
+}
+
+function pauseExit() { saveProgress(); location.href = '/'; }
 
 function titleCase(t) { return t.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()); }
 
@@ -110,8 +144,12 @@ function renderMap() {
   for (const item of state.items) {
     const b = document.createElement('button');
     b.textContent = item.position;
-    if (item.answered) b.classList.add('answered');
+    if (item.answered) {
+      b.classList.add('answered');
+      b.classList.add(item.correct ? 'correct' : 'wrong');  // green vs red border
+    }
     if (item.position === pos) b.classList.add('current');
+    b.title = item.answered ? (item.correct ? 'Correct' : 'Review this one') : 'Not done yet';
     b.onclick = () => gotoPosition(item.position);
     map.appendChild(b);
   }
@@ -292,6 +330,7 @@ async function resolve(kind, extra) {
     renderInputs(current.question);
     showFeedback(res, {});
     await refreshState();
+    if (state.allAnswered && !reviewMode) await completeAndReview();
   } catch (e) {
     showToast(e.message);
   }
@@ -472,7 +511,10 @@ function escapeHtml(s) {
 $('prevBtn').onclick = () => gotoPosition(pos - 1);
 $('nextBtn').onclick = () => gotoPosition(pos + 1);
 $('submitBtn').onclick = submitAnswer;
-$('finishBtn').onclick = finishSession;
+$('finishBtn').onclick = () => completeAndReview();
+$('pauseBtn').onclick = pauseExit;
+$('scorecardBtn').onclick = () => showResults().catch((e) => showToast(e.message));
+$('closeBtn').onclick = () => { location.href = '/'; };
 $('revealBtn').onclick = peekAnswer;
 $('fbNext').onclick = goNext;
 $('zoomIn').onclick = () => zoomBy(ZOOM_STEP);

@@ -21,6 +21,8 @@
     <!-- QUESTION VIEW -->
     <div id="questionView">
       <div class="practice-toolbar">
+        <button class="btn btn-ghost" id="pauseBtn" type="button">⏸ Pause &amp; exit</button>
+        <span class="done-tag hidden" id="doneTag">✅ Attempt complete — review your answers below</span>
         <button class="btn btn-ghost" id="fullscreenBtn" type="button" title="Use the whole screen for bigger panels">⛶ Full screen</button>
       </div>
       <div class="practice-split">
@@ -102,9 +104,17 @@
           <hr class="soft-rule" />
           <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px">
             <strong>Your questions</strong>
-            <button class="btn btn-primary" id="finishBtn" disabled>🎉 Finish</button>
+            <div id="finishControls">
+              <button class="btn btn-primary" id="finishBtn" disabled>🎉 Finish</button>
+            </div>
+            <div id="doneControls" class="hidden" style="display:flex; gap:8px; align-items:center; flex-wrap:wrap">
+              <span class="done-score" id="doneScore"></span>
+              <button class="btn btn-ghost" id="scorecardBtn" type="button">📊 Scorecard</button>
+              <button class="btn btn-primary" id="closeBtn" type="button">✕ Close</button>
+            </div>
           </div>
           <p class="note" id="finishNote">Answer every question to finish. Jump around with the map.</p>
+          <p class="note map-legend">🟩 correct &nbsp;·&nbsp; 🟥 review (wrong / peeked / over time) &nbsp;·&nbsp; ⬜ not done. Tap a box to revisit it.</p>
           <div class="map" id="map"></div>
         </div>
       </div>

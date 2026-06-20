@@ -237,7 +237,8 @@ function getSessionState(userId, sid) {
   if (!s) return null;
   const items = db.prepare(`
     SELECT sq.position, sq.question_id,
-           CASE WHEN a.id IS NULL THEN 0 ELSE 1 END answered
+           CASE WHEN a.id IS NULL THEN 0 ELSE 1 END answered,
+           a.is_correct, a.peeked, a.over_limit
     FROM session_questions sq
     LEFT JOIN attempts a ON a.session_id=sq.session_id AND a.question_id=sq.question_id
     WHERE sq.session_id=? ORDER BY sq.position
@@ -248,7 +249,13 @@ function getSessionState(userId, sid) {
     status: s.status, currentPosition: s.current_position,
     total: items.length, answeredCount,
     allAnswered: answeredCount === items.length && items.length > 0,
-    items: items.map((r) => ({ position: r.position, answered: !!r.answered })),
+    items: items.map((r) => ({
+      position: r.position,
+      answered: !!r.answered,
+      correct: r.answered ? !!r.is_correct : null,
+      peeked: !!r.peeked,
+      overLimit: !!r.over_limit,
+    })),
   };
 }
 

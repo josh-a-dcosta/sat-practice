@@ -179,10 +179,46 @@ async function generatePlan() {
 }
 
 // ---- Study calendar (countdown to Aug 22) ---------------------------------
+// completed sessions grouped by the day they were finished
+function sessionsByDay() {
+  const map = {};
+  for (const s of (DATA.sessions || [])) {
+    if (s.status !== 'completed' || !s.completed_at) continue;
+    const day = s.completed_at.slice(0, 10);
+    (map[day] = map[day] || []).push(s);
+  }
+  return map;
+}
+
+function showCalDay(day) {
+  const panel = $('calDayPanel');
+  const list = (sessionsByDay()[day] || []);
+  if (!list.length) {
+    panel.innerHTML = `<div class="note">No completed attempts on ${escapeHtml(day)}.</div>`;
+    panel.classList.remove('hidden');
+    return;
+  }
+  panel.innerHTML = `<div class="cal-panel-head"><b>${escapeHtml(day)}</b> · ${list.length} attempt${list.length === 1 ? '' : 's'}
+      <button class="task-del" id="calPanelClose" title="Close">✕</button></div>` +
+    list.map((s) => {
+      const emoji = s.domain === 'math' ? '🔢' : '📖';
+      const sc = (s.score != null) ? `${s.score}/${s.total}` : `${s.answered}/${s.total}`;
+      const acc = s.total ? Math.round((s.score / s.total) * 100) : 0;
+      return `<div class="cal-attempt">
+        <span>${emoji} <b>${escapeHtml(fmtTopic(s.topic))}</b> <span class="note">${s.difficulty}</span> · ${sc} (${acc}%)</span>
+        <a class="btn btn-ghost" href="/session.html?id=${s.id}">Review answers →</a>
+      </div>`;
+    }).join('');
+  panel.classList.remove('hidden');
+  const c = document.getElementById('calPanelClose');
+  if (c) c.onclick = () => panel.classList.add('hidden');
+}
+
 function renderCalendar() {
   const EXAM = new Date('2026-08-22T00:00:00');
   const cal = $('calendar');
   const activeDays = new Set((DATA.byDay || []).map((d) => d.day)); // YYYY-MM-DD with activity
+  const byDaySessions = sessionsByDay();
   const today = new Date(); today.setHours(0, 0, 0, 0);
   // Monday of this week
   const start = new Date(today); start.setDate(today.getDate() - ((today.getDay() + 6) % 7));
@@ -214,10 +250,13 @@ function renderCalendar() {
       const past = d < today, isToday = ds === fmt(today);
       const beyond = d > EXAM;
       const did = activeDays.has(ds);
+      const nAtt = (byDaySessions[ds] || []).length;
       const label = isTestWeek ? (i === 5 ? 'Full test' : (i === 6 ? 'Rest' : 'Review')) : plan[i];
-      html += `<div class="cal-day ${isToday ? 'today' : ''} ${past ? 'past' : ''} ${beyond ? 'beyond' : ''} ${did ? 'did' : ''}">
+      const clickable = nAtt ? ' has-attempts' : '';
+      html += `<div class="cal-day ${isToday ? 'today' : ''} ${past ? 'past' : ''} ${beyond ? 'beyond' : ''} ${did ? 'did' : ''}${clickable}" ${nAtt ? `data-date="${ds}"` : ''}>
         <span class="cal-dn">${dayNames[i]} ${d.getDate()}</span>
         <span class="cal-plan">${did ? '✅ ' : ''}${beyond ? '—' : label}</span>
+        ${nAtt ? `<span class="cal-att-badge">${nAtt} attempt${nAtt === 1 ? '' : 's'} ›</span>` : ''}
       </div>`;
     }
     html += `</div></div>`;
@@ -604,6 +643,12 @@ $('attemptsTable').addEventListener('click', (e) => {
   const btn = e.target.closest('.link-cell');
   if (btn) openReview(Number(btn.dataset.attempt));
 });
+// Calendar: click a day with attempts to review that day's completed attempts
+$('calendar').addEventListener('click', (e) => {
+  const day = e.target.closest('.cal-day.has-attempts');
+  if (day) showCalDay(day.dataset.date);
+});
+
 // Weekly-trends drilldown
 if ($('trendDomain')) $('trendDomain').addEventListener('change', renderSkillTrends);
 // Tasks
