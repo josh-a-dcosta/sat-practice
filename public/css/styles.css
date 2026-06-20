@@ -39,10 +39,10 @@
   --shadow-sm: 0 4px 14px rgba(31, 157, 91, 0.12);
 }
 :root[data-theme="yellow"] {
-  --pink-50:#fffdf2; --pink-100:#fff6d3; --pink-200:#ffeaa6; --pink-300:#ffd95e;
-  --pink-400:#f5c518; --pink-500:#e0a800; --pink-600:#b07f00; --pink-700:#856000;
-  --shadow: 0 10px 30px rgba(224, 168, 0, 0.18);
-  --shadow-sm: 0 4px 14px rgba(224, 168, 0, 0.14);
+  --pink-50:#faf8f1; --pink-100:#f1ecdb; --pink-200:#e2d8ba; --pink-300:#cdbd86;
+  --pink-400:#b09a52; --pink-500:#97813c; --pink-600:#7a672f; --pink-700:#5d4f25;
+  --shadow: 0 10px 30px rgba(151, 129, 60, 0.16);
+  --shadow-sm: 0 4px 14px rgba(151, 129, 60, 0.12);
 }
 
 /* Dark mode — neutral dark surfaces; the theme accent (300-700) is preserved.
