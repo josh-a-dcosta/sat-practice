@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS users (
   id         INTEGER PRIMARY KEY AUTOINCREMENT,
   username   TEXT UNIQUE NOT NULL,
   password   TEXT NOT NULL,
+  theme      TEXT NOT NULL DEFAULT 'gray',
   created_at TEXT NOT NULL DEFAULT (datetime('now'))
 );
 
@@ -102,6 +103,7 @@ for (const [col, def] of [
 db.exec('CREATE INDEX IF NOT EXISTS idx_q_skill ON questions(skill);');
 
 // Multi-user columns for databases created before per-user tracking existed.
+try { db.exec("ALTER TABLE users ADD COLUMN theme TEXT NOT NULL DEFAULT 'gray'"); } catch (_) { /* already exists */ }
 try { db.exec('ALTER TABLE sessions ADD COLUMN user_id INTEGER'); } catch (_) { /* already exists */ }
 try { db.exec('ALTER TABLE attempts ADD COLUMN user_id INTEGER'); } catch (_) { /* already exists */ }
 db.exec('CREATE INDEX IF NOT EXISTS idx_sessions_user ON sessions(user_id);');

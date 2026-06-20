@@ -4,12 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Practice Session 🌸</title>
+  <script>(function(){try{var m=localStorage.getItem('mode');if(m!=='light'&&m!=='dark')m=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.mode=m;document.documentElement.dataset.theme=localStorage.getItem('theme')||'gray';}catch(e){}})();</script>
   <link rel="stylesheet" href="/css/styles.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>" />
 </head>
 <body>
   <div class="topbar">
-    <a class="brand" href="/">🌸 SAT Practice</a>
+    <a class="brand" href="/"><span class="brand-icon">🎓</span> SAT Practice</a>
     <div class="navlinks">
       <a href="/" id="pauseLink">⏸ Pause &amp; exit</a>
       <a href="/dashboard.html">Dashboard</a>

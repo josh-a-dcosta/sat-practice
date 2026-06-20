@@ -1,11 +1,35 @@
 // Shared helpers used across pages.
 
-// Per-user color theme. Apply any remembered theme immediately to avoid a flash.
-const THEME_BY_USER = { fg: 'blue', jd: 'pink' };
-(function applySavedTheme() {
-  const t = localStorage.getItem('theme');
-  if (t) document.documentElement.dataset.theme = t;
-})();
+// ----- Theme (accent color) + light/dark mode -----
+const THEME_ICON = { pink: '🌸', blue: '⚽', gray: '🎓' };
+
+function brandIcon(theme) { return THEME_ICON[theme] || THEME_ICON.gray; }
+
+// Resolve the initial mode: saved choice, else the OS preference.
+function initialMode() {
+  const saved = localStorage.getItem('mode');
+  if (saved === 'light' || saved === 'dark') return saved;
+  return (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+}
+
+function applyMode(mode) {
+  document.documentElement.dataset.mode = mode;
+  const btn = document.getElementById('modeToggle');
+  if (btn) btn.textContent = mode === 'dark' ? '☀️' : '🌙';
+}
+
+function setMode(mode) { localStorage.setItem('mode', mode); applyMode(mode); }
+function toggleMode() { setMode(document.documentElement.dataset.mode === 'dark' ? 'light' : 'dark'); }
+
+function applyTheme(theme) {
+  document.documentElement.dataset.theme = theme || 'gray';
+  document.querySelectorAll('.brand-icon').forEach((el) => { el.textContent = brandIcon(theme); });
+}
+
+// Apply remembered theme + mode immediately (a tiny inline <head> script also
+// does this to avoid any flash; this is the safety net if that's absent).
+applyMode(initialMode());
+applyTheme(localStorage.getItem('theme') || 'gray');
 
 async function api(method, path, body) {
   const opts = { method, headers: {} };
@@ -29,19 +53,34 @@ async function api(method, path, body) {
 async function logout() {
   try { await fetch('/api/logout', { method: 'POST' }); } catch (_) { /* ignore */ }
   localStorage.removeItem('theme');
-  document.documentElement.removeAttribute('data-theme');
+  applyTheme('gray');                  // back to the neutral pre-login look
   location.href = '/login.html';
 }
 
-// Show the signed-in user + a log-out link in the top bar of every page.
+// Add a light/dark toggle to the top bar (every page that has a nav).
+function mountModeToggle() {
+  const nav = document.querySelector('.navlinks');
+  if (!nav || document.getElementById('modeToggle')) return;
+  const btn = document.createElement('button');
+  btn.id = 'modeToggle';
+  btn.type = 'button';
+  btn.className = 'mode-toggle';
+  btn.title = 'Toggle light / dark';
+  btn.addEventListener('click', toggleMode);
+  nav.appendChild(btn);
+  applyMode(document.documentElement.dataset.mode || 'light');
+}
+
+// Show the signed-in user + a log-out link, and apply their accent theme.
 async function mountUserMenu() {
+  mountModeToggle();
   const nav = document.querySelector('.navlinks');
   if (!nav) return;
   try {
     const me = await api('GET', '/api/me');
-    const theme = THEME_BY_USER[me.user.username] || 'pink';
-    document.documentElement.dataset.theme = theme;
+    const theme = me.user.theme || 'gray';
     localStorage.setItem('theme', theme);
+    applyTheme(theme);
     const chip = document.createElement('span');
     chip.className = 'user-chip';
     chip.textContent = `👤 ${me.user.username}`;
@@ -54,9 +93,7 @@ async function mountUserMenu() {
   } catch (_) { /* api() handles the 401 redirect */ }
 }
 
-if (!location.pathname.endsWith('/login.html')) {
-  document.addEventListener('DOMContentLoaded', mountUserMenu);
-}
+document.addEventListener('DOMContentLoaded', mountUserMenu);
 
 const ENCOURAGEMENTS = [
   'You\'ve got this! 💪',

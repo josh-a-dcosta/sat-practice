@@ -1,9 +1,8 @@
 # SAT Practice users — one per line:  username,password,theme
-# Lines starting with '#' are ignored. A colon (user:pass:theme) also works.
-# Edit this file in your repo to manage logins; no admin page needed.
-# Passwords are stored as-is (simple shared family use), so keep this file private.
+# theme is optional: pink | blue | gray  (default gray). A colon also works.
+# Lines starting with '#' are ignored. Keep this file private.
 
-jd,sat265.pink
+jd,sat265,pink
 fg,sat263,blue
 aj,sir,gray
 as,sir,gray
