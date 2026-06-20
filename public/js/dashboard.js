@@ -40,7 +40,6 @@ async function load() {
   renderSkills();
   populateSkillFilter();
   populateDateFilter();
-  renderSessions();
   renderAttempts();
   renderCalendar();
   loadTasks();
@@ -669,14 +668,14 @@ document.querySelectorAll('.dash-menu .menu-btn[data-view]').forEach((b) => {
   b.addEventListener('click', () => showView(b.dataset.view));
 });
 
-// Click a skill row -> open All Attempts filtered to that skill (across dates)
+// Click a skill row -> filter the attempts table below to that skill (all dates)
 $('skillsTable').addEventListener('click', (e) => {
   const row = e.target.closest('.skill-row');
   if (!row) return;
-  showView('attempts');
   if ($('fDate')) $('fDate').value = '';
   const sel = $('fSkill');
   if (sel) { sel.value = row.dataset.skill; renderAttempts(); }
+  $('attemptsTable').scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 
 // Click a question in the attempts table -> open the review modal

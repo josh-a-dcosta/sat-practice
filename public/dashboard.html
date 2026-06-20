@@ -33,12 +33,10 @@
 
     <!-- Top menu: each button shows a section (charts are the default view) -->
     <div class="dash-menu" id="dashMenu">
+      <button class="menu-btn" type="button" data-view="calendar">🗓️ Calendar</button>
       <button class="menu-btn" type="button" data-view="weekly">📝 Weekly Report</button>
       <button class="menu-btn" type="button" data-view="skills">🎯 Skills to Focus</button>
-      <button class="menu-btn" type="button" data-view="tasks">✅ Midweek Tasks</button>
-      <button class="menu-btn" type="button" data-view="sessions">🗂️ Sessions</button>
-      <button class="menu-btn" type="button" data-view="attempts">📋 All Attempts</button>
-      <button class="menu-btn" type="button" data-view="calendar">🗓️ Calendar</button>
+      <button class="menu-btn" type="button" data-view="tasks">✅ Suggested Practice</button>
     </div>
 
     <!-- ===== DASHBOARD: Overview + Daily activity + Overall accuracy ===== -->
@@ -90,11 +88,11 @@
       </div>
     </section>
 
-    <!-- ===== SKILLS TO FOCUS ===== -->
+    <!-- ===== SKILLS TO FOCUS (+ All Attempts merged in) ===== -->
     <section class="dash-view hidden" data-view="skills">
       <div class="card">
         <h2>🎯 Skills to focus on</h2>
-        <p class="note">Every College Board skill she has practiced, weakest first — so it's clear where to spend more time. Click a row to see those attempts.</p>
+        <p class="note">Every College Board skill she has practiced, weakest first — so it's clear where to spend more time. Click a row to filter the attempts below.</p>
         <div id="skillHighlight"></div>
         <div style="overflow-x:auto">
           <table class="data" id="skillsTable">
@@ -105,42 +103,7 @@
           </table>
         </div>
       </div>
-    </section>
 
-    <!-- ===== MIDWEEK TASKS ===== -->
-    <section class="dash-view hidden" data-view="tasks">
-      <div class="card">
-        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px">
-          <h2 style="margin:0">✅ Midweek Tasks</h2>
-          <button class="btn btn-primary" id="genPlanBtn" type="button">✨ Build my plan from weak skills</button>
-        </div>
-        <p class="note">Extra practice you're doing on your weak skills — check them off so Dad can see the effort! 💪</p>
-        <form id="addTaskForm" class="filters" style="margin-bottom:12px">
-          <input type="text" id="taskTitle" placeholder="Add your own task…" style="flex:1; min-width:200px" />
-          <button class="btn btn-ghost" type="submit">➕ Add</button>
-        </form>
-        <div id="taskList"></div>
-      </div>
-    </section>
-
-    <!-- ===== SESSIONS ===== -->
-    <section class="dash-view hidden" data-view="sessions">
-      <div class="card">
-        <h2>🗂️ Sessions</h2>
-        <p class="note">Each practice session she has started. Paused sessions show as “in progress”.</p>
-        <div style="overflow-x:auto">
-          <table class="data" id="sessionsTable">
-            <thead><tr>
-              <th>#</th><th>Topic</th><th>Difficulty</th><th>Status</th><th>Started</th><th>Finished</th><th>Score</th><th>Progress</th>
-            </tr></thead>
-            <tbody></tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== ALL ATTEMPTS ===== -->
-    <section class="dash-view hidden" data-view="attempts">
       <div class="card">
         <h2>📋 All attempts</h2>
         <div class="filters">
@@ -183,6 +146,22 @@
             <tbody></tbody>
           </table>
         </div>
+      </div>
+    </section>
+
+    <!-- ===== SUGGESTED PRACTICE ===== -->
+    <section class="dash-view hidden" data-view="tasks">
+      <div class="card">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px">
+          <h2 style="margin:0">✅ Suggested Practice</h2>
+          <button class="btn btn-primary" id="genPlanBtn" type="button">✨ Build my plan from weak skills</button>
+        </div>
+        <p class="note">Extra practice you're doing on your weak skills — check them off so Dad can see the effort! 💪</p>
+        <form id="addTaskForm" class="filters" style="margin-bottom:12px">
+          <input type="text" id="taskTitle" placeholder="Add your own task…" style="flex:1; min-width:200px" />
+          <button class="btn btn-ghost" type="submit">➕ Add</button>
+        </form>
+        <div id="taskList"></div>
       </div>
     </section>
 
