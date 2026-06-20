@@ -36,15 +36,34 @@ async function load() {
     : `Goal: 40 Math + 40 Reading. Left — 🔢 ${Math.max(0, t.goalPerDomain - t.mathToday)} math, 📖 ${Math.max(0, t.goalPerDomain - t.readingToday)} reading.`;
 
   renderTiles();
-  renderCharts();
-  renderWeeklyTrends();
   renderWeeklyReport();
   renderSkills();
   populateSkillFilter();
+  populateDateFilter();
   renderSessions();
   renderAttempts();
   renderCalendar();
   loadTasks();
+  showView(localStorage.getItem('dashView') || 'dashboard');
+}
+
+// Switch which dashboard section is visible (charts render on show so they
+// size correctly — Chart.js can't measure a hidden canvas).
+function showView(name) {
+  document.querySelectorAll('.dash-view').forEach((v) => v.classList.toggle('hidden', v.dataset.view !== name));
+  document.querySelectorAll('.dash-menu .menu-btn[data-view]').forEach((b) => b.classList.toggle('active', b.dataset.view === name));
+  localStorage.setItem('dashView', name);
+  if (name === 'dashboard') renderOverviewCharts();
+  if (name === 'weekly') { renderWeeklyTrends(); renderSectionCharts(); }
+  window.scrollTo(0, 0);
+}
+
+function populateDateFilter() {
+  const sel = $('fDate');
+  if (!sel) return;
+  const dates = [...new Set(allAttempts.map((a) => a.answered_at.slice(0, 10)))].sort().reverse();
+  sel.innerHTML = '<option value="">All dates</option>' + dates.map((d) => `<option value="${d}">${d}</option>`).join('');
+  if (dates.length) sel.value = dates[0]; // default to the most recent day
 }
 
 // ---- Weekly trends + domain→skill drilldown -------------------------------
@@ -130,13 +149,25 @@ function renderWeeklyReport() {
   const reps = DATA.weeklyReports || [];
   const el = $('weeklyReport');
   if (!reps.length) { el.innerHTML = '<p class="note">Practice a few questions and your first weekly report will appear here. 🌱</p>'; return; }
+  const items = (arr, fmt) => arr.map((s) => `<li>${fmt(s)}</li>`).join('');
   el.innerHTML = reps.map((r, i) => {
-    const chips = (arr, cls) => arr.map((s) => `<span class="rep-chip ${cls}">${escapeHtml(s.label)} · ${s.acc}%</span>`).join('');
+    const totalA = r.domains.reduce((x, d) => x + d.attempts, 0);
+    const totalC = r.domains.reduce((x, d) => x + d.correct, 0);
+    const overall = totalA ? Math.round((totalC / totalA) * 100) : 0;
+    const domLis = r.domains.map((d) => {
+      const acc = d.attempts ? Math.round((d.correct / d.attempts) * 100) : 0;
+      const name = d.domain === 'math' ? '🔢 Math' : '📖 Reading';
+      return `<li><b>${name}:</b> ${d.attempts} questions · ${acc}% accuracy · ~${Math.round(d.avg_time)}s per question</li>`;
+    }).join('');
     return `<div class="report-week ${i === 0 ? 'latest' : ''}">
       <div class="report-head"><b>Week of ${escapeHtml(weekLabel(r.weekStart))}</b>${i === 0 ? ' <span class="rep-chip latest-tag">latest</span>' : ''}</div>
-      <p style="margin:6px 0">${escapeHtml(r.text)}</p>
-      ${r.strengths.length ? `<div class="rep-row">💪 Strengths: ${chips(r.strengths, 'good')}</div>` : ''}
-      ${r.focus.length ? `<div class="rep-row">🎯 Focus: ${chips(r.focus, 'bad')}</div>` : ''}
+      <ul class="report-list">
+        <li><b>Overall:</b> ${totalA} questions answered at <b>${overall}%</b> accuracy.</li>
+        ${domLis}
+        ${r.strengths.length ? `<li>💪 <b>Strengths — keep it up:</b><ul>${items(r.strengths, (s) => `${escapeHtml(s.label)} — <b>${s.acc}%</b>`)}</ul></li>` : ''}
+        ${r.focus.length ? `<li>🎯 <b>Work on these:</b><ul>${items(r.focus, (s) => `${escapeHtml(s.label)} — <b>${s.acc}%</b> · do ~10 questions and review explanations to push past 70%`)}</ul></li>` : ''}
+        ${(r.slow && r.slow.length) ? `<li>⏱️ <b>Slowest — practice for speed:</b><ul>${items(r.slow, (s) => `${escapeHtml(s.label)} — ~${Math.round(s.avg)}s per question`)}</ul></li>` : ''}
+      </ul>
     </div>`;
   }).join('');
 }
@@ -344,7 +375,7 @@ function makeChart(id, config) {
   charts[id] = new Chart($(id), config);
 }
 
-function renderCharts() {
+function renderOverviewCharts() {
   // Daily activity (stacked bar)
   const days = DATA.byDay;
   makeChart('dailyChart', {
@@ -373,7 +404,9 @@ function renderCharts() {
     },
     options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } },
   });
+}
 
+function renderSectionCharts() {
   // Accuracy by topic (bar)
   const bt = DATA.byTopic || [];
   const topicLabels = bt.map(t => {
@@ -449,12 +482,14 @@ function renderSessions() {
 }
 
 function getFilteredAttempts() {
+  const date   = $('fDate') ? $('fDate').value : '';
   const sec    = $('fSection').value;
   const diff   = $('fDifficulty') ? $('fDifficulty').value : '';
   const result = $('fResult').value;
   const skill  = $('fSkill') ? $('fSkill').value : '';
   const search = $('fSearch').value.trim().toLowerCase();
   return allAttempts.filter((a) => {
+    if (date   && a.answered_at.slice(0, 10) !== date) return false;
     if (sec    && a.domain !== sec) return false;
     if (diff   && a.difficulty !== diff) return false;
     if (result !== '' && String(a.is_correct) !== result) return false;
@@ -625,17 +660,23 @@ function exportCsv() {
   URL.revokeObjectURL(url);
 }
 
-['fSection', 'fResult', 'fDifficulty', 'fSkill'].forEach((id) => { const el = $(id); if (el) el.addEventListener('change', renderAttempts); });
+['fDate', 'fSection', 'fResult', 'fDifficulty', 'fSkill'].forEach((id) => { const el = $(id); if (el) el.addEventListener('change', renderAttempts); });
 $('fSearch').addEventListener('input', renderAttempts);
 $('exportBtn').addEventListener('click', exportCsv);
 
-// Click a skill row -> filter the attempts table to that skill and scroll to it
+// Top menu: switch views
+document.querySelectorAll('.dash-menu .menu-btn[data-view]').forEach((b) => {
+  b.addEventListener('click', () => showView(b.dataset.view));
+});
+
+// Click a skill row -> open All Attempts filtered to that skill (across dates)
 $('skillsTable').addEventListener('click', (e) => {
   const row = e.target.closest('.skill-row');
   if (!row) return;
+  showView('attempts');
+  if ($('fDate')) $('fDate').value = '';
   const sel = $('fSkill');
   if (sel) { sel.value = row.dataset.skill; renderAttempts(); }
-  $('attemptsTable').scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 
 // Click a question in the attempts table -> open the review modal

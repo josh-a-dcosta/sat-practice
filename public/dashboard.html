@@ -21,7 +21,6 @@
   <div class="container wide">
     <div class="card">
       <h1>📊 Progress Dashboard</h1>
-      <p class="subtitle">A friendly look at how she's doing — with charts and a table you can filter and export.</p>
       <div class="goal">
         <div>
           <div style="font-weight:800; color:var(--pink-600)">Today's progress</div>
@@ -32,146 +31,172 @@
       </div>
     </div>
 
-    <div class="card">
-      <h2>Overview</h2>
-      <div class="stat-grid" id="statTiles"><div class="spinner">Loading…</div></div>
+    <!-- Top menu: each button shows a section -->
+    <div class="dash-menu" id="dashMenu">
+      <a class="menu-btn" href="/">🏠 Home</a>
+      <button class="menu-btn" type="button" data-view="weekly">📝 Weekly Report</button>
+      <button class="menu-btn" type="button" data-view="skills">🎯 Skills to Focus</button>
+      <button class="menu-btn" type="button" data-view="tasks">✅ Midweek Tasks</button>
+      <button class="menu-btn" type="button" data-view="sessions">🗂️ Sessions</button>
+      <button class="menu-btn" type="button" data-view="attempts">📋 All Attempts</button>
+      <button class="menu-btn" type="button" data-view="dashboard">📊 Dashboard</button>
+      <button class="menu-btn" type="button" data-view="calendar">🗓️ Calendar</button>
     </div>
 
-    <div class="dash-grid">
+    <!-- ===== DASHBOARD: Overview + Daily activity + Overall accuracy ===== -->
+    <section class="dash-view" data-view="dashboard">
       <div class="card">
-        <h2>Daily activity</h2>
-        <div class="chart-box"><canvas id="dailyChart"></canvas></div>
+        <h2>Overview</h2>
+        <div class="stat-grid" id="statTiles"><div class="spinner">Loading…</div></div>
       </div>
-      <div class="card">
-        <h2>Overall accuracy</h2>
-        <div class="chart-box"><canvas id="accuracyChart"></canvas></div>
-      </div>
-      <div class="card">
-        <h2>Accuracy by section</h2>
-        <div class="chart-box"><canvas id="sectionChart"></canvas></div>
-      </div>
-      <div class="card">
-        <h2>Average time per question</h2>
-        <div class="chart-box"><canvas id="timeChart"></canvas></div>
-      </div>
-    </div>
-
-    <!-- Weekly trends with domain -> skill drilldown -->
-    <div class="card">
-      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px">
-        <h2 style="margin:0">📈 Weekly trends</h2>
-        <label class="note">Drill into
-          <select id="trendDomain">
-            <option value="math">🔢 Math</option>
-            <option value="reading">📖 Reading &amp; Writing</option>
-          </select>
-        </label>
-      </div>
-      <p class="note">Accuracy and time per week. Top charts are by domain — pick a domain to see its skills below.</p>
       <div class="dash-grid">
-        <div><h3 class="mini-h">Accuracy by domain</h3><div class="chart-box"><canvas id="wkDomainAcc"></canvas></div></div>
-        <div><h3 class="mini-h">Avg time by domain</h3><div class="chart-box"><canvas id="wkDomainTime"></canvas></div></div>
-        <div><h3 class="mini-h" id="wkSkillAccH">Accuracy by skill</h3><div class="chart-box"><canvas id="wkSkillAcc"></canvas></div></div>
-        <div><h3 class="mini-h" id="wkSkillTimeH">Avg time by skill</h3><div class="chart-box"><canvas id="wkSkillTime"></canvas></div></div>
+        <div class="card">
+          <h2>Daily activity</h2>
+          <div class="chart-box"><canvas id="dailyChart"></canvas></div>
+        </div>
+        <div class="card">
+          <h2>Overall accuracy</h2>
+          <div class="chart-box"><canvas id="accuracyChart"></canvas></div>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <!-- Plain-English weekly report -->
-    <div class="card">
-      <h2>📝 Weekly report</h2>
-      <p class="note">An easy-to-read summary of where you're strong and what to practice — updated each week.</p>
-      <div id="weeklyReport"></div>
-    </div>
-
-    <!-- Focus tasks / improvement plan -->
-    <div class="card">
-      <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px">
-        <h2 style="margin:0">✅ Focus tasks (Wed &amp; Sat)</h2>
-        <button class="btn btn-primary" id="genPlanBtn" type="button">✨ Build my plan from weak skills</button>
+    <!-- ===== WEEKLY REPORT: trends + section/time + text ===== -->
+    <section class="dash-view hidden" data-view="weekly">
+      <div class="card">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px">
+          <h2 style="margin:0">📈 Weekly trends</h2>
+          <label class="note">Drill into
+            <select id="trendDomain">
+              <option value="math">🔢 Math</option>
+              <option value="reading">📖 Reading &amp; Writing</option>
+            </select>
+          </label>
+        </div>
+        <p class="note">Accuracy and time per week. Top charts are by domain — pick a domain to see its skills below.</p>
+        <div class="dash-grid">
+          <div><h3 class="mini-h">Accuracy by domain</h3><div class="chart-box"><canvas id="wkDomainAcc"></canvas></div></div>
+          <div><h3 class="mini-h">Avg time by domain</h3><div class="chart-box"><canvas id="wkDomainTime"></canvas></div></div>
+          <div><h3 class="mini-h" id="wkSkillAccH">Accuracy by skill</h3><div class="chart-box"><canvas id="wkSkillAcc"></canvas></div></div>
+          <div><h3 class="mini-h" id="wkSkillTimeH">Avg time by skill</h3><div class="chart-box"><canvas id="wkSkillTime"></canvas></div></div>
+        </div>
       </div>
-      <p class="note">Extra practice you're doing on your weak skills — check them off so Dad can see the effort! 💪</p>
-      <form id="addTaskForm" class="filters" style="margin-bottom:12px">
-        <input type="text" id="taskTitle" placeholder="Add your own task…" style="flex:1; min-width:200px" />
-        <button class="btn btn-ghost" type="submit">➕ Add</button>
-      </form>
-      <div id="taskList"></div>
-    </div>
-
-    <!-- Study calendar / countdown -->
-    <div class="card">
-      <h2>🗓️ Study calendar — countdown to SAT (Aug 22)</h2>
-      <p class="note" id="calIntro">7 weeks of practice, then 2 weeks of full-length tests. Mon/Tue/Thu/Fri = a Math + a Reading session; Wed/Sat = focus work; Sun = rest.</p>
-      <div id="calDayPanel" class="cal-day-panel hidden"></div>
-      <div id="calendar"></div>
-    </div>
-
-    <div class="card">
-      <h2>🎯 Skills to focus on</h2>
-      <p class="note">Every College Board skill she has practiced, weakest first — so it's clear where to spend more time. Click a row to filter the attempts below.</p>
-      <div id="skillHighlight"></div>
-      <div style="overflow-x:auto">
-        <table class="data" id="skillsTable">
-          <thead><tr>
-            <th>Skill</th><th>Domain</th><th>Difficulty</th><th>Accuracy</th><th>Correct</th><th>Wrong</th><th>Attempts</th><th>Avg time</th>
-          </tr></thead>
-          <tbody></tbody>
-        </table>
+      <div class="dash-grid">
+        <div class="card"><h2>Accuracy by section</h2><div class="chart-box"><canvas id="sectionChart"></canvas></div></div>
+        <div class="card"><h2>Average time per question</h2><div class="chart-box"><canvas id="timeChart"></canvas></div></div>
       </div>
-    </div>
+      <div class="card">
+        <h2>📝 Weekly report</h2>
+        <p class="note">An easy-to-read summary of where you're strong and what to practice — updated each week.</p>
+        <div id="weeklyReport"></div>
+      </div>
+    </section>
 
-    <div class="card">
-      <h2>Sessions</h2>
-      <p class="note">Each practice session she has started. Paused sessions show as “in progress”.</p>
-      <div style="overflow-x:auto">
-        <table class="data" id="sessionsTable">
-          <thead><tr>
-            <th>#</th><th>Topic</th><th>Difficulty</th><th>Status</th><th>Started</th><th>Finished</th><th>Score</th><th>Progress</th>
-          </tr></thead>
-          <tbody></tbody>
-        </table>
+    <!-- ===== SKILLS TO FOCUS ===== -->
+    <section class="dash-view hidden" data-view="skills">
+      <div class="card">
+        <h2>🎯 Skills to focus on</h2>
+        <p class="note">Every College Board skill she has practiced, weakest first — so it's clear where to spend more time. Click a row to see those attempts.</p>
+        <div id="skillHighlight"></div>
+        <div style="overflow-x:auto">
+          <table class="data" id="skillsTable">
+            <thead><tr>
+              <th>Skill</th><th>Domain</th><th>Difficulty</th><th>Accuracy</th><th>Correct</th><th>Wrong</th><th>Attempts</th><th>Avg time</th>
+            </tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
       </div>
-    </div>
+    </section>
 
-    <div class="card">
-      <h2>All attempts</h2>
-      <div class="filters">
-        <label>Domain
-          <select id="fSection">
-            <option value="">All</option>
-            <option value="math">Math</option>
-            <option value="reading">Reading</option>
-          </select>
-        </label>
-        <label>Difficulty
-          <select id="fDifficulty">
-            <option value="">All</option>
-            <option value="medium">Medium</option>
-            <option value="hard">Hard</option>
-          </select>
-        </label>
-        <label>Result
-          <select id="fResult">
-            <option value="">All</option>
-            <option value="1">Correct</option>
-            <option value="0">Wrong</option>
-          </select>
-        </label>
-        <label>Skill
-          <select id="fSkill"><option value="">All</option></select>
-        </label>
-        <input type="text" id="fSearch" placeholder="🔎 Search question text…" />
-        <span class="note" id="rowCount"></span>
-        <button class="btn btn-ghost" id="exportBtn" style="margin-left:auto">⬇ Export CSV</button>
+    <!-- ===== MIDWEEK TASKS ===== -->
+    <section class="dash-view hidden" data-view="tasks">
+      <div class="card">
+        <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px">
+          <h2 style="margin:0">✅ Midweek Tasks</h2>
+          <button class="btn btn-primary" id="genPlanBtn" type="button">✨ Build my plan from weak skills</button>
+        </div>
+        <p class="note">Extra practice you're doing on your weak skills — check them off so Dad can see the effort! 💪</p>
+        <form id="addTaskForm" class="filters" style="margin-bottom:12px">
+          <input type="text" id="taskTitle" placeholder="Add your own task…" style="flex:1; min-width:200px" />
+          <button class="btn btn-ghost" type="submit">➕ Add</button>
+        </form>
+        <div id="taskList"></div>
       </div>
-      <div style="overflow-x:auto">
-        <table class="data" id="attemptsTable">
-          <thead><tr>
-            <th>Date</th><th>Topic</th><th>Skill</th><th>Difficulty</th><th>Question</th><th>Her answer</th><th>Correct</th><th>Result</th><th>Time</th>
-          </tr></thead>
-          <tbody></tbody>
-        </table>
+    </section>
+
+    <!-- ===== SESSIONS ===== -->
+    <section class="dash-view hidden" data-view="sessions">
+      <div class="card">
+        <h2>🗂️ Sessions</h2>
+        <p class="note">Each practice session she has started. Paused sessions show as “in progress”.</p>
+        <div style="overflow-x:auto">
+          <table class="data" id="sessionsTable">
+            <thead><tr>
+              <th>#</th><th>Topic</th><th>Difficulty</th><th>Status</th><th>Started</th><th>Finished</th><th>Score</th><th>Progress</th>
+            </tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
       </div>
-    </div>
+    </section>
+
+    <!-- ===== ALL ATTEMPTS ===== -->
+    <section class="dash-view hidden" data-view="attempts">
+      <div class="card">
+        <h2>📋 All attempts</h2>
+        <div class="filters">
+          <label>Date
+            <select id="fDate"></select>
+          </label>
+          <label>Domain
+            <select id="fSection">
+              <option value="">All</option>
+              <option value="math">Math</option>
+              <option value="reading">Reading</option>
+            </select>
+          </label>
+          <label>Difficulty
+            <select id="fDifficulty">
+              <option value="">All</option>
+              <option value="medium">Medium</option>
+              <option value="hard">Hard</option>
+            </select>
+          </label>
+          <label>Result
+            <select id="fResult">
+              <option value="">All</option>
+              <option value="1">Correct</option>
+              <option value="0">Wrong</option>
+            </select>
+          </label>
+          <label>Skill
+            <select id="fSkill"><option value="">All</option></select>
+          </label>
+          <input type="text" id="fSearch" placeholder="🔎 Search question text…" />
+          <span class="note" id="rowCount"></span>
+          <button class="btn btn-ghost" id="exportBtn" style="margin-left:auto">⬇ Export CSV</button>
+        </div>
+        <div style="overflow-x:auto">
+          <table class="data" id="attemptsTable">
+            <thead><tr>
+              <th>Date</th><th>Topic</th><th>Skill</th><th>Difficulty</th><th>Question</th><th>Her answer</th><th>Correct</th><th>Result</th><th>Time</th>
+            </tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CALENDAR ===== -->
+    <section class="dash-view hidden" data-view="calendar">
+      <div class="card">
+        <h2>🗓️ Study calendar — countdown to SAT (Aug 22)</h2>
+        <p class="note" id="calIntro">7 weeks of practice, then 2 weeks of full-length tests.</p>
+        <div id="calDayPanel" class="cal-day-panel hidden"></div>
+        <div id="calendar"></div>
+      </div>
+    </section>
   </div>
 
   <!-- Question review modal -->
