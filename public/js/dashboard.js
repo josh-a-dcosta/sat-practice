@@ -30,10 +30,10 @@ async function load() {
   const t = DATA.today;
   const pct = Math.min(100, Math.round((t.answeredToday / t.goal) * 100));
   $('goalFill').style.width = pct + '%';
-  $('goalCount').textContent = `${t.answeredToday} / ${t.goal}`;
+  $('goalCount').textContent = `🔢 ${t.mathToday}/${t.goalPerDomain} · 📖 ${t.readingToday}/${t.goalPerDomain}`;
   $('goalSub').textContent = t.met
-    ? '🎉 Daily goal reached — wonderful!'
-    : `${t.goal - t.answeredToday} more to reach today's goal of ${t.goal}.`;
+    ? '🎉 Both goals reached — 40 Math + 40 Reading done!'
+    : `Goal: 40 Math + 40 Reading. Left — 🔢 ${Math.max(0, t.goalPerDomain - t.mathToday)} math, 📖 ${Math.max(0, t.goalPerDomain - t.readingToday)} reading.`;
 
   renderTiles();
   renderCharts();

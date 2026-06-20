@@ -66,14 +66,16 @@
         ab.innerHTML = '';
       }
 
-      // Goal banner
+      // Goal banner: 40 Math + 40 Reading
       const t = data.today;
       const pct = Math.min(100, Math.round((t.answeredToday / t.goal) * 100));
       document.getElementById('goalFill').style.width = pct + '%';
-      document.getElementById('goalCount').textContent = `${t.answeredToday} / ${t.goal}`;
+      document.getElementById('goalCount').textContent = `🔢 ${t.mathToday}/${t.goalPerDomain} · 📖 ${t.readingToday}/${t.goalPerDomain}`;
+      const mLeft = Math.max(0, t.goalPerDomain - t.mathToday);
+      const rLeft = Math.max(0, t.goalPerDomain - t.readingToday);
       document.getElementById('goalSub').textContent = t.met
-        ? '🎉 Daily goal reached — fantastic work! Keep going if you like!'
-        : `${t.goal - t.answeredToday} more question${t.goal - t.answeredToday === 1 ? '' : 's'} to reach today\'s goal.`;
+        ? '🎉 Both goals reached today — amazing! 40 Math + 40 Reading done!'
+        : `Goal: 40 Math + 40 Reading. Left today — 🔢 ${mLeft} math, 📖 ${rLeft} reading.`;
 
       // Group catalogue by domain then topic
       const byDomainTopic = {};

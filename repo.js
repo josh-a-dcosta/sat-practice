@@ -126,11 +126,22 @@ function getCatalogue(userId) {
 }
 
 function getTodayProgress(userId) {
-  const row = db.prepare(`
-    SELECT COUNT(*) n FROM attempts
-    WHERE user_id = ? AND date(answered_at) = date('now','localtime')
-  `).get(userId);
-  return { answeredToday: row.n, goal: DAILY_GOAL, met: row.n >= DAILY_GOAL };
+  const rows = db.prepare(`
+    SELECT q.domain, COUNT(*) n
+    FROM attempts a JOIN questions q ON q.id = a.question_id
+    WHERE a.user_id = ? AND date(a.answered_at) = date('now','localtime')
+    GROUP BY q.domain
+  `).all(userId);
+  let mathToday = 0, readingToday = 0;
+  for (const r of rows) { if (r.domain === 'math') mathToday = r.n; else if (r.domain === 'reading') readingToday = r.n; }
+  const perDomain = DAILY_GOAL; // 40 math + 40 reading on practice days
+  const answeredToday = mathToday + readingToday;
+  return {
+    answeredToday, mathToday, readingToday,
+    goalPerDomain: perDomain, goal: perDomain * 2,
+    mathMet: mathToday >= perDomain, readingMet: readingToday >= perDomain,
+    met: mathToday >= perDomain && readingToday >= perDomain,
+  };
 }
 
 // ---------------------------------------------------------------------------

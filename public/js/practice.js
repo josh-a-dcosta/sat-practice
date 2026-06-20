@@ -363,6 +363,8 @@ function showFeedback(fb, opts) {
     if (!opts.silent) beep('wrong');
   }
   updateScore(fb.running);
+  // No "Next question" on the last question.
+  $('fbNext').style.display = (current && current.position < current.total) ? '' : 'none';
 }
 
 async function refreshState() {
