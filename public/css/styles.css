@@ -32,6 +32,12 @@
   --shadow: 0 10px 30px rgba(47, 125, 255, 0.15);
   --shadow-sm: 0 4px 14px rgba(47, 125, 255, 0.12);
 }
+:root[data-theme="green"] {
+  --pink-50:#f0faf3; --pink-100:#dcf3e3; --pink-200:#bce8c9; --pink-300:#86d3a0;
+  --pink-400:#46b87a; --pink-500:#1f9d5b; --pink-600:#178048; --pink-700:#115f36;
+  --shadow: 0 10px 30px rgba(31, 157, 91, 0.15);
+  --shadow-sm: 0 4px 14px rgba(31, 157, 91, 0.12);
+}
 
 /* Dark mode — neutral dark surfaces; the theme accent (300-700) is preserved.
    Placed after the themes so it wins for the surface/text tokens it sets. */
@@ -48,7 +54,7 @@
 /* Gray theme accent is dark by design — lighten it in dark mode so headings,
    the brand, counters and labels read as crisp light text. */
 :root[data-mode="dark"][data-theme="gray"],
-:root[data-mode="dark"]:not([data-theme="pink"]):not([data-theme="blue"]) {
+:root[data-mode="dark"]:not([data-theme="pink"]):not([data-theme="blue"]):not([data-theme="green"]) {
   --pink-400: #9aa1b2;
   --pink-500: #aeb6c7;
   --pink-600: #d7dbe6;

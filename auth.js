@@ -10,7 +10,7 @@ const { db } = require('./db');
 // separator). theme is optional and is one of pink|blue|gray (default gray).
 // Lines that are blank or start with '#' are ignored.
 const USERS_FILE = process.env.USERS_FILE || path.join(__dirname, 'COLLEGEBOARD', 'users.txt');
-const THEMES = new Set(['pink', 'blue', 'gray']);
+const THEMES = new Set(['pink', 'blue', 'gray', 'green']);
 
 function parseUsersFile(text) {
   const out = [];
