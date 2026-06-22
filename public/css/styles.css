@@ -878,3 +878,19 @@ body.login-page {
 .mb.low i { background: #e23b5a; }
 .cal-attempt { margin: 6px 0; }
 .diff-badge.fresh { background: var(--green); color: #fff; }
+
+/* Home hierarchy: Difficulty group -> Domain card -> Skill mastery */
+.diff-group-h { margin: 20px 0 10px; font-size: 1.15rem; color: var(--pink-600); }
+.tc-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.tc-round { margin: 4px 0 8px; }
+.start-btn { width: 100%; margin: 4px 0 12px; }
+.skill-mastery-h { font-weight: 700; margin-bottom: 6px; }
+.skill-mastery { display: flex; flex-direction: column; gap: 6px; }
+.skill-mini { display: grid; grid-template-columns: 1fr 90px 52px; align-items: center; gap: 8px; }
+.sm-name { font-size: 0.9rem; }
+.sm-bar { height: 10px; background: var(--pink-100); border-radius: 999px; overflow: hidden; }
+.sm-bar i { display: block; height: 100%; border-radius: 999px; }
+.sm-bar i.ok { background: var(--green); }
+.sm-bar i.mid { background: var(--amber); }
+.sm-bar i.low { background: #e23b5a; }
+.sm-pct { font-weight: 800; font-size: 0.85rem; text-align: right; }

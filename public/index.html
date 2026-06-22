@@ -88,21 +88,18 @@
         ? '🎉 Both goals reached today — amazing! 40 Math + 40 Reading done!'
         : `Goal: 40 Math + 40 Reading. Left today — 🔢 ${mLeft} math, 📖 ${rLeft} reading.`;
 
-      // Group catalogue by domain then topic
-      const byDomainTopic = {};
-      for (const item of data.catalogue) {
-        const key = `${item.domain}|${item.topic}`;
-        if (!byDomainTopic[key]) byDomainTopic[key] = { domain: item.domain, topic: item.topic, topicName: item.topicName, difficulties: [] };
-        byDomainTopic[key].difficulties.push(item);
-      }
-
+      // Hierarchy: Math/Reading (tab) -> Difficulty -> Domain(topic) -> Skill
+      const cat = data.catalogue;
+      const skillCat = data.skillCatalogue || [];
       const wrap = document.getElementById('domainSections');
       wrap.innerHTML = '';
       const tabBar = document.createElement('div');
       tabBar.className = 'home-tabs';
       wrap.appendChild(tabBar);
 
-      const avail = DOMAIN_ORDER.filter(d => Object.values(byDomainTopic).some(g => g.domain === d.domain));
+      const avail = DOMAIN_ORDER.filter(d => cat.some(c => c.domain === d.domain && c.total > 0));
+      const masteryClass = (p) => p >= 80 ? 'ok' : p >= 50 ? 'mid' : 'low';
+
       for (const { domain, emoji, label } of avail) {
         const tabBtn = document.createElement('button');
         tabBtn.className = 'home-tab';
@@ -111,57 +108,49 @@
         tabBtn.addEventListener('click', () => selectHomeTab(domain));
         tabBar.appendChild(tabBtn);
 
-        const section = document.createElement('div');
-        section.className = 'card home-panel';
-        section.dataset.panel = domain;
-        section.innerHTML = `<div class="topic-grid" id="tg-${domain}"></div>`;
-        wrap.appendChild(section);
+        const panel = document.createElement('div');
+        panel.className = 'home-panel';
+        panel.dataset.panel = domain;
 
-        const grid = section.querySelector(`#tg-${domain}`);
-        const topics = Object.values(byDomainTopic).filter(g => g.domain === domain);
-
-        for (const group of topics) {
-          const topicCard = document.createElement('div');
-          topicCard.className = 'topic-card';
-
-          const diffButtons = group.difficulties.map(item => {
-            const locked = !item.available;
-            const hasActive = !!item.activeSessionId;
-            let cls = 'diff-btn';
-            if (locked) cls += ' locked';
-            else if (hasActive) cls += ' active';
-
-            const roundPct = item.roundTotal > 0 ? Math.round((item.roundAttempted / item.roundTotal) * 100) : 0;
-            const badge = hasActive ? '<span class="diff-badge resume">▶ resume</span>'
+        let html = '';
+        for (const diff of ['medium', 'hard']) {
+          const items = cat.filter(c => c.domain === domain && c.difficulty === diff && c.total > 0);
+          if (!items.length) continue;
+          html += `<h3 class="diff-group-h">${diff === 'medium' ? '🟡 Medium' : '🔴 Hard'}</h3><div class="topic-grid">`;
+          for (const item of items) {
+            const roundPct = item.roundTotal ? Math.round((item.roundAttempted / item.roundTotal) * 100) : 0;
+            const badge = item.activeSessionId ? '<span class="diff-badge resume">▶ resume</span>'
               : (item.prevComplete ? '<span class="diff-badge fresh">🔄 new round</span>' : '');
-            const progress = item.total > 0
-              ? `<div class="diff-prog"><span style="width:${roundPct}%"></span></div>`
-              : '';
-            const countLine = locked
-              ? `<span class="diff-count empty">No questions yet</span>`
-              : `<span class="diff-count">Round ${item.round} · ${item.roundAttempted}/${item.roundTotal} done · ${item.mastered}/${item.total} ever correct</span>`;
+            const sk = skillCat.filter(s => s.domain === domain && s.topic === item.topic && s.difficulty === diff)
+              .sort((a, b) => (a.mastered / a.total) - (b.mastered / b.total));
+            const skillRows = sk.map(s => {
+              const pct = s.total ? Math.round((s.mastered / s.total) * 100) : 0;
+              return `<div class="skill-mini">
+                <span class="sm-name">${escapeHtml(s.skill)}</span>
+                <div class="sm-bar"><i class="${masteryClass(pct)}" style="width:${pct}%"></i></div>
+                <span class="sm-pct">${s.mastered}/${s.total}</span></div>`;
+            }).join('') || '<span class="note">No skills yet</span>';
 
-            return `
-              <button class="${cls}" data-topic="${item.topic}" data-difficulty="${item.difficulty}"
-                      data-round="${item.round}" data-deftl="${item.defaultTimeLimit}" data-name="${escapeHtml(group.topicName)}"
-                      ${locked ? 'disabled' : ''}>
-                <span class="diff-label">${item.difficulty === 'medium' ? '🟡 Medium' : '🔴 Hard'}</span>
+            html += `<div class="topic-card">
+              <div class="tc-head">
+                <div class="topic-name">${escapeHtml(item.topicName)}</div>
                 ${badge}
-                ${progress}
-                ${countLine}
-              </button>`;
-          }).join('');
-
-          topicCard.innerHTML = `
-            <div class="topic-name">${group.topicName}</div>
-            <div class="diff-row">${diffButtons}</div>
-          `;
-          grid.appendChild(topicCard);
+              </div>
+              <div class="note tc-round">Round ${item.round} · ${item.roundAttempted}/${item.roundTotal} this round · ${item.mastered}/${item.total} ever correct</div>
+              <div class="diff-prog"><span style="width:${roundPct}%"></span></div>
+              <button class="btn btn-primary start-btn" data-topic="${item.topic}" data-difficulty="${diff}"
+                      data-round="${item.round}" data-deftl="${item.defaultTimeLimit}" data-name="${escapeHtml(item.topicName)}">🚀 Start practice</button>
+              <div class="skill-mastery-h note">Skill mastery (correct at least once / total)</div>
+              <div class="skill-mastery">${skillRows}</div>
+            </div>`;
+          }
+          html += `</div>`;
         }
+        panel.innerHTML = html;
+        wrap.appendChild(panel);
       }
 
-      // Wire up buttons
-      document.querySelectorAll('.diff-btn:not([disabled])').forEach(btn => {
+      document.querySelectorAll('.start-btn').forEach(btn => {
         btn.addEventListener('click', () => openStartModal(btn.dataset));
       });
       if (avail.length) selectHomeTab(avail[0].domain);

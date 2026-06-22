@@ -146,6 +146,7 @@ async function handleApi(req, res, url) {
         user,
         today:        repo.getTodayProgress(uid),
         catalogue:    repo.getCatalogue(uid),
+        skillCatalogue: repo.getSkillCatalogue(uid),
         activeSession: repo.activeSessionInfo(uid),
         timeLimits:   repo.TIME_LIMITS,
         sessionSize:  repo.SESSION_SIZE,

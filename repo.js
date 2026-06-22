@@ -168,6 +168,22 @@ function getCatalogue(userId) {
   return catalogue;
 }
 
+// Per-skill mastery across ALL of a user's attempts, for the Home breakdown.
+function getSkillCatalogue(userId) {
+  const rows = db.prepare("SELECT id, domain, topic, difficulty, COALESCE(skill,'(unspecified)') skill FROM questions").all();
+  const mastered = new Set(db.prepare('SELECT DISTINCT question_id id FROM attempts WHERE user_id=? AND is_correct=1').all(userId).map((r) => r.id));
+  const attempted = new Set(db.prepare('SELECT DISTINCT question_id id FROM attempts WHERE user_id=?').all(userId).map((r) => r.id));
+  const map = {};
+  for (const q of rows) {
+    const k = `${q.domain}|${q.topic}|${q.difficulty}|${q.skill}`;
+    if (!map[k]) map[k] = { domain: q.domain, topic: q.topic, difficulty: q.difficulty, skill: q.skill, total: 0, mastered: 0, attempted: 0 };
+    map[k].total++;
+    if (mastered.has(q.id)) map[k].mastered++;
+    if (attempted.has(q.id)) map[k].attempted++;
+  }
+  return Object.values(map);
+}
+
 function getTodayProgress(userId) {
   const rows = db.prepare(`
     SELECT q.domain, COUNT(*) n
@@ -722,7 +738,7 @@ function generatePlan(userId) {
 
 module.exports = {
   SESSION_SIZE, DAILY_GOAL, TIME_LIMIT, TIME_LIMITS, SESSION_MINUTES, timeLimitFor,
-  getCatalogue, getTodayProgress, activeSessionInfo,
+  getCatalogue, getSkillCatalogue, getTodayProgress, activeSessionInfo,
   createOrResumeSession, getSessionState,
   getQuestionAt, setCurrentPosition, saveProgress,
   submitAnswer, peekQuestion, timeoutQuestion, completeSession,
