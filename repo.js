@@ -212,7 +212,7 @@ function createOrResumeSession(userId, domain, topic, difficulty) {
     if (active.domain === domain && active.topic === topic && active.difficulty === difficulty) {
       return { id: active.id, resumed: true, size: countSQ(active.id) };
     }
-    const e = new Error(`Finish your active ${topicLabel(active.topic)} (${active.difficulty}) attempt before starting a new one.`);
+    const e = new Error(`Finish your active ${topicLabel(active.topic)} (${active.difficulty}) practice before starting a new one.`);
     e.status = 409; e.activeSessionId = active.id; throw e;
   }
 

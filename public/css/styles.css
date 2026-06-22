@@ -857,3 +857,23 @@ body.login-page {
 .home-tab.active:hover {
   box-shadow: 0 0 20px var(--pink-400), 0 6px 18px rgba(0,0,0,0.2);
 }
+
+/* Calendar: per-domain progress bars + day mini bars + panel subheads */
+.cal-sub { font-weight: 800; color: var(--pink-600); margin: 14px 0 8px; }
+.cal-domain-bars { display: flex; flex-direction: column; gap: 8px; margin-bottom: 6px; }
+.cdb { display: flex; align-items: center; gap: 10px; }
+.cdb-lbl { min-width: 92px; font-weight: 700; }
+.cdb-bar { flex: 1; height: 14px; background: var(--pink-100); border-radius: 999px; overflow: hidden; }
+.cdb-bar i { display: block; height: 100%; border-radius: 999px; }
+.cdb-pct { min-width: 64px; font-weight: 800; }
+.cdb-bar i.ok { background: var(--green); }
+.cdb-bar i.mid { background: var(--amber); }
+.cdb-bar i.low { background: #e23b5a; }
+
+.cal-day-bars { display: flex; flex-direction: column; gap: 2px; margin-top: 5px; }
+.mb { display: block; height: 4px; background: var(--pink-100); border-radius: 999px; overflow: hidden; }
+.mb i { display: block; height: 100%; border-radius: 999px; }
+.mb.ok i { background: var(--green); }
+.mb.mid i { background: var(--amber); }
+.mb.low i { background: #e23b5a; }
+.cal-attempt { margin: 6px 0; }

@@ -220,17 +220,61 @@ function sessionsByDay() {
   return map;
 }
 
+// ---- weekly/daily helpers (computed from attempts, Monday-based weeks) ----
+function mondayOf(dateStr) {
+  const d = new Date(dateStr + 'T00:00:00');
+  d.setDate(d.getDate() - ((d.getDay() + 6) % 7));
+  return d.toISOString().slice(0, 10);
+}
+function attemptsInWeek(mondayStr) {
+  const m = new Date(mondayStr + 'T00:00:00'); const end = new Date(m); end.setDate(m.getDate() + 7);
+  return allAttempts.filter((a) => { const t = new Date(a.answered_at.slice(0, 10) + 'T00:00:00'); return t >= m && t < end; });
+}
+function domainAccuracy(att) {
+  const r = { math: { n: 0, c: 0 }, reading: { n: 0, c: 0 } };
+  for (const a of att) { if (r[a.domain]) { r[a.domain].n++; if (a.is_correct) r[a.domain].c++; } }
+  for (const k of ['math', 'reading']) r[k].acc = r[k].n ? Math.round((r[k].c / r[k].n) * 100) : 0;
+  return r;
+}
+function accClassOf(acc) { return acc >= 80 ? 'ok' : acc >= 60 ? 'mid' : 'low'; }
+
+function domainBars(att) {
+  const da = domainAccuracy(att);
+  const row = (emoji, o) => `<div class="cdb"><span class="cdb-lbl">${emoji}</span>
+      <div class="cdb-bar"><i class="${accClassOf(o.acc)}" style="width:${o.n ? o.acc : 0}%"></i></div>
+      <span class="cdb-pct">${o.n ? o.acc + '%' : '—'} <span class="note">(${o.n})</span></span></div>`;
+  return `<div class="cal-domain-bars">${row('🔢 Math', da.math)}${row('📖 Reading', da.reading)}</div>`;
+}
+function dayMiniBars(att) {
+  const da = domainAccuracy(att);
+  const b = (o) => o.n ? `<span class="mb ${accClassOf(o.acc)}" title="${o.acc}%"><i style="width:${o.acc}%"></i></span>` : '';
+  if (!da.math.n && !da.reading.n) return '';
+  return `<div class="cal-day-bars">${b(da.math)}${b(da.reading)}</div>`;
+}
+
 function showCalDay(day) {
   const panel = $('calDayPanel');
-  const list = (sessionsByDay()[day] || []);
-  if (!list.length) {
-    panel.innerHTML = `<div class="note">No completed attempts on ${escapeHtml(day)}.</div>`;
-    panel.classList.remove('hidden');
-    return;
+  const dayList = (sessionsByDay()[day] || []);
+  const monday = mondayOf(day);
+  const weekAtt = attemptsInWeek(monday);
+  const wkLabel = new Date(monday + 'T00:00:00').toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+
+  // per-skill accuracy this week (weakest first)
+  const sm = {};
+  for (const a of weekAtt) {
+    const k = `${fmtTopic(a.topic)} · ${a.skill} (${a.difficulty})`;
+    (sm[k] = sm[k] || { n: 0, c: 0 });
+    sm[k].n++; if (a.is_correct) sm[k].c++;
   }
-  panel.innerHTML = `<div class="cal-panel-head"><b>${escapeHtml(day)}</b> · ${list.length} attempt${list.length === 1 ? '' : 's'}
-      <button class="task-del" id="calPanelClose" title="Close">✕</button></div>` +
-    list.map((s) => {
+  const skills = Object.entries(sm).map(([k, v]) => ({ label: k, n: v.n, acc: Math.round((v.c / v.n) * 100) }))
+    .sort((a, b) => a.acc - b.acc);
+
+  let html = `<div class="cal-panel-head"><b>${escapeHtml(day)}</b>
+      <button class="task-del" id="calPanelClose" title="Close">✕</button></div>`;
+
+  html += `<div class="cal-sub">📝 Practices on this day</div>`;
+  if (dayList.length) {
+    html += dayList.map((s) => {
       const emoji = s.domain === 'math' ? '🔢' : '📖';
       const sc = (s.score != null) ? `${s.score}/${s.total}` : `${s.answered}/${s.total}`;
       const acc = s.total ? Math.round((s.score / s.total) * 100) : 0;
@@ -239,9 +283,25 @@ function showCalDay(day) {
         <a class="btn btn-ghost" href="/session.html?id=${s.id}">Review answers →</a>
       </div>`;
     }).join('');
+  } else {
+    html += `<p class="note">No completed practices on this exact day (the weekly summary below still counts the whole week).</p>`;
+  }
+
+  html += `<div class="cal-sub">📊 Week of ${escapeHtml(wkLabel)} — accuracy by domain</div>`;
+  html += domainBars(weekAtt);
+  html += `<div class="cal-sub">🎯 This week's skills (weakest first)</div>`;
+  if (skills.length) {
+    html += `<ul class="report-list">` + skills.map((s) =>
+      `<li>${escapeHtml(s.label)} — <b>${s.acc}%</b> <span class="note">(${s.n} question${s.n === 1 ? '' : 's'})</span></li>`).join('') + `</ul>`;
+  } else {
+    html += `<p class="note">No practice recorded this week yet.</p>`;
+  }
+
+  panel.innerHTML = html;
   panel.classList.remove('hidden');
   const c = document.getElementById('calPanelClose');
   if (c) c.onclick = () => panel.classList.add('hidden');
+  panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
 function renderCalendar() {
@@ -249,6 +309,8 @@ function renderCalendar() {
   const cal = $('calendar');
   const activeDays = new Set((DATA.byDay || []).map((d) => d.day)); // YYYY-MM-DD with activity
   const byDaySessions = sessionsByDay();
+  const attByDay = {};
+  for (const a of allAttempts) { const d = a.answered_at.slice(0, 10); (attByDay[d] = attByDay[d] || []).push(a); }
   const today = new Date(); today.setHours(0, 0, 0, 0);
   // Monday of this week
   const start = new Date(today); start.setDate(today.getDate() - ((today.getDay() + 6) % 7));
@@ -280,13 +342,17 @@ function renderCalendar() {
       const past = d < today, isToday = ds === fmt(today);
       const beyond = d > EXAM;
       const did = activeDays.has(ds);
-      const nAtt = (byDaySessions[ds] || []).length;
+      const dayAtt = attByDay[ds] || [];
+      const nSess = (byDaySessions[ds] || []).length;
+      const hasAct = dayAtt.length > 0;
       const label = isTestWeek ? (i === 5 ? 'Full test' : (i === 6 ? 'Rest' : 'Review')) : plan[i];
-      const clickable = nAtt ? ' has-attempts' : '';
-      html += `<div class="cal-day ${isToday ? 'today' : ''} ${past ? 'past' : ''} ${beyond ? 'beyond' : ''} ${did ? 'did' : ''}${clickable}" ${nAtt ? `data-date="${ds}"` : ''}>
+      const clickable = hasAct ? ' has-attempts' : '';
+      const badge = nSess ? `${nSess} practice${nSess === 1 ? '' : 's'} ›` : (hasAct ? 'view week ›' : '');
+      html += `<div class="cal-day ${isToday ? 'today' : ''} ${past ? 'past' : ''} ${beyond ? 'beyond' : ''} ${did ? 'did' : ''}${clickable}" ${hasAct ? `data-date="${ds}"` : ''}>
         <span class="cal-dn">${dayNames[i]} ${d.getDate()}</span>
         <span class="cal-plan">${did ? '✅ ' : ''}${beyond ? '—' : label}</span>
-        ${nAtt ? `<span class="cal-att-badge">${nAtt} attempt${nAtt === 1 ? '' : 's'} ›</span>` : ''}
+        ${badge ? `<span class="cal-att-badge">${badge}</span>` : ''}
+        ${dayMiniBars(dayAtt)}
       </div>`;
     }
     html += `</div></div>`;

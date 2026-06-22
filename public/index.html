@@ -53,9 +53,9 @@
       if (ACTIVE) {
         const emoji = ACTIVE.domain === 'math' ? '🔢' : '📖';
         ab.innerHTML = `<div class="card" style="border:2px solid var(--amber)">
-          <h2 style="margin:0 0 6px">▶ Finish your active attempt first</h2>
-          <p class="note" style="margin:0 0 14px">You're in the middle of <b>${emoji} ${escapeHtml(ACTIVE.topicName)} (${ACTIVE.difficulty})</b> — ${ACTIVE.answeredCount}/${ACTIVE.total} done. Only one attempt can be open at a time.</p>
-          <a class="btn btn-primary btn-lg" href="/session.html?id=${ACTIVE.id}">Resume attempt →</a>
+          <h2 style="margin:0 0 6px">▶ Finish your active practice first</h2>
+          <p class="note" style="margin:0 0 14px">You're in the middle of <b>${emoji} ${escapeHtml(ACTIVE.topicName)} (${ACTIVE.difficulty})</b> — ${ACTIVE.answeredCount}/${ACTIVE.total} done. Only one practice can be open at a time.</p>
+          <a class="btn btn-primary btn-lg" href="/session.html?id=${ACTIVE.id}">Resume practice →</a>
         </div>`;
       } else {
         ab.innerHTML = '';
@@ -160,7 +160,7 @@
     async function startSession(topic, difficulty) {
       // Block starting a new attempt while one is active (server also enforces).
       if (ACTIVE && !(ACTIVE.topic === topic && ACTIVE.difficulty === difficulty)) {
-        if (confirm(`You have an active ${ACTIVE.topicName} (${ACTIVE.difficulty}) attempt. Resume it now?`)) {
+        if (confirm(`You have an active ${ACTIVE.topicName} (${ACTIVE.difficulty}) practice. Resume it now?`)) {
           window.location.href = `/session.html?id=${ACTIVE.id}`;
         }
         return;
