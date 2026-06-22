@@ -40,6 +40,7 @@ async function load() {
   renderSkills();
   populateSkillFilter();
   populateDateFilter();
+  populateRoundFilter();
   renderAttempts();
   renderCalendar();
   loadTasks();
@@ -63,6 +64,13 @@ function populateDateFilter() {
   const dates = [...new Set(allAttempts.map((a) => a.answered_at.slice(0, 10)))].sort().reverse();
   sel.innerHTML = '<option value="">All dates</option>' + dates.map((d) => `<option value="${d}">${d}</option>`).join('');
   if (dates.length) sel.value = dates[0]; // default to the most recent day
+}
+
+function populateRoundFilter() {
+  const sel = $('fRound');
+  if (!sel) return;
+  const rounds = [...new Set(allAttempts.map((a) => a.round || 1))].sort((a, b) => a - b);
+  sel.innerHTML = '<option value="">All</option>' + rounds.map((r) => `<option value="${r}">Round ${r}</option>`).join('');
 }
 
 // ---- Weekly trends + domain→skill drilldown -------------------------------
@@ -547,6 +555,7 @@ function renderSessions() {
 }
 
 function getFilteredAttempts() {
+  const round  = $('fRound') ? $('fRound').value : '';
   const date   = $('fDate') ? $('fDate').value : '';
   const sec    = $('fSection').value;
   const diff   = $('fDifficulty') ? $('fDifficulty').value : '';
@@ -554,6 +563,7 @@ function getFilteredAttempts() {
   const skill  = $('fSkill') ? $('fSkill').value : '';
   const search = $('fSearch').value.trim().toLowerCase();
   return allAttempts.filter((a) => {
+    if (round  && String(a.round) !== round) return false;
     if (date   && a.answered_at.slice(0, 10) !== date) return false;
     if (sec    && a.domain !== sec) return false;
     if (diff   && a.difficulty !== diff) return false;
@@ -569,7 +579,7 @@ function renderAttempts() {
   $('rowCount').textContent = `${rows.length} row${rows.length === 1 ? '' : 's'}`;
   const tbody = $('attemptsTable').querySelector('tbody');
   if (!rows.length) {
-    tbody.innerHTML = '<tr><td colspan="9" class="note">No attempts match your filters yet.</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="10" class="note">No attempts match your filters yet.</td></tr>';
     return;
   }
   tbody.innerHTML = rows.map((a) => {
@@ -580,6 +590,7 @@ function renderAttempts() {
     const topicName = (a.topic||'').replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
     return `<tr>
       <td>${fmtDate(a.answered_at)}</td>
+      <td>R${a.round || 1}</td>
       <td>${domainEmoji} ${topicName}</td>
       <td>${escapeHtml(a.skill || '—')}</td>
       <td>${a.difficulty === 'hard' ? '🔴' : '🟡'} ${a.difficulty}</td>
@@ -697,12 +708,13 @@ function renderReview(r) {
 
 function exportCsv() {
   const rows = getFilteredAttempts();
-  const header = ['Date', 'Test', 'Domain', 'Topic', 'Skill', 'Difficulty', 'Question', 'HerAnswer', 'Correct', 'Result', 'TimeSeconds'];
+  const header = ['Date', 'Round', 'Test', 'Domain', 'Topic', 'Skill', 'Difficulty', 'Question', 'HerAnswer', 'Correct', 'Result', 'TimeSeconds'];
   const lines = [header.join(',')];
   const q = (v) => '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"';
   for (const a of rows) {
     const cells = [
       a.answered_at,
+      a.round || 1,
       a.test || 'SAT',
       a.domain,
       a.topic,
@@ -725,7 +737,7 @@ function exportCsv() {
   URL.revokeObjectURL(url);
 }
 
-['fDate', 'fSection', 'fResult', 'fDifficulty', 'fSkill'].forEach((id) => { const el = $(id); if (el) el.addEventListener('change', renderAttempts); });
+['fRound', 'fDate', 'fSection', 'fResult', 'fDifficulty', 'fSkill'].forEach((id) => { const el = $(id); if (el) el.addEventListener('change', renderAttempts); });
 $('fSearch').addEventListener('input', renderAttempts);
 $('exportBtn').addEventListener('click', exportCsv);
 

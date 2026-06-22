@@ -578,10 +578,12 @@ function getDashboard(userId) {
 
   const attemptRows = db.prepare(`
     SELECT a.id, a.session_id, a.answered_at, q.domain, q.topic, q.difficulty,
-           COALESCE(q.skill,'(unspecified)') skill, q.test,
+           COALESCE(q.skill,'(unspecified)') skill, q.test, COALESCE(s.round,1) round,
            substr(q.prompt,1,90) prompt, a.selected, q.correct, a.is_correct,
            a.time_taken_seconds, a.over_limit, a.peeked
-    FROM attempts a JOIN questions q ON q.id=a.question_id
+    FROM attempts a
+    JOIN questions q ON q.id=a.question_id
+    LEFT JOIN sessions s ON s.id=a.session_id
     WHERE a.user_id=?
     ORDER BY a.answered_at DESC
   `).all(userId);
