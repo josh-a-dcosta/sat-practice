@@ -161,7 +161,7 @@ async function handleApi(req, res, url) {
       if (!isValidTopic(topic))      return sendJson(res, 400, { error: 'Invalid topic' });
       if (!isValidDifficulty(difficulty)) return sendJson(res, 400, { error: 'difficulty must be "medium" or "hard"' });
       const domain = domainOfTopic(topic);
-      const result = repo.createOrResumeSession(uid, domain, topic, difficulty);
+      const result = repo.createOrResumeSession(uid, domain, topic, difficulty, { timeLimitSeconds: body.timeLimitSeconds });
       return sendJson(res, 200, result);
     }
 

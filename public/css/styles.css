@@ -877,3 +877,4 @@ body.login-page {
 .mb.mid i { background: var(--amber); }
 .mb.low i { background: #e23b5a; }
 .cal-attempt { margin: 6px 0; }
+.diff-badge.fresh { background: var(--green); color: #fff; }

@@ -49,16 +49,18 @@ CREATE TABLE IF NOT EXISTS questions (
 );
 
 CREATE TABLE IF NOT EXISTS sessions (
-  id               INTEGER PRIMARY KEY AUTOINCREMENT,
-  user_id          INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  domain           TEXT NOT NULL CHECK (domain IN ('math','reading')),
-  topic            TEXT NOT NULL,
-  difficulty       TEXT NOT NULL DEFAULT 'medium',
-  status           TEXT NOT NULL DEFAULT 'in_progress' CHECK (status IN ('in_progress','completed')),
-  current_position INTEGER NOT NULL DEFAULT 1,
-  created_at       TEXT NOT NULL DEFAULT (datetime('now')),
-  completed_at     TEXT,
-  score            INTEGER
+  id                 INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id            INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  domain             TEXT NOT NULL CHECK (domain IN ('math','reading')),
+  topic              TEXT NOT NULL,
+  difficulty         TEXT NOT NULL DEFAULT 'medium',
+  round              INTEGER NOT NULL DEFAULT 1,
+  time_limit_seconds INTEGER,
+  status             TEXT NOT NULL DEFAULT 'in_progress' CHECK (status IN ('in_progress','completed')),
+  current_position   INTEGER NOT NULL DEFAULT 1,
+  created_at         TEXT NOT NULL DEFAULT (datetime('now')),
+  completed_at       TEXT,
+  score              INTEGER
 );
 
 CREATE TABLE IF NOT EXISTS session_questions (
@@ -123,6 +125,8 @@ db.exec('CREATE INDEX IF NOT EXISTS idx_q_skill ON questions(skill);');
 
 // Multi-user columns for databases created before per-user tracking existed.
 try { db.exec("ALTER TABLE users ADD COLUMN theme TEXT NOT NULL DEFAULT 'gray'"); } catch (_) { /* already exists */ }
+try { db.exec('ALTER TABLE sessions ADD COLUMN round INTEGER NOT NULL DEFAULT 1'); } catch (_) { /* already exists */ }
+try { db.exec('ALTER TABLE sessions ADD COLUMN time_limit_seconds INTEGER'); } catch (_) { /* already exists */ }
 try { db.exec('ALTER TABLE sessions ADD COLUMN user_id INTEGER'); } catch (_) { /* already exists */ }
 try { db.exec('ALTER TABLE attempts ADD COLUMN user_id INTEGER'); } catch (_) { /* already exists */ }
 db.exec('CREATE INDEX IF NOT EXISTS idx_sessions_user ON sessions(user_id);');

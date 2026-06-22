@@ -9,8 +9,44 @@ const TIME_LIMIT   = 120; // legacy default (medium)
 const TIME_LIMITS  = { medium: 120, hard: 150 }; // 2:00 medium, 2:30 hard
 const SESSION_MINUTES = 90;
 
+// Per-question time limits by round: round 1 is generous, round 2+ is faster.
+const ROUND_LIMITS = {
+  1: { medium: 120, hard: 150 }, // 2:00 / 2:30
+  2: { medium: 60,  hard: 120 }, // 1:00 / 2:00
+};
 function timeLimitFor(difficulty) {
   return TIME_LIMITS[difficulty] || TIME_LIMIT;
+}
+function defaultLimitFor(round, difficulty) {
+  const tbl = ROUND_LIMITS[round >= 2 ? 2 : 1];
+  return tbl[difficulty] || TIME_LIMIT;
+}
+
+function totalQuestions(domain, topic, difficulty) {
+  return db.prepare('SELECT COUNT(*) n FROM questions WHERE domain=? AND topic=? AND difficulty=?')
+    .get(domain, topic, difficulty).n;
+}
+function maxRound(userId, domain, topic, difficulty) {
+  const r = db.prepare('SELECT MAX(round) m FROM sessions WHERE user_id=? AND domain=? AND topic=? AND difficulty=?')
+    .get(userId, domain, topic, difficulty);
+  return (r && r.m) ? r.m : 0;
+}
+function attemptedInRound(userId, domain, topic, difficulty, round) {
+  return db.prepare(`
+    SELECT COUNT(DISTINCT a.question_id) n
+    FROM attempts a JOIN sessions s ON s.id = a.session_id
+    WHERE s.user_id=? AND s.domain=? AND s.topic=? AND s.difficulty=? AND s.round=?
+  `).get(userId, domain, topic, difficulty, round).n;
+}
+// The round the NEXT practice will use, plus its progress. When the current
+// round has covered every question, the next practice starts a fresh round.
+function roundInfo(userId, domain, topic, difficulty) {
+  const total = totalQuestions(domain, topic, difficulty);
+  const mr = maxRound(userId, domain, topic, difficulty);
+  if (mr === 0) return { round: 1, attempted: 0, total, prevComplete: false };
+  const att = attemptedInRound(userId, domain, topic, difficulty, mr);
+  if (total > 0 && att >= total) return { round: mr + 1, attempted: 0, total, prevComplete: true };
+  return { round: mr, attempted: att, total, prevComplete: false };
 }
 
 function shuffle(arr) {
@@ -113,11 +149,18 @@ function getCatalogue(userId) {
         const total = countRow ? countRow.total : 0;
         const masteredN = masteredMap[key] || 0;
         const activeId = activeMap[key] || null;
+        const ri = total > 0 ? roundInfo(userId, domain, topic, difficulty)
+                             : { round: 1, attempted: 0, total: 0, prevComplete: false };
         catalogue.push({
           domain, topic, topicName, difficulty,
           total, mastered: masteredN,
           available: total > 0,
           activeSessionId: activeId,
+          round: ri.round,
+          roundAttempted: ri.attempted,
+          roundTotal: ri.total,
+          prevComplete: ri.prevComplete,
+          defaultTimeLimit: defaultLimitFor(ri.round, difficulty),
         });
       }
     }
@@ -147,18 +190,22 @@ function getTodayProgress(userId) {
 // ---------------------------------------------------------------------------
 // question selection for a session
 // ---------------------------------------------------------------------------
-function selectQuestions(userId, domain, topic, difficulty, limit) {
+// Pick questions for a given round: any question not yet shown in THIS round
+// (and not currently in another in-progress practice). Shuffled per call so no
+// two users get the same order.
+function selectQuestions(userId, domain, topic, difficulty, round, limit) {
   const all = db.prepare(
     'SELECT id FROM questions WHERE domain=? AND topic=? AND difficulty=?'
   ).all(domain, topic, difficulty).map((r) => r.id);
 
   if (!all.length) return [];
 
-  const mastered = new Set(
-    db.prepare('SELECT DISTINCT question_id id FROM attempts WHERE is_correct=1 AND user_id=?').all(userId).map((r) => r.id)
-  );
-  const attempted = new Set(
-    db.prepare('SELECT DISTINCT question_id id FROM attempts WHERE user_id=?').all(userId).map((r) => r.id)
+  const seenInRound = new Set(
+    db.prepare(`
+      SELECT DISTINCT a.question_id id FROM attempts a
+      JOIN sessions s ON s.id = a.session_id
+      WHERE s.user_id=? AND s.domain=? AND s.topic=? AND s.difficulty=? AND s.round=?
+    `).all(userId, domain, topic, difficulty, round).map((r) => r.id)
   );
   const inProgress = new Set(
     db.prepare(`
@@ -168,12 +215,8 @@ function selectQuestions(userId, domain, topic, difficulty, limit) {
     `).all(userId).map((r) => r.id)
   );
 
-  const retake = [], fresh = [];
-  for (const id of all) {
-    if (mastered.has(id) || inProgress.has(id)) continue;
-    (attempted.has(id) ? retake : fresh).push(id);
-  }
-  return [...shuffle(retake), ...shuffle(fresh)].slice(0, limit);
+  const avail = all.filter((id) => !seenInRound.has(id) && !inProgress.has(id));
+  return shuffle(avail).slice(0, limit);
 }
 
 // ---------------------------------------------------------------------------
@@ -206,32 +249,38 @@ function activeSessionInfo(userId) {
   };
 }
 
-function createOrResumeSession(userId, domain, topic, difficulty) {
+function createOrResumeSession(userId, domain, topic, difficulty, opts = {}) {
   const active = getActiveAny(userId);
   if (active) {
     if (active.domain === domain && active.topic === topic && active.difficulty === difficulty) {
-      return { id: active.id, resumed: true, size: countSQ(active.id) };
+      return { id: active.id, resumed: true, size: countSQ(active.id), round: active.round };
     }
     const e = new Error(`Finish your active ${topicLabel(active.topic)} (${active.difficulty}) practice before starting a new one.`);
     e.status = 409; e.activeSessionId = active.id; throw e;
   }
 
-  const ids = selectQuestions(userId, domain, topic, difficulty, SESSION_SIZE);
+  const ri = roundInfo(userId, domain, topic, difficulty);
+  const round = ri.round;
+  const ids = selectQuestions(userId, domain, topic, difficulty, round, SESSION_SIZE);
   if (!ids.length) {
     const e = new Error(`No questions available for ${topicLabel(topic)} ${difficulty}. Upload questions for this section.`);
     e.status = 409; throw e;
   }
 
+  let tl = Number(opts.timeLimitSeconds);
+  if (!tl || tl < 5) tl = defaultLimitFor(round, difficulty);
+  tl = Math.max(10, Math.min(Math.round(tl), 3600));
+
   db.exec('BEGIN');
   try {
     const info = db.prepare(
-      'INSERT INTO sessions (user_id, domain, topic, difficulty) VALUES (?,?,?,?)'
-    ).run(userId, domain, topic, difficulty);
+      'INSERT INTO sessions (user_id, domain, topic, difficulty, round, time_limit_seconds) VALUES (?,?,?,?,?,?)'
+    ).run(userId, domain, topic, difficulty, round, tl);
     const sid = Number(info.lastInsertRowid);
     const ins = db.prepare('INSERT INTO session_questions (session_id,question_id,position) VALUES (?,?,?)');
     ids.forEach((qid, i) => ins.run(sid, qid, i + 1));
     db.exec('COMMIT');
-    return { id: sid, resumed: false, size: ids.length };
+    return { id: sid, resumed: false, size: ids.length, round };
   } catch (e) { db.exec('ROLLBACK'); throw e; }
 }
 
@@ -300,13 +349,14 @@ function attemptFeedback(q, attempt) {
 }
 
 function getQuestionAt(userId, sid, position) {
-  if (!getSessionRow(userId, sid)) return null;
+  const srow = getSessionRow(userId, sid);
+  if (!srow) return null;
   const sq = db.prepare('SELECT * FROM session_questions WHERE session_id=? AND position=?').get(sid, position);
   if (!sq) return null;
   const q = parseQ(db.prepare('SELECT * FROM questions WHERE id=?').get(sq.question_id));
   const attempt = db.prepare('SELECT * FROM attempts WHERE session_id=? AND question_id=?').get(sid, sq.question_id);
   const state = getSessionState(userId, sid);
-  const limit = timeLimitFor(q.difficulty);
+  const limit = srow.time_limit_seconds || timeLimitFor(q.difficulty);
   const out = {
     position, total: state.total, answeredCount: state.answeredCount,
     question: publicQuestion(q),
@@ -342,7 +392,7 @@ function resolveQuestion(userId, sid, questionId, opts) {
   const sq = db.prepare('SELECT * FROM session_questions WHERE session_id=? AND question_id=?').get(sid, questionId);
   if (!sq) { const e = new Error('Question not in this session.'); e.status = 400; throw e; }
   const q = parseQ(db.prepare('SELECT * FROM questions WHERE id=?').get(questionId));
-  const limit = timeLimitFor(q.difficulty);
+  const limit = s.time_limit_seconds || timeLimitFor(q.difficulty);
 
   let attempt = db.prepare('SELECT * FROM attempts WHERE session_id=? AND question_id=?').get(sid, questionId);
   if (!attempt) {

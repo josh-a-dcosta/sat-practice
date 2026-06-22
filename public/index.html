@@ -35,6 +35,22 @@
     <div id="domainSections"><div class="spinner">Loading…</div></div>
   </div>
 
+  <!-- Start practice dialog (adjust per-question timer) -->
+  <div class="modal-overlay hidden" id="startModal">
+    <div class="modal-card" style="max-width:460px">
+      <button class="modal-close" id="startClose" type="button" aria-label="Close">✕</button>
+      <h2 id="startTitle" style="margin-top:0">Start practice</h2>
+      <p class="note" id="startSub"></p>
+      <label class="spr-label" for="startMins">Minutes per question</label>
+      <input class="spr-input" id="startMins" type="number" min="0.5" max="10" step="0.5" />
+      <p class="note">Round 1 default: 2 min (medium) / 2.5 min (hard). Round 2+ : 1 / 2 min. Adjust if you like.</p>
+      <div style="display:flex; gap:10px; margin-top:14px">
+        <button class="btn btn-primary btn-lg" id="startGo" type="button" style="flex:1">🚀 Start</button>
+        <button class="btn btn-ghost btn-lg" id="startCancel" type="button">Cancel</button>
+      </div>
+    </div>
+  </div>
+
   <script src="/js/common.js"></script>
   <script>
     const DOMAIN_ORDER = [
@@ -115,17 +131,20 @@
             if (locked) cls += ' locked';
             else if (hasActive) cls += ' active';
 
-            const mastPct = item.total > 0 ? Math.round((item.mastered / item.total) * 100) : 0;
-            const badge = hasActive ? '<span class="diff-badge resume">▶ resume</span>' : '';
+            const roundPct = item.roundTotal > 0 ? Math.round((item.roundAttempted / item.roundTotal) * 100) : 0;
+            const badge = hasActive ? '<span class="diff-badge resume">▶ resume</span>'
+              : (item.prevComplete ? '<span class="diff-badge fresh">🔄 new round</span>' : '');
             const progress = item.total > 0
-              ? `<div class="diff-prog"><span style="width:${mastPct}%"></span></div>`
+              ? `<div class="diff-prog"><span style="width:${roundPct}%"></span></div>`
               : '';
             const countLine = locked
               ? `<span class="diff-count empty">No questions yet</span>`
-              : `<span class="diff-count">${item.mastered}/${item.total} mastered</span>`;
+              : `<span class="diff-count">Round ${item.round} · ${item.roundAttempted}/${item.roundTotal} done · ${item.mastered}/${item.total} ever correct</span>`;
 
             return `
-              <button class="${cls}" data-topic="${item.topic}" data-difficulty="${item.difficulty}" ${locked ? 'disabled' : ''}>
+              <button class="${cls}" data-topic="${item.topic}" data-difficulty="${item.difficulty}"
+                      data-round="${item.round}" data-deftl="${item.defaultTimeLimit}" data-name="${escapeHtml(group.topicName)}"
+                      ${locked ? 'disabled' : ''}>
                 <span class="diff-label">${item.difficulty === 'medium' ? '🟡 Medium' : '🔴 Hard'}</span>
                 ${badge}
                 ${progress}
@@ -143,10 +162,31 @@
 
       // Wire up buttons
       document.querySelectorAll('.diff-btn:not([disabled])').forEach(btn => {
-        btn.addEventListener('click', () => startSession(btn.dataset.topic, btn.dataset.difficulty));
+        btn.addEventListener('click', () => openStartModal(btn.dataset));
       });
       if (avail.length) selectHomeTab(avail[0].domain);
     }
+
+    let PENDING = null;
+    function openStartModal(d) {
+      // If this section has an active practice for a different one, defer to startSession's guard.
+      if (ACTIVE && !(ACTIVE.topic === d.topic && ACTIVE.difficulty === d.difficulty)) {
+        startSession(d.topic, d.difficulty);
+        return;
+      }
+      // Resume directly if this exact one is active.
+      if (ACTIVE && ACTIVE.topic === d.topic && ACTIVE.difficulty === d.difficulty) {
+        window.location.href = `/session.html?id=${ACTIVE.id}`;
+        return;
+      }
+      PENDING = { topic: d.topic, difficulty: d.difficulty };
+      const diffName = d.difficulty === 'medium' ? 'Medium' : 'Hard';
+      document.getElementById('startTitle').textContent = `${d.name} · ${diffName}`;
+      document.getElementById('startSub').textContent = `Round ${d.round} — 40 questions. Each question is timed.`;
+      document.getElementById('startMins').value = (Number(d.deftl) / 60);
+      document.getElementById('startModal').classList.remove('hidden');
+    }
+    function closeStartModal() { document.getElementById('startModal').classList.add('hidden'); PENDING = null; }
 
     function selectHomeTab(domain) {
       document.querySelectorAll('.home-tab').forEach(t => t.classList.toggle('active', t.dataset.tab === domain));
@@ -157,8 +197,8 @@
       return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
     }
 
-    async function startSession(topic, difficulty) {
-      // Block starting a new attempt while one is active (server also enforces).
+    async function startSession(topic, difficulty, timeLimitSeconds) {
+      // Block starting a new practice while one is active (server also enforces).
       if (ACTIVE && !(ACTIVE.topic === topic && ACTIVE.difficulty === difficulty)) {
         if (confirm(`You have an active ${ACTIVE.topicName} (${ACTIVE.difficulty}) practice. Resume it now?`)) {
           window.location.href = `/session.html?id=${ACTIVE.id}`;
@@ -166,7 +206,9 @@
         return;
       }
       try {
-        const result = await api('POST', '/api/sessions', { topic, difficulty });
+        const body = { topic, difficulty };
+        if (timeLimitSeconds) body.timeLimitSeconds = timeLimitSeconds;
+        const result = await api('POST', '/api/sessions', body);
         window.location.href = `/session.html?id=${result.id}`;
       } catch (e) {
         if (e.data && e.data.activeSessionId &&
@@ -177,6 +219,17 @@
         }
       }
     }
+
+    document.getElementById('startGo').onclick = () => {
+      if (!PENDING) return;
+      const mins = parseFloat(document.getElementById('startMins').value);
+      const secs = (mins && mins > 0) ? Math.round(mins * 60) : undefined;
+      const p = PENDING; closeStartModal();
+      startSession(p.topic, p.difficulty, secs);
+    };
+    document.getElementById('startCancel').onclick = closeStartModal;
+    document.getElementById('startClose').onclick = closeStartModal;
+    document.getElementById('startModal').addEventListener('click', (e) => { if (e.target.id === 'startModal') closeStartModal(); });
 
     load().catch(e => {
       document.getElementById('domainSections').innerHTML = `<div class="card"><p class="note">Could not load: ${e.message}</p></div>`;
