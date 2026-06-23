@@ -979,16 +979,12 @@ function generatePlan(userId) {
   const existing = new Set(
     db.prepare("SELECT skill||'|'||difficulty k FROM tasks WHERE user_id=? AND status='open'").all(userId).map((r) => r.k)
   );
-  const today = new Date();
-  const wed = nextWeekday(today, 3);
-  const sat = nextWeekday(today, 6);
   const created = [];
-  weak.forEach((s, i) => {
+  weak.forEach((s) => {
     const key = `${s.skill}|${s.difficulty}`;
     if (existing.has(key)) return;
     const acc = s.attempts ? Math.round((s.correct / s.attempts) * 100) : 0;
     created.push(addTask(userId, {
-      due_date: i % 2 === 0 ? wed : sat,
       domain: s.domain, topic: s.topic, difficulty: s.difficulty, skill: s.skill,
       title: `Practice: ${topicLabel(s.topic)} — ${s.skill} (${s.difficulty})`,
       detail: `Currently ${acc}%. Review explanations and redo ~10 questions to push above 70%.`,

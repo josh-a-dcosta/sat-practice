@@ -32,26 +32,21 @@ async function load() {
   DAILY = {}; for (const d of (DATA.dailyActivity || [])) DAILY[d.day] = d;
   SUMMARY = {}; for (const s of (DATA.dailySummaries || [])) SUMMARY[s.day] = s;
 
-  // goal banner
-  const t = DATA.today;
-  const pct = Math.min(100, Math.round((t.answeredToday / t.goal) * 100));
-  $('goalFill').style.width = pct + '%';
-  $('goalCount').textContent = `🔢 ${t.mathToday}/${t.goalPerDomain} · 📖 ${t.readingToday}/${t.goalPerDomain}`;
-  $('goalSub').textContent = t.met
-    ? '🎉 Both goals reached — 40 Math + 40 Reading done!'
-    : `Goal: 40 Math + 40 Reading. Left — 🔢 ${Math.max(0, t.goalPerDomain - t.mathToday)} math, 📖 ${Math.max(0, t.goalPerDomain - t.readingToday)} reading.`;
-
   renderTiles();
   renderWeeklyReport();
   renderSkills();
   populateDomainFilter();
   populateSkillFilter();
-  populateDateFilter();
   populateRoundFilter();
-  renderAttempts();
   renderCalendar();
   loadTasks();
-  showView('dashboard');   // charts are the default; menu buttons show other sections
+  // Filtered List is manual — wait for Search rather than dumping everything.
+  $('attemptsTable').querySelector('tbody').innerHTML =
+    '<tr><td colspan="10" class="note">Set the filters and click 🔎 Search to see matching questions.</td></tr>';
+  // Restore the last section the user was on (default to the charts overview).
+  const saved = localStorage.getItem('dashView') || 'dashboard';
+  const known = ['dashboard', 'calendar', 'weekly', 'skills', 'tasks'];
+  showView(known.includes(saved) ? saved : 'dashboard');
 }
 
 // Switch which dashboard section is visible (charts render on show so they
@@ -63,13 +58,6 @@ function showView(name) {
   if (name === 'dashboard') renderOverviewCharts();
   if (name === 'weekly') { renderWeeklyTrends(); renderSectionCharts(); }
   window.scrollTo(0, 0);
-}
-
-function populateDateFilter() {
-  const sel = $('fDate');
-  if (!sel) return;
-  const dates = [...new Set(ACTIVITY.map((a) => a.day))].sort().reverse();
-  sel.innerHTML = '<option value="">All dates</option>' + dates.map((d) => `<option value="${d}">${d}</option>`).join('');
 }
 
 function populateRoundFilter() {
@@ -225,21 +213,37 @@ async function loadTasks() {
   } catch (_) { /* ignore */ }
 }
 
+// The round a task belongs to = the current round of its section (from the
+// catalogue). Custom tasks with no section go under "Custom".
+function taskRoundLabel(t) {
+  if (!t.domain || !t.topic || !t.difficulty) return 'Custom';
+  const c = (DATA.catalogue || []).find((x) => x.domain === t.domain && x.topic === t.topic && x.difficulty === t.difficulty);
+  return c ? `Round ${c.round}` : 'Custom';
+}
+
 function renderTasks(tasks) {
   const el = $('taskList');
   if (!tasks.length) {
     el.innerHTML = '<p class="note">No focus tasks yet. Click “Build my plan” to turn your weak skills into a checklist. ✨</p>';
     return;
   }
-  el.innerHTML = tasks.map((t) => {
-    const done = t.status === 'done';
-    const due = t.due_date ? `<span class="task-due">📅 ${escapeHtml(t.due_date)}</span>` : '';
-    return `<div class="task-item ${done ? 'done' : ''}">
-      <label><input type="checkbox" data-task="${t.id}" ${done ? 'checked' : ''}/>
-        <span><b>${escapeHtml(t.title)}</b>${t.detail ? `<br><span class="note">${escapeHtml(t.detail)}</span>` : ''}</span></label>
-      <span style="margin-left:auto; display:flex; gap:10px; align-items:center">${due}
-        <button class="task-del" data-del="${t.id}" title="Delete">✕</button></span>
-    </div>`;
+  const groups = {};
+  for (const t of tasks) { const k = taskRoundLabel(t); (groups[k] = groups[k] || []).push(t); }
+  const keys = Object.keys(groups).sort((a, b) => {
+    const na = a.startsWith('Round') ? parseInt(a.slice(6), 10) : Infinity;
+    const nb = b.startsWith('Round') ? parseInt(b.slice(6), 10) : Infinity;
+    return na - nb;
+  });
+  el.innerHTML = keys.map((key) => {
+    const rows = groups[key].map((t) => {
+      const done = t.status === 'done';
+      return `<div class="task-item ${done ? 'done' : ''}">
+        <label><input type="checkbox" data-task="${t.id}" ${done ? 'checked' : ''}/>
+          <span><b>${escapeHtml(t.title)}</b>${t.detail ? `<br><span class="note">${escapeHtml(t.detail)}</span>` : ''}</span></label>
+        <span style="margin-left:auto"><button class="task-del" data-del="${t.id}" title="Delete">✕</button></span>
+      </div>`;
+    }).join('');
+    return `<div class="task-group"><h3 class="mini-h task-group-h">${escapeHtml(key)}</h3>${rows}</div>`;
   }).join('');
 }
 
@@ -317,20 +321,25 @@ function showCalDay(day) {
   panel.innerHTML = html;
   panel.classList.remove('hidden');
   $('calPanelClose').onclick = () => panel.classList.add('hidden');
-  const step = (n) => { const d = new Date(day + 'T00:00:00'); d.setDate(d.getDate() + n); showCalDay(localYmd(d)); };
+  // Day navigation keeps the week grid below in sync with the day on display.
+  const step = (n) => {
+    const d = new Date(day + 'T00:00:00'); d.setDate(d.getDate() + n);
+    const nd = localYmd(d);
+    calWeekMonday = mondayOf(nd);
+    renderCalendar();
+    showCalDay(nd);
+  };
   $('calDayPrev').onclick = () => step(-1);
   $('calDayNext').onclick = () => step(1);
   panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
 function renderCalendar() {
-  const EXAM = new Date('2026-08-22T00:00:00');
   const cal = $('calendar');
   const todayStr = localYmd(new Date());
   const dayNames = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
   const monday = new Date(calWeekMonday + 'T00:00:00');
-  const weekEnd = new Date(monday); weekEnd.setDate(monday.getDate() + 6);
   const isThisWeek = mondayOf(todayStr) === calWeekMonday;
 
   let html = `<div class="cal-toolbar">
@@ -345,23 +354,16 @@ function renderCalendar() {
     const d = new Date(monday); d.setDate(monday.getDate() + i);
     const ds = localYmd(d);
     const isToday = ds === todayStr;
-    const isExam = ds === localYmd(EXAM);
     const entry = DAILY[ds];
     const hasAct = entry && entry.total > 0;
-    const tag = isExam ? '🎯 SAT day!' : '';
     const badge = hasAct ? `${(entry.practices || []).length || ''} ${(entry.practices || []).length === 1 ? 'practice' : 'practices'} ›`.trim() : '';
-    html += `<div class="cal-day ${isToday ? 'today' : ''} ${isExam ? 'exam' : ''} ${hasAct ? 'did has-attempts' : ''}" ${hasAct ? `data-date="${ds}"` : ''}>
+    html += `<div class="cal-day ${isToday ? 'today' : ''} ${hasAct ? 'did has-attempts' : ''}" ${hasAct ? `data-date="${ds}"` : ''}>
       <span class="cal-dn">${dayNames[i]} ${d.getDate()}</span>
-      ${tag ? `<span class="cal-plan">${tag}</span>` : ''}
       ${hasAct ? dayStatusDots(entry.counts) : '<span class="cal-plan note">—</span>'}
       ${badge ? `<span class="cal-att-badge">${badge}</span>` : ''}
     </div>`;
   }
   html += `</div></div>`;
-
-  const today = new Date(); today.setHours(0, 0, 0, 0);
-  const weeksLeft = Math.max(0, Math.ceil((EXAM - today) / (7 * 86400000)));
-  $('calIntro').textContent = `${weeksLeft} week(s) until the SAT on Aug 22. Each day records what you did — tap a day with activity to see the details. Use ◀ ▶ to browse any week.`;
   cal.innerHTML = html;
 
   $('calPrev').onclick = () => { const m = new Date(calWeekMonday + 'T00:00:00'); m.setDate(m.getDate() - 7); calWeekMonday = localYmd(m); renderCalendar(); };
@@ -559,7 +561,6 @@ function getFilteredActivity() {
   const round   = $('fRound') ? $('fRound').value : '';
   const diff    = $('fDifficulty') ? $('fDifficulty').value : '';
   const status  = $('fStatus') ? $('fStatus').value : '';
-  const date    = $('fDate') ? $('fDate').value : '';
   const search  = $('fSearch').value.trim().toLowerCase();
   return ACTIVITY.filter((a) => {
     if (subject && a.domain !== subject) return false;
@@ -568,7 +569,6 @@ function getFilteredActivity() {
     if (round   && String(a.round) !== round) return false;
     if (diff    && a.difficulty !== diff) return false;
     if (status  && a.status !== status) return false;
-    if (date    && a.day !== date) return false;
     if (search  && !(a.prompt || '').toLowerCase().includes(search)) return false;
     return true;
   });
@@ -740,7 +740,7 @@ $('fDomain').addEventListener('change', populateSkillFilter);
 $('fSearch').addEventListener('keydown', (e) => { if (e.key === 'Enter') renderAttempts(); });
 $('searchBtn').addEventListener('click', renderAttempts);
 $('clearBtn').addEventListener('click', () => {
-  ['fSubject', 'fDomain', 'fSkill', 'fRound', 'fDifficulty', 'fStatus', 'fDate'].forEach((id) => { if ($(id)) $(id).value = ''; });
+  ['fSubject', 'fDomain', 'fSkill', 'fRound', 'fDifficulty', 'fStatus'].forEach((id) => { if ($(id)) $(id).value = ''; });
   $('fSearch').value = '';
   populateDomainFilter(); populateSkillFilter();
   renderAttempts();
@@ -756,7 +756,7 @@ document.querySelectorAll('.dash-menu .menu-btn[data-view]').forEach((b) => {
 $('skillsTable').addEventListener('click', (e) => {
   const row = e.target.closest('.skill-row');
   if (!row) return;
-  ['fSubject', 'fDomain', 'fRound', 'fDifficulty', 'fStatus', 'fDate'].forEach((id) => { if ($(id)) $(id).value = ''; });
+  ['fSubject', 'fDomain', 'fRound', 'fDifficulty', 'fStatus'].forEach((id) => { if ($(id)) $(id).value = ''; });
   $('fSearch').value = '';
   populateDomainFilter(); populateSkillFilter();
   const sel = $('fSkill');

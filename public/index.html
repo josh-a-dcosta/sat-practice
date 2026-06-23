@@ -157,35 +157,46 @@
                 <span class="sm-pct">${s.mastered}/${s.total}</span></div>`;
             }).join('') || '<span class="note">No skills yet</span>';
 
-            // One mini completion bar per round attempted, newest action highlighted.
+            // Per-round block: a completion bar + an accuracy bar. Round numbers
+            // are positional (1,2,3…) so they always increment.
             const rounds = item.rounds || [];
-            let roundBars = rounds.map(r => {
+            let roundBars = rounds.map((r, idx) => {
               const active = r.status === 'in_progress';
-              const tag = active ? '◀ active' : '✓ done';
+              const tag = active ? '<span class="rr-tag">◀ active</span>' : '<span class="rr-tag"></span>';
               const acc = r.resolved ? Math.round((r.correct / r.resolved) * 100) : 0;
               const accCls = acc >= 80 ? 'ok' : acc >= 50 ? 'mid' : 'low';
-              const accChip = r.resolved
-                ? `<span class="rr-acc ${accCls}" title="${r.correct}/${r.resolved} correct">🎯 ${acc}%</span>`
-                : `<span class="rr-acc note">🎯 —</span>`;
-              return `<div class="round-row${active ? ' active' : ''}">
-                <span class="rr-label">Round ${r.round}</span>
-                <div class="rr-bar"><span style="width:${r.pct}%"></span></div>
-                <span class="rr-pct">${r.pct}%</span>
-                ${accChip}
-                <span class="rr-tag">${tag}</span></div>`;
+              const accBar = r.resolved
+                ? `<div class="rr-bar acc"><span class="${accCls}" style="width:${acc}%"></span></div><span class="rr-pct">${acc}%</span>`
+                : `<div class="rr-bar acc"><span style="width:0%"></span></div><span class="rr-pct note">—</span>`;
+              return `<div class="round-block${active ? ' active' : ''}">
+                <div class="round-row">
+                  <span class="rr-label">Round ${idx + 1}</span>
+                  <div class="rr-bar"><span style="width:${r.pct}%"></span></div>
+                  <span class="rr-pct">${r.pct}%</span>${tag}</div>
+                <div class="round-row acc-row">
+                  <span class="rr-label">Accuracy</span>${accBar}<span class="rr-tag"></span></div>
+              </div>`;
             }).join('');
             if (!rounds.length) {
-              roundBars = `<div class="round-row"><span class="rr-label">Round 1</span>
-                <div class="rr-bar"><span style="width:0%"></span></div>
-                <span class="rr-pct">0%</span><span class="rr-acc note">🎯 —</span>
-                <span class="rr-tag note">not started</span></div>`;
+              roundBars = `<div class="round-block">
+                <div class="round-row"><span class="rr-label">Round 1</span>
+                  <div class="rr-bar"><span style="width:0%"></span></div>
+                  <span class="rr-pct">0%</span><span class="rr-tag note">not started</span></div>
+                <div class="round-row acc-row"><span class="rr-label">Accuracy</span>
+                  <div class="rr-bar acc"><span style="width:0%"></span></div>
+                  <span class="rr-pct note">—</span><span class="rr-tag"></span></div>
+              </div>`;
             }
+
+            // Display round number is positional and consistent with the bars.
+            const activeIdx = rounds.findIndex(r => r.status === 'in_progress');
+            const displayRound = activeIdx >= 0 ? activeIdx + 1 : rounds.length + 1;
 
             // Start / Resume button reflects the section's state.
             let btnLabel, cls = 'btn btn-primary start-btn';
-            if (item.activeSessionId) btnLabel = `▶ Resume Round ${item.round}`;
-            else if (item.prevComplete) btnLabel = `🔄 Start Round ${item.round}`;
-            else btnLabel = `🚀 Start Round ${item.round}`;
+            if (item.activeSessionId) btnLabel = `▶ Resume Round ${displayRound}`;
+            else if (item.prevComplete) btnLabel = `🔄 Start Round ${displayRound}`;
+            else btnLabel = `🚀 Start Round ${displayRound}`;
 
             html += `<div class="topic-card">
               <div class="tc-head">
@@ -194,7 +205,7 @@
               </div>
               <div class="round-bars">${roundBars}</div>
               <button class="${cls}" data-topic="${item.topic}" data-difficulty="${diff}"
-                      data-round="${item.round}" data-deftl="${item.defaultTimeLimit}"
+                      data-round="${displayRound}" data-deftl="${item.defaultTimeLimit}"
                       data-session="${item.activeSessionId || ''}" data-name="${escapeHtml(item.topicName)}">${btnLabel}</button>
               <div class="skill-mastery-h note">Skill mastery (correct at least once / total)</div>
               <div class="skill-mastery">${skillRows}</div>

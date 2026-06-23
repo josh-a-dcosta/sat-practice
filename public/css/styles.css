@@ -434,20 +434,26 @@ table.data tr:hover td { background: var(--pink-50); }
 }
 
 /* Per-round completion mini-bars inside a Home block */
-.round-bars { display: flex; flex-direction: column; gap: 6px; margin: 8px 0 12px; }
-.round-row { display: grid; grid-template-columns: 64px 1fr 40px auto auto; align-items: center; gap: 8px; }
-.round-row.active .rr-label { color: var(--pink-600); font-weight: 800; }
+.round-bars { display: flex; flex-direction: column; gap: 10px; margin: 8px 0 12px; }
+.round-block { display: flex; flex-direction: column; gap: 4px; }
+.round-row { display: grid; grid-template-columns: 64px 1fr 40px auto; align-items: center; gap: 8px; }
+.round-block.active .rr-label { color: var(--pink-600); font-weight: 800; }
 .rr-label { font-size: 0.82rem; font-weight: 700; color: var(--muted); }
 .rr-bar { height: 8px; background: var(--pink-100); border-radius: 999px; overflow: hidden; }
 .rr-bar span { display: block; height: 100%; background: var(--pink-300); border-radius: 999px; transition: width 0.3s; }
-.round-row.active .rr-bar span { background: var(--pink-500); }
+.round-block.active .rr-bar span { background: var(--pink-500); }
+/* Accuracy bar: muted track, color-coded fill by performance */
+.acc-row .rr-label { font-weight: 600; opacity: 0.9; }
+.rr-bar.acc span { background: var(--pink-300); }
+.rr-bar.acc span.ok { background: var(--green); }
+.rr-bar.acc span.mid { background: var(--amber); }
+.rr-bar.acc span.low { background: var(--pink-500); }
 .rr-pct { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-align: right; }
-.rr-acc { font-size: 0.72rem; font-weight: 800; white-space: nowrap; padding: 1px 7px; border-radius: 999px; background: var(--pink-100); color: var(--pink-700); }
-.rr-acc.ok { background: #e3f7ee; color: var(--green); }
-.rr-acc.mid { background: #fff0e0; color: #b9722a; }
-.rr-acc.low { background: #ffe4ef; color: var(--pink-600); }
-.rr-tag { font-size: 0.72rem; font-weight: 800; color: var(--green); white-space: nowrap; }
-.round-row.active .rr-tag { color: var(--pink-600); }
+.rr-tag { font-size: 0.72rem; font-weight: 800; color: var(--pink-600); white-space: nowrap; }
+
+/* Suggested Practice grouped by round */
+.task-group { margin-bottom: 8px; }
+.task-group-h { margin: 14px 0 6px; color: var(--pink-600); }
 .tc-count { font-weight: 700; white-space: nowrap; }
 
 /* Quick-resume strip (multiple active rounds) */
@@ -904,6 +910,8 @@ body.login-page {
 /* Session toolbar: keep Home/Dashboard reachable even in full screen */
 .toolbar-left { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .toolbar-left .btn { padding: 9px 16px; }
+.toolbar-right { display: flex; align-items: center; gap: 8px; }
+.toolbar-right .btn { padding: 9px 16px; }
 
 /* Glow the whole button on hover (not just the text) */
 .btn:hover { transform: translateY(-1px); box-shadow: 0 0 18px var(--pink-300), 0 8px 22px rgba(0,0,0,0.18); }
