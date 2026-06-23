@@ -1,7 +1,7 @@
 // Shared helpers used across pages.
 
 // ----- Theme (accent color) + light/dark mode -----
-const THEME_ICON = { pink: '🌸', blue: '⚽', gray: '🎓', green: '🌿', yellow: '🌟' };
+const THEME_ICON = { pink: '🏆', blue: '⚽', gray: '🎓', green: '🌿', yellow: '🌟' };
 
 function brandIcon(theme) { return THEME_ICON[theme] || THEME_ICON.gray; }
 
