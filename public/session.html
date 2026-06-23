@@ -102,14 +102,16 @@
           <div class="q-actions">
             <button class="btn btn-ghost" id="prevBtn">← Previous</button>
             <button class="btn btn-primary" id="submitBtn" disabled>Submit answer</button>
+            <button class="btn btn-ghost" id="skipBtn" title="Come back to this one later">⏭ Skip for now</button>
             <button class="btn btn-ghost" id="nextBtn">Next →</button>
           </div>
 
           <hr class="soft-rule" />
           <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px">
-            <strong>Your questions</strong>
-            <div id="finishControls">
-              <button class="btn btn-primary" id="finishBtn" disabled>🎉 Finish</button>
+            <strong>This round</strong>
+            <div id="finishControls" style="display:flex; gap:8px; align-items:center; flex-wrap:wrap">
+              <button class="btn btn-ghost hidden" id="skippedBtn" type="button">⏭ Skipped (0)</button>
+              <button class="btn btn-primary" id="finishBtn" disabled>🎉 Finish round</button>
             </div>
             <div id="doneControls" class="hidden" style="display:flex; gap:8px; align-items:center; flex-wrap:wrap">
               <span class="done-score" id="doneScore"></span>
@@ -117,8 +119,8 @@
               <button class="btn btn-primary" id="closeBtn" type="button">✕ Close</button>
             </div>
           </div>
-          <p class="note" id="finishNote">Answer every question to finish. Jump around with the map.</p>
-          <p class="note map-legend">🟩 correct &nbsp;·&nbsp; 🟥 review (wrong / peeked / over time) &nbsp;·&nbsp; ⬜ not done. Tap a box to revisit it.</p>
+          <p class="note" id="finishNote">Resolve every question to finish the round. Skip the tricky ones and come back — jump around with the map.</p>
+          <p class="note map-legend">🟩 correct &nbsp;·&nbsp; 🟥 review (wrong / peeked / over time) &nbsp;·&nbsp; 🟧 skipped &nbsp;·&nbsp; ⬜ not done. Tap a box to revisit it.</p>
           <div class="map" id="map"></div>
         </div>
       </div>

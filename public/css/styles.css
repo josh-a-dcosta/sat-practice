@@ -334,6 +334,7 @@ h2 { font-size: 1.4rem; margin: 0 0 14px; }
 .map button.answered { background: var(--pink-200); color: var(--pink-700); border-color: var(--pink-300); }
 .map button.correct { border-color: var(--green); border-width: 3px; color: var(--green); background: transparent; }
 .map button.wrong { border-color: #e23b5a; border-width: 3px; color: #e23b5a; background: transparent; }
+.map button.skipped { border-color: var(--amber); border-width: 3px; color: var(--amber); background: transparent; }
 .map button.current { box-shadow: 0 0 0 3px var(--pink-100); }
 :root[data-mode="dark"] .map button.correct { color: #4ee08a; border-color: #4ee08a; }
 :root[data-mode="dark"] .map button.wrong { color: #ff7088; border-color: #ff7088; }
