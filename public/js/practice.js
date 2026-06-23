@@ -567,7 +567,8 @@ $('skipBtn').onclick = skipCurrent;
 $('skippedBtn').onclick = () => { const p = firstSkipped(); if (p) gotoPosition(p); };
 $('finishBtn').onclick = () => completeAndReview();
 $('pauseBtn').onclick = pauseExit;
-$('topCloseBtn').onclick = () => { location.href = '/'; };
+// Close returns to wherever the session was opened from (dashboard vs home).
+$('topCloseBtn').onclick = () => { location.href = getParam('return') === 'dashboard' ? '/dashboard.html' : '/'; };
 $('revealBtn').onclick = peekAnswer;
 $('fbNext').onclick = goNext;
 $('zoomIn').onclick = () => zoomBy(ZOOM_STEP);

@@ -47,6 +47,11 @@ async function load() {
   const saved = localStorage.getItem('dashView') || 'dashboard';
   const known = ['dashboard', 'calendar', 'weekly', 'skills', 'tasks'];
   showView(known.includes(saved) ? saved : 'dashboard');
+  // If they left from a calendar day, reopen that day (week + practices panel).
+  if (saved === 'calendar') {
+    const cd = localStorage.getItem('dashCalDay');
+    if (cd) { calWeekMonday = mondayOf(cd); renderCalendar(); showCalDay(cd); }
+  }
 }
 
 // Switch which dashboard section is visible (charts render on show so they
@@ -313,14 +318,16 @@ function showCalDay(day) {
       return `<div class="cal-attempt">
         <span>${emoji} <b>${escapeHtml(p.topicName)}</b> <span class="note">${p.difficulty} · Round ${p.round}</span>
           · ${p.events} action${p.events === 1 ? '' : 's'} · ${acc}% on resolved</span>
-        <a class="btn btn-ghost" href="/session.html?id=${p.sessionId}">Review →</a>
+        <a class="btn btn-ghost" href="/session.html?id=${p.sessionId}&return=dashboard">Review →</a>
       </div>`;
     }).join('');
   }
 
   panel.innerHTML = html;
   panel.classList.remove('hidden');
-  $('calPanelClose').onclick = () => panel.classList.add('hidden');
+  // Remember the open day so returning to the dashboard restores this view.
+  localStorage.setItem('dashCalDay', day);
+  $('calPanelClose').onclick = () => { panel.classList.add('hidden'); localStorage.removeItem('dashCalDay'); };
   // Day navigation keeps the week grid below in sync with the day on display.
   const step = (n) => {
     const d = new Date(day + 'T00:00:00'); d.setDate(d.getDate() + n);
