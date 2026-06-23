@@ -58,20 +58,27 @@
       { domain: 'reading', emoji: '📖', label: 'Reading & Writing' },
     ];
 
-    let ACTIVE = null;
+    let ACTIVE = [];        // in-progress rounds (one per section)
 
     async function load() {
       const data = await api('GET', '/api/overview');
-      ACTIVE = data.activeSession || null;
+      ACTIVE = data.activeSessions || [];
 
-      // Active-attempt banner: only one attempt allowed at a time.
+      // Quick-resume strip: several rounds can be going at once (one per
+      // Domain·Difficulty), so list them all to jump straight back in.
       const ab = document.getElementById('activeBanner');
-      if (ACTIVE) {
-        const emoji = ACTIVE.domain === 'math' ? '🔢' : '📖';
-        ab.innerHTML = `<div class="card" style="border:2px solid var(--amber)">
-          <h2 style="margin:0 0 6px">▶ Finish your active practice first</h2>
-          <p class="note" style="margin:0 0 14px">You're in the middle of <b>${emoji} ${escapeHtml(ACTIVE.topicName)} (${ACTIVE.difficulty})</b> — ${ACTIVE.answeredCount}/${ACTIVE.total} done. Only one practice can be open at a time.</p>
-          <a class="btn btn-primary btn-lg" href="/session.html?id=${ACTIVE.id}">Resume practice →</a>
+      if (ACTIVE.length) {
+        const chips = ACTIVE.map((a) => {
+          const emoji = a.domain === 'math' ? '🔢' : '📖';
+          const diff = a.difficulty === 'hard' ? '🔴' : '🟡';
+          const left = Math.max(0, a.total - a.answeredCount);
+          const sk = a.skippedCount ? ` · ⏭ ${a.skippedCount}` : '';
+          return `<a class="resume-chip" href="/session.html?id=${a.id}">
+            ▶ ${emoji} ${escapeHtml(a.topicName)} ${diff} <span class="note">R${a.round} · ${left} left${sk}</span></a>`;
+        }).join('');
+        ab.innerHTML = `<div class="card resume-strip">
+          <div style="font-weight:800; color:var(--pink-600); margin-bottom:8px">▶ Continue where you left off</div>
+          <div class="resume-chips">${chips}</div>
         </div>`;
       } else {
         ab.innerHTML = '';
@@ -113,14 +120,11 @@
         panel.dataset.panel = domain;
 
         let html = '';
-        for (const diff of ['medium', 'hard']) {
+        for (const diff of ['hard', 'medium']) {
           const items = cat.filter(c => c.domain === domain && c.difficulty === diff && c.total > 0);
           if (!items.length) continue;
           html += `<h3 class="diff-group-h">${diff === 'medium' ? '🟡 Medium' : '🔴 Hard'}</h3><div class="topic-grid">`;
           for (const item of items) {
-            const roundPct = item.roundTotal ? Math.round((item.roundAttempted / item.roundTotal) * 100) : 0;
-            const badge = item.activeSessionId ? '<span class="diff-badge resume">▶ resume</span>'
-              : (item.prevComplete ? '<span class="diff-badge fresh">🔄 new round</span>' : '');
             const sk = skillCat.filter(s => s.domain === domain && s.topic === item.topic && s.difficulty === diff)
               .sort((a, b) => (a.mastered / a.total) - (b.mastered / b.total));
             const skillRows = sk.map(s => {
@@ -131,15 +135,38 @@
                 <span class="sm-pct">${s.mastered}/${s.total}</span></div>`;
             }).join('') || '<span class="note">No skills yet</span>';
 
+            // One mini completion bar per round attempted, newest action highlighted.
+            const rounds = item.rounds || [];
+            let roundBars = rounds.map(r => {
+              const active = r.status === 'in_progress';
+              const tag = active ? '◀ active' : '✓ done';
+              return `<div class="round-row${active ? ' active' : ''}">
+                <span class="rr-label">Round ${r.round}</span>
+                <div class="rr-bar"><span style="width:${r.pct}%"></span></div>
+                <span class="rr-pct">${r.pct}%</span>
+                <span class="rr-tag">${tag}</span></div>`;
+            }).join('');
+            if (!rounds.length) {
+              roundBars = `<div class="round-row"><span class="rr-label">Round 1</span>
+                <div class="rr-bar"><span style="width:0%"></span></div>
+                <span class="rr-pct">0%</span><span class="rr-tag note">not started</span></div>`;
+            }
+
+            // Start / Resume button reflects the section's state.
+            let btnLabel, cls = 'btn btn-primary start-btn';
+            if (item.activeSessionId) btnLabel = `▶ Resume Round ${item.round}`;
+            else if (item.prevComplete) btnLabel = `🔄 Start Round ${item.round}`;
+            else btnLabel = `🚀 Start Round ${item.round}`;
+
             html += `<div class="topic-card">
               <div class="tc-head">
                 <div class="topic-name">${escapeHtml(item.topicName)}</div>
-                ${badge}
+                <span class="note tc-count">${item.total} Qs</span>
               </div>
-              <div class="note tc-round">Round ${item.round} · ${item.roundAttempted}/${item.roundTotal} this round · ${item.mastered}/${item.total} ever correct</div>
-              <div class="diff-prog"><span style="width:${roundPct}%"></span></div>
-              <button class="btn btn-primary start-btn" data-topic="${item.topic}" data-difficulty="${diff}"
-                      data-round="${item.round}" data-deftl="${item.defaultTimeLimit}" data-name="${escapeHtml(item.topicName)}">🚀 Start practice</button>
+              <div class="round-bars">${roundBars}</div>
+              <button class="${cls}" data-topic="${item.topic}" data-difficulty="${diff}"
+                      data-round="${item.round}" data-deftl="${item.defaultTimeLimit}"
+                      data-session="${item.activeSessionId || ''}" data-name="${escapeHtml(item.topicName)}">${btnLabel}</button>
               <div class="skill-mastery-h note">Skill mastery (correct at least once / total)</div>
               <div class="skill-mastery">${skillRows}</div>
             </div>`;
@@ -158,20 +185,12 @@
 
     let PENDING = null;
     function openStartModal(d) {
-      // If this section has an active practice for a different one, defer to startSession's guard.
-      if (ACTIVE && !(ACTIVE.topic === d.topic && ACTIVE.difficulty === d.difficulty)) {
-        startSession(d.topic, d.difficulty);
-        return;
-      }
-      // Resume directly if this exact one is active.
-      if (ACTIVE && ACTIVE.topic === d.topic && ACTIVE.difficulty === d.difficulty) {
-        window.location.href = `/session.html?id=${ACTIVE.id}`;
-        return;
-      }
+      // Resume straight into this section's active round if there is one.
+      if (d.session) { window.location.href = `/session.html?id=${d.session}`; return; }
       PENDING = { topic: d.topic, difficulty: d.difficulty };
       const diffName = d.difficulty === 'medium' ? 'Medium' : 'Hard';
       document.getElementById('startTitle').textContent = `${d.name} · ${diffName}`;
-      document.getElementById('startSub').textContent = `Round ${d.round} — 40 questions. Each question is timed.`;
+      document.getElementById('startSub').textContent = `Round ${d.round} — every question in this section, one timed pass. Skip the tricky ones and come back.`;
       document.getElementById('startMins').value = (Number(d.deftl) / 60);
       document.getElementById('startModal').classList.remove('hidden');
     }
@@ -187,25 +206,15 @@
     }
 
     async function startSession(topic, difficulty, timeLimitSeconds) {
-      // Block starting a new practice while one is active (server also enforces).
-      if (ACTIVE && !(ACTIVE.topic === topic && ACTIVE.difficulty === difficulty)) {
-        if (confirm(`You have an active ${ACTIVE.topicName} (${ACTIVE.difficulty}) practice. Resume it now?`)) {
-          window.location.href = `/session.html?id=${ACTIVE.id}`;
-        }
-        return;
-      }
+      // Many rounds can run at once (one per section); the server resumes this
+      // section's round if one is open, otherwise starts the next round.
       try {
         const body = { topic, difficulty };
         if (timeLimitSeconds) body.timeLimitSeconds = timeLimitSeconds;
         const result = await api('POST', '/api/sessions', body);
         window.location.href = `/session.html?id=${result.id}`;
       } catch (e) {
-        if (e.data && e.data.activeSessionId &&
-            confirm(`${e.message} Resume it now?`)) {
-          window.location.href = `/session.html?id=${e.data.activeSessionId}`;
-        } else {
-          alert(e.message);
-        }
+        alert(e.message);
       }
     }
 
