@@ -435,13 +435,17 @@ table.data tr:hover td { background: var(--pink-50); }
 
 /* Per-round completion mini-bars inside a Home block */
 .round-bars { display: flex; flex-direction: column; gap: 6px; margin: 8px 0 12px; }
-.round-row { display: grid; grid-template-columns: 64px 1fr 40px auto; align-items: center; gap: 8px; }
+.round-row { display: grid; grid-template-columns: 64px 1fr 40px auto auto; align-items: center; gap: 8px; }
 .round-row.active .rr-label { color: var(--pink-600); font-weight: 800; }
 .rr-label { font-size: 0.82rem; font-weight: 700; color: var(--muted); }
 .rr-bar { height: 8px; background: var(--pink-100); border-radius: 999px; overflow: hidden; }
 .rr-bar span { display: block; height: 100%; background: var(--pink-300); border-radius: 999px; transition: width 0.3s; }
 .round-row.active .rr-bar span { background: var(--pink-500); }
 .rr-pct { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-align: right; }
+.rr-acc { font-size: 0.72rem; font-weight: 800; white-space: nowrap; padding: 1px 7px; border-radius: 999px; background: var(--pink-100); color: var(--pink-700); }
+.rr-acc.ok { background: #e3f7ee; color: var(--green); }
+.rr-acc.mid { background: #fff0e0; color: #b9722a; }
+.rr-acc.low { background: #ffe4ef; color: var(--pink-600); }
 .rr-tag { font-size: 0.72rem; font-weight: 800; color: var(--green); white-space: nowrap; }
 .round-row.active .rr-tag { color: var(--pink-600); }
 .tc-count { font-weight: 700; white-space: nowrap; }
