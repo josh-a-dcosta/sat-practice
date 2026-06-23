@@ -198,34 +198,35 @@
                 <span class="sm-pct">${s.mastered}/${s.total}</span></div>`;
             }).join('') || '<span class="note">No skills yet</span>';
 
-            // Per-round block: a completion bar + an accuracy bar. Round numbers
-            // are positional (1,2,3…) so they always increment.
+            // One compact row per round: completion bar + accuracy bar side by
+            // side. Round numbers are positional (1,2,3…) so they increment.
             const rounds = item.rounds || [];
             let roundBars = rounds.map((r, idx) => {
               const active = r.status === 'in_progress';
-              const tag = active ? '<span class="rr-tag">◀ active</span>' : '<span class="rr-tag"></span>';
               const acc = r.resolved ? Math.round((r.correct / r.resolved) * 100) : 0;
               const accCls = acc >= 80 ? 'ok' : acc >= 50 ? 'mid' : 'low';
               const accBar = r.resolved
                 ? `<div class="rr-bar acc"><span class="${accCls}" style="width:${acc}%"></span></div><span class="rr-pct">${acc}%</span>`
                 : `<div class="rr-bar acc"><span style="width:0%"></span></div><span class="rr-pct note">—</span>`;
-              return `<div class="round-block${active ? ' active' : ''}">
-                <div class="round-row">
-                  <span class="rr-label">Round ${idx + 1}</span>
-                  <div class="rr-bar"><span style="width:${r.pct}%"></span></div>
-                  <span class="rr-pct">${r.pct}%</span>${tag}</div>
-                <div class="round-row acc-row">
-                  <span class="rr-label">Accuracy</span>${accBar}<span class="rr-tag"></span></div>
+              const tag = active ? '<span class="rr-tag">◀ active</span>' : '';
+              return `<div class="round-row${active ? ' active' : ''}">
+                <span class="rr-label">Round ${idx + 1}</span>
+                <div class="rr-bar"><span style="width:${r.pct}%"></span></div>
+                <span class="rr-pct">${r.pct}%</span>
+                <span class="rr-acc-label">Accuracy</span>
+                ${accBar}
+                ${tag}
               </div>`;
             }).join('');
             if (!rounds.length) {
-              roundBars = `<div class="round-block">
-                <div class="round-row"><span class="rr-label">Round 1</span>
-                  <div class="rr-bar"><span style="width:0%"></span></div>
-                  <span class="rr-pct">0%</span><span class="rr-tag note">not started</span></div>
-                <div class="round-row acc-row"><span class="rr-label">Accuracy</span>
-                  <div class="rr-bar acc"><span style="width:0%"></span></div>
-                  <span class="rr-pct note">—</span><span class="rr-tag"></span></div>
+              roundBars = `<div class="round-row">
+                <span class="rr-label">Round 1</span>
+                <div class="rr-bar"><span style="width:0%"></span></div>
+                <span class="rr-pct">0%</span>
+                <span class="rr-acc-label">Accuracy</span>
+                <div class="rr-bar acc"><span style="width:0%"></span></div>
+                <span class="rr-pct note">—</span>
+                <span class="rr-tag note">not started</span>
               </div>`;
             }
 

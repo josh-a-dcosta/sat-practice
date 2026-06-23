@@ -434,22 +434,20 @@ table.data tr:hover td { background: var(--pink-50); }
 }
 
 /* Per-round completion mini-bars inside a Home block */
-.round-bars { display: flex; flex-direction: column; gap: 10px; margin: 8px 0 12px; }
-.round-block { display: flex; flex-direction: column; gap: 4px; }
-.round-row { display: grid; grid-template-columns: 64px 1fr 40px auto; align-items: center; gap: 8px; }
-.round-block.active .rr-label { color: var(--pink-600); font-weight: 800; }
-.rr-label { font-size: 0.82rem; font-weight: 700; color: var(--muted); }
-.rr-bar { height: 8px; background: var(--pink-100); border-radius: 999px; overflow: hidden; }
+.round-bars { display: flex; flex-direction: column; gap: 8px; margin: 8px 0 12px; }
+.round-row { display: flex; align-items: center; gap: 5px; flex-wrap: wrap; }
+.round-row.active .rr-label:first-child { color: var(--pink-600); font-weight: 800; }
+.rr-label { font-size: 0.76rem; font-weight: 700; color: var(--muted); white-space: nowrap; }
+.rr-acc-label { margin-left: 6px; font-weight: 600; }
+.rr-bar { width: 46px; height: 7px; background: var(--pink-100); border-radius: 999px; overflow: hidden; flex: none; }
 .rr-bar span { display: block; height: 100%; background: var(--pink-300); border-radius: 999px; transition: width 0.3s; }
-.round-block.active .rr-bar span { background: var(--pink-500); }
-/* Accuracy bar: muted track, color-coded fill by performance */
-.acc-row .rr-label { font-weight: 600; opacity: 0.9; }
-.rr-bar.acc span { background: var(--pink-300); }
-.rr-bar.acc span.ok { background: var(--green); }
+.round-row.active .rr-bar:not(.acc) span { background: var(--pink-500); }
+/* Accuracy bar fill is color-coded by performance */
+.rr-bar.acc span.ok  { background: var(--green); }
 .rr-bar.acc span.mid { background: var(--amber); }
 .rr-bar.acc span.low { background: var(--pink-500); }
-.rr-pct { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-align: right; }
-.rr-tag { font-size: 0.72rem; font-weight: 800; color: var(--pink-600); white-space: nowrap; }
+.rr-pct { font-size: 0.74rem; font-weight: 700; color: var(--muted); min-width: 30px; }
+.rr-tag { font-size: 0.7rem; font-weight: 800; color: var(--pink-600); white-space: nowrap; }
 
 /* Home heading: a tiny golden retriever practicing fetch (runs out, grabs the
    tennis ball, trots back, repeat). Pure SVG + CSS, no images. */
