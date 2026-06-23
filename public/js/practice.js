@@ -119,6 +119,7 @@ function enterReviewUI() {
   $('finishControls').classList.add('hidden');
   $('doneControls').classList.remove('hidden');
   $('pauseBtn').classList.add('hidden');
+  $('topCloseBtn').classList.remove('hidden');
   $('doneTag').classList.remove('hidden');
   const pl = $('pauseLink'); if (pl) pl.classList.add('hidden');
   const correct = state.items.filter((i) => i.correct).length;
@@ -566,8 +567,7 @@ $('skipBtn').onclick = skipCurrent;
 $('skippedBtn').onclick = () => { const p = firstSkipped(); if (p) gotoPosition(p); };
 $('finishBtn').onclick = () => completeAndReview();
 $('pauseBtn').onclick = pauseExit;
-$('scorecardBtn').onclick = () => showResults().catch((e) => showToast(e.message));
-$('closeBtn').onclick = () => { location.href = '/'; };
+$('topCloseBtn').onclick = () => { location.href = '/'; };
 $('revealBtn').onclick = peekAnswer;
 $('fbNext').onclick = goNext;
 $('zoomIn').onclick = () => zoomBy(ZOOM_STEP);

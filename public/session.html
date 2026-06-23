@@ -27,7 +27,10 @@
           <button class="btn btn-ghost" id="pauseBtn" type="button">⏸ Pause &amp; exit</button>
           <span class="done-tag hidden" id="doneTag">✅ Practice complete — review your answers below</span>
         </div>
-        <button class="btn btn-ghost" id="fullscreenBtn" type="button" title="Use the whole screen for bigger panels">⛶ Full screen</button>
+        <div class="toolbar-right">
+          <button class="btn btn-primary hidden" id="topCloseBtn" type="button">✕ Close</button>
+          <button class="btn btn-ghost" id="fullscreenBtn" type="button" title="Use the whole screen for bigger panels">⛶ Full screen</button>
+        </div>
       </div>
       <div class="practice-split">
         <!-- LEFT: the real PDF question page -->
@@ -115,8 +118,6 @@
             </div>
             <div id="doneControls" class="hidden" style="display:flex; gap:8px; align-items:center; flex-wrap:wrap">
               <span class="done-score" id="doneScore"></span>
-              <button class="btn btn-ghost" id="scorecardBtn" type="button">📊 Scorecard</button>
-              <button class="btn btn-primary" id="closeBtn" type="button">✕ Close</button>
             </div>
           </div>
           <p class="note" id="finishNote">Resolve every question to finish the round. Skip the tricky ones and come back — jump around with the map.</p>

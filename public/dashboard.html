@@ -21,14 +21,6 @@
   <div class="container wide">
     <div class="card">
       <h1>📊 Progress Dashboard</h1>
-      <div class="goal">
-        <div>
-          <div style="font-weight:800; color:var(--pink-600)">Today's progress</div>
-          <div class="note" id="goalSub">Loading…</div>
-        </div>
-        <div class="goal-bar"><span id="goalFill" style="width:0%"></span></div>
-        <div style="font-weight:800; color:var(--pink-600)" id="goalCount">0 / 40</div>
-      </div>
     </div>
 
     <!-- Top menu: each button shows a section (charts are the default view) -->
@@ -108,6 +100,9 @@
         <h2>📋 Filtered List</h2>
         <p class="note">Filters follow the hierarchy: Subject → Domain → Skill. Set what you want, then click Search.</p>
         <div class="filters">
+          <label>Round
+            <select id="fRound"><option value="">All</option></select>
+          </label>
           <label>Subject
             <select id="fSubject">
               <option value="">All</option>
@@ -120,9 +115,6 @@
           </label>
           <label>Skill
             <select id="fSkill"><option value="">All</option></select>
-          </label>
-          <label>Round
-            <select id="fRound"><option value="">All</option></select>
           </label>
           <label>Difficulty
             <select id="fDifficulty">
@@ -141,9 +133,6 @@
               <option value="skipped">⏭ Skipped</option>
             </select>
           </label>
-          <label>Date
-            <select id="fDate"><option value="">All dates</option></select>
-          </label>
           <input type="text" id="fSearch" placeholder="🔎 Search question text…" />
           <button class="btn btn-primary" id="searchBtn">🔎 Search</button>
           <button class="btn btn-ghost" id="clearBtn">Clear</button>
@@ -158,7 +147,7 @@
             <tbody></tbody>
           </table>
         </div>
-        <p class="note" id="searchHint">Showing the most recent activity. Use the filters above and click Search to narrow it down.</p>
+        <p class="note" id="searchHint">Set the filters above and click 🔎 Search to see matching questions.</p>
       </div>
     </section>
 
@@ -181,8 +170,8 @@
     <!-- ===== CALENDAR ===== -->
     <section class="dash-view hidden" data-view="calendar">
       <div class="card">
-        <h2>🗓️ Study calendar — countdown to SAT (Aug 22)</h2>
-        <p class="note" id="calIntro">7 weeks of practice, then 2 weeks of full-length tests.</p>
+        <h2>🗓️ Study calendar</h2>
+        <p class="note" id="calIntro">Each day records what you did — tap a day with activity to see the details. Use ◀ ▶ to browse any week.</p>
         <div id="calDayPanel" class="cal-day-panel hidden"></div>
         <div id="calendar"></div>
       </div>
