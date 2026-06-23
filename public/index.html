@@ -162,16 +162,23 @@
             let roundBars = rounds.map(r => {
               const active = r.status === 'in_progress';
               const tag = active ? '◀ active' : '✓ done';
+              const acc = r.resolved ? Math.round((r.correct / r.resolved) * 100) : 0;
+              const accCls = acc >= 80 ? 'ok' : acc >= 50 ? 'mid' : 'low';
+              const accChip = r.resolved
+                ? `<span class="rr-acc ${accCls}" title="${r.correct}/${r.resolved} correct">🎯 ${acc}%</span>`
+                : `<span class="rr-acc note">🎯 —</span>`;
               return `<div class="round-row${active ? ' active' : ''}">
                 <span class="rr-label">Round ${r.round}</span>
                 <div class="rr-bar"><span style="width:${r.pct}%"></span></div>
                 <span class="rr-pct">${r.pct}%</span>
+                ${accChip}
                 <span class="rr-tag">${tag}</span></div>`;
             }).join('');
             if (!rounds.length) {
               roundBars = `<div class="round-row"><span class="rr-label">Round 1</span>
                 <div class="rr-bar"><span style="width:0%"></span></div>
-                <span class="rr-pct">0%</span><span class="rr-tag note">not started</span></div>`;
+                <span class="rr-pct">0%</span><span class="rr-acc note">🎯 —</span>
+                <span class="rr-tag note">not started</span></div>`;
             }
 
             // Start / Resume button reflects the section's state.
