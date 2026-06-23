@@ -92,12 +92,12 @@
     <section class="dash-view hidden" data-view="skills">
       <div class="card">
         <h2>🎯 Skills to focus on</h2>
-        <p class="note">Every College Board skill she has practiced, weakest first — so it's clear where to spend more time. Click a row to filter the attempts below.</p>
+        <p class="note">Each skill's <b>current state</b> — every question's latest result across all rounds — weakest first, so it's clear where to spend more time. Click a row to filter the list below.</p>
         <div id="skillHighlight"></div>
         <div style="overflow-x:auto">
           <table class="data" id="skillsTable">
             <thead><tr>
-              <th>Skill</th><th>Domain</th><th>Difficulty</th><th>Accuracy</th><th>Correct</th><th>Wrong</th><th>Attempts</th><th>Avg time</th>
+              <th>Skill</th><th>Domain</th><th>Difficulty</th><th>Accuracy</th><th>Correct</th><th>Missed</th><th>Resolved</th><th>Avg time</th>
             </tr></thead>
             <tbody></tbody>
           </table>
@@ -106,19 +106,23 @@
 
       <div class="card">
         <h2>📋 Filtered List</h2>
+        <p class="note">Filters follow the hierarchy: Subject → Domain → Skill. Set what you want, then click Search.</p>
         <div class="filters">
-          <label>Round
-            <select id="fRound"><option value="">All</option></select>
-          </label>
-          <label>Date
-            <select id="fDate"></select>
+          <label>Subject
+            <select id="fSubject">
+              <option value="">All</option>
+              <option value="math">🔢 Math</option>
+              <option value="reading">📖 Reading &amp; Writing</option>
+            </select>
           </label>
           <label>Domain
-            <select id="fSection">
-              <option value="">All</option>
-              <option value="math">Math</option>
-              <option value="reading">Reading</option>
-            </select>
+            <select id="fDomain"><option value="">All</option></select>
+          </label>
+          <label>Skill
+            <select id="fSkill"><option value="">All</option></select>
+          </label>
+          <label>Round
+            <select id="fRound"><option value="">All</option></select>
           </label>
           <label>Difficulty
             <select id="fDifficulty">
@@ -127,28 +131,34 @@
               <option value="hard">Hard</option>
             </select>
           </label>
-          <label>Result
-            <select id="fResult">
+          <label>Status
+            <select id="fStatus">
               <option value="">All</option>
-              <option value="1">Correct</option>
-              <option value="0">Wrong</option>
+              <option value="correct">✅ Correct</option>
+              <option value="wrong">❌ Wrong</option>
+              <option value="peeked">👀 Peeked</option>
+              <option value="timedout">⏰ Over time</option>
+              <option value="skipped">⏭ Skipped</option>
             </select>
           </label>
-          <label>Skill
-            <select id="fSkill"><option value="">All</option></select>
+          <label>Date
+            <select id="fDate"><option value="">All dates</option></select>
           </label>
           <input type="text" id="fSearch" placeholder="🔎 Search question text…" />
+          <button class="btn btn-primary" id="searchBtn">🔎 Search</button>
+          <button class="btn btn-ghost" id="clearBtn">Clear</button>
           <span class="note" id="rowCount"></span>
           <button class="btn btn-ghost" id="exportBtn" style="margin-left:auto">⬇ Export CSV</button>
         </div>
         <div style="overflow-x:auto">
           <table class="data" id="attemptsTable">
             <thead><tr>
-              <th>Date</th><th>Round</th><th>Topic</th><th>Skill</th><th>Difficulty</th><th>Question</th><th>Her answer</th><th>Correct</th><th>Result</th><th>Time</th>
+              <th>Date</th><th>Round</th><th>Domain</th><th>Skill</th><th>Difficulty</th><th>Question</th><th>Her answer</th><th>Correct</th><th>Status</th><th>Time</th>
             </tr></thead>
             <tbody></tbody>
           </table>
         </div>
+        <p class="note" id="searchHint">Showing the most recent activity. Use the filters above and click Search to narrow it down.</p>
       </div>
     </section>
 

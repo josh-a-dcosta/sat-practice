@@ -32,6 +32,7 @@
     </div>
 
     <div id="activeBanner"></div>
+    <div id="dailySummary"></div>
     <div id="domainSections"><div class="spinner">Loading…</div></div>
   </div>
 
@@ -82,6 +83,27 @@
         </div>`;
       } else {
         ab.innerHTML = '';
+      }
+
+      // Today's daily summary (from the activity log).
+      const ds = document.getElementById('dailySummary');
+      const todayKey = new Date().toLocaleDateString('en-CA'); // YYYY-MM-DD local
+      const todaySummary = (data.dailySummaries || []).find((s) => s.day === todayKey);
+      if (todaySummary && todaySummary.total > 0) {
+        const c = todaySummary.counts;
+        ds.innerHTML = `<div class="card daily-summary">
+          <div style="font-weight:800; color:var(--pink-600); margin-bottom:6px">📅 Today so far</div>
+          <p style="margin:0 0 8px">${escapeHtml(todaySummary.text)}</p>
+          <div class="ds-chips">
+            <span class="ds-chip ok">✅ ${c.correct}</span>
+            <span class="ds-chip bad">❌ ${c.wrong}</span>
+            <span class="ds-chip">👀 ${c.peeked}</span>
+            <span class="ds-chip">⏰ ${c.timedout}</span>
+            <span class="ds-chip warn">⏭ ${c.skipped}</span>
+          </div>
+        </div>`;
+      } else {
+        ds.innerHTML = '';
       }
 
       // Goal banner: 40 Math + 40 Reading

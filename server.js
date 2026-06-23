@@ -148,6 +148,7 @@ async function handleApi(req, res, url) {
         catalogue:    repo.getCatalogue(uid),
         skillCatalogue: repo.getSkillCatalogue(uid),
         activeSessions: repo.listActiveSessions(uid),
+        dailySummaries: repo.getDailySummaries(uid),
         timeLimits:   repo.TIME_LIMITS,
         sessionMinutes: repo.SESSION_MINUTES,
       });
@@ -245,6 +246,13 @@ async function handleApi(req, res, url) {
     if (req.method === 'GET' && parts[1] === 'attempts' && parts[3] === 'review' && parts.length === 4) {
       const review = repo.getAttemptReview(uid, Number(parts[2]));
       if (!review) return sendJson(res, 404, { error: 'Attempt not found' });
+      return sendJson(res, 200, review);
+    }
+
+    // GET /api/questions/:id/review  (Filtered List rows, incl. skipped)
+    if (req.method === 'GET' && parts[1] === 'questions' && parts[3] === 'review' && parts.length === 4) {
+      const review = repo.getQuestionReview(uid, Number(parts[2]));
+      if (!review) return sendJson(res, 404, { error: 'Question not found' });
       return sendJson(res, 200, review);
     }
 

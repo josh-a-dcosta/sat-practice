@@ -624,6 +624,164 @@ function getAttemptReview(userId, attemptId) {
 }
 
 // ---------------------------------------------------------------------------
+// activity log: per-day status counts, daily summaries, current-state skills
+// ---------------------------------------------------------------------------
+function correctDisplay(q) {
+  if (q.qtype === 'spr') {
+    try { return JSON.parse(q.correct).join(', '); } catch (_) { return q.correct; }
+  }
+  return q.correct;
+}
+
+const STATUS_LABEL = {
+  correct: 'Correct', wrong: 'Wrong', peeked: 'Peeked', timedout: 'Over time', skipped: 'Skipped',
+};
+
+// Per-day status counts + the practices (rounds touched) that day. Drives the
+// calendar and daily summaries; "full test" days will tag the same way later.
+function getDailyActivity(userId) {
+  const dayRows = db.prepare(`
+    SELECT date(occurred_at,'localtime') day, status, COUNT(*) n
+    FROM activity_events WHERE user_id=?
+    GROUP BY day, status
+  `).all(userId);
+
+  const practiceRows = db.prepare(`
+    SELECT date(occurred_at,'localtime') day, session_id, domain, topic, difficulty, round,
+           COUNT(*) events,
+           SUM(CASE WHEN status='correct'  THEN 1 ELSE 0 END) correct,
+           SUM(CASE WHEN status='wrong'    THEN 1 ELSE 0 END) wrong,
+           SUM(CASE WHEN status='peeked'   THEN 1 ELSE 0 END) peeked,
+           SUM(CASE WHEN status='timedout' THEN 1 ELSE 0 END) timedout,
+           SUM(CASE WHEN status='skipped'  THEN 1 ELSE 0 END) skipped
+    FROM activity_events WHERE user_id=?
+    GROUP BY date(occurred_at,'localtime'), session_id
+    ORDER BY day, session_id
+  `).all(userId);
+
+  const days = {};
+  const blank = () => ({ correct: 0, wrong: 0, peeked: 0, timedout: 0, skipped: 0 });
+  for (const r of dayRows) {
+    days[r.day] = days[r.day] || { day: r.day, counts: blank(), practices: [], tags: ['practice'] };
+    days[r.day].counts[r.status] = r.n;
+  }
+  for (const p of practiceRows) {
+    days[p.day] = days[p.day] || { day: p.day, counts: blank(), practices: [], tags: ['practice'] };
+    days[p.day].practices.push({
+      sessionId: p.session_id, domain: p.domain, topic: p.topic, topicName: topicLabel(p.topic),
+      difficulty: p.difficulty, round: p.round, events: p.events,
+      correct: p.correct, wrong: p.wrong, peeked: p.peeked, timedout: p.timedout, skipped: p.skipped,
+    });
+  }
+  return Object.values(days)
+    .map((d) => {
+      const c = d.counts;
+      const resolved = c.correct + c.wrong + c.peeked + c.timedout;
+      return { ...d, resolved, total: resolved + c.skipped,
+               accuracy: resolved ? Math.round((c.correct / resolved) * 100) : 0 };
+    })
+    .sort((a, b) => a.day.localeCompare(b.day));
+}
+
+// A short, encouraging per-day note built from that day's counts.
+function buildDailySummaries(dailyActivity) {
+  return dailyActivity.map((d) => {
+    const c = d.counts;
+    const review = c.wrong + c.peeked + c.timedout;
+    const sections = [...new Set(d.practices.map((p) => `${p.topicName} (${p.difficulty})`))];
+    const parts = [];
+    parts.push(`You worked through ${d.total} question${d.total === 1 ? '' : 's'}.`);
+    if (d.resolved) parts.push(`✅ ${c.correct} correct (${d.accuracy}%).`);
+    if (review) parts.push(`📚 ${review} to review.`);
+    if (c.skipped) parts.push(`⏭ ${c.skipped} skipped to revisit.`);
+    if (sections.length) parts.push(`Focus: ${sections.slice(0, 3).join(', ')}.`);
+    parts.push('Keep it up! 💪');
+    return { day: d.day, counts: c, total: d.total, resolved: d.resolved,
+             accuracy: d.accuracy, sections, text: parts.join(' ') };
+  });
+}
+
+// "Skills to focus on" — the GRAND current state: for each question take its
+// latest result across all rounds (a question wrong in R1 then correct in R2
+// counts as correct now), then roll up per skill, weakest first.
+function getSkillFocus(userId) {
+  const rows = db.prepare(`
+    SELECT q.domain, q.topic, q.difficulty, COALESCE(q.skill,'(unspecified)') skill, ae.status,
+           ae.time_taken_seconds
+    FROM activity_events ae
+    JOIN (
+      SELECT question_id, MAX(id) mid
+      FROM activity_events
+      WHERE user_id=? AND status!='skipped'
+      GROUP BY question_id
+    ) m ON m.mid = ae.id
+    JOIN questions q ON q.id = ae.question_id
+  `).all(userId);
+
+  const map = {};
+  for (const r of rows) {
+    const k = `${r.domain}|${r.topic}|${r.difficulty}|${r.skill}`;
+    if (!map[k]) map[k] = { domain: r.domain, topic: r.topic, topicName: topicLabel(r.topic),
+                            difficulty: r.difficulty, skill: r.skill,
+                            resolved: 0, correct: 0, wrong: 0, peeked: 0, timedout: 0, timeSum: 0 };
+    const m = map[k];
+    m.resolved++; m[r.status] = (m[r.status] || 0) + 1; m.timeSum += r.time_taken_seconds || 0;
+  }
+  return Object.values(map).map((m) => ({
+    ...m,
+    accuracy: m.resolved ? Math.round((m.correct / m.resolved) * 100) : 0,
+    avgTime: m.resolved ? Math.round(m.timeSum / m.resolved) : 0,
+  })).sort((a, b) => a.accuracy - b.accuracy || b.resolved - a.resolved);
+}
+
+function getDailySummaries(userId) {
+  return buildDailySummaries(getDailyActivity(userId));
+}
+
+// Event feed for the Filtered List (includes skips). One row per action.
+function getActivityFeed(userId) {
+  const rows = db.prepare(`
+    SELECT ae.id, ae.question_id, date(ae.occurred_at,'localtime') day, ae.occurred_at,
+           ae.round, ae.domain, ae.topic, ae.difficulty,
+           COALESCE(ae.skill,'(unspecified)') skill, ae.status, ae.selected,
+           ae.time_taken_seconds, q.correct, q.qtype, substr(q.prompt,1,90) prompt
+    FROM activity_events ae JOIN questions q ON q.id = ae.question_id
+    WHERE ae.user_id=?
+    ORDER BY ae.occurred_at DESC, ae.id DESC
+  `).all(userId);
+  return rows.map((r) => ({
+    id: r.id, questionId: r.question_id, day: r.day, occurredAt: r.occurred_at,
+    round: r.round, domain: r.domain, topic: r.topic, topicName: topicLabel(r.topic),
+    difficulty: r.difficulty, skill: r.skill, status: r.status, statusLabel: STATUS_LABEL[r.status] || r.status,
+    selected: r.selected, correct: correctDisplay(r), timeTaken: r.time_taken_seconds,
+  }));
+}
+
+// Full review of a question by id (for Filtered List rows, incl. skipped ones
+// that have no attempt): the question + her most recent answer for it.
+function getQuestionReview(userId, questionId) {
+  const q = parseQ(db.prepare('SELECT * FROM questions WHERE id=?').get(questionId));
+  if (!q) return null;
+  const last = db.prepare(`
+    SELECT status, selected, time_taken_seconds, occurred_at
+    FROM activity_events WHERE user_id=? AND question_id=?
+    ORDER BY id DESC LIMIT 1
+  `).get(userId, questionId);
+  return {
+    questionId: q.id, domain: q.domain, topic: q.topic, difficulty: q.difficulty,
+    skill: q.skill || null, test: q.test || 'SAT', qtype: q.qtype || 'mcq',
+    image: q.image || null, answerImage: q.answer_image || null,
+    passage: q.passage, prompt: q.prompt, choices: q.choices,
+    selected: last ? last.selected : '', status: last ? last.status : null,
+    correct: correctDisplay(q),
+    isCorrect: last ? last.status === 'correct' : false,
+    explanation: q.explanation || null,
+    timeTaken: last ? last.time_taken_seconds : 0,
+    answeredAt: last ? last.occurred_at : null,
+  };
+}
+
+// ---------------------------------------------------------------------------
 // dashboard
 // ---------------------------------------------------------------------------
 function getDashboard(userId) {
@@ -704,6 +862,8 @@ function getDashboard(userId) {
     ORDER BY week, q.domain, q.skill
   `).all(userId);
 
+  const dailyActivity = getDailyActivity(userId);
+
   return {
     today: getTodayProgress(userId),
     catalogue,
@@ -717,6 +877,11 @@ function getDashboard(userId) {
     byDay, byTopic, bySkill, sessions, attempts: attemptRows,
     weeklyByDomain, weeklyBySkill,
     weeklyReports: buildWeeklyReports(weeklyByDomain, weeklyBySkill),
+    // Round/practice restructure: activity-log views (all statuses, all history).
+    dailyActivity,
+    dailySummaries: buildDailySummaries(dailyActivity),
+    skillFocus: getSkillFocus(userId),
+    activity: getActivityFeed(userId),
   };
 }
 
@@ -838,6 +1003,7 @@ module.exports = {
   createOrResumeSession, getSessionState,
   getQuestionAt, setCurrentPosition, saveProgress,
   submitAnswer, peekQuestion, timeoutQuestion, skipQuestion, completeSession,
-  getDashboard, getAttemptReview,
+  getDashboard, getAttemptReview, getQuestionReview,
+  getDailyActivity, getDailySummaries, getSkillFocus, getActivityFeed,
   listTasks, addTask, setTaskStatus, deleteTask, generatePlan,
 };

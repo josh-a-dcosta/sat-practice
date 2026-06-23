@@ -766,9 +766,40 @@ body.fullscreen-mode .answer-pane { max-height: calc(100vh - 70px); overflow-y: 
 .cal-day .cal-plan { display: block; margin-top: 4px; }
 .cal-day.today { border-color: var(--pink-500); border-width: 2px; }
 .cal-day.did { background: #e3f7ee; }
+.cal-day.exam { border-color: var(--amber); border-width: 2px; background: #fff7e8; }
 .cal-day.past:not(.did) { opacity: 0.6; }
 .cal-day.beyond { opacity: 0.4; }
 @media (max-width: 700px) { .cal-days { grid-template-columns: repeat(2, 1fr); } }
+
+/* Calendar week/day navigation toolbar */
+.cal-toolbar { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+.cal-week-label { font-weight: 800; color: var(--ink); }
+.cal-nav {
+  border: 2px solid var(--pink-200); background: var(--white); color: var(--ink);
+  font-weight: 800; border-radius: 999px; padding: 6px 12px; cursor: pointer;
+  transition: border-color 0.12s, transform 0.08s;
+}
+.cal-nav:hover:not([disabled]) { border-color: var(--pink-400); transform: translateY(-1px); }
+.cal-nav[disabled] { opacity: 0.4; cursor: default; }
+
+/* Per-day status dots in calendar cells */
+.cal-day-dots { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+.csd { font-size: 0.68rem; font-weight: 800; padding: 1px 5px; border-radius: 999px; background: var(--pink-100); color: var(--pink-700); }
+.csd.ok { background: #e3f7ee; color: var(--green); }
+.csd.bad { background: #ffe4ef; color: var(--pink-600); }
+.csd.warn { background: #fff0e0; color: #b9722a; }
+
+/* Daily summary chips (home + calendar day panel) */
+.daily-summary { border: 2px solid var(--pink-200); }
+.ds-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.ds-chip { font-weight: 800; font-size: 0.82rem; padding: 4px 10px; border-radius: 999px; background: var(--pink-100); color: var(--pink-700); }
+.ds-chip.ok { background: #e3f7ee; color: var(--green); }
+.ds-chip.bad { background: #ffe4ef; color: var(--pink-600); }
+.ds-chip.warn { background: #fff0e0; color: #b9722a; }
+
+/* Status pills for peeked / over-time / skipped in the Filtered List */
+.pill.peeked { background: var(--pink-100); color: var(--pink-700); }
+.pill.skipped { background: #fff0e0; color: #b9722a; }
 
 /* ----- Login splash: aspirational background ----- */
 body.login-page {
