@@ -1,7 +1,10 @@
 // Dashboard: charts + filterable, exportable attempts table.
 
 let DATA = null;
-let allAttempts = [];
+let allAttempts = [];        // attempts (for trend charts)
+let ACTIVITY = [];           // event feed for the Filtered List (incl. skips)
+let DAILY = {};              // day -> daily activity entry
+let SUMMARY = {};            // day -> daily summary
 
 const PINK = '#ff4d94';
 const PINK_LIGHT = '#ffb6d2';
@@ -25,6 +28,9 @@ function fmtDate(s) {
 async function load() {
   DATA = await api('GET', '/api/dashboard');
   allAttempts = DATA.attempts;
+  ACTIVITY = DATA.activity || [];
+  DAILY = {}; for (const d of (DATA.dailyActivity || [])) DAILY[d.day] = d;
+  SUMMARY = {}; for (const s of (DATA.dailySummaries || [])) SUMMARY[s.day] = s;
 
   // goal banner
   const t = DATA.today;
@@ -38,6 +44,7 @@ async function load() {
   renderTiles();
   renderWeeklyReport();
   renderSkills();
+  populateDomainFilter();
   populateSkillFilter();
   populateDateFilter();
   populateRoundFilter();
@@ -61,16 +68,37 @@ function showView(name) {
 function populateDateFilter() {
   const sel = $('fDate');
   if (!sel) return;
-  const dates = [...new Set(allAttempts.map((a) => a.answered_at.slice(0, 10)))].sort().reverse();
+  const dates = [...new Set(ACTIVITY.map((a) => a.day))].sort().reverse();
   sel.innerHTML = '<option value="">All dates</option>' + dates.map((d) => `<option value="${d}">${d}</option>`).join('');
-  if (dates.length) sel.value = dates[0]; // default to the most recent day
 }
 
 function populateRoundFilter() {
   const sel = $('fRound');
   if (!sel) return;
-  const rounds = [...new Set(allAttempts.map((a) => a.round || 1))].sort((a, b) => a - b);
+  const rounds = [...new Set(ACTIVITY.map((a) => a.round || 1))].sort((a, b) => a - b);
   sel.innerHTML = '<option value="">All</option>' + rounds.map((r) => `<option value="${r}">Round ${r}</option>`).join('');
+}
+
+// Domain (topic) options depend on the chosen Subject; Skill depends on Domain.
+function populateDomainFilter() {
+  const sel = $('fDomain');
+  if (!sel) return;
+  const subject = $('fSubject') ? $('fSubject').value : '';
+  const rows = ACTIVITY.filter((a) => !subject || a.domain === subject);
+  const topics = [...new Map(rows.map((a) => [a.topic, a.topicName])).entries()].sort((a, b) => a[1].localeCompare(b[1]));
+  sel.innerHTML = '<option value="">All</option>' +
+    topics.map(([t, name]) => `<option value="${escapeHtml(t)}">${escapeHtml(name)}</option>`).join('');
+}
+
+function populateSkillFilter() {
+  const sel = $('fSkill');
+  if (!sel) return;
+  const subject = $('fSubject') ? $('fSubject').value : '';
+  const domain  = $('fDomain') ? $('fDomain').value : '';
+  const rows = ACTIVITY.filter((a) => (!subject || a.domain === subject) && (!domain || a.topic === domain));
+  const skills = [...new Set(rows.map((a) => a.skill).filter(Boolean))].sort();
+  sel.innerHTML = '<option value="">All</option>' +
+    skills.map((s) => `<option value="${escapeHtml(s)}">${escapeHtml(s)}</option>`).join('');
 }
 
 // ---- Weekly trends + domain→skill drilldown -------------------------------
@@ -152,22 +180,30 @@ function renderSkillTrends() {
   lineChart('wkSkillTime', labels, timeSets, { y: { ticks: { callback: (v) => v + 's' } } });
 }
 
+let weeklyIndex = 0;  // 0 = latest week (reports are sorted newest-first)
 function renderWeeklyReport() {
   const reps = DATA.weeklyReports || [];
   const el = $('weeklyReport');
   if (!reps.length) { el.innerHTML = '<p class="note">Practice a few questions and your first weekly report will appear here. 🌱</p>'; return; }
+  weeklyIndex = Math.max(0, Math.min(weeklyIndex, reps.length - 1));
+  const r = reps[weeklyIndex];
   const items = (arr, fmt) => arr.map((s) => `<li>${fmt(s)}</li>`).join('');
-  el.innerHTML = reps.map((r, i) => {
-    const totalA = r.domains.reduce((x, d) => x + d.attempts, 0);
-    const totalC = r.domains.reduce((x, d) => x + d.correct, 0);
-    const overall = totalA ? Math.round((totalC / totalA) * 100) : 0;
-    const domLis = r.domains.map((d) => {
-      const acc = d.attempts ? Math.round((d.correct / d.attempts) * 100) : 0;
-      const name = d.domain === 'math' ? '🔢 Math' : '📖 Reading';
-      return `<li><b>${name}:</b> ${d.attempts} questions · ${acc}% accuracy · ~${Math.round(d.avg_time)}s per question</li>`;
-    }).join('');
-    return `<div class="report-week ${i === 0 ? 'latest' : ''}">
-      <div class="report-head"><b>Week of ${escapeHtml(weekLabel(r.weekStart))}</b>${i === 0 ? ' <span class="rep-chip latest-tag">latest</span>' : ''}</div>
+  const totalA = r.domains.reduce((x, d) => x + d.attempts, 0);
+  const totalC = r.domains.reduce((x, d) => x + d.correct, 0);
+  const overall = totalA ? Math.round((totalC / totalA) * 100) : 0;
+  const domLis = r.domains.map((d) => {
+    const acc = d.attempts ? Math.round((d.correct / d.attempts) * 100) : 0;
+    const name = d.domain === 'math' ? '🔢 Math' : '📖 Reading';
+    return `<li><b>${name}:</b> ${d.attempts} questions · ${acc}% accuracy · ~${Math.round(d.avg_time)}s per question</li>`;
+  }).join('');
+
+  const nav = `<div class="cal-toolbar">
+      <button class="cal-nav" id="wkOlder" ${weeklyIndex >= reps.length - 1 ? 'disabled' : ''}>◀ Older</button>
+      <div class="cal-week-label">Week of ${escapeHtml(weekLabel(r.weekStart))}${weeklyIndex === 0 ? ' · latest' : ''} <span class="note">(${weeklyIndex + 1}/${reps.length})</span></div>
+      <button class="cal-nav" id="wkNewer" ${weeklyIndex <= 0 ? 'disabled' : ''}>Newer ▶</button>
+    </div>`;
+
+  el.innerHTML = nav + `<div class="report-week latest">
       <ul class="report-list">
         <li><b>Overall:</b> ${totalA} questions answered at <b>${overall}%</b> accuracy.</li>
         ${domLis}
@@ -176,7 +212,9 @@ function renderWeeklyReport() {
         ${(r.slow && r.slow.length) ? `<li>⏱️ <b>Slowest — practice for speed:</b><ul>${items(r.slow, (s) => `${escapeHtml(s.label)} — ~${Math.round(s.avg)}s per question`)}</ul></li>` : ''}
       </ul>
     </div>`;
-  }).join('');
+  const older = $('wkOlder'), newer = $('wkNewer');
+  if (older) older.onclick = () => { weeklyIndex++; renderWeeklyReport(); };
+  if (newer) newer.onclick = () => { weeklyIndex--; renderWeeklyReport(); };
 }
 
 // ---- Tasks / focus plan ----------------------------------------------------
@@ -216,159 +254,119 @@ async function generatePlan() {
   loadTasks();
 }
 
-// ---- Study calendar (countdown to Aug 22) ---------------------------------
-// completed sessions grouped by the day they were finished
-function sessionsByDay() {
-  const map = {};
-  for (const s of (DATA.sessions || [])) {
-    if (s.status !== 'completed' || !s.completed_at) continue;
-    const day = s.completed_at.slice(0, 10);
-    (map[day] = map[day] || []).push(s);
-  }
-  return map;
-}
-
-// ---- weekly/daily helpers (computed from attempts, Monday-based weeks) ----
+// ---- Study calendar — a record of what happened each day ------------------
+// Local YYYY-MM-DD (avoids UTC off-by-one from toISOString).
+function localYmd(d) { return d.toLocaleDateString('en-CA'); }
 function mondayOf(dateStr) {
   const d = new Date(dateStr + 'T00:00:00');
   d.setDate(d.getDate() - ((d.getDay() + 6) % 7));
-  return d.toISOString().slice(0, 10);
-}
-function attemptsInWeek(mondayStr) {
-  const m = new Date(mondayStr + 'T00:00:00'); const end = new Date(m); end.setDate(m.getDate() + 7);
-  return allAttempts.filter((a) => { const t = new Date(a.answered_at.slice(0, 10) + 'T00:00:00'); return t >= m && t < end; });
-}
-function domainAccuracy(att) {
-  const r = { math: { n: 0, c: 0 }, reading: { n: 0, c: 0 } };
-  for (const a of att) { if (r[a.domain]) { r[a.domain].n++; if (a.is_correct) r[a.domain].c++; } }
-  for (const k of ['math', 'reading']) r[k].acc = r[k].n ? Math.round((r[k].c / r[k].n) * 100) : 0;
-  return r;
+  return localYmd(d);
 }
 function accClassOf(acc) { return acc >= 80 ? 'ok' : acc >= 60 ? 'mid' : 'low'; }
 
-function domainBars(att) {
-  const da = domainAccuracy(att);
-  const row = (emoji, o) => `<div class="cdb"><span class="cdb-lbl">${emoji}</span>
-      <div class="cdb-bar"><i class="${accClassOf(o.acc)}" style="width:${o.n ? o.acc : 0}%"></i></div>
-      <span class="cdb-pct">${o.n ? o.acc + '%' : '—'} <span class="note">(${o.n})</span></span></div>`;
-  return `<div class="cal-domain-bars">${row('🔢 Math', da.math)}${row('📖 Reading', da.reading)}</div>`;
-}
-function dayMiniBars(att) {
-  const da = domainAccuracy(att);
-  const b = (o) => o.n ? `<span class="mb ${accClassOf(o.acc)}" title="${o.acc}%"><i style="width:${o.acc}%"></i></span>` : '';
-  if (!da.math.n && !da.reading.n) return '';
-  return `<div class="cal-day-bars">${b(da.math)}${b(da.reading)}</div>`;
+// The currently-viewed week (Monday). Defaults to this week; arrows move it.
+let calWeekMonday = mondayOf(localYmd(new Date()));
+
+// Tiny per-status dots for a day cell.
+function dayStatusDots(c) {
+  const dot = (n, cls, emoji) => (n ? `<span class="csd ${cls}" title="${emoji} ${n}">${emoji}${n}</span>` : '');
+  return `<div class="cal-day-dots">${dot(c.correct, 'ok', '✅')}${dot(c.wrong, 'bad', '❌')}${dot(c.peeked, '', '👀')}${dot(c.timedout, '', '⏰')}${dot(c.skipped, 'warn', '⏭')}</div>`;
 }
 
 function showCalDay(day) {
   const panel = $('calDayPanel');
-  const dayList = (sessionsByDay()[day] || []);
-  const monday = mondayOf(day);
-  const weekAtt = attemptsInWeek(monday);
-  const wkLabel = new Date(monday + 'T00:00:00').toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+  const entry = DAILY[day];
+  const summary = SUMMARY[day];
+  const human = new Date(day + 'T00:00:00').toLocaleDateString(undefined, { weekday: 'long', month: 'short', day: 'numeric', year: 'numeric' });
 
-  // per-skill accuracy this week (weakest first)
-  const sm = {};
-  for (const a of weekAtt) {
-    const k = `${fmtTopic(a.topic)} · ${a.skill} (${a.difficulty})`;
-    (sm[k] = sm[k] || { n: 0, c: 0 });
-    sm[k].n++; if (a.is_correct) sm[k].c++;
-  }
-  const skills = Object.entries(sm).map(([k, v]) => ({ label: k, n: v.n, acc: Math.round((v.c / v.n) * 100) }))
-    .sort((a, b) => a.acc - b.acc);
+  let html = `<div class="cal-panel-head">
+      <button class="cal-nav" id="calDayPrev" title="Previous day">◀</button>
+      <b>${escapeHtml(human)}</b>
+      <button class="cal-nav" id="calDayNext" title="Next day">▶</button>
+      <button class="task-del" id="calPanelClose" title="Close" style="margin-left:auto">✕</button>
+    </div>`;
 
-  let html = `<div class="cal-panel-head"><b>${escapeHtml(day)}</b>
-      <button class="task-del" id="calPanelClose" title="Close">✕</button></div>`;
+  if (!entry || entry.total === 0) {
+    html += `<p class="note">Nothing recorded on this day. Use ◀ ▶ to look at other days.</p>`;
+  } else {
+    const c = entry.counts;
+    const tags = (entry.tags || ['practice']).map((t) => `<span class="cal-badge ${t === 'full test' ? 'test' : 'practice'}">${t === 'full test' ? '📝 Full test' : '📚 Practice'}</span>`).join(' ');
+    html += `<div class="cal-sub">${tags} · ${entry.total} question${entry.total === 1 ? '' : 's'}</div>`;
+    if (summary) html += `<p style="margin:6px 0 10px">${escapeHtml(summary.text)}</p>`;
+    html += `<div class="ds-chips" style="margin-bottom:10px">
+      <span class="ds-chip ok">✅ ${c.correct} correct</span>
+      <span class="ds-chip bad">❌ ${c.wrong} wrong</span>
+      <span class="ds-chip">👀 ${c.peeked} peeked</span>
+      <span class="ds-chip">⏰ ${c.timedout} over time</span>
+      <span class="ds-chip warn">⏭ ${c.skipped} skipped</span>
+    </div>`;
 
-  html += `<div class="cal-sub">📝 Practices on this day</div>`;
-  if (dayList.length) {
-    html += dayList.map((s) => {
-      const emoji = s.domain === 'math' ? '🔢' : '📖';
-      const sc = (s.score != null) ? `${s.score}/${s.total}` : `${s.answered}/${s.total}`;
-      const acc = s.total ? Math.round((s.score / s.total) * 100) : 0;
+    html += `<div class="cal-sub">📝 Practices on this day</div>`;
+    html += (entry.practices || []).map((p) => {
+      const emoji = p.domain === 'math' ? '🔢' : '📖';
+      const resolved = p.correct + p.wrong + p.peeked + p.timedout;
+      const acc = resolved ? Math.round((p.correct / resolved) * 100) : 0;
       return `<div class="cal-attempt">
-        <span>${emoji} <b>${escapeHtml(fmtTopic(s.topic))}</b> <span class="note">${s.difficulty}</span> · ${sc} (${acc}%)</span>
-        <a class="btn btn-ghost" href="/session.html?id=${s.id}">Review answers →</a>
+        <span>${emoji} <b>${escapeHtml(p.topicName)}</b> <span class="note">${p.difficulty} · Round ${p.round}</span>
+          · ${p.events} action${p.events === 1 ? '' : 's'} · ${acc}% on resolved</span>
+        <a class="btn btn-ghost" href="/session.html?id=${p.sessionId}">Review →</a>
       </div>`;
     }).join('');
-  } else {
-    html += `<p class="note">No completed practices on this exact day (the weekly summary below still counts the whole week).</p>`;
-  }
-
-  html += `<div class="cal-sub">📊 Week of ${escapeHtml(wkLabel)} — accuracy by domain</div>`;
-  html += domainBars(weekAtt);
-  html += `<div class="cal-sub">🎯 This week's skills (weakest first)</div>`;
-  if (skills.length) {
-    html += `<ul class="report-list">` + skills.map((s) =>
-      `<li>${escapeHtml(s.label)} — <b>${s.acc}%</b> <span class="note">(${s.n} question${s.n === 1 ? '' : 's'})</span></li>`).join('') + `</ul>`;
-  } else {
-    html += `<p class="note">No practice recorded this week yet.</p>`;
   }
 
   panel.innerHTML = html;
   panel.classList.remove('hidden');
-  const c = document.getElementById('calPanelClose');
-  if (c) c.onclick = () => panel.classList.add('hidden');
+  $('calPanelClose').onclick = () => panel.classList.add('hidden');
+  const step = (n) => { const d = new Date(day + 'T00:00:00'); d.setDate(d.getDate() + n); showCalDay(localYmd(d)); };
+  $('calDayPrev').onclick = () => step(-1);
+  $('calDayNext').onclick = () => step(1);
   panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
 function renderCalendar() {
   const EXAM = new Date('2026-08-22T00:00:00');
   const cal = $('calendar');
-  const activeDays = new Set((DATA.byDay || []).map((d) => d.day)); // YYYY-MM-DD with activity
-  const byDaySessions = sessionsByDay();
-  const attByDay = {};
-  for (const a of allAttempts) { const d = a.answered_at.slice(0, 10); (attByDay[d] = attByDay[d] || []).push(a); }
-  const today = new Date(); today.setHours(0, 0, 0, 0);
-  // Monday of this week
-  const start = new Date(today); start.setDate(today.getDate() - ((today.getDay() + 6) % 7));
-  const fmt = (d) => d.toISOString().slice(0, 10);
+  const todayStr = localYmd(new Date());
   const dayNames = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
-  const plan = ['Math + Reading', 'Math + Reading', 'Focus work', 'Math + Reading', 'Math + Reading', 'Focus work', 'Rest'];
 
-  // last 2 weeks before exam are full-length tests
-  // Full-length tests = the last 2 calendar weeks (exam week + the one before),
-  // i.e. weeks whose Monday is on/after testStartMonday. This keeps the 7
-  // practice weeks intact when starting around Jun 22.
-  const examMonday = new Date(EXAM); examMonday.setDate(EXAM.getDate() - ((EXAM.getDay() + 6) % 7));
-  const testStartMonday = new Date(examMonday); testStartMonday.setDate(examMonday.getDate() - 7);
+  const monday = new Date(calWeekMonday + 'T00:00:00');
+  const weekEnd = new Date(monday); weekEnd.setDate(monday.getDate() + 6);
+  const isThisWeek = mondayOf(todayStr) === calWeekMonday;
 
-  let html = '';
-  let wk = new Date(start);
-  let n = 0;
-  while (wk <= EXAM && n < 12) {
-    const weekEnd = new Date(wk); weekEnd.setDate(wk.getDate() + 6);
-    const isTestWeek = wk >= testStartMonday;
-    const isThisWeek = today >= wk && today <= weekEnd;
-    html += `<div class="cal-week ${isThisWeek ? 'current' : ''}">
-      <div class="cal-week-head">Week of ${wk.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}
-        <span class="cal-badge ${isTestWeek ? 'test' : 'practice'}">${isTestWeek ? '📝 Full tests' : '📚 Practice'}</span></div>
-      <div class="cal-days">`;
-    for (let i = 0; i < 7; i++) {
-      const d = new Date(wk); d.setDate(wk.getDate() + i);
-      const ds = fmt(d);
-      const past = d < today, isToday = ds === fmt(today);
-      const beyond = d > EXAM;
-      const did = activeDays.has(ds);
-      const dayAtt = attByDay[ds] || [];
-      const nSess = (byDaySessions[ds] || []).length;
-      const hasAct = dayAtt.length > 0;
-      const label = isTestWeek ? (i === 5 ? 'Full test' : (i === 6 ? 'Rest' : 'Review')) : plan[i];
-      const clickable = hasAct ? ' has-attempts' : '';
-      const badge = nSess ? `${nSess} practice${nSess === 1 ? '' : 's'} ›` : (hasAct ? 'view week ›' : '');
-      html += `<div class="cal-day ${isToday ? 'today' : ''} ${past ? 'past' : ''} ${beyond ? 'beyond' : ''} ${did ? 'did' : ''}${clickable}" ${hasAct ? `data-date="${ds}"` : ''}>
-        <span class="cal-dn">${dayNames[i]} ${d.getDate()}</span>
-        <span class="cal-plan">${did ? '✅ ' : ''}${beyond ? '—' : label}</span>
-        ${badge ? `<span class="cal-att-badge">${badge}</span>` : ''}
-        ${dayMiniBars(dayAtt)}
-      </div>`;
-    }
-    html += `</div></div>`;
-    wk.setDate(wk.getDate() + 7); n++;
+  let html = `<div class="cal-toolbar">
+      <button class="cal-nav" id="calPrev" title="Previous week">◀ Prev</button>
+      <div class="cal-week-label">Week of ${monday.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })}${isThisWeek ? ' · this week' : ''}</div>
+      <button class="cal-nav" id="calNext" title="Next week">Next ▶</button>
+      <button class="cal-nav" id="calToday" title="Jump to this week">Today</button>
+    </div>`;
+
+  html += `<div class="cal-week ${isThisWeek ? 'current' : ''}"><div class="cal-days">`;
+  for (let i = 0; i < 7; i++) {
+    const d = new Date(monday); d.setDate(monday.getDate() + i);
+    const ds = localYmd(d);
+    const isToday = ds === todayStr;
+    const isExam = ds === localYmd(EXAM);
+    const entry = DAILY[ds];
+    const hasAct = entry && entry.total > 0;
+    const tag = isExam ? '🎯 SAT day!' : '';
+    const badge = hasAct ? `${(entry.practices || []).length || ''} ${(entry.practices || []).length === 1 ? 'practice' : 'practices'} ›`.trim() : '';
+    html += `<div class="cal-day ${isToday ? 'today' : ''} ${isExam ? 'exam' : ''} ${hasAct ? 'did has-attempts' : ''}" ${hasAct ? `data-date="${ds}"` : ''}>
+      <span class="cal-dn">${dayNames[i]} ${d.getDate()}</span>
+      ${tag ? `<span class="cal-plan">${tag}</span>` : ''}
+      ${hasAct ? dayStatusDots(entry.counts) : '<span class="cal-plan note">—</span>'}
+      ${badge ? `<span class="cal-att-badge">${badge}</span>` : ''}
+    </div>`;
   }
+  html += `</div></div>`;
+
+  const today = new Date(); today.setHours(0, 0, 0, 0);
   const weeksLeft = Math.max(0, Math.ceil((EXAM - today) / (7 * 86400000)));
-  $('calIntro').textContent = `${weeksLeft} week(s) until Aug 22. Mon/Tue/Thu/Fri = Math + Reading sessions; Wed/Sat = focus work; last 2 weeks = full-length tests. ✅ = you practiced that day.`;
+  $('calIntro').textContent = `${weeksLeft} week(s) until the SAT on Aug 22. Each day records what you did — tap a day with activity to see the details. Use ◀ ▶ to browse any week.`;
   cal.innerHTML = html;
+
+  $('calPrev').onclick = () => { const m = new Date(calWeekMonday + 'T00:00:00'); m.setDate(m.getDate() - 7); calWeekMonday = localYmd(m); renderCalendar(); };
+  $('calNext').onclick = () => { const m = new Date(calWeekMonday + 'T00:00:00'); m.setDate(m.getDate() + 7); calWeekMonday = localYmd(m); renderCalendar(); };
+  $('calToday').onclick = () => { calWeekMonday = mondayOf(localYmd(new Date())); renderCalendar(); };
 }
 
 function accClass(acc) {
@@ -378,44 +376,36 @@ function accClass(acc) {
 }
 
 function renderSkills() {
-  const rows = DATA.bySkill || [];
+  // Grand current state: each question's latest result across all rounds.
+  const rows = DATA.skillFocus || [];
   const tbody = $('skillsTable').querySelector('tbody');
   const highlight = $('skillHighlight');
   if (!rows.length) {
-    tbody.innerHTML = '<tr><td colspan="8" class="note">No skills practiced yet. Once she answers questions, her per-skill breakdown shows here.</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="8" class="note">No skills resolved yet. Once she answers questions, her current per-skill breakdown shows here.</td></tr>';
     highlight.innerHTML = '';
     return;
   }
-  // Highlight the weakest skill with enough attempts to be meaningful.
-  const ranked = rows.map((r) => ({ ...r, acc: r.attempts ? Math.round((r.correct / r.attempts) * 100) : 0 }));
-  const weak = ranked.filter((r) => r.attempts >= 2).sort((a, b) => a.acc - b.acc)[0] || ranked[0];
+  // Highlight the weakest skill with enough resolved to be meaningful.
+  const weak = rows.filter((r) => r.resolved >= 2)[0] || rows[0];
   highlight.innerHTML = `<div class="skill-focus">
       <span class="skill-focus-emoji">💡</span>
       <div><b>Top area to work on:</b> ${escapeHtml(weak.skill)}
-      <span class="note">(${weak.acc}% over ${weak.attempts} attempt${weak.attempts === 1 ? '' : 's'} · ${fmtTopic(weak.topic)} · ${weak.difficulty})</span></div>
+      <span class="note">(currently ${weak.accuracy}% over ${weak.resolved} question${weak.resolved === 1 ? '' : 's'} · ${escapeHtml(weak.topicName)} · ${weak.difficulty})</span></div>
     </div>`;
 
-  tbody.innerHTML = ranked.map((r) => {
+  tbody.innerHTML = rows.map((r) => {
     const domainEmoji = r.domain === 'math' ? '🔢' : '📖';
-    return `<tr class="skill-row" data-skill="${escapeHtml(r.skill)}" title="Filter attempts by this skill">
+    return `<tr class="skill-row" data-skill="${escapeHtml(r.skill)}" title="Filter the list by this skill">
       <td><b>${escapeHtml(r.skill)}</b></td>
-      <td>${domainEmoji} ${fmtTopic(r.topic)}</td>
+      <td>${domainEmoji} ${escapeHtml(r.topicName)}</td>
       <td>${r.difficulty === 'hard' ? '🔴' : '🟡'} ${r.difficulty}</td>
-      <td><div class="acc-bar"><span class="${accClass(r.acc)}" style="width:${r.acc}%"></span><em>${r.acc}%</em></div></td>
+      <td><div class="acc-bar"><span class="${accClass(r.accuracy)}" style="width:${r.accuracy}%"></span><em>${r.accuracy}%</em></div></td>
       <td>${r.correct}</td>
-      <td>${r.wrong}</td>
-      <td>${r.attempts}</td>
-      <td>${fmtTime(Math.round(r.avg_time))}</td>
+      <td>${r.wrong + (r.peeked || 0) + (r.timedout || 0)}</td>
+      <td>${r.resolved}</td>
+      <td>${fmtTime(r.avgTime)}</td>
     </tr>`;
   }).join('');
-}
-
-function populateSkillFilter() {
-  const sel = $('fSkill');
-  if (!sel) return;
-  const skills = [...new Set(allAttempts.map((a) => a.skill).filter(Boolean))].sort();
-  sel.innerHTML = '<option value="">All</option>' +
-    skills.map((s) => `<option value="${escapeHtml(s)}">${escapeHtml(s)}</option>`).join('');
 }
 
 function renderTiles() {
@@ -554,57 +544,64 @@ function renderSessions() {
   }).join('');
 }
 
-function getFilteredAttempts() {
-  const round  = $('fRound') ? $('fRound').value : '';
-  const date   = $('fDate') ? $('fDate').value : '';
-  const sec    = $('fSection').value;
-  const diff   = $('fDifficulty') ? $('fDifficulty').value : '';
-  const result = $('fResult').value;
-  const skill  = $('fSkill') ? $('fSkill').value : '';
-  const search = $('fSearch').value.trim().toLowerCase();
-  return allAttempts.filter((a) => {
-    if (round  && String(a.round) !== round) return false;
-    if (date   && a.answered_at.slice(0, 10) !== date) return false;
-    if (sec    && a.domain !== sec) return false;
-    if (diff   && a.difficulty !== diff) return false;
-    if (result !== '' && String(a.is_correct) !== result) return false;
-    if (skill  && a.skill !== skill) return false;
-    if (search && !a.prompt.toLowerCase().includes(search)) return false;
+const STATUS_PILL = {
+  correct:  '<span class="pill correct">✅ correct</span>',
+  wrong:    '<span class="pill wrong">❌ wrong</span>',
+  peeked:   '<span class="pill peeked">👀 peeked</span>',
+  timedout: '<span class="pill peeked">⏰ over time</span>',
+  skipped:  '<span class="pill skipped">⏭ skipped</span>',
+};
+
+function getFilteredActivity() {
+  const subject = $('fSubject') ? $('fSubject').value : '';
+  const domain  = $('fDomain') ? $('fDomain').value : '';
+  const skill   = $('fSkill') ? $('fSkill').value : '';
+  const round   = $('fRound') ? $('fRound').value : '';
+  const diff    = $('fDifficulty') ? $('fDifficulty').value : '';
+  const status  = $('fStatus') ? $('fStatus').value : '';
+  const date    = $('fDate') ? $('fDate').value : '';
+  const search  = $('fSearch').value.trim().toLowerCase();
+  return ACTIVITY.filter((a) => {
+    if (subject && a.domain !== subject) return false;
+    if (domain  && a.topic !== domain) return false;
+    if (skill   && a.skill !== skill) return false;
+    if (round   && String(a.round) !== round) return false;
+    if (diff    && a.difficulty !== diff) return false;
+    if (status  && a.status !== status) return false;
+    if (date    && a.day !== date) return false;
+    if (search  && !(a.prompt || '').toLowerCase().includes(search)) return false;
     return true;
   });
 }
 
 function renderAttempts() {
-  const rows = getFilteredAttempts();
+  const rows = getFilteredActivity();
   $('rowCount').textContent = `${rows.length} row${rows.length === 1 ? '' : 's'}`;
   const tbody = $('attemptsTable').querySelector('tbody');
   if (!rows.length) {
-    tbody.innerHTML = '<tr><td colspan="10" class="note">No attempts match your filters yet.</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="10" class="note">No activity matches your filters.</td></tr>';
     return;
   }
   tbody.innerHTML = rows.map((a) => {
-    const res = a.is_correct
-      ? '<span class="pill correct">✓ correct</span>'
-      : '<span class="pill wrong">✗ wrong</span>';
     const domainEmoji = a.domain === 'math' ? '🔢' : '📖';
-    const topicName = (a.topic||'').replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
+    const pill = STATUS_PILL[a.status] || a.status;
     return `<tr>
-      <td>${fmtDate(a.answered_at)}</td>
+      <td>${fmtDate(a.occurredAt)}</td>
       <td>R${a.round || 1}</td>
-      <td>${domainEmoji} ${topicName}</td>
+      <td>${domainEmoji} ${escapeHtml(a.topicName)}</td>
       <td>${escapeHtml(a.skill || '—')}</td>
       <td>${a.difficulty === 'hard' ? '🔴' : '🟡'} ${a.difficulty}</td>
-      <td><button class="link-cell" data-attempt="${a.id}" title="View this question, your answer, and the solution">${escapeHtml(a.prompt)}${a.prompt.length >= 90 ? '…' : ''} 🔎</button></td>
-      <td>${a.selected}</td>
-      <td>${a.correct}</td>
-      <td>${res}</td>
-      <td>${fmtTime(a.time_taken_seconds)}</td>
+      <td><button class="link-cell" data-question="${a.questionId}" title="View this question, her answer, and the solution">${escapeHtml(a.prompt)}${(a.prompt || '').length >= 90 ? '…' : ''} 🔎</button></td>
+      <td>${escapeHtml(a.selected || '—')}</td>
+      <td>${escapeHtml(a.correct)}</td>
+      <td>${pill}</td>
+      <td>${fmtTime(a.timeTaken)}</td>
     </tr>`;
   }).join('');
 }
 
 // ---- Question review modal -------------------------------------------------
-async function openReview(attemptId) {
+async function openReview(questionId) {
   const modal = $('reviewModal');
   const body = $('reviewBody');
   body.innerHTML = '<div class="spinner">Loading…</div>';
@@ -612,7 +609,7 @@ async function openReview(attemptId) {
   $('reviewCardEl').classList.add('expanded');   // full-screen layout by default
   document.body.style.overflow = 'hidden';
   try {
-    const r = await api('GET', `/api/attempts/${attemptId}/review`);
+    const r = await api('GET', `/api/questions/${questionId}/review`);
     renderReview(r);
   } catch (e) {
     body.innerHTML = `<p class="note">Could not load this question: ${escapeHtml(e.message)}</p>`;
@@ -707,24 +704,23 @@ function renderReview(r) {
 }
 
 function exportCsv() {
-  const rows = getFilteredAttempts();
-  const header = ['Date', 'Round', 'Test', 'Domain', 'Topic', 'Skill', 'Difficulty', 'Question', 'HerAnswer', 'Correct', 'Result', 'TimeSeconds'];
+  const rows = getFilteredActivity();
+  const header = ['Date', 'Round', 'Domain', 'Topic', 'Skill', 'Difficulty', 'Question', 'HerAnswer', 'Correct', 'Status', 'TimeSeconds'];
   const lines = [header.join(',')];
   const q = (v) => '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"';
   for (const a of rows) {
     const cells = [
-      a.answered_at,
+      a.occurredAt,
       a.round || 1,
-      a.test || 'SAT',
       a.domain,
-      a.topic,
+      q(a.topicName),
       q(a.skill || ''),
       a.difficulty,
       q(a.prompt),
-      a.selected,
-      a.correct,
-      a.is_correct ? 'correct' : 'wrong',
-      a.time_taken_seconds,
+      q(a.selected || ''),
+      q(a.correct),
+      a.status,
+      a.timeTaken,
     ];
     lines.push(cells.join(','));
   }
@@ -732,13 +728,23 @@ function exportCsv() {
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a');
   link.href = url;
-  link.download = 'sat-attempts.csv';
+  link.download = 'sat-activity.csv';
   link.click();
   URL.revokeObjectURL(url);
 }
 
-['fRound', 'fDate', 'fSection', 'fResult', 'fDifficulty', 'fSkill'].forEach((id) => { const el = $(id); if (el) el.addEventListener('change', renderAttempts); });
-$('fSearch').addEventListener('input', renderAttempts);
+// The Filtered List is manual: dependent dropdowns update on change, but the
+// table only re-runs when Search (or a quick skill click) is pressed.
+$('fSubject').addEventListener('change', () => { populateDomainFilter(); populateSkillFilter(); });
+$('fDomain').addEventListener('change', populateSkillFilter);
+$('fSearch').addEventListener('keydown', (e) => { if (e.key === 'Enter') renderAttempts(); });
+$('searchBtn').addEventListener('click', renderAttempts);
+$('clearBtn').addEventListener('click', () => {
+  ['fSubject', 'fDomain', 'fSkill', 'fRound', 'fDifficulty', 'fStatus', 'fDate'].forEach((id) => { if ($(id)) $(id).value = ''; });
+  $('fSearch').value = '';
+  populateDomainFilter(); populateSkillFilter();
+  renderAttempts();
+});
 $('exportBtn').addEventListener('click', exportCsv);
 
 // Top menu: switch views
@@ -746,22 +752,24 @@ document.querySelectorAll('.dash-menu .menu-btn[data-view]').forEach((b) => {
   b.addEventListener('click', () => showView(b.dataset.view));
 });
 
-// Click a skill row -> filter the attempts table below to that skill (all dates)
+// Click a skill row -> filter the list below to that skill (clears other filters)
 $('skillsTable').addEventListener('click', (e) => {
   const row = e.target.closest('.skill-row');
   if (!row) return;
-  if ($('fDate')) $('fDate').value = '';
+  ['fSubject', 'fDomain', 'fRound', 'fDifficulty', 'fStatus', 'fDate'].forEach((id) => { if ($(id)) $(id).value = ''; });
+  $('fSearch').value = '';
+  populateDomainFilter(); populateSkillFilter();
   const sel = $('fSkill');
   if (sel) { sel.value = row.dataset.skill; renderAttempts(); }
   $('attemptsTable').scrollIntoView({ behavior: 'smooth', block: 'start' });
 });
 
-// Click a question in the attempts table -> open the review modal
+// Click a question in the list -> open the review modal
 $('attemptsTable').addEventListener('click', (e) => {
   const btn = e.target.closest('.link-cell');
-  if (btn) openReview(Number(btn.dataset.attempt));
+  if (btn) openReview(Number(btn.dataset.question));
 });
-// Calendar: click a day with attempts to review that day's completed attempts
+// Calendar: click a day with activity to see that day's practices + summary
 $('calendar').addEventListener('click', (e) => {
   const day = e.target.closest('.cal-day.has-attempts');
   if (day) showCalDay(day.dataset.date);

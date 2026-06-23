@@ -144,25 +144,42 @@ function renderMap() {
   for (const item of state.items) {
     const b = document.createElement('button');
     b.textContent = item.position;
-    if (item.answered) {
+    if (item.resolved) {
       b.classList.add('answered');
       b.classList.add(item.correct ? 'correct' : 'wrong');  // green vs red border
+    } else if (item.skipped) {
+      b.classList.add('skipped');                            // amber border
     }
     if (item.position === pos) b.classList.add('current');
-    b.title = item.answered ? (item.correct ? 'Correct' : 'Review this one') : 'Not done yet';
+    b.title = item.resolved ? (item.correct ? 'Correct' : 'Review this one')
+            : (item.skipped ? 'Skipped — come back to it' : 'Not done yet');
     b.onclick = () => gotoPosition(item.position);
     map.appendChild(b);
   }
 }
 
 function updateFinish() {
-  const done = state.answeredCount;
+  const done = state.resolvedCount;
   const total = state.total;
+  const skipped = state.skippedCount || 0;
   $('progressFill').style.width = Math.round((done / total) * 100) + '%';
-  $('finishBtn').disabled = !(done === total);
-  $('finishNote').textContent = done === total
-    ? '🌟 All done! Click Finish to see your scorecard.'
-    : `Answered ${done} of ${total}. Finish unlocks when every question is done.`;
+  $('finishBtn').disabled = !state.allResolved;
+
+  const skBtn = $('skippedBtn');
+  if (skipped > 0) {
+    skBtn.classList.remove('hidden');
+    skBtn.textContent = `⏭ Skipped (${skipped})`;
+  } else {
+    skBtn.classList.add('hidden');
+  }
+
+  if (state.allResolved) {
+    $('finishNote').textContent = '🌟 Every question resolved! Click Finish to see your round scorecard.';
+  } else if (skipped > 0) {
+    $('finishNote').textContent = `Resolved ${done} of ${total}. You have ${skipped} skipped — clear them (and any not done) to finish the round.`;
+  } else {
+    $('finishNote').textContent = `Resolved ${done} of ${total}. Finish unlocks when every question is resolved.`;
+  }
 }
 
 function updateScore(running) {
@@ -228,6 +245,9 @@ async function loadQuestion(p) {
   // ----- controls / state -----
   $('prevBtn').disabled = current.position <= 1;
   $('nextBtn').disabled = current.position >= current.total;
+
+  // Skip is only offered while the question is still open (not in review mode).
+  $('skipBtn').classList.toggle('hidden', resolved || reviewMode);
 
   if (resolved) {
     showFeedback(current.feedback, { silent: true });
@@ -312,6 +332,20 @@ async function autoTimeout() {
   await resolve('timeout', {});
 }
 
+// Defer this question (logged as a skip) and jump to the next one needing work.
+async function skipCurrent() {
+  if (resolved || !current) return;
+  saveProgress(); stopTiming(); stopHeartbeat();
+  const timeTaken = Math.round(currentElapsed());
+  try {
+    await api('POST', `/api/sessions/${sessionId}/skip`, { questionId: current.question.id, timeTaken });
+    await refreshState();
+    const next = findNextUnresolved(pos);
+    if (next && next !== pos) await gotoPosition(next);
+    else await loadQuestion(pos); // nothing else left to do — reload (will offer finish)
+  } catch (e) { showToast(e.message); }
+}
+
 async function resolve(kind, extra) {
   stopTiming(); stopHeartbeat();
   const timeTaken = Math.round(currentElapsed());
@@ -363,8 +397,8 @@ function showFeedback(fb, opts) {
     if (!opts.silent) beep('wrong');
   }
   updateScore(fb.running);
-  // No "Next question" on the last question.
-  $('fbNext').style.display = (current && current.position < current.total) ? '' : 'none';
+  // Offer "Next" only while something else still needs work.
+  $('fbNext').style.display = hasUnresolvedElsewhere() ? '' : 'none';
 }
 
 async function refreshState() {
@@ -374,19 +408,34 @@ async function refreshState() {
 }
 
 function goNext() {
-  const next = findNextUnanswered(pos) || (pos < state.total ? pos + 1 : pos);
+  const next = findNextUnresolved(pos) || (pos < state.total ? pos + 1 : pos);
   gotoPosition(next);
 }
 
-function findNextUnanswered(fromPos) {
+// Next thing needing work, scanning forward then wrapping. Pending questions
+// come before skipped ones, so a round flows through fresh questions first and
+// the skipped ones resurface near the end.
+function findNextUnresolved(fromPos) {
   const order = [];
   for (let i = fromPos + 1; i <= state.total; i++) order.push(i);
   for (let i = 1; i <= fromPos; i++) order.push(i);
-  for (const p of order) {
-    const item = state.items.find((x) => x.position === p);
-    if (item && !item.answered) return p;
-  }
-  return null;
+  const byStatus = (wantSkipped) => {
+    for (const p of order) {
+      const item = state.items.find((x) => x.position === p);
+      if (item && !item.resolved && (!!item.skipped === wantSkipped)) return p;
+    }
+    return null;
+  };
+  return byStatus(false) || byStatus(true); // pending first, then skipped
+}
+
+function firstSkipped() {
+  const s = state.items.find((i) => i.skipped);
+  return s ? s.position : null;
+}
+
+function hasUnresolvedElsewhere() {
+  return state.items.some((i) => !i.resolved && i.position !== pos);
 }
 
 async function finishSession() {
@@ -485,16 +534,16 @@ function renderScorecard(r) {
   }
 }
 
-// 90-minute session reminder so 40 questions don't pile up into a backlog.
+// Gentle break reminder after a long single sitting (a round can span days).
 function checkBacklog() {
   const key = `sessStart_${sessionId}`;
   let start = Number(localStorage.getItem(key));
   if (!start) { start = Date.now(); localStorage.setItem(key, String(start)); }
   const mins = (Date.now() - start) / 60000;
   const remindKey = `sessRemind_${sessionId}`;
-  if (mins >= 90 && !localStorage.getItem(remindKey) && (!state || state.answeredCount < state.total)) {
+  if (mins >= 90 && !localStorage.getItem(remindKey) && (!state || !state.allResolved)) {
     localStorage.setItem(remindKey, '1');
-    showToast("⏰ 90 minutes in! Try to finish your 40 today so it doesn't pile up — you've got this! 💪");
+    showToast("⏰ 90 minutes in — great focus! Take a break whenever you like; this round will be right here when you come back. 💪");
   }
 }
 function clearBacklog() {
@@ -513,6 +562,8 @@ function escapeHtml(s) {
 $('prevBtn').onclick = () => gotoPosition(pos - 1);
 $('nextBtn').onclick = () => gotoPosition(pos + 1);
 $('submitBtn').onclick = submitAnswer;
+$('skipBtn').onclick = skipCurrent;
+$('skippedBtn').onclick = () => { const p = firstSkipped(); if (p) gotoPosition(p); };
 $('finishBtn').onclick = () => completeAndReview();
 $('pauseBtn').onclick = pauseExit;
 $('scorecardBtn').onclick = () => showResults().catch((e) => showToast(e.message));

@@ -94,12 +94,21 @@ COLLEGEBOARD/
   (medium|hard), `skill`, `qtype` (mcq|spr), `image`, `mask_fraction`,
   `answer_image`, `choices` (JSON), `correct` (letter for mcq; JSON array of
   acceptable strings for spr), `explanation`, `test`.
-- **sessions** — one practice. `user_id, domain, topic, difficulty, round,
-  time_limit_seconds, status (in_progress|completed), current_position, score`.
-- **session_questions** — `session_id, question_id, position, elapsed_seconds, peeked`.
-- **attempts** — one resolved question. `user_id, session_id, question_id,
-  selected, is_correct, time_taken_seconds, over_limit, peeked`.
-  UNIQUE(session_id, question_id) — a question is resolved exactly once per practice.
+- **sessions** — one **round** (a round *is* the practice now). `user_id, domain,
+  topic, difficulty, round, time_limit_seconds, status (in_progress|completed),
+  current_position, score`. Holds **all** the section's questions (no size cap).
+- **session_questions** — `session_id, question_id, position, elapsed_seconds,
+  peeked, status (pending|correct|wrong|peeked|timedout|skipped), resolved_at`.
+  `status` is the question's current state within the round; drives % complete.
+- **attempts** — the latest **terminal** resolution (correct/wrong/peeked/timedout)
+  of a question. `user_id, session_id, question_id, selected, is_correct,
+  time_taken_seconds, over_limit, peeked`. UNIQUE(session_id, question_id). Skips
+  do **not** write here.
+- **activity_events** — append-only **daily log**: one row per action, including
+  **skips** and re-resolutions. `user_id, session_id, question_id,
+  domain/topic/difficulty/skill, round, status, selected, time_taken_seconds,
+  over_limit, occurred_at`. This is the **source of truth** for the calendar,
+  daily summaries, and weekly reports (grouped by `date(occurred_at,'localtime')`).
 - **tasks** — Suggested Practice items. `user_id, due_date, domain/topic/difficulty/skill,
   title, detail, status (open|done)`.
 
@@ -112,25 +121,33 @@ production has live data on the `/data` volume.
 - **Taxonomy** (`topics.js`): `domain` = math | reading; each has 4 `topic`s;
   each topic has `medium` and `hard`. 16 sections total. The student-facing
   hierarchy is **Round → Math/Reading → Difficulty → Domain(topic) → Skill → Question**.
-- **Single active practice:** a user may have only ONE `in_progress` session at a
-  time across all domains. `getActiveAny()` enforces this (keeps one, math-priority,
-  deletes extras). Starting another returns HTTP 409 with `activeSessionId`.
-- **Practice Rounds:** a *round* = one full pass through every question in a
-  (domain, topic, difficulty). Within a round each question is shown once (any
-  result). When all are covered, the next practice auto-starts the next round
-  and **reopens all questions**. History is preserved (round stored per session).
-  Selection is round-scoped and **shuffled per practice** (so no two users get
-  the same order — anti-cheating requirement).
+- **Round = practice:** a *round* = one full pass through **every** question in a
+  (domain, topic, difficulty) section. A round *is* the practice — there's no
+  40-question cap; it holds all the section's questions, seeded as `pending` and
+  shuffled per round (anti-cheating). A round spans days/weeks. It **completes**
+  only when nothing is left `pending` or `skipped` (auto-completes on the last
+  resolution). Starting again then opens the **next round** (reopens all). Rounds
+  advance **independently per section** (Algebra·Medium can be on Round 3 while
+  PADS·Hard is on Round 1). Medium and Hard are separate rounds, reported separately.
+- **Multiple active rounds:** a user may have **one `in_progress` round per
+  section**, and **many across sections** at once. `createOrResumeSession` resumes
+  this section's open round or starts the next one; `listActiveSessions` powers the
+  Home quick-resume strip. (The old single-active rule is gone.)
 - **Per-question timer:** stored per session (`time_limit_seconds`). Defaults by
   round: R1 = 120s medium / 150s hard; R2+ = 60s / 120s. Adjustable in the Home
   start dialog. Full-length tests (future) will use overall-only timing.
-- **Resolution model:** a question is resolved exactly once via **answer**, **peek**,
-  or **timeout**. Peek and timeout never count as correct and are flagged
-  (`peeked`, `over_limit`). Locked once resolved.
+- **Resolution model:** a question is resolved once via **answer**, **peek**, or
+  **timeout** (writes `attempts` + an `activity_events` row, sets `status`). It can
+  also be **skipped** (deferred): `status='skipped'`, a skip event is logged each
+  time, no `attempts` row — it resurfaces later in the round. **Accuracy = correct ÷
+  resolved**; peeked/timedout/skipped count as **not correct** but are tracked and
+  shown separately.
 - **Answer security:** the correct answer/rationale is **never** sent to the client
   for an unanswered question. `publicQuestion()` strips it; `attemptFeedback()` is
   only attached after the question is resolved. Keep it that way.
 - **Mastery:** a question is "mastered" if answered correctly at least once (ever).
+  **Skills-to-focus** instead uses the **grand current state** — each question's
+  *latest* result across all rounds (`getSkillFocus`).
 - **Daily goal:** 40 Math + 40 Reading per practice day (Mon/Tue/Thu/Fri).
 
 ## PDF import pipeline

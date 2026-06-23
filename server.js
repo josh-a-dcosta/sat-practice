@@ -147,9 +147,9 @@ async function handleApi(req, res, url) {
         today:        repo.getTodayProgress(uid),
         catalogue:    repo.getCatalogue(uid),
         skillCatalogue: repo.getSkillCatalogue(uid),
-        activeSession: repo.activeSessionInfo(uid),
+        activeSessions: repo.listActiveSessions(uid),
+        dailySummaries: repo.getDailySummaries(uid),
         timeLimits:   repo.TIME_LIMITS,
-        sessionSize:  repo.SESSION_SIZE,
         sessionMinutes: repo.SESSION_MINUTES,
       });
     }
@@ -200,6 +200,12 @@ async function handleApi(req, res, url) {
       return sendJson(res, 200, repo.timeoutQuestion(uid, Number(parts[2]), Number(body.questionId), Number(body.timeTaken)));
     }
 
+    // POST /api/sessions/:id/skip  { questionId, timeTaken }   (defer, not resolve)
+    if (req.method === 'POST' && parts[1] === 'sessions' && parts[3] === 'skip' && parts.length === 4) {
+      const body = await readBody(req);
+      return sendJson(res, 200, repo.skipQuestion(uid, Number(parts[2]), Number(body.questionId), Number(body.timeTaken)));
+    }
+
     // POST /api/sessions/:id/progress  { position, elapsed }   (pause/heartbeat)
     if (req.method === 'POST' && parts[1] === 'sessions' && parts[3] === 'progress' && parts.length === 4) {
       const body = await readBody(req);
@@ -243,12 +249,20 @@ async function handleApi(req, res, url) {
       return sendJson(res, 200, review);
     }
 
+    // GET /api/questions/:id/review  (Filtered List rows, incl. skipped)
+    if (req.method === 'GET' && parts[1] === 'questions' && parts[3] === 'review' && parts.length === 4) {
+      const review = repo.getQuestionReview(uid, Number(parts[2]));
+      if (!review) return sendJson(res, 404, { error: 'Question not found' });
+      return sendJson(res, 200, review);
+    }
+
     return sendJson(res, 404, { error: 'Unknown endpoint' });
   } catch (err) {
     const status = err.status || 500;
     if (status === 500) console.error('API error:', err);
     const payload = { error: err.message || 'Server error' };
     if (err.activeSessionId) payload.activeSessionId = err.activeSessionId;
+    if (err.remaining) payload.remaining = err.remaining;
     return sendJson(res, status, payload);
   }
 }

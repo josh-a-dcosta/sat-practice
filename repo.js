@@ -26,27 +26,62 @@ function totalQuestions(domain, topic, difficulty) {
   return db.prepare('SELECT COUNT(*) n FROM questions WHERE domain=? AND topic=? AND difficulty=?')
     .get(domain, topic, difficulty).n;
 }
-function maxRound(userId, domain, topic, difficulty) {
+// Round = practice: one full pass through every question in a (domain, topic,
+// difficulty). Each round is its own `sessions` row holding all the section's
+// questions; progress comes from the per-question `status` on session_questions.
+function sectionRounds(userId, domain, topic, difficulty) {
+  const rows = db.prepare(`
+    SELECT s.id, s.round, s.status,
+           COUNT(sq.id) total,
+           SUM(CASE WHEN sq.status IN ('correct','wrong','peeked','timedout') THEN 1 ELSE 0 END) resolved,
+           SUM(CASE WHEN sq.status='skipped' THEN 1 ELSE 0 END) skipped,
+           SUM(CASE WHEN sq.status='correct' THEN 1 ELSE 0 END) correct
+    FROM sessions s
+    LEFT JOIN session_questions sq ON sq.session_id = s.id
+    WHERE s.user_id=? AND s.domain=? AND s.topic=? AND s.difficulty=?
+    GROUP BY s.id ORDER BY s.round, s.id
+  `).all(userId, domain, topic, difficulty);
+  return rows.map((r) => ({
+    sessionId: r.id, round: r.round, status: r.status,
+    total: r.total, resolved: r.resolved, skipped: r.skipped, correct: r.correct,
+    pct: r.total ? Math.round((r.resolved / r.total) * 100) : 0,
+  }));
+}
+
+// The in-progress round for a section (at most one), or null.
+function getActiveForSection(userId, domain, topic, difficulty) {
+  return db.prepare(`
+    SELECT * FROM sessions
+    WHERE user_id=? AND domain=? AND topic=? AND difficulty=? AND status='in_progress'
+    ORDER BY round DESC, id DESC LIMIT 1
+  `).get(userId, domain, topic, difficulty) || null;
+}
+
+// The round number a NEW practice would start (called only when none is active).
+function nextRoundNumber(userId, domain, topic, difficulty) {
   const r = db.prepare('SELECT MAX(round) m FROM sessions WHERE user_id=? AND domain=? AND topic=? AND difficulty=?')
     .get(userId, domain, topic, difficulty);
-  return (r && r.m) ? r.m : 0;
+  return (r && r.m) ? r.m + 1 : 1;
 }
-function attemptedInRound(userId, domain, topic, difficulty, round) {
-  return db.prepare(`
-    SELECT COUNT(DISTINCT a.question_id) n
-    FROM attempts a JOIN sessions s ON s.id = a.session_id
-    WHERE s.user_id=? AND s.domain=? AND s.topic=? AND s.difficulty=? AND s.round=?
-  `).get(userId, domain, topic, difficulty, round).n;
-}
-// The round the NEXT practice will use, plus its progress. When the current
-// round has covered every question, the next practice starts a fresh round.
+
+// Display summary for a section: the active round (resume) or the next round to
+// start, plus the per-round bars Home shows.
 function roundInfo(userId, domain, topic, difficulty) {
   const total = totalQuestions(domain, topic, difficulty);
-  const mr = maxRound(userId, domain, topic, difficulty);
-  if (mr === 0) return { round: 1, attempted: 0, total, prevComplete: false };
-  const att = attemptedInRound(userId, domain, topic, difficulty, mr);
-  if (total > 0 && att >= total) return { round: mr + 1, attempted: 0, total, prevComplete: true };
-  return { round: mr, attempted: att, total, prevComplete: false };
+  const rounds = sectionRounds(userId, domain, topic, difficulty);
+  const active = rounds.find((r) => r.status === 'in_progress') || null;
+  if (active) {
+    return {
+      round: active.round, attempted: active.resolved, total: active.total || total,
+      skipped: active.skipped, prevComplete: false,
+      activeSessionId: active.sessionId, rounds,
+    };
+  }
+  const next = rounds.length ? Math.max(...rounds.map((r) => r.round)) + 1 : 1;
+  return {
+    round: next, attempted: 0, total, skipped: 0,
+    prevComplete: rounds.length > 0, activeSessionId: null, rounds,
+  };
 }
 
 function shuffle(arr) {
@@ -124,21 +159,8 @@ function getCatalogue(userId) {
     GROUP BY q.domain, q.topic, q.difficulty
   `).all(userId);
 
-  const activeSessions = db.prepare(`
-    SELECT domain, topic, difficulty, id FROM sessions
-    WHERE status = 'in_progress' AND user_id = ?
-  `).all(userId);
-
   const masteredMap = {};
   for (const r of mastered) masteredMap[`${r.domain}|${r.topic}|${r.difficulty}`] = r.n;
-
-  const activeMap = {};
-  for (const s of activeSessions) activeMap[`${s.domain}|${s.topic}|${s.difficulty}`] = s.id;
-
-  const result = {};
-  for (const { domain, topics } of Object.values(TAXONOMY)) {
-    // iterate by domain name
-  }
 
   const catalogue = [];
   for (const [domain, domainDef] of Object.entries(TAXONOMY)) {
@@ -148,18 +170,19 @@ function getCatalogue(userId) {
         const countRow = counts.find((r) => r.domain === domain && r.topic === topic && r.difficulty === difficulty);
         const total = countRow ? countRow.total : 0;
         const masteredN = masteredMap[key] || 0;
-        const activeId = activeMap[key] || null;
         const ri = total > 0 ? roundInfo(userId, domain, topic, difficulty)
-                             : { round: 1, attempted: 0, total: 0, prevComplete: false };
+                             : { round: 1, attempted: 0, total: 0, skipped: 0, prevComplete: false, activeSessionId: null, rounds: [] };
         catalogue.push({
           domain, topic, topicName, difficulty,
           total, mastered: masteredN,
           available: total > 0,
-          activeSessionId: activeId,
-          round: ri.round,
+          activeSessionId: ri.activeSessionId,
+          round: ri.round,             // round Start/Resume will use
           roundAttempted: ri.attempted,
           roundTotal: ri.total,
+          roundSkipped: ri.skipped,
           prevComplete: ri.prevComplete,
+          rounds: ri.rounds,           // per-round bars for Home
           defaultTimeLimit: defaultLimitFor(ri.round, difficulty),
         });
       }
@@ -185,11 +208,14 @@ function getSkillCatalogue(userId) {
 }
 
 function getTodayProgress(userId) {
+  // A question resolved today (correct/wrong/peeked/timedout) counts toward the
+  // daily goal; skips don't (they're deferred, not done).
   const rows = db.prepare(`
-    SELECT q.domain, COUNT(*) n
-    FROM attempts a JOIN questions q ON q.id = a.question_id
-    WHERE a.user_id = ? AND date(a.answered_at) = date('now','localtime')
-    GROUP BY q.domain
+    SELECT domain, COUNT(*) n
+    FROM activity_events
+    WHERE user_id = ? AND status != 'skipped'
+      AND date(occurred_at) = date('now','localtime')
+    GROUP BY domain
   `).all(userId);
   let mathToday = 0, readingToday = 0;
   for (const r of rows) { if (r.domain === 'math') mathToday = r.n; else if (r.domain === 'reading') readingToday = r.n; }
@@ -206,78 +232,46 @@ function getTodayProgress(userId) {
 // ---------------------------------------------------------------------------
 // question selection for a session
 // ---------------------------------------------------------------------------
-// Pick questions for a given round: any question not yet shown in THIS round
-// (and not currently in another in-progress practice). Shuffled per call so no
-// two users get the same order.
-function selectQuestions(userId, domain, topic, difficulty, round, limit) {
+// A round is a full pass through the whole section, so a fresh round seeds ALL
+// of the section's questions, shuffled (so no two users get the same order).
+function selectQuestions(domain, topic, difficulty) {
   const all = db.prepare(
     'SELECT id FROM questions WHERE domain=? AND topic=? AND difficulty=?'
   ).all(domain, topic, difficulty).map((r) => r.id);
-
-  if (!all.length) return [];
-
-  const seenInRound = new Set(
-    db.prepare(`
-      SELECT DISTINCT a.question_id id FROM attempts a
-      JOIN sessions s ON s.id = a.session_id
-      WHERE s.user_id=? AND s.domain=? AND s.topic=? AND s.difficulty=? AND s.round=?
-    `).all(userId, domain, topic, difficulty, round).map((r) => r.id)
-  );
-  const inProgress = new Set(
-    db.prepare(`
-      SELECT sq.question_id id FROM session_questions sq
-      JOIN sessions s ON s.id = sq.session_id
-      WHERE s.status='in_progress' AND s.user_id=?
-    `).all(userId).map((r) => r.id)
-  );
-
-  const avail = all.filter((id) => !seenInRound.has(id) && !inProgress.has(id));
-  return shuffle(avail).slice(0, limit);
+  return shuffle(all);
 }
 
 // ---------------------------------------------------------------------------
 // sessions
 // ---------------------------------------------------------------------------
-// A user may have only ONE in-progress attempt at a time across all domains.
-// If several somehow exist, keep one (math first, then most recent) and delete
-// the rest so we converge to a single active attempt.
-function getActiveAny(userId) {
+// Every in-progress round across all sections (many may be open at once — one
+// per section). Used by Home to show "resume" targets.
+function listActiveSessions(userId) {
   const rows = db.prepare(`
-    SELECT * FROM sessions
-    WHERE user_id=? AND status='in_progress'
-    ORDER BY (domain='math') DESC, created_at DESC
+    SELECT * FROM sessions WHERE user_id=? AND status='in_progress'
+    ORDER BY (domain='math') DESC, topic, difficulty
   `).all(userId);
-  if (rows.length > 1) {
-    const del = db.prepare('DELETE FROM sessions WHERE id=?');
-    for (let i = 1; i < rows.length; i++) del.run(rows[i].id); // cascades sq + attempts
-  }
-  return rows[0] || null;
-}
-
-function activeSessionInfo(userId) {
-  const a = getActiveAny(userId);
-  if (!a) return null;
-  const st = getSessionState(userId, a.id);
-  return {
-    id: a.id, domain: a.domain, topic: a.topic, difficulty: a.difficulty,
-    topicName: topicLabel(a.topic),
-    answeredCount: st ? st.answeredCount : 0, total: st ? st.total : 0,
-  };
+  return rows.map((a) => {
+    const st = getSessionState(userId, a.id);
+    return {
+      id: a.id, domain: a.domain, topic: a.topic, difficulty: a.difficulty,
+      round: a.round, topicName: topicLabel(a.topic),
+      answeredCount: st ? st.resolvedCount : 0,
+      skippedCount: st ? st.skippedCount : 0,
+      total: st ? st.total : 0,
+    };
+  });
 }
 
 function createOrResumeSession(userId, domain, topic, difficulty, opts = {}) {
-  const active = getActiveAny(userId);
+  // One in-progress round per section: resume it if present.
+  const active = getActiveForSection(userId, domain, topic, difficulty);
   if (active) {
-    if (active.domain === domain && active.topic === topic && active.difficulty === difficulty) {
-      return { id: active.id, resumed: true, size: countSQ(active.id), round: active.round };
-    }
-    const e = new Error(`Finish your active ${topicLabel(active.topic)} (${active.difficulty}) practice before starting a new one.`);
-    e.status = 409; e.activeSessionId = active.id; throw e;
+    return { id: active.id, resumed: true, size: countSQ(active.id), round: active.round };
   }
 
-  const ri = roundInfo(userId, domain, topic, difficulty);
-  const round = ri.round;
-  const ids = selectQuestions(userId, domain, topic, difficulty, round, SESSION_SIZE);
+  const round = nextRoundNumber(userId, domain, topic, difficulty);
+  const ids = selectQuestions(domain, topic, difficulty);
   if (!ids.length) {
     const e = new Error(`No questions available for ${topicLabel(topic)} ${difficulty}. Upload questions for this section.`);
     e.status = 409; throw e;
@@ -308,37 +302,67 @@ function getSessionRow(userId, sid) {
   return db.prepare('SELECT * FROM sessions WHERE id=? AND user_id=?').get(sid, userId);
 }
 
+const TERMINAL = ['correct', 'wrong', 'peeked', 'timedout'];
+function isTerminal(status) { return TERMINAL.indexOf(status) >= 0; }
+
 function getSessionState(userId, sid) {
   const s = getSessionRow(userId, sid);
   if (!s) return null;
   const items = db.prepare(`
-    SELECT sq.position, sq.question_id,
-           CASE WHEN a.id IS NULL THEN 0 ELSE 1 END answered,
+    SELECT sq.position, sq.question_id, sq.status,
            a.is_correct, a.peeked, a.over_limit
     FROM session_questions sq
     LEFT JOIN attempts a ON a.session_id=sq.session_id AND a.question_id=sq.question_id
     WHERE sq.session_id=? ORDER BY sq.position
   `).all(sid);
-  const answeredCount = items.filter((r) => r.answered).length;
+
+  const counts = { pending: 0, correct: 0, wrong: 0, peeked: 0, timedout: 0, skipped: 0 };
+  for (const r of items) counts[r.status] = (counts[r.status] || 0) + 1;
+  const resolvedCount = counts.correct + counts.wrong + counts.peeked + counts.timedout;
+  const skippedCount = counts.skipped;
+  const pendingCount = counts.pending;
+
   return {
     id: s.id, domain: s.domain, topic: s.topic, difficulty: s.difficulty,
-    status: s.status, currentPosition: s.current_position,
-    total: items.length, answeredCount,
-    allAnswered: answeredCount === items.length && items.length > 0,
+    round: s.round, status: s.status, currentPosition: s.current_position,
+    total: items.length, resolvedCount, skippedCount, pendingCount, counts,
+    // Round is done only when nothing is left pending OR skipped.
+    allResolved: items.length > 0 && resolvedCount === items.length,
+    answeredCount: resolvedCount, // legacy alias
+    allAnswered: items.length > 0 && resolvedCount === items.length,
     items: items.map((r) => ({
       position: r.position,
-      answered: !!r.answered,
-      correct: r.answered ? !!r.is_correct : null,
-      peeked: !!r.peeked,
-      overLimit: !!r.over_limit,
+      status: r.status,
+      resolved: isTerminal(r.status),
+      answered: isTerminal(r.status), // legacy alias
+      skipped: r.status === 'skipped',
+      correct: r.status === 'correct' ? true : (isTerminal(r.status) ? false : null),
+      peeked: r.status === 'peeked' || !!r.peeked,
+      overLimit: r.status === 'timedout' || !!r.over_limit,
     })),
   };
 }
 
+// Positions still needing work (pending first, then skipped) for "next" routing.
+function remainingPositions(sid) {
+  return db.prepare(`
+    SELECT position FROM session_questions
+    WHERE session_id=? AND status IN ('pending','skipped')
+    ORDER BY (status='pending') DESC, position
+  `).all(sid).map((r) => r.position);
+}
+
 function runningScore(sid) {
-  const r = db.prepare('SELECT COUNT(*) answered, COALESCE(SUM(is_correct),0) score FROM attempts WHERE session_id=?').get(sid);
+  const r = db.prepare(`
+    SELECT
+      SUM(CASE WHEN status IN ('correct','wrong','peeked','timedout') THEN 1 ELSE 0 END) answered,
+      SUM(CASE WHEN status='correct' THEN 1 ELSE 0 END) score
+    FROM session_questions WHERE session_id=?
+  `).get(sid);
+  const answered = r.answered || 0, score = r.score || 0;
   const total = countSQ(sid);
-  return { answered: r.answered, score: r.score, total, accuracy: r.answered ? Math.round((r.score / r.answered) * 100) : 0 };
+  // Accuracy counts peeked/timedout as not-correct (still tracked separately).
+  return { answered, score, total, accuracy: answered ? Math.round((score / answered) * 100) : 0 };
 }
 
 // Reveal info for a resolved question (correct answer, rationale, flags).
@@ -375,11 +399,15 @@ function getQuestionAt(userId, sid, position) {
   const limit = srow.time_limit_seconds || timeLimitFor(q.difficulty);
   const out = {
     position, total: state.total, answeredCount: state.answeredCount,
+    resolvedCount: state.resolvedCount, skippedCount: state.skippedCount,
+    pendingCount: state.pendingCount, round: srow.round,
+    status: sq.status,
     question: publicQuestion(q),
     timeLimit: limit,
     elapsedSeconds: attempt ? attempt.time_taken_seconds : (sq.elapsed_seconds || 0),
     peeked: !!sq.peeked || (attempt ? !!attempt.peeked : false),
     answered: !!attempt,
+    skipped: sq.status === 'skipped',
     selected: attempt ? attempt.selected : null,
     running: runningScore(sid),
   };
@@ -400,7 +428,30 @@ function saveProgress(userId, sid, position, elapsed) {
   return true;
 }
 
-// Resolve a question exactly once — by answering, peeking, or timing out.
+// Log one row in the daily activity feed (calendar / weekly report source).
+function logEvent(userId, sid, q, round, status, selected, timeTaken, overLimit) {
+  db.prepare(`
+    INSERT INTO activity_events
+      (user_id, session_id, question_id, domain, topic, difficulty, skill, round,
+       status, selected, time_taken_seconds, over_limit)
+    VALUES (?,?,?,?,?,?,?,?,?,?,?,?)
+  `).run(userId, sid, q.id, q.domain, q.topic, q.difficulty, q.skill || null, round,
+         status, selected || '', Math.max(0, Math.round(timeTaken || 0)), overLimit ? 1 : 0);
+}
+
+// Mark the round complete once every question is resolved (nothing pending/skipped).
+function maybeComplete(sid) {
+  const left = db.prepare(
+    "SELECT COUNT(*) n FROM session_questions WHERE session_id=? AND status IN ('pending','skipped')"
+  ).get(sid).n;
+  if (left === 0) {
+    const score = db.prepare("SELECT COUNT(*) n FROM session_questions WHERE session_id=? AND status='correct'").get(sid).n;
+    db.prepare("UPDATE sessions SET status='completed', completed_at=datetime('now'), score=? WHERE id=? AND status='in_progress'").run(score, sid);
+  }
+}
+
+// Resolve a question once — by answering, peeking, or timing out. A previously
+// skipped question can be resolved later (status flips from skipped to terminal).
 function resolveQuestion(userId, sid, questionId, opts) {
   const s = getSessionRow(userId, sid);
   if (!s) { const e = new Error('Session not found'); e.status = 404; throw e; }
@@ -420,11 +471,20 @@ function resolveQuestion(userId, sid, questionId, opts) {
       selected = String(opts.selected);
       isCorrect = (q.qtype === 'spr') ? (sprIsCorrect(selected, q.correct) ? 1 : 0) : (q.correct === selected ? 1 : 0);
     }
-    db.prepare(`
-      INSERT INTO attempts (user_id, session_id, question_id, selected, is_correct, time_taken_seconds, over_limit, peeked)
-      VALUES (?,?,?,?,?,?,?,?)
-    `).run(userId, sid, questionId, selected, isCorrect, elapsed, overLimit, peeked);
-    if (peeked) db.prepare('UPDATE session_questions SET peeked=1 WHERE id=?').run(sq.id);
+    const status = peeked ? 'peeked' : (opts.timedOut ? 'timedout' : (isCorrect ? 'correct' : 'wrong'));
+
+    db.exec('BEGIN');
+    try {
+      db.prepare(`
+        INSERT INTO attempts (user_id, session_id, question_id, selected, is_correct, time_taken_seconds, over_limit, peeked)
+        VALUES (?,?,?,?,?,?,?,?)
+      `).run(userId, sid, questionId, selected, isCorrect, elapsed, overLimit, peeked);
+      db.prepare("UPDATE session_questions SET status=?, peeked=?, elapsed_seconds=?, resolved_at=datetime('now') WHERE id=?")
+        .run(status, peeked, elapsed, sq.id);
+      logEvent(userId, sid, q, s.round, status, selected, elapsed, overLimit);
+      maybeComplete(sid);
+      db.exec('COMMIT');
+    } catch (e) { db.exec('ROLLBACK'); throw e; }
     attempt = db.prepare('SELECT * FROM attempts WHERE session_id=? AND question_id=?').get(sid, questionId);
   }
   const state = getSessionState(userId, sid);
@@ -433,7 +493,38 @@ function resolveQuestion(userId, sid, questionId, opts) {
     ...attemptFeedback(q, attempt),
     timeLimit: limit,
     running: runningScore(sid),
-    answeredCount: state.answeredCount, total: state.total, allAnswered: state.allAnswered,
+    answeredCount: state.answeredCount, resolvedCount: state.resolvedCount,
+    skippedCount: state.skippedCount, total: state.total,
+    allResolved: state.allResolved, allAnswered: state.allAnswered,
+    remaining: remainingPositions(sid),
+  };
+}
+
+// Defer a question without resolving it. Logged as a skip event each time; the
+// question stays selectable until it's actually resolved.
+function skipQuestion(userId, sid, questionId, timeTaken) {
+  const s = getSessionRow(userId, sid);
+  if (!s) { const e = new Error('Session not found'); e.status = 404; throw e; }
+  if (s.status !== 'in_progress') { const e = new Error('Session already completed.'); e.status = 409; throw e; }
+  const sq = db.prepare('SELECT * FROM session_questions WHERE session_id=? AND question_id=?').get(sid, questionId);
+  if (!sq) { const e = new Error('Question not in this session.'); e.status = 400; throw e; }
+  if (isTerminal(sq.status)) { const e = new Error('Question already resolved.'); e.status = 409; throw e; }
+  const q = parseQ(db.prepare('SELECT * FROM questions WHERE id=?').get(questionId));
+  const elapsed = Math.max(0, Math.min(Number(timeTaken) || 0, 36000));
+
+  db.exec('BEGIN');
+  try {
+    db.prepare("UPDATE session_questions SET status='skipped', elapsed_seconds=? WHERE id=?").run(elapsed, sq.id);
+    logEvent(userId, sid, q, s.round, 'skipped', '', elapsed, 0);
+    db.exec('COMMIT');
+  } catch (e) { db.exec('ROLLBACK'); throw e; }
+
+  const state = getSessionState(userId, sid);
+  return {
+    skipped: true,
+    resolvedCount: state.resolvedCount, skippedCount: state.skippedCount,
+    pendingCount: state.pendingCount, total: state.total,
+    remaining: remainingPositions(sid),
   };
 }
 
@@ -452,8 +543,10 @@ function completeSession(userId, sid) {
   if (!s) { const e = new Error('Session not found'); e.status = 404; throw e; }
 
   const state = getSessionState(userId, sid);
-  if (!state.allAnswered) {
-    const e = new Error('Answer all questions before finishing.'); e.status = 409; throw e;
+  if (!state.allResolved) {
+    const left = state.pendingCount + state.skippedCount;
+    const e = new Error(`Finish ${left} more question${left === 1 ? '' : 's'} (including any you skipped) before completing this round.`);
+    e.status = 409; e.remaining = remainingPositions(sid); throw e;
   }
 
   const attempts = db.prepare(`
@@ -490,6 +583,7 @@ function completeSession(userId, sid) {
 
   return {
     sessionId: sid, domain: s.domain, topic: s.topic, difficulty: s.difficulty,
+    round: s.round,
     score, total: attempts.length,
     accuracy: attempts.length ? Math.round((score / attempts.length) * 100) : 0,
     totalTimeSeconds: totalTime,
@@ -526,6 +620,164 @@ function getAttemptReview(userId, attemptId) {
     explanation: q.explanation || null,
     timeTaken: a.time_taken_seconds,
     answeredAt: a.answered_at,
+  };
+}
+
+// ---------------------------------------------------------------------------
+// activity log: per-day status counts, daily summaries, current-state skills
+// ---------------------------------------------------------------------------
+function correctDisplay(q) {
+  if (q.qtype === 'spr') {
+    try { return JSON.parse(q.correct).join(', '); } catch (_) { return q.correct; }
+  }
+  return q.correct;
+}
+
+const STATUS_LABEL = {
+  correct: 'Correct', wrong: 'Wrong', peeked: 'Peeked', timedout: 'Over time', skipped: 'Skipped',
+};
+
+// Per-day status counts + the practices (rounds touched) that day. Drives the
+// calendar and daily summaries; "full test" days will tag the same way later.
+function getDailyActivity(userId) {
+  const dayRows = db.prepare(`
+    SELECT date(occurred_at,'localtime') day, status, COUNT(*) n
+    FROM activity_events WHERE user_id=?
+    GROUP BY day, status
+  `).all(userId);
+
+  const practiceRows = db.prepare(`
+    SELECT date(occurred_at,'localtime') day, session_id, domain, topic, difficulty, round,
+           COUNT(*) events,
+           SUM(CASE WHEN status='correct'  THEN 1 ELSE 0 END) correct,
+           SUM(CASE WHEN status='wrong'    THEN 1 ELSE 0 END) wrong,
+           SUM(CASE WHEN status='peeked'   THEN 1 ELSE 0 END) peeked,
+           SUM(CASE WHEN status='timedout' THEN 1 ELSE 0 END) timedout,
+           SUM(CASE WHEN status='skipped'  THEN 1 ELSE 0 END) skipped
+    FROM activity_events WHERE user_id=?
+    GROUP BY date(occurred_at,'localtime'), session_id
+    ORDER BY day, session_id
+  `).all(userId);
+
+  const days = {};
+  const blank = () => ({ correct: 0, wrong: 0, peeked: 0, timedout: 0, skipped: 0 });
+  for (const r of dayRows) {
+    days[r.day] = days[r.day] || { day: r.day, counts: blank(), practices: [], tags: ['practice'] };
+    days[r.day].counts[r.status] = r.n;
+  }
+  for (const p of practiceRows) {
+    days[p.day] = days[p.day] || { day: p.day, counts: blank(), practices: [], tags: ['practice'] };
+    days[p.day].practices.push({
+      sessionId: p.session_id, domain: p.domain, topic: p.topic, topicName: topicLabel(p.topic),
+      difficulty: p.difficulty, round: p.round, events: p.events,
+      correct: p.correct, wrong: p.wrong, peeked: p.peeked, timedout: p.timedout, skipped: p.skipped,
+    });
+  }
+  return Object.values(days)
+    .map((d) => {
+      const c = d.counts;
+      const resolved = c.correct + c.wrong + c.peeked + c.timedout;
+      return { ...d, resolved, total: resolved + c.skipped,
+               accuracy: resolved ? Math.round((c.correct / resolved) * 100) : 0 };
+    })
+    .sort((a, b) => a.day.localeCompare(b.day));
+}
+
+// A short, encouraging per-day note built from that day's counts.
+function buildDailySummaries(dailyActivity) {
+  return dailyActivity.map((d) => {
+    const c = d.counts;
+    const review = c.wrong + c.peeked + c.timedout;
+    const sections = [...new Set(d.practices.map((p) => `${p.topicName} (${p.difficulty})`))];
+    const parts = [];
+    parts.push(`You worked through ${d.total} question${d.total === 1 ? '' : 's'}.`);
+    if (d.resolved) parts.push(`✅ ${c.correct} correct (${d.accuracy}%).`);
+    if (review) parts.push(`📚 ${review} to review.`);
+    if (c.skipped) parts.push(`⏭ ${c.skipped} skipped to revisit.`);
+    if (sections.length) parts.push(`Focus: ${sections.slice(0, 3).join(', ')}.`);
+    parts.push('Keep it up! 💪');
+    return { day: d.day, counts: c, total: d.total, resolved: d.resolved,
+             accuracy: d.accuracy, sections, text: parts.join(' ') };
+  });
+}
+
+// "Skills to focus on" — the GRAND current state: for each question take its
+// latest result across all rounds (a question wrong in R1 then correct in R2
+// counts as correct now), then roll up per skill, weakest first.
+function getSkillFocus(userId) {
+  const rows = db.prepare(`
+    SELECT q.domain, q.topic, q.difficulty, COALESCE(q.skill,'(unspecified)') skill, ae.status,
+           ae.time_taken_seconds
+    FROM activity_events ae
+    JOIN (
+      SELECT question_id, MAX(id) mid
+      FROM activity_events
+      WHERE user_id=? AND status!='skipped'
+      GROUP BY question_id
+    ) m ON m.mid = ae.id
+    JOIN questions q ON q.id = ae.question_id
+  `).all(userId);
+
+  const map = {};
+  for (const r of rows) {
+    const k = `${r.domain}|${r.topic}|${r.difficulty}|${r.skill}`;
+    if (!map[k]) map[k] = { domain: r.domain, topic: r.topic, topicName: topicLabel(r.topic),
+                            difficulty: r.difficulty, skill: r.skill,
+                            resolved: 0, correct: 0, wrong: 0, peeked: 0, timedout: 0, timeSum: 0 };
+    const m = map[k];
+    m.resolved++; m[r.status] = (m[r.status] || 0) + 1; m.timeSum += r.time_taken_seconds || 0;
+  }
+  return Object.values(map).map((m) => ({
+    ...m,
+    accuracy: m.resolved ? Math.round((m.correct / m.resolved) * 100) : 0,
+    avgTime: m.resolved ? Math.round(m.timeSum / m.resolved) : 0,
+  })).sort((a, b) => a.accuracy - b.accuracy || b.resolved - a.resolved);
+}
+
+function getDailySummaries(userId) {
+  return buildDailySummaries(getDailyActivity(userId));
+}
+
+// Event feed for the Filtered List (includes skips). One row per action.
+function getActivityFeed(userId) {
+  const rows = db.prepare(`
+    SELECT ae.id, ae.question_id, date(ae.occurred_at,'localtime') day, ae.occurred_at,
+           ae.round, ae.domain, ae.topic, ae.difficulty,
+           COALESCE(ae.skill,'(unspecified)') skill, ae.status, ae.selected,
+           ae.time_taken_seconds, q.correct, q.qtype, substr(q.prompt,1,90) prompt
+    FROM activity_events ae JOIN questions q ON q.id = ae.question_id
+    WHERE ae.user_id=?
+    ORDER BY ae.occurred_at DESC, ae.id DESC
+  `).all(userId);
+  return rows.map((r) => ({
+    id: r.id, questionId: r.question_id, day: r.day, occurredAt: r.occurred_at,
+    round: r.round, domain: r.domain, topic: r.topic, topicName: topicLabel(r.topic),
+    difficulty: r.difficulty, skill: r.skill, status: r.status, statusLabel: STATUS_LABEL[r.status] || r.status,
+    selected: r.selected, correct: correctDisplay(r), timeTaken: r.time_taken_seconds,
+  }));
+}
+
+// Full review of a question by id (for Filtered List rows, incl. skipped ones
+// that have no attempt): the question + her most recent answer for it.
+function getQuestionReview(userId, questionId) {
+  const q = parseQ(db.prepare('SELECT * FROM questions WHERE id=?').get(questionId));
+  if (!q) return null;
+  const last = db.prepare(`
+    SELECT status, selected, time_taken_seconds, occurred_at
+    FROM activity_events WHERE user_id=? AND question_id=?
+    ORDER BY id DESC LIMIT 1
+  `).get(userId, questionId);
+  return {
+    questionId: q.id, domain: q.domain, topic: q.topic, difficulty: q.difficulty,
+    skill: q.skill || null, test: q.test || 'SAT', qtype: q.qtype || 'mcq',
+    image: q.image || null, answerImage: q.answer_image || null,
+    passage: q.passage, prompt: q.prompt, choices: q.choices,
+    selected: last ? last.selected : '', status: last ? last.status : null,
+    correct: correctDisplay(q),
+    isCorrect: last ? last.status === 'correct' : false,
+    explanation: q.explanation || null,
+    timeTaken: last ? last.time_taken_seconds : 0,
+    answeredAt: last ? last.occurred_at : null,
   };
 }
 
@@ -610,6 +862,8 @@ function getDashboard(userId) {
     ORDER BY week, q.domain, q.skill
   `).all(userId);
 
+  const dailyActivity = getDailyActivity(userId);
+
   return {
     today: getTodayProgress(userId),
     catalogue,
@@ -623,6 +877,11 @@ function getDashboard(userId) {
     byDay, byTopic, bySkill, sessions, attempts: attemptRows,
     weeklyByDomain, weeklyBySkill,
     weeklyReports: buildWeeklyReports(weeklyByDomain, weeklyBySkill),
+    // Round/practice restructure: activity-log views (all statuses, all history).
+    dailyActivity,
+    dailySummaries: buildDailySummaries(dailyActivity),
+    skillFocus: getSkillFocus(userId),
+    activity: getActivityFeed(userId),
   };
 }
 
@@ -740,10 +999,11 @@ function generatePlan(userId) {
 
 module.exports = {
   SESSION_SIZE, DAILY_GOAL, TIME_LIMIT, TIME_LIMITS, SESSION_MINUTES, timeLimitFor,
-  getCatalogue, getSkillCatalogue, getTodayProgress, activeSessionInfo,
+  getCatalogue, getSkillCatalogue, getTodayProgress, listActiveSessions, sectionRounds,
   createOrResumeSession, getSessionState,
   getQuestionAt, setCurrentPosition, saveProgress,
-  submitAnswer, peekQuestion, timeoutQuestion, completeSession,
-  getDashboard, getAttemptReview,
+  submitAnswer, peekQuestion, timeoutQuestion, skipQuestion, completeSession,
+  getDashboard, getAttemptReview, getQuestionReview,
+  getDailyActivity, getDailySummaries, getSkillFocus, getActivityFeed,
   listTasks, addTask, setTaskStatus, deleteTask, generatePlan,
 };
