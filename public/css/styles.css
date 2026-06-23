@@ -451,7 +451,7 @@ table.data tr:hover td { background: var(--pink-50); }
 .rr-pct { font-size: 0.78rem; font-weight: 700; color: var(--muted); text-align: right; }
 .rr-tag { font-size: 0.72rem; font-weight: 800; color: var(--pink-600); white-space: nowrap; }
 
-/* Home heading: a tiny goldendoodle practicing fetch (runs out, grabs the
+/* Home heading: a tiny golden retriever practicing fetch (runs out, grabs the
    tennis ball, trots back, repeat). Pure SVG + CSS, no images. */
 .fetch-dog { display: inline-block; width: 4.1em; height: 1.5em; vertical-align: -0.45em; margin-left: 0.15em; }
 .fetch-dog svg { width: 100%; height: 100%; overflow: visible; }
