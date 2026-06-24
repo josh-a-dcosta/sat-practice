@@ -4,6 +4,6 @@
 
 ad,dad,yellow
 jd,sat265,pink
-fg,sat263,blue
+fg,sat2610,blue
 aj,sir,gray
-as,sir,gray
+ar,sir,gray
