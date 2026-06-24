@@ -5,14 +5,14 @@ const { TAXONOMY, isValidTopic, isValidDifficulty, domainOfTopic, topicLabel } =
 
 const SESSION_SIZE = 40;
 const DAILY_GOAL   = 40;
-const TIME_LIMIT   = 120; // legacy default (medium)
-const TIME_LIMITS  = { medium: 120, hard: 150 }; // 2:00 medium, 2:30 hard
+const TIME_LIMIT   = 600; // legacy default (10 min)
+const TIME_LIMITS  = { medium: 600, hard: 600 }; // 10:00 per question
 const SESSION_MINUTES = 90;
 
-// Per-question time limits by round: round 1 is generous, round 2+ is faster.
+// Per-question time limits by round. Default is 10 minutes per question.
 const ROUND_LIMITS = {
-  1: { medium: 120, hard: 150 }, // 2:00 / 2:30
-  2: { medium: 60,  hard: 120 }, // 1:00 / 2:00
+  1: { medium: 600, hard: 600 }, // 10:00 / 10:00
+  2: { medium: 600, hard: 600 }, // 10:00 / 10:00
 };
 function timeLimitFor(difficulty) {
   return TIME_LIMITS[difficulty] || TIME_LIMIT;
