@@ -14,10 +14,10 @@ const TAXONOMY = {
     label: 'Math',
     emoji: '🔢',
     topics: {
-      'algebra': 'Algebra',
-      'advanced-math': 'Advanced Math',
-      'psda': 'Problem-Solving & Data Analysis',
-      'geometry': 'Geometry',
+      'algebra': 'ALG',
+      'advanced-math': 'ADV MATH',
+      'psda': 'PS DA',
+      'geometry': 'GEO TRIG',
     },
   },
   reading: {

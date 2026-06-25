@@ -95,7 +95,7 @@ async function loadState() {
   state = await api('GET', `/api/sessions/${sessionId}`);
   const domainEmoji = state.domain === 'math' ? '🔢' : '📖';
   const diffLabel = state.difficulty === 'hard' ? '🔴 Hard' : '🟡 Medium';
-  $('sectionLabel').textContent = `${domainEmoji} ${titleCase(state.topic)} · ${diffLabel}`;
+  $('sectionLabel').textContent = `${domainEmoji} ${state.topicName || titleCase(state.topic)} · ${diffLabel}`;
   renderMap();
   if (state.status === 'completed') {
     enterReviewUI();
