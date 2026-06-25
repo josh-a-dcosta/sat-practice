@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Practice Session 🏆</title>
-  <script>(function(){try{var m=localStorage.getItem('mode');if(m!=='light'&&m!=='dark')m='dark';document.documentElement.dataset.mode=m;document.documentElement.dataset.theme=localStorage.getItem('theme')||'gray';}catch(e){}})();</script>
+  <script>(function(){try{var m=localStorage.getItem('mode');if(m!=='light'&&m!=='dark')m='light';document.documentElement.dataset.mode=m;document.documentElement.dataset.theme=localStorage.getItem('theme')||'gray';}catch(e){}})();</script>
   <link rel="stylesheet" href="/css/styles.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏆</text></svg>" />
 </head>
@@ -73,13 +73,16 @@
         <!-- RIGHT: answer + controls -->
         <div class="card answer-pane">
           <div class="timer-row">
-            <div class="scoreboard" id="scoreboard">⭐ <b id="scNum">0 / 0</b> <span class="note" id="scAcc">0%</span></div>
+            <div class="scoreboard" id="scoreboard">🎯 <span class="sb-lbl">Accuracy</span> <b id="scAcc">0%</b> <span class="note" id="scNum">· 0/0</span></div>
             <div class="timer-wrap">
               <div class="timer" id="timer">10:00</div>
               <div class="elapsed-note" id="elapsedNote">⏱ 0:00 on this question</div>
             </div>
           </div>
-          <div class="goal-bar" style="margin:6px 0 18px"><span id="progressFill" style="width:0%"></span></div>
+          <div class="round-progress">
+            <div class="rp-head"><span class="rp-lbl">Round completion</span><span class="rp-pct" id="progressPct">0%</span></div>
+            <div class="goal-bar"><span id="progressFill" style="width:0%"></span></div>
+          </div>
 
           <!-- Immediate feedback after answering / peeking / timing out -->
           <div class="feedback hidden" id="feedback">

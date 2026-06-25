@@ -506,6 +506,35 @@ table.data tr:hover td { background: var(--pink-50); }
 /* Role / student picker (select.html) */
 .topbar-right { display: flex; align-items: center; gap: 12px; }
 .pick-step { margin-top: 14px; }
+.pick-step.card { overflow: hidden; }            /* keep all four corners crisp */
+
+/* Pill-style log-out + switch links in the top bar */
+.nav-logout {
+  font-weight: 800; color: var(--ink); margin-left: 6px;
+  border: 2px solid var(--pink-200); border-radius: 999px; padding: 5px 12px;
+  text-decoration: none; transition: border-color 0.12s, background 0.12s, transform 0.08s;
+}
+.nav-logout:hover { border-color: var(--pink-400); background: var(--pink-50); transform: translateY(-1px); }
+
+/* Round-completion bar label (practice screen) */
+.round-progress { margin: 6px 0 18px; }
+.rp-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
+.rp-lbl { font-size: 0.8rem; font-weight: 700; color: var(--muted); }
+.rp-pct { font-size: 0.8rem; font-weight: 800; color: var(--pink-600); }
+.scoreboard .sb-lbl { font-weight: 700; color: var(--muted); margin: 0 2px; }
+
+/* Admin settings sub-tabs */
+.subtabs { display: flex; gap: 8px; margin: 4px 0 12px; flex-wrap: wrap; }
+.subtab { border: 2px solid var(--pink-300); background: var(--pink-100); color: var(--pink-700); font-weight: 800; border-radius: 999px; padding: 5px 14px; cursor: pointer; }
+.subtab.active { background: var(--pink-500); color: #fff; border-color: var(--pink-500); }
+
+/* Per-subject heading inside the Skills tables */
+.skills-sub { margin: 18px 0 8px; }
+
+/* Compact vertical chart legends */
+.chart-legend { display: flex; flex-direction: column; gap: 4px; margin-top: 10px; padding-left: 6px; }
+.lg-item { display: flex; align-items: center; gap: 8px; font-size: 0.82rem; font-weight: 600; color: var(--ink); }
+.lg-dot { width: 12px; height: 12px; border-radius: 3px; flex: none; }
 .pick-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; margin-top: 14px; }
 .pick-card {
   display: flex; flex-direction: column; align-items: flex-start; gap: 6px;

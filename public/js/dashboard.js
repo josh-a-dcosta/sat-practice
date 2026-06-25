@@ -123,19 +123,38 @@ function pivotWeeks(rows) {
   return weeks;
 }
 
+// Render a compact vertical legend (one item per line) below a chart.
+function renderLegend(id, datasets) {
+  const el = $(id + 'Legend');
+  if (!el) return;
+  el.innerHTML = datasets.map((d, i) => {
+    const c = SERIES_COLORS[i % SERIES_COLORS.length];
+    return `<div class="lg-item"><span class="lg-dot" style="background:${c}"></span>${escapeHtml(d.label)}</div>`;
+  }).join('');
+}
+
 function lineChart(id, labels, datasets, opts) {
   makeChart(id, {
     type: 'line',
-    data: { labels, datasets: datasets.map((d, i) => ({
-      label: d.label, data: d.data, borderColor: SERIES_COLORS[i % SERIES_COLORS.length],
-      backgroundColor: SERIES_COLORS[i % SERIES_COLORS.length] + '33', tension: 0.3, spanGaps: true, fill: false,
-    })) },
+    data: { labels, datasets: datasets.map((d, i) => {
+      const c = SERIES_COLORS[i % SERIES_COLORS.length];
+      return {
+        label: d.label, data: d.data, borderColor: c, backgroundColor: c + '22',
+        cubicInterpolationMode: 'monotone', tension: 0.4, spanGaps: true, fill: false,
+        borderWidth: 2.5, pointRadius: 2.5, pointHoverRadius: 5, pointBackgroundColor: c, pointBorderWidth: 0,
+      };
+    }) },
     options: {
       responsive: true, maintainAspectRatio: false,
-      scales: { y: { beginAtZero: true, ...(opts && opts.y) } },
-      plugins: { legend: { position: 'bottom', labels: { boxWidth: 12 } } },
+      interaction: { intersect: false, mode: 'index' },
+      scales: {
+        y: { beginAtZero: true, grid: { color: 'rgba(128,128,128,0.12)' }, ...(opts && opts.y) },
+        x: { grid: { display: false } },
+      },
+      plugins: { legend: { display: false }, tooltip: { boxPadding: 6 } },
     },
   });
+  renderLegend(id, datasets);
 }
 
 function renderWeeklyTrends() {
@@ -160,25 +179,29 @@ function renderWeeklyTrends() {
 
 function renderSkillTrends() {
   const dsel = $('trendDomain') ? $('trendDomain').value : 'math';
-  const rows = (DATA.weeklyBySkill || []).filter((r) => r.domain === dsel);
+  const diff = $('trendDiff') ? $('trendDiff').value : 'medium';
+  // Filter by subject + difficulty so legend labels are just the skill name.
+  const rows = (DATA.weeklyBySkill || []).filter((r) => r.domain === dsel && r.difficulty === diff);
   const weeks = pivotWeeks(rows);
   const labels = weeks.map((w) => weekLabel(w.start));
-  // top skills by total attempts
   const totals = {};
-  for (const r of rows) { const k = `${r.skill} (${r.difficulty})`; totals[k] = (totals[k] || 0) + r.attempts; }
+  for (const r of rows) { totals[r.skill] = (totals[r.skill] || 0) + r.attempts; }
   const skills = Object.keys(totals).sort((a, b) => totals[b] - totals[a]).slice(0, 8);
   const acc = (c, n) => (n ? Math.round((c / n) * 100) : null);
   const accSets = skills.map((k) => ({ label: k, data: weeks.map((w) => {
-    const r = rows.find((x) => x.week === w.week && `${x.skill} (${x.difficulty})` === k); return r ? acc(r.correct, r.attempts) : null;
+    const r = rows.find((x) => x.week === w.week && x.skill === k); return r ? acc(r.correct, r.attempts) : null;
   }) }));
   const timeSets = skills.map((k) => ({ label: k, data: weeks.map((w) => {
-    const r = rows.find((x) => x.week === w.week && `${x.skill} (${x.difficulty})` === k); return r ? Math.round(r.avg_time) : null;
+    const r = rows.find((x) => x.week === w.week && x.skill === k); return r ? Math.round(r.avg_time) : null;
   }) }));
-  const dlabel = dsel === 'math' ? 'Math' : 'Reading';
+  const dlabel = (dsel === 'math' ? 'Math' : 'Reading') + ' · ' + (diff === 'hard' ? 'Hard' : 'Medium');
   $('wkSkillAccH').textContent = `Accuracy by skill — ${dlabel}`;
   $('wkSkillTimeH').textContent = `Avg time by skill — ${dlabel}`;
   if (!skills.length) {
-    ['wkSkillAcc', 'wkSkillTime'].forEach((id) => { if (charts[id]) charts[id].destroy(); });
+    ['wkSkillAcc', 'wkSkillTime'].forEach((id) => {
+      if (charts[id]) charts[id].destroy();
+      const lg = $(id + 'Legend'); if (lg) lg.innerHTML = '<span class="note">No data for this subject · difficulty yet.</span>';
+    });
     return;
   }
   lineChart('wkSkillAcc', labels, accSets, { y: { max: 100, ticks: { callback: (v) => v + '%' } } });
@@ -400,10 +423,10 @@ function accClass(acc) {
 function renderSkills() {
   // Grand current state: each question's latest result across all rounds.
   const rows = DATA.skillFocus || [];
-  const tbody = $('skillsTable').querySelector('tbody');
   const highlight = $('skillHighlight');
+  const wrap = $('skillsTables');
   if (!rows.length) {
-    tbody.innerHTML = '<tr><td colspan="8" class="note">No skills resolved yet. Once she answers questions, her current per-skill breakdown shows here.</td></tr>';
+    wrap.innerHTML = '<p class="note">No skills resolved yet. Once questions are answered, the per-skill breakdown shows here.</p>';
     highlight.innerHTML = '';
     return;
   }
@@ -415,11 +438,9 @@ function renderSkills() {
       <span class="note">(currently ${weak.accuracy}% over ${weak.resolved} question${weak.resolved === 1 ? '' : 's'} · ${escapeHtml(weak.topicName)} · ${weak.difficulty})</span></div>
     </div>`;
 
-  tbody.innerHTML = rows.map((r) => {
-    const domainEmoji = r.domain === 'math' ? '🔢' : '📖';
-    return `<tr class="skill-row" data-skill="${escapeHtml(r.skill)}" title="Filter the list by this skill">
+  const rowHtml = (r) => `<tr class="skill-row" data-skill="${escapeHtml(r.skill)}" title="Filter the list by this skill">
       <td><b>${escapeHtml(r.skill)}</b></td>
-      <td>${domainEmoji} ${escapeHtml(r.topicName)}</td>
+      <td>${escapeHtml(r.topicName)}</td>
       <td>${r.difficulty === 'hard' ? '🔴' : '🟡'} ${r.difficulty}</td>
       <td><div class="acc-bar"><span class="${accClass(r.accuracy)}" style="width:${r.accuracy}%"></span><em>${r.accuracy}%</em></div></td>
       <td>${r.correct}</td>
@@ -427,7 +448,17 @@ function renderSkills() {
       <td>${r.resolved}</td>
       <td>${fmtTime(r.avgTime)}</td>
     </tr>`;
-  }).join('');
+
+  const table = (subject, label) => {
+    const sub = rows.filter((r) => r.domain === subject);
+    if (!sub.length) return '';
+    return `<h3 class="mini-h skills-sub">${label}</h3>
+      <div style="overflow-x:auto"><table class="data">
+        <thead><tr><th>Skill</th><th>Domain</th><th>Difficulty</th><th>Accuracy</th><th>Correct</th><th>Missed</th><th>Resolved</th><th>Avg time</th></tr></thead>
+        <tbody>${sub.map(rowHtml).join('')}</tbody>
+      </table></div>`;
+  };
+  wrap.innerHTML = table('math', '🔢 Math') + table('reading', '📖 Reading & Writing');
 }
 
 function renderTiles() {
@@ -468,14 +499,14 @@ function renderOverviewCharts() {
     data: {
       labels: days.map((d) => d.day),
       datasets: [
-        { label: 'Correct', data: days.map((d) => d.correct), backgroundColor: GREEN, borderRadius: 6 },
-        { label: 'Wrong', data: days.map((d) => d.wrong), backgroundColor: PINK_LIGHT, borderRadius: 6 },
+        { label: 'Correct', data: days.map((d) => d.correct), backgroundColor: GREEN, borderRadius: 5, maxBarThickness: 26 },
+        { label: 'Wrong', data: days.map((d) => d.wrong), backgroundColor: PINK_LIGHT, borderRadius: 5, maxBarThickness: 26 },
       ],
     },
     options: {
       responsive: true, maintainAspectRatio: false,
-      scales: { x: { stacked: true }, y: { stacked: true, beginAtZero: true, ticks: { precision: 0 } } },
-      plugins: { legend: { position: 'bottom' } },
+      scales: { x: { stacked: true, grid: { display: false } }, y: { stacked: true, beginAtZero: true, grid: { color: 'rgba(128,128,128,0.12)' }, ticks: { precision: 0 } } },
+      plugins: { legend: { position: 'bottom', labels: { boxWidth: 12 } } },
     },
   });
 
@@ -499,6 +530,14 @@ function renderSectionCharts() {
     return `${name} (${t.difficulty})`;
   });
   const colors = bt.map((_, i) => [PINK, PINK_LIGHT, AMBER, '#c084fc', '#60a5fa', '#34d399', '#fb923c', '#f87171'][i % 8]);
+  const barBase = (xOpts) => ({
+    responsive: true, maintainAspectRatio: false, indexAxis: 'y',
+    scales: {
+      x: { beginAtZero: true, grid: { color: 'rgba(128,128,128,0.12)' }, ...xOpts },
+      y: { grid: { display: false } },
+    },
+    plugins: { legend: { display: false }, tooltip: { boxPadding: 6 } },
+  });
   makeChart('sectionChart', {
     type: 'bar',
     data: {
@@ -506,14 +545,10 @@ function renderSectionCharts() {
       datasets: [{
         label: 'Accuracy %',
         data: bt.map(t => t.attempts ? Math.round((t.correct / t.attempts) * 100) : 0),
-        backgroundColor: colors, borderRadius: 8,
+        backgroundColor: colors, borderRadius: 6, borderSkipped: false, maxBarThickness: 18,
       }],
     },
-    options: {
-      responsive: true, maintainAspectRatio: false, indexAxis: 'y',
-      scales: { x: { beginAtZero: true, max: 100, ticks: { callback: v => v + '%' } } },
-      plugins: { legend: { display: false } },
-    },
+    options: barBase({ max: 100, ticks: { callback: v => v + '%' } }),
   });
 
   // Avg time by topic (bar)
@@ -524,14 +559,10 @@ function renderSectionCharts() {
       datasets: [{
         label: 'Avg seconds',
         data: bt.map(t => Math.round(t.avg_time)),
-        backgroundColor: colors, borderRadius: 8,
+        backgroundColor: colors, borderRadius: 6, borderSkipped: false, maxBarThickness: 18,
       }],
     },
-    options: {
-      responsive: true, maintainAspectRatio: false, indexAxis: 'y',
-      scales: { x: { beginAtZero: true, ticks: { callback: v => v + 's' } } },
-      plugins: { legend: { display: false } },
-    },
+    options: barBase({ ticks: { callback: v => v + 's' } }),
   });
 }
 
@@ -773,7 +804,7 @@ document.querySelectorAll('.dash-menu .menu-btn[data-view]').forEach((b) => {
 });
 
 // Click a skill row -> filter the list below to that skill (clears other filters)
-$('skillsTable').addEventListener('click', (e) => {
+$('skillsTables').addEventListener('click', (e) => {
   const row = e.target.closest('.skill-row');
   if (!row) return;
   ['fSubject', 'fDomain', 'fRound', 'fDifficulty', 'fStatus'].forEach((id) => { if ($(id)) $(id).value = ''; });
@@ -797,6 +828,7 @@ $('calendar').addEventListener('click', (e) => {
 
 // Weekly-trends drilldown
 if ($('trendDomain')) $('trendDomain').addEventListener('change', renderSkillTrends);
+if ($('trendDiff')) $('trendDiff').addEventListener('change', renderSkillTrends);
 // Tasks
 $('genPlanBtn').addEventListener('click', () => generatePlan().catch((e) => showToast(e.message)));
 $('addTaskForm').addEventListener('submit', async (e) => {
