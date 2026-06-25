@@ -57,7 +57,7 @@ There is **no test runner**. We verify changes with:
 server.js          HTTP server: static files + JSON API router + auth gate + auto-seed
 repo.js            Data/business layer — ALL SQL lives here (sessions, rounds, scoring, dashboard)
 db.js              Opens the SQLite DB, CREATE TABLE + idempotent ALTER migrations
-auth.js            Loads COLLEGEBOARD/users.txt, login tokens, per-user theme
+auth.js            DB-backed users/roles/assignments + login tokens + active role/student context (Admin-managed; no users.txt)
 topics.js          The SAT taxonomy (domains -> topics) + validation helpers
 railway.toml       Railway build/deploy; mounts the /data volume
 
@@ -66,10 +66,14 @@ public/
   session.html     The practice/test-taking screen (split PDF + answer panel)
   dashboard.html   Dashboard shell: top menu + view sections + review modal
   login.html       Login (gray theme, aspirational splash)
+  select.html      Role / student picker (multi-role users choose after login)
+  settings.html    A student's own per-question timer grid
+  admin.html       Admin console: users, roles, assignments, global + per-user timers
   css/styles.css   ALL styling (themeable CSS variables, dark mode)
-  js/common.js     Shared: api() fetch wrapper, theme/dark-mode, top-bar user menu
+  js/common.js     Shared: api(), theme/dark-mode, per-role nav + page guards
   js/practice.js   Practice flow: timer, peek/timeout, feedback, map, review mode
   js/dashboard.js  Dashboard views, charts, tables, filters, calendar, tasks
+  js/admin.js      Admin console logic
   pdf/<slug>/      Rendered question/answer page PNGs (q_<qid>.png, a_<qid>.png)
 
 data/
@@ -82,13 +86,17 @@ scripts/
   generate-seed.js, import-pdf.js, reading-bank.js  LEGACY/unused — do not wire into boot
 
 COLLEGEBOARD/
-  users.txt            username,password[,theme]  (managed by the owner, not an admin UI)
   *.pdf                Source College Board PDFs (one per section)
 ```
 
 ## Data model (SQLite)
 
-- **users** — `id, username UNIQUE, password (plaintext, family use), theme`.
+- **users** — `id, username UNIQUE, password (plaintext, family use), theme, full_name`.
+- **user_roles** — `(user_id, role)` UNIQUE; role ∈ student|tutor|admin (many per user).
+- **tutor_students** — `(tutor_id, student_id)` UNIQUE; many-to-many tutor↔student.
+- **settings_global / settings_user** — per-question timers keyed by
+  `(topic, difficulty, round_tier)` (+ `user_id` for the user table). `auth_tokens`
+  also carries `active_role` / `active_student_id` (the signed-in context).
 - **auth_tokens** — `token PRIMARY KEY, user_id`. Cookie `sat_auth` holds the token.
 - **questions** — `ext_id UNIQUE`, `domain` (math|reading), `topic`, `difficulty`
   (medium|hard), `skill`, `qtype` (mcq|spr), `image`, `mask_fraction`,
@@ -196,12 +204,27 @@ After importing: commit the JSON + PNGs, push, then on Railway run `npm run seed
 - Prefer small, surgical edits over rewrites. Don't add dependencies.
 - 2-space indentation; semicolons; single quotes in JS.
 
-## users.txt
+## Users, roles & settings
 
-`COLLEGEBOARD/users.txt`, one user per line: `username,password[,theme]`
-(`:` also works as a separator; `#` comments). Theme is pink|blue|gray|green|yellow
-(default gray). Loaded into the `users` table at boot (upsert; removing a line
-does not delete the user). There is intentionally **no admin UI**.
+- **No more `users.txt`** — users live in the DB. `auth.bootstrap()` seeds the
+  initial accounts (idempotent, with passwords/themes/full names) and is the
+  fallback for a fresh volume; **the Admin UI is the source of truth** from there.
+- **Roles** (`user_roles`, many-to-many): `student | tutor | admin`. A user may
+  hold several. At login a single-role user is auto-selected; multi-role users
+  pick on `select.html` (tutors then pick a student). The active role/student is
+  stored on the **auth token** (`active_role`, `active_student_id`) and read via
+  `/api/me`, so navigation is seamless (no URL/back-button juggling). A "Switch"
+  control re-opens the picker.
+- **Per-role access** (enforced server-side, not just hidden in nav):
+  **student** → Home, Dashboard, Settings (own data); **tutor** → read-only
+  Dashboard of an assigned student only (`tutor_students`, many-to-many; all
+  writes 403); **admin** → `/api/admin/*` only (manage users, roles,
+  assignments, global + per-user timers).
+- **Timer settings** (`settings_global`, `settings_user`) keyed by
+  **(topic, difficulty, round_tier)** where tier 1 = Round 1, 2 = Round 2+.
+  `repo.resolveTimer` = user override → global default → **10 min**; it drives the
+  start-round default (the start dialog still tweaks one round). Users edit their
+  own grid on `settings.html`; admins edit global + any user's grid.
 
 ## Git & deployment workflow
 
@@ -210,8 +233,8 @@ does not delete the user). There is intentionally **no admin UI**.
 - Commit messages: concise imperative subject + a short body explaining the
   change, ending with the `Co-Authored-By:` trailer.
 - Push with retry/rebase: `git fetch origin main && git pull --rebase origin main`
-  then `git push -u origin main` (the owner sometimes edits `users.txt`/files on
-  GitHub, causing rebases — resolve keeping their intent).
+  then `git push -u origin main` (the owner sometimes edits files on GitHub,
+  causing rebases — resolve keeping their intent).
 - **Railway:** auto-deploys `main`. The `/data` volume persists the SQLite DB.
   Schema changes auto-migrate. To load new questions on an existing volume run
   `npm run seed` in the Railway shell; for a clean slate use **Wipe Volume +
