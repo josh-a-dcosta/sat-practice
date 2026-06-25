@@ -123,6 +123,88 @@ function setActiveContext(token, role, studentId) {
   return userForToken(token);
 }
 
+// ---------------------------------------------------------------------------
+// Admin: manage users, roles, and tutor↔student assignments.
+// ---------------------------------------------------------------------------
+function err(msg, code) { const e = new Error(msg); e.status = code || 400; return e; }
+
+function listUsers() {
+  const users = db.prepare('SELECT id, username, COALESCE(full_name, username) full_name, theme FROM users ORDER BY full_name').all();
+  const rolesByUser = {};
+  for (const r of db.prepare('SELECT user_id, role FROM user_roles').all()) {
+    (rolesByUser[r.user_id] = rolesByUser[r.user_id] || []).push(r.role);
+  }
+  const studentsByTutor = {}, tutorsByStudent = {};
+  for (const r of db.prepare('SELECT tutor_id, student_id FROM tutor_students').all()) {
+    (studentsByTutor[r.tutor_id] = studentsByTutor[r.tutor_id] || []).push(r.student_id);
+    (tutorsByStudent[r.student_id] = tutorsByStudent[r.student_id] || []).push(r.tutor_id);
+  }
+  return users.map((u) => ({
+    id: u.id, username: u.username, fullName: u.full_name, theme: u.theme || 'gray',
+    roles: (rolesByUser[u.id] || []).sort(),
+    studentIds: studentsByTutor[u.id] || [],
+    tutorIds: tutorsByStudent[u.id] || [],
+  }));
+}
+
+function setRoles(userId, roles) {
+  const valid = [...new Set((roles || []).filter((r) => ROLES.includes(r)))];
+  if (!valid.length) throw err('Pick at least one role.');
+  db.exec('BEGIN');
+  try {
+    db.prepare('DELETE FROM user_roles WHERE user_id = ?').run(userId);
+    const ins = db.prepare('INSERT OR IGNORE INTO user_roles (user_id, role) VALUES (?, ?)');
+    for (const r of valid) ins.run(userId, r);
+    db.exec('COMMIT');
+  } catch (e) { db.exec('ROLLBACK'); throw e; }
+  return valid;
+}
+
+function createUser({ username, password, fullName, theme, roles }) {
+  username = String(username || '').trim();
+  if (!username) throw err('Username is required.');
+  if (db.prepare('SELECT 1 FROM users WHERE username = ?').get(username)) throw err('That username already exists.', 409);
+  if (!String(password || '')) throw err('Password is required.');
+  const th = THEMES.has(theme) ? theme : 'gray';
+  const info = db.prepare('INSERT INTO users (username, password, theme, full_name) VALUES (?,?,?,?)')
+    .run(username, String(password), th, String(fullName || '').trim() || username);
+  const id = Number(info.lastInsertRowid);
+  setRoles(id, (roles && roles.length) ? roles : ['student']);
+  return id;
+}
+
+function updateUser(id, { username, password, fullName, theme }) {
+  const u = db.prepare('SELECT * FROM users WHERE id = ?').get(id);
+  if (!u) throw err('User not found.', 404);
+  if (username !== undefined) {
+    username = String(username).trim();
+    if (!username) throw err('Username is required.');
+    if (db.prepare('SELECT 1 FROM users WHERE username = ? AND id <> ?').get(username, id)) throw err('That username already exists.', 409);
+    db.prepare('UPDATE users SET username = ? WHERE id = ?').run(username, id);
+  }
+  if (password) db.prepare('UPDATE users SET password = ? WHERE id = ?').run(String(password), id);
+  if (theme !== undefined && THEMES.has(theme)) db.prepare('UPDATE users SET theme = ? WHERE id = ?').run(theme, id);
+  if (fullName !== undefined) db.prepare('UPDATE users SET full_name = ? WHERE id = ?').run(String(fullName).trim() || u.username, id);
+  return true;
+}
+
+function deleteUser(id) {
+  db.prepare('DELETE FROM users WHERE id = ?').run(id); // FK cascades roles/links/data
+  return true;
+}
+
+function assignStudent(tutorId, studentId) {
+  tutorId = Number(tutorId); studentId = Number(studentId);
+  if (!tutorId || !studentId || tutorId === studentId) throw err('Pick a tutor and a different student.');
+  db.prepare('INSERT OR IGNORE INTO tutor_students (tutor_id, student_id) VALUES (?, ?)').run(tutorId, studentId);
+  return true;
+}
+
+function unassignStudent(tutorId, studentId) {
+  db.prepare('DELETE FROM tutor_students WHERE tutor_id = ? AND student_id = ?').run(Number(tutorId), Number(studentId));
+  return true;
+}
+
 function logout(token) {
   if (token) db.prepare('DELETE FROM auth_tokens WHERE token = ?').run(token);
 }
@@ -134,4 +216,5 @@ function countUsers() {
 module.exports = {
   ROLES, bootstrap, login, userForToken, sessionForToken, setActiveContext,
   rolesFor, isTutorOf, studentsOfTutor, logout, countUsers,
+  listUsers, createUser, updateUser, setRoles, deleteUser, assignStudent, unassignStudent,
 };

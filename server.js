@@ -149,6 +149,9 @@ async function handleApi(req, res, url) {
     const blockTutorWrites = () => {
       if (isTutor) { const e = new Error('Tutors have read-only access.'); e.status = 403; throw e; }
     };
+    const requireAdmin = () => {
+      if (user.activeRole !== 'admin') { const e = new Error('Admin access only.'); e.status = 403; throw e; }
+    };
 
     // GET /api/me
     if (req.method === 'GET' && pathname === '/api/me') {
@@ -309,6 +312,76 @@ async function handleApi(req, res, url) {
       const review = repo.getQuestionReview(requireView(), Number(parts[2]));
       if (!review) return sendJson(res, 404, { error: 'Question not found' });
       return sendJson(res, 200, review);
+    }
+
+    // ---- admin (manage users, roles, assignments, settings) ----
+    if (parts[1] === 'admin') {
+      requireAdmin();
+
+      // GET /api/admin/users
+      if (req.method === 'GET' && pathname === '/api/admin/users') {
+        return sendJson(res, 200, { users: auth.listUsers() });
+      }
+      // POST /api/admin/users  (create)
+      if (req.method === 'POST' && pathname === '/api/admin/users') {
+        const b = await readBody(req);
+        auth.createUser({ username: b.username, password: b.password, fullName: b.fullName, theme: b.theme, roles: b.roles });
+        return sendJson(res, 200, { users: auth.listUsers() });
+      }
+      // POST /api/admin/users/:id  (update fields)
+      if (req.method === 'POST' && parts[2] === 'users' && parts.length === 4) {
+        const b = await readBody(req);
+        auth.updateUser(Number(parts[3]), b);
+        return sendJson(res, 200, { users: auth.listUsers() });
+      }
+      // POST /api/admin/users/:id/roles  { roles: [...] }
+      if (req.method === 'POST' && parts[2] === 'users' && parts[4] === 'roles' && parts.length === 5) {
+        const b = await readBody(req);
+        auth.setRoles(Number(parts[3]), b.roles || []);
+        return sendJson(res, 200, { users: auth.listUsers() });
+      }
+      // DELETE /api/admin/users/:id
+      if (req.method === 'DELETE' && parts[2] === 'users' && parts.length === 4) {
+        if (Number(parts[3]) === uid) return sendJson(res, 400, { error: 'You cannot delete your own account.' });
+        auth.deleteUser(Number(parts[3]));
+        return sendJson(res, 200, { users: auth.listUsers() });
+      }
+      // POST /api/admin/assign | /api/admin/unassign  { tutorId, studentId }
+      if (req.method === 'POST' && (pathname === '/api/admin/assign' || pathname === '/api/admin/unassign')) {
+        const b = await readBody(req);
+        if (pathname.endsWith('unassign')) auth.unassignStudent(b.tutorId, b.studentId);
+        else auth.assignStudent(b.tutorId, b.studentId);
+        return sendJson(res, 200, { users: auth.listUsers() });
+      }
+      // GET /api/admin/settings/global  | POST set | POST reset
+      if (req.method === 'GET' && pathname === '/api/admin/settings/global') {
+        return sendJson(res, 200, { grid: repo.settingsGrid(null) });
+      }
+      if (req.method === 'POST' && pathname === '/api/admin/settings/global') {
+        const b = await readBody(req);
+        repo.setGlobalSetting(String(b.topic || ''), String(b.difficulty || ''), Number(b.roundTier), Math.round(Number(b.minutes) * 60));
+        return sendJson(res, 200, { grid: repo.settingsGrid(null) });
+      }
+      if (req.method === 'POST' && pathname === '/api/admin/settings/global/reset') {
+        const b = await readBody(req);
+        repo.clearGlobalSetting(String(b.topic || ''), String(b.difficulty || ''), Number(b.roundTier));
+        return sendJson(res, 200, { grid: repo.settingsGrid(null) });
+      }
+      // GET /api/admin/settings/user/:id | POST set | POST reset
+      if (req.method === 'GET' && parts[2] === 'settings' && parts[3] === 'user' && parts.length === 5) {
+        return sendJson(res, 200, { grid: repo.settingsGrid(Number(parts[4])) });
+      }
+      if (req.method === 'POST' && parts[2] === 'settings' && parts[3] === 'user' && parts[5] === 'reset' && parts.length === 6) {
+        const b = await readBody(req);
+        repo.clearUserSetting(Number(parts[4]), String(b.topic || ''), String(b.difficulty || ''), Number(b.roundTier));
+        return sendJson(res, 200, { grid: repo.settingsGrid(Number(parts[4])) });
+      }
+      if (req.method === 'POST' && parts[2] === 'settings' && parts[3] === 'user' && parts.length === 5) {
+        const b = await readBody(req);
+        repo.setUserSetting(Number(parts[4]), String(b.topic || ''), String(b.difficulty || ''), Number(b.roundTier), Math.round(Number(b.minutes) * 60));
+        return sendJson(res, 200, { grid: repo.settingsGrid(Number(parts[4])) });
+      }
+      return sendJson(res, 404, { error: 'Unknown admin endpoint' });
     }
 
     return sendJson(res, 404, { error: 'Unknown endpoint' });

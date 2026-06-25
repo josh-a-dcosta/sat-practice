@@ -491,6 +491,9 @@ table.data tr:hover td { background: var(--pink-50); }
   .fd-dog, .fd-bob, .fd-ball, .fd-tail, .fd-leg { animation: none; }
 }
 
+/* Admin role checkboxes */
+.rl { display: inline-flex; align-items: center; gap: 4px; font-size: 0.85rem; font-weight: 700; margin-right: 6px; white-space: nowrap; }
+
 /* Settings timer grid */
 .set-table td { vertical-align: middle; }
 .set-cell { display: flex; align-items: center; gap: 6px; }
