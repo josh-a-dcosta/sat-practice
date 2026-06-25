@@ -74,40 +74,103 @@ function mountModeToggle() {
   applyMode(document.documentElement.dataset.mode || 'light');
 }
 
-// Highlight the nav button for the page currently being viewed.
-function markActiveNav() {
-  const path = location.pathname;
-  const onHome = (path === '/' || path.endsWith('/index.html'));
-  const onDash = path.endsWith('/dashboard.html');
-  document.querySelectorAll('.navlinks .nav-btn').forEach((a) => {
-    const href = a.getAttribute('href') || '';
-    const isHome = (href === '/' || href.endsWith('/index.html'));
-    const isDash = href.includes('dashboard');
-    if ((isHome && onHome) || (isDash && onDash)) a.classList.add('active');
-  });
+// ----- Roles: landing pages, page access, and per-role nav -----
+const ROLE_LANDING = { student: '/', tutor: '/dashboard.html', admin: '/admin.html' };
+
+// Where a freshly-resolved user should land (or the picker if not resolved).
+function landingFor(user) {
+  if (!user || !user.activeRole) return '/select.html';
+  if (user.activeRole === 'tutor' && !user.activeStudentId) return '/select.html';
+  return ROLE_LANDING[user.activeRole] || '/';
 }
 
-// Show the signed-in user + a log-out link, and apply their accent theme.
-async function mountUserMenu() {
-  markActiveNav();
-  mountModeToggle();
+function currentPageKey() {
+  const p = location.pathname;
+  if (p === '/' || p.endsWith('/index.html')) return 'home';
+  if (p.endsWith('/dashboard.html')) return 'dashboard';
+  if (p.endsWith('/session.html')) return 'session';
+  if (p.endsWith('/settings.html')) return 'settings';
+  if (p.endsWith('/admin.html')) return 'admin';
+  if (p.endsWith('/select.html')) return 'select';
+  if (p.endsWith('/login.html')) return 'login';
+  return 'other';
+}
+
+// Which pages each role may view (the server also enforces this).
+const ROLE_ALLOWED = {
+  student: ['home', 'dashboard', 'session', 'settings'],
+  tutor:   ['dashboard'],
+  admin:   ['admin'],
+};
+
+// Rebuild the top-nav links for the active role.
+function buildRoleNav(user) {
   const nav = document.querySelector('.navlinks');
   if (!nav) return;
-  try {
-    const me = await api('GET', '/api/me');
-    const theme = me.user.theme || 'gray';
-    localStorage.setItem('theme', theme);
-    applyTheme(theme);
-    const chip = document.createElement('span');
-    chip.className = 'user-chip';
-    chip.textContent = `👤 ${me.user.username}`;
-    const out = document.createElement('a');
-    out.href = '#';
-    out.textContent = 'Log out';
-    out.addEventListener('click', (e) => { e.preventDefault(); logout(); });
-    nav.appendChild(chip);
-    nav.appendChild(out);
-  } catch (_) { /* api() handles the 401 redirect */ }
+  nav.innerHTML = '';
+  const page = currentPageKey();
+  const add = (href, label, key) => {
+    const a = document.createElement('a');
+    a.className = 'nav-btn' + (key === page ? ' active' : '');
+    a.href = href; a.textContent = label;
+    nav.appendChild(a);
+  };
+  if (user.activeRole === 'student') {
+    add('/', '🏠 Home', 'home');
+    add('/dashboard.html', '📊 Dashboard', 'dashboard');
+    add('/settings.html', '⚙️ Settings', 'settings');
+  } else if (user.activeRole === 'tutor') {
+    add('/dashboard.html', '📊 Dashboard', 'dashboard');
+  } else if (user.activeRole === 'admin') {
+    add('/admin.html', '🛠️ Admin', 'admin');
+  }
+}
+
+// Show the signed-in user + role nav + switch/log-out, and apply their theme.
+// Also enforces page access for the active role (redirects, no back button).
+async function mountUserMenu() {
+  let me;
+  try { me = (await api('GET', '/api/me')).user; } catch (_) { return; /* 401 handled by api() */ }
+  applyTheme(me.theme || 'gray');
+  localStorage.setItem('theme', me.theme || 'gray');
+  window.__ME = me;
+  try { document.body.dataset.role = me.activeRole || ''; } catch (_) { /* ignore */ }
+
+  const page = currentPageKey();
+  if (page !== 'select' && page !== 'login') {
+    if (!me.activeRole || (me.activeRole === 'tutor' && !me.activeStudentId)) {
+      location.href = '/select.html'; return;
+    }
+    if (!(ROLE_ALLOWED[me.activeRole] || []).includes(page)) {
+      location.href = landingFor(me); return;
+    }
+  }
+
+  const nav = document.querySelector('.navlinks');
+  if (!nav) return;
+  buildRoleNav(me);
+  mountModeToggle();
+
+  const chip = document.createElement('span');
+  chip.className = 'user-chip';
+  chip.textContent = (me.activeRole === 'tutor' && me.activeStudentName)
+    ? `👤 ${me.fullName} · viewing ${me.activeStudentName}`
+    : `👤 ${me.fullName}`;
+  nav.appendChild(chip);
+
+  if ((me.roles && me.roles.length > 1) || me.activeRole === 'tutor') {
+    const sw = document.createElement('a');
+    sw.href = '/select.html';
+    sw.className = 'nav-switch';
+    sw.textContent = '🔄 Switch';
+    nav.appendChild(sw);
+  }
+
+  const out = document.createElement('a');
+  out.href = '#';
+  out.textContent = 'Log out';
+  out.addEventListener('click', (e) => { e.preventDefault(); logout(); });
+  nav.appendChild(out);
 }
 
 document.addEventListener('DOMContentLoaded', mountUserMenu);

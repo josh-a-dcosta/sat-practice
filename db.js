@@ -129,6 +129,39 @@ CREATE TABLE IF NOT EXISTS tasks (
   completed_at TEXT
 );
 
+-- Roles & assignments (a user may hold several roles).
+CREATE TABLE IF NOT EXISTS user_roles (
+  user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  role    TEXT NOT NULL CHECK (role IN ('student','tutor','admin')),
+  UNIQUE (user_id, role)
+);
+
+-- Many-to-many tutor ↔ student links.
+CREATE TABLE IF NOT EXISTS tutor_students (
+  tutor_id   INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  student_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  UNIQUE (tutor_id, student_id)
+);
+
+-- Per-question timer settings, keyed by section (topic) × difficulty × round
+-- tier (1 = Round 1, 2 = Round 2+). Global rows are admin-set defaults; user
+-- rows override them for one user. An unset value falls back to 10 minutes.
+CREATE TABLE IF NOT EXISTS settings_global (
+  topic              TEXT NOT NULL,
+  difficulty         TEXT NOT NULL,
+  round_tier         INTEGER NOT NULL,
+  time_limit_seconds INTEGER NOT NULL,
+  UNIQUE (topic, difficulty, round_tier)
+);
+CREATE TABLE IF NOT EXISTS settings_user (
+  user_id            INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  topic              TEXT NOT NULL,
+  difficulty         TEXT NOT NULL,
+  round_tier         INTEGER NOT NULL,
+  time_limit_seconds INTEGER NOT NULL,
+  UNIQUE (user_id, topic, difficulty, round_tier)
+);
+
 CREATE INDEX IF NOT EXISTS idx_attempts_question   ON attempts(question_id);
 CREATE INDEX IF NOT EXISTS idx_attempts_answered   ON attempts(answered_at);
 CREATE INDEX IF NOT EXISTS idx_sq_session          ON session_questions(session_id);
@@ -166,6 +199,15 @@ try { db.exec('ALTER TABLE session_questions ADD COLUMN peeked INTEGER NOT NULL 
 try { db.exec('ALTER TABLE attempts ADD COLUMN over_limit INTEGER NOT NULL DEFAULT 0'); } catch (_) { /* exists */ }
 try { db.exec('ALTER TABLE attempts ADD COLUMN peeked INTEGER NOT NULL DEFAULT 0'); } catch (_) { /* exists */ }
 db.exec('CREATE INDEX IF NOT EXISTS idx_tasks_user ON tasks(user_id);');
+
+// Roles/settings feature: full name on users + active context on tokens.
+try { db.exec('ALTER TABLE users ADD COLUMN full_name TEXT'); } catch (_) { /* exists */ }
+try { db.exec('ALTER TABLE auth_tokens ADD COLUMN active_role TEXT'); } catch (_) { /* exists */ }
+try { db.exec('ALTER TABLE auth_tokens ADD COLUMN active_student_id INTEGER'); } catch (_) { /* exists */ }
+db.exec('CREATE INDEX IF NOT EXISTS idx_user_roles ON user_roles(user_id);');
+db.exec('CREATE INDEX IF NOT EXISTS idx_tutor_students_tutor ON tutor_students(tutor_id);');
+db.exec('CREATE INDEX IF NOT EXISTS idx_tutor_students_student ON tutor_students(student_id);');
+db.exec('CREATE INDEX IF NOT EXISTS idx_settings_user ON settings_user(user_id);');
 
 // Round/practice restructure: per-question status + resolved time on an existing
 // volume. Adding the column succeeds only once — on that first add we backfill

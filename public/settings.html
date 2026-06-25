@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Settings 🏆</title>
+  <script>(function(){try{var m=localStorage.getItem('mode');if(m!=='light'&&m!=='dark')m='dark';document.documentElement.dataset.mode=m;document.documentElement.dataset.theme=localStorage.getItem('theme')||'gray';}catch(e){}})();</script>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏆</text></svg>" />
+</head>
+<body>
+  <div class="topbar">
+    <a class="brand" href="/"><span class="brand-icon">🎓</span> SAT Practice</a>
+    <div class="navlinks"></div>
+  </div>
+
+  <div class="container">
+    <div class="card">
+      <h1 style="margin-top:0">⚙️ My timer settings</h1>
+      <p class="note">How long you get per question, by section · difficulty · round. Blank/default is <b>10 minutes</b>. These are <i>your</i> defaults — you can still tweak the timer when you start any round.</p>
+    </div>
+    <div id="settingsBody"><div class="spinner">Loading…</div></div>
+  </div>
+
+  <script src="/js/common.js"></script>
+  <script>
+    const $ = (id) => document.getElementById(id);
+    function escapeHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+    const SUBJECTS = [{ key:'math', label:'🔢 Math' }, { key:'reading', label:'📖 Reading & Writing' }];
+    let GRID = [];
+
+    function cell(topic, difficulty, tier) {
+      return GRID.find((g) => g.topic===topic && g.difficulty===difficulty && g.roundTier===tier);
+    }
+
+    function cellHtml(c) {
+      const mins = (c.effectiveSeconds / 60);
+      const custom = c.userSeconds != null;
+      const gmin = (c.globalSeconds / 60);
+      return `<div class="set-cell ${custom ? 'custom' : ''}">
+        <input class="spr-input mins" type="number" min="0.5" max="60" step="0.5"
+               value="${mins}" title="Default ${gmin} min"
+               data-topic="${escapeHtml(c.topic)}" data-diff="${c.difficulty}" data-tier="${c.roundTier}" />
+        <span class="set-min">min</span>
+        <button class="set-reset ${custom ? '' : 'hidden'}" title="Reset to default (${gmin} min)"
+                data-topic="${escapeHtml(c.topic)}" data-diff="${c.difficulty}" data-tier="${c.roundTier}">↺</button>
+      </div>`;
+    }
+
+    function render() {
+      const body = $('settingsBody');
+      let html = '';
+      for (const sub of SUBJECTS) {
+        const topics = [];
+        for (const g of GRID) if (g.subject === sub.key && !topics.find((t)=>t.topic===g.topic)) topics.push({ topic:g.topic, name:g.topicName });
+        if (!topics.length) continue;
+        html += `<div class="card"><h2>${sub.label}</h2>
+          <div style="overflow-x:auto"><table class="data set-table">
+          <thead><tr><th>Section</th><th>Difficulty</th><th>Round 1</th><th>Round 2+</th></tr></thead><tbody>`;
+        for (const t of topics) {
+          for (const diff of ['medium','hard']) {
+            const c1 = cell(t.topic, diff, 1), c2 = cell(t.topic, diff, 2);
+            html += `<tr>
+              <td><b>${escapeHtml(t.name)}</b></td>
+              <td>${diff === 'hard' ? '🔴 Hard' : '🟡 Medium'}</td>
+              <td>${cellHtml(c1)}</td>
+              <td>${cellHtml(c2)}</td>
+            </tr>`;
+          }
+        }
+        html += `</tbody></table></div></div>`;
+      }
+      body.innerHTML = html;
+    }
+
+    async function saveCell(topic, diff, tier, minutes) {
+      try {
+        const r = await api('POST', '/api/settings', { topic, difficulty: diff, roundTier: tier, minutes });
+        GRID = r.grid; render(); showToast('Saved ✓');
+      } catch (e) { showToast(e.message); load(); }
+    }
+    async function resetCell(topic, diff, tier) {
+      try {
+        const r = await api('POST', '/api/settings/reset', { topic, difficulty: diff, roundTier: tier });
+        GRID = r.grid; render(); showToast('Reset to default');
+      } catch (e) { showToast(e.message); }
+    }
+
+    document.addEventListener('change', (e) => {
+      const i = e.target.closest('input.mins'); if (!i) return;
+      const m = parseFloat(i.value);
+      if (!m || m <= 0) { showToast('Enter minutes greater than 0'); return; }
+      saveCell(i.dataset.topic, i.dataset.diff, Number(i.dataset.tier), m);
+    });
+    document.addEventListener('click', (e) => {
+      const b = e.target.closest('.set-reset'); if (!b) return;
+      resetCell(b.dataset.topic, b.dataset.diff, Number(b.dataset.tier));
+    });
+
+    async function load() {
+      try { GRID = (await api('GET', '/api/settings')).grid; render(); }
+      catch (e) { $('settingsBody').innerHTML = `<div class="card"><p class="note">Could not load: ${escapeHtml(e.message)}</p></div>`; }
+    }
+    load();
+  </script>
+</body>
+</html>

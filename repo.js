@@ -22,6 +22,95 @@ function defaultLimitFor(round, difficulty) {
   return tbl[difficulty] || TIME_LIMIT;
 }
 
+// ---------------------------------------------------------------------------
+// Per-question timer settings: user override → global default → 10 min.
+// Keyed by section (topic) × difficulty × round tier (1 = R1, 2 = R2+).
+// ---------------------------------------------------------------------------
+const DEFAULT_TIMER = 600; // 10 minutes
+function tierOf(round) { return Number(round) >= 2 ? 2 : 1; }
+function clampTimer(sec) { return Math.max(10, Math.min(Math.round(Number(sec) || 0), 3600)); }
+
+function resolveTimer(userId, topic, difficulty, round) {
+  const tier = tierOf(round);
+  const u = db.prepare('SELECT time_limit_seconds s FROM settings_user WHERE user_id=? AND topic=? AND difficulty=? AND round_tier=?')
+    .get(userId, topic, difficulty, tier);
+  if (u) return u.s;
+  const g = db.prepare('SELECT time_limit_seconds s FROM settings_global WHERE topic=? AND difficulty=? AND round_tier=?')
+    .get(topic, difficulty, tier);
+  if (g) return g.s;
+  return DEFAULT_TIMER;
+}
+
+// The full 32-cell grid (8 topics × medium/hard × R1/R2+) with the effective
+// value, the user's override (if any), and the global default for each cell.
+function settingsGrid(userId) {
+  const um = {}, gm = {};
+  if (userId != null) {
+    for (const r of db.prepare('SELECT topic,difficulty,round_tier,time_limit_seconds FROM settings_user WHERE user_id=?').all(userId)) {
+      um[`${r.topic}|${r.difficulty}|${r.round_tier}`] = r.time_limit_seconds;
+    }
+  }
+  for (const r of db.prepare('SELECT topic,difficulty,round_tier,time_limit_seconds FROM settings_global').all()) {
+    gm[`${r.topic}|${r.difficulty}|${r.round_tier}`] = r.time_limit_seconds;
+  }
+  const out = [];
+  for (const [subject, dd] of Object.entries(TAXONOMY)) {
+    for (const [topic, topicName] of Object.entries(dd.topics)) {
+      for (const difficulty of ['medium', 'hard']) {
+        for (const tier of [1, 2]) {
+          const key = `${topic}|${difficulty}|${tier}`;
+          const globalSeconds = gm[key] != null ? gm[key] : DEFAULT_TIMER;
+          const userSeconds = um[key] != null ? um[key] : null;
+          out.push({
+            subject, topic, topicName, difficulty, roundTier: tier,
+            globalSeconds, userSeconds,
+            effectiveSeconds: userSeconds != null ? userSeconds : globalSeconds,
+          });
+        }
+      }
+    }
+  }
+  return out;
+}
+
+function validCell(topic, difficulty, tier) {
+  return isValidTopic(topic) && isValidDifficulty(difficulty) && (tier === 1 || tier === 2);
+}
+
+function setUserSetting(userId, topic, difficulty, tier, seconds) {
+  tier = Number(tier);
+  if (!validCell(topic, difficulty, tier)) { const e = new Error('Invalid setting'); e.status = 400; throw e; }
+  db.prepare(`
+    INSERT INTO settings_user (user_id, topic, difficulty, round_tier, time_limit_seconds)
+    VALUES (?,?,?,?,?)
+    ON CONFLICT(user_id, topic, difficulty, round_tier) DO UPDATE SET time_limit_seconds = excluded.time_limit_seconds
+  `).run(userId, topic, difficulty, tier, clampTimer(seconds));
+  return { ok: true };
+}
+
+function clearUserSetting(userId, topic, difficulty, tier) {
+  db.prepare('DELETE FROM settings_user WHERE user_id=? AND topic=? AND difficulty=? AND round_tier=?')
+    .run(userId, topic, difficulty, Number(tier));
+  return { ok: true };
+}
+
+function setGlobalSetting(topic, difficulty, tier, seconds) {
+  tier = Number(tier);
+  if (!validCell(topic, difficulty, tier)) { const e = new Error('Invalid setting'); e.status = 400; throw e; }
+  db.prepare(`
+    INSERT INTO settings_global (topic, difficulty, round_tier, time_limit_seconds)
+    VALUES (?,?,?,?)
+    ON CONFLICT(topic, difficulty, round_tier) DO UPDATE SET time_limit_seconds = excluded.time_limit_seconds
+  `).run(topic, difficulty, tier, clampTimer(seconds));
+  return { ok: true };
+}
+
+function clearGlobalSetting(topic, difficulty, tier) {
+  db.prepare('DELETE FROM settings_global WHERE topic=? AND difficulty=? AND round_tier=?')
+    .run(topic, difficulty, Number(tier));
+  return { ok: true };
+}
+
 function totalQuestions(domain, topic, difficulty) {
   return db.prepare('SELECT COUNT(*) n FROM questions WHERE domain=? AND topic=? AND difficulty=?')
     .get(domain, topic, difficulty).n;
@@ -183,7 +272,7 @@ function getCatalogue(userId) {
           roundSkipped: ri.skipped,
           prevComplete: ri.prevComplete,
           rounds: ri.rounds,           // per-round bars for Home
-          defaultTimeLimit: defaultLimitFor(ri.round, difficulty),
+          defaultTimeLimit: resolveTimer(userId, topic, difficulty, ri.round),
         });
       }
     }
@@ -277,9 +366,11 @@ function createOrResumeSession(userId, domain, topic, difficulty, opts = {}) {
     e.status = 409; throw e;
   }
 
+  // Base default from settings (user → global → 10 min); a per-start override
+  // from the start dialog applies to this round only.
   let tl = Number(opts.timeLimitSeconds);
-  if (!tl || tl < 5) tl = defaultLimitFor(round, difficulty);
-  tl = Math.max(10, Math.min(Math.round(tl), 3600));
+  if (!tl || tl < 5) tl = resolveTimer(userId, topic, difficulty, round);
+  tl = clampTimer(tl);
 
   db.exec('BEGIN');
   try {
@@ -1003,4 +1094,6 @@ module.exports = {
   getDashboard, getAttemptReview, getQuestionReview,
   getDailyActivity, getDailySummaries, getSkillFocus, getActivityFeed,
   listTasks, addTask, setTaskStatus, deleteTask, generatePlan,
+  resolveTimer, settingsGrid, setUserSetting, clearUserSetting,
+  setGlobalSetting, clearGlobalSetting,
 };

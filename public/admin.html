@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin 🏆</title>
+  <script>(function(){try{var m=localStorage.getItem('mode');if(m!=='light'&&m!=='dark')m='dark';document.documentElement.dataset.mode=m;document.documentElement.dataset.theme=localStorage.getItem('theme')||'gray';}catch(e){}})();</script>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏆</text></svg>" />
+</head>
+<body>
+  <div class="topbar">
+    <a class="brand" href="/admin.html"><span class="brand-icon">🎓</span> SAT Practice</a>
+    <div class="navlinks"></div>
+  </div>
+
+  <div class="container wide">
+    <div class="card"><h1 style="margin:0">🛠️ Admin</h1></div>
+
+    <div class="dash-menu">
+      <button class="menu-btn" type="button" data-view="users">👥 Users &amp; Roles</button>
+      <button class="menu-btn" type="button" data-view="assign">🔗 Tutor Assignments</button>
+      <button class="menu-btn" type="button" data-view="global">⏱️ Global Timers</button>
+    </div>
+
+    <!-- USERS -->
+    <section class="dash-view" data-view="users">
+      <div class="card">
+        <h2>➕ Add a user</h2>
+        <form id="addUserForm" class="filters">
+          <input class="spr-input" id="nuName" placeholder="Full name" style="min-width:160px" />
+          <input class="spr-input" id="nuUser" placeholder="Username" style="min-width:120px" />
+          <input class="spr-input" id="nuPass" placeholder="Password" style="min-width:120px" />
+          <select id="nuTheme">
+            <option value="gray">Gray</option><option value="pink">Pink</option><option value="blue">Blue</option>
+            <option value="green">Green</option><option value="yellow">Yellow</option>
+          </select>
+          <label class="rl"><input type="checkbox" class="nuRole" value="student" checked /> Student</label>
+          <label class="rl"><input type="checkbox" class="nuRole" value="tutor" /> Tutor</label>
+          <label class="rl"><input type="checkbox" class="nuRole" value="admin" /> Admin</label>
+          <button class="btn btn-primary" type="submit">Add</button>
+        </form>
+      </div>
+      <div class="card">
+        <h2>Users</h2>
+        <div style="overflow-x:auto">
+          <table class="data" id="usersTable">
+            <thead><tr><th>Full name</th><th>Username</th><th>Roles</th><th>Theme</th><th>New password</th><th></th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ASSIGNMENTS -->
+    <section class="dash-view hidden" data-view="assign">
+      <div class="card">
+        <h2>🔗 Tutor ↔ Student assignments</h2>
+        <p class="note">Pick a tutor, then add the students they should be able to view.</p>
+        <div class="filters">
+          <label>Tutor <select id="asgTutor"></select></label>
+          <label>Add student <select id="asgStudent"></select></label>
+          <button class="btn btn-primary" id="asgAddBtn" type="button">Assign</button>
+        </div>
+        <div id="asgList"></div>
+      </div>
+    </section>
+
+    <!-- GLOBAL TIMERS -->
+    <section class="dash-view hidden" data-view="global">
+      <div class="card">
+        <h2>⏱️ Global default timers</h2>
+        <p class="note">Defaults for everyone (minutes per question), by section · difficulty · round. Users can override these in their own Settings. Blank/default is 10 minutes.</p>
+        <div id="globalGrid"><div class="spinner">Loading…</div></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Per-user timer modal -->
+  <div class="modal-overlay hidden" id="userTimerModal">
+    <div class="modal-card" style="max-width:760px">
+      <button class="modal-close" id="utClose" type="button" aria-label="Close">✕</button>
+      <h2 id="utTitle" style="margin-top:0">Timers</h2>
+      <p class="note">Overrides this user's timers. Reset (↺) reverts a cell to the global default.</p>
+      <div id="utGrid"><div class="spinner">Loading…</div></div>
+    </div>
+  </div>
+
+  <script src="/js/common.js"></script>
+  <script src="/js/admin.js"></script>
+</body>
+</html>
