@@ -143,22 +143,23 @@ CREATE TABLE IF NOT EXISTS tutor_students (
   UNIQUE (tutor_id, student_id)
 );
 
--- Per-question timer settings. round_tier: 1 = Round 1, 2 = Round 2+.
--- Global rows are the defaults; user rows override them for one user.
+-- Per-question timer settings, keyed by section (topic) × difficulty × round
+-- tier (1 = Round 1, 2 = Round 2+). Global rows are admin-set defaults; user
+-- rows override them for one user. An unset value falls back to 10 minutes.
 CREATE TABLE IF NOT EXISTS settings_global (
-  domain             TEXT NOT NULL,
+  topic              TEXT NOT NULL,
   difficulty         TEXT NOT NULL,
   round_tier         INTEGER NOT NULL,
   time_limit_seconds INTEGER NOT NULL,
-  UNIQUE (domain, difficulty, round_tier)
+  UNIQUE (topic, difficulty, round_tier)
 );
 CREATE TABLE IF NOT EXISTS settings_user (
   user_id            INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-  domain             TEXT NOT NULL,
+  topic              TEXT NOT NULL,
   difficulty         TEXT NOT NULL,
   round_tier         INTEGER NOT NULL,
   time_limit_seconds INTEGER NOT NULL,
-  UNIQUE (user_id, domain, difficulty, round_tier)
+  UNIQUE (user_id, topic, difficulty, round_tier)
 );
 
 CREATE INDEX IF NOT EXISTS idx_attempts_question   ON attempts(question_id);

@@ -491,6 +491,15 @@ table.data tr:hover td { background: var(--pink-50); }
   .fd-dog, .fd-bob, .fd-ball, .fd-tail, .fd-leg { animation: none; }
 }
 
+/* Settings timer grid */
+.set-table td { vertical-align: middle; }
+.set-cell { display: flex; align-items: center; gap: 6px; }
+.set-cell .spr-input.mins { width: 76px; padding: 6px 8px; margin: 0; text-align: right; }
+.set-cell.custom .spr-input.mins { border-color: var(--pink-400); background: var(--pink-50); }
+.set-min { font-size: 0.8rem; color: var(--muted); }
+.set-reset { border: none; background: transparent; cursor: pointer; font-size: 1rem; color: var(--pink-600); padding: 2px 4px; }
+.set-reset:hover { transform: scale(1.15); }
+
 /* Role / student picker (select.html) */
 .topbar-right { display: flex; align-items: center; gap: 12px; }
 .pick-step { margin-top: 14px; }

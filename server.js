@@ -250,6 +250,24 @@ async function handleApi(req, res, url) {
       return sendJson(res, 200, repo.generatePlan(uid));
     }
 
+    // ---- settings (a user's own per-question timers) ----
+    // GET /api/settings
+    if (req.method === 'GET' && pathname === '/api/settings') {
+      return sendJson(res, 200, { grid: repo.settingsGrid(uid) });
+    }
+    // POST /api/settings  { topic, difficulty, roundTier, minutes }
+    if (req.method === 'POST' && pathname === '/api/settings') {
+      const b = await readBody(req);
+      repo.setUserSetting(uid, String(b.topic || ''), String(b.difficulty || ''), Number(b.roundTier), Math.round(Number(b.minutes) * 60));
+      return sendJson(res, 200, { grid: repo.settingsGrid(uid) });
+    }
+    // POST /api/settings/reset  { topic, difficulty, roundTier }  (revert to default)
+    if (req.method === 'POST' && pathname === '/api/settings/reset') {
+      const b = await readBody(req);
+      repo.clearUserSetting(uid, String(b.topic || ''), String(b.difficulty || ''), Number(b.roundTier));
+      return sendJson(res, 200, { grid: repo.settingsGrid(uid) });
+    }
+
     // GET /api/dashboard
     if (req.method === 'GET' && pathname === '/api/dashboard') {
       return sendJson(res, 200, repo.getDashboard(uid));

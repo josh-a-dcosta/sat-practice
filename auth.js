@@ -35,14 +35,8 @@ function bootstrap() {
     SELECT id FROM users WHERE id NOT IN (SELECT user_id FROM user_roles)
   `).all();
   for (const o of orphans) insRole.run(o.id, 'student');
-
-  // Global per-question timer defaults: 10 min everywhere (tweakable later).
-  const insG = db.prepare('INSERT OR IGNORE INTO settings_global (domain, difficulty, round_tier, time_limit_seconds) VALUES (?,?,?,?)');
-  for (const domain of ['math', 'reading']) {
-    for (const difficulty of ['medium', 'hard']) {
-      for (const tier of [1, 2]) insG.run(domain, difficulty, tier, 600);
-    }
-  }
+  // Timer defaults are not seeded — an unset (topic,difficulty,tier) falls back
+  // to 10 minutes in repo.resolveTimer; admin can set global overrides later.
 }
 
 function rolesFor(userId) {
