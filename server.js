@@ -26,8 +26,8 @@ const repo = require('./repo');
 const auth = require('./auth');
 const { isValidTopic, isValidDifficulty, domainOfTopic } = require('./topics');
 
-// Load the username/password list from COLLEGEBOARD/users.txt on startup.
-auth.loadUsers();
+// Ensure initial users, roles, and global timer defaults exist (idempotent).
+auth.bootstrap();
 
 const PORT       = process.env.PORT || 3000;
 const PUBLIC_DIR = path.join(__dirname, 'public');
@@ -138,6 +138,19 @@ async function handleApi(req, res, url) {
     // GET /api/me
     if (req.method === 'GET' && pathname === '/api/me') {
       return sendJson(res, 200, { user });
+    }
+
+    // GET /api/context/options — roles to choose from + tutorable students.
+    if (req.method === 'GET' && pathname === '/api/context/options') {
+      const students = user.roles.includes('tutor') ? auth.studentsOfTutor(uid) : [];
+      return sendJson(res, 200, { roles: user.roles, students });
+    }
+
+    // POST /api/context { role, studentId } — set the active role/student.
+    if (req.method === 'POST' && pathname === '/api/context') {
+      const body = await readBody(req);
+      const updated = auth.setActiveContext(cookies[COOKIE], String(body.role || ''), body.studentId);
+      return sendJson(res, 200, { user: updated });
     }
 
     // GET /api/overview
