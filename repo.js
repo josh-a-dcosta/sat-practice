@@ -323,7 +323,7 @@ function getSessionState(userId, sid) {
   const pendingCount = counts.pending;
 
   return {
-    id: s.id, domain: s.domain, topic: s.topic, difficulty: s.difficulty,
+    id: s.id, domain: s.domain, topic: s.topic, topicName: topicLabel(s.topic), difficulty: s.difficulty,
     round: s.round, status: s.status, currentPosition: s.current_position,
     total: items.length, resolvedCount, skippedCount, pendingCount, counts,
     // Round is done only when nothing is left pending OR skipped.
@@ -607,7 +607,7 @@ function getAttemptReview(userId, attemptId) {
   }
   return {
     attemptId: a.id,
-    domain: q.domain, topic: q.topic, difficulty: q.difficulty,
+    domain: q.domain, topic: q.topic, topicName: topicLabel(q.topic), difficulty: q.difficulty,
     skill: q.skill || null, test: q.test || 'SAT',
     qtype: q.qtype || 'mcq',
     image: q.image || null,        // full, unmasked page (rationale visible)
@@ -768,7 +768,7 @@ function getQuestionReview(userId, questionId) {
     ORDER BY id DESC LIMIT 1
   `).get(userId, questionId);
   return {
-    questionId: q.id, domain: q.domain, topic: q.topic, difficulty: q.difficulty,
+    questionId: q.id, domain: q.domain, topic: q.topic, topicName: topicLabel(q.topic), difficulty: q.difficulty,
     skill: q.skill || null, test: q.test || 'SAT', qtype: q.qtype || 'mcq',
     image: q.image || null, answerImage: q.answer_image || null,
     passage: q.passage, prompt: q.prompt, choices: q.choices,
@@ -808,6 +808,7 @@ function getDashboard(userId) {
     GROUP BY q.domain, q.topic, q.difficulty
     ORDER BY q.domain, q.topic, q.difficulty
   `).all(userId);
+  for (const r of byTopic) r.topicName = topicLabel(r.topic);
 
   // Per-skill performance so she can see exactly which skills need work.
   const bySkill = db.prepare(`

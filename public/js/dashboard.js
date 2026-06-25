@@ -482,7 +482,7 @@ function renderSectionCharts() {
   // Accuracy by topic (bar)
   const bt = DATA.byTopic || [];
   const topicLabels = bt.map(t => {
-    const name = t.topic.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
+    const name = t.topicName || t.topic.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
     return `${name} (${t.difficulty})`;
   });
   const colors = bt.map((_, i) => [PINK, PINK_LIGHT, AMBER, '#c084fc', '#60a5fa', '#34d399', '#fb923c', '#f87171'][i % 8]);
@@ -654,7 +654,7 @@ function reviewFullscreen() {
 
 function renderReview(r) {
   const domainEmoji = r.domain === 'math' ? '🔢' : '📖';
-  const topicName = fmtTopic(r.topic);
+  const topicName = r.topicName || fmtTopic(r.topic);
   const resultPill = r.isCorrect
     ? '<span class="pill correct">✓ You got this right</span>'
     : '<span class="pill wrong">✗ You missed this one</span>';
