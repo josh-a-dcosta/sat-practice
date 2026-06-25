@@ -24,10 +24,10 @@ const TAXONOMY = {
     label: 'Reading & Writing',
     emoji: '📖',
     topics: {
-      'information-ideas': 'Information & Ideas',
-      'craft-structure': 'Craft & Structure',
-      'expression-ideas': 'Expression of Ideas',
-      'standard-conventions': 'Standard English Conventions',
+      'information-ideas': 'INFO IDEAS',
+      'craft-structure': 'CRAFT STRUCTS',
+      'expression-ideas': 'EXP IDEAS',
+      'standard-conventions': 'PUNC',
     },
   },
 };
