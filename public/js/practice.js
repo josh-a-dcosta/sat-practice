@@ -59,7 +59,15 @@ function startTimer() {
   ticker = setInterval(updateTimerDisplay, 250);
 }
 
+// Show how long has been spent on the current question (counts up, always
+// tracked for reporting — independent of the countdown limit).
+function updateElapsedNote() {
+  const en = $('elapsedNote');
+  if (en) en.textContent = `⏱ ${fmtTime(Math.round(currentElapsed()))} on this question`;
+}
+
 function updateTimerDisplay() {
+  updateElapsedNote();
   const el = $('timer');
   if (resolved) { el.textContent = '✓ Done'; el.className = 'timer'; return; }
   const remaining = Math.round(timeLimit - currentElapsed());
@@ -398,6 +406,7 @@ function showFeedback(fb, opts) {
     if (!opts.silent) beep('wrong');
   }
   updateScore(fb.running);
+  updateElapsedNote();   // freeze the per-question time at its final value
   // Offer "Next" only while something else still needs work.
   $('fbNext').style.display = hasUnresolvedElsewhere() ? '' : 'none';
 }
