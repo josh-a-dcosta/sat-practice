@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Progress Dashboard 🏆</title>
-  <script>(function(){try{var m=localStorage.getItem('mode');if(m!=='light'&&m!=='dark')m='dark';document.documentElement.dataset.mode=m;document.documentElement.dataset.theme=localStorage.getItem('theme')||'gray';}catch(e){}})();</script>
+  <script>(function(){try{var m=localStorage.getItem('mode');if(m!=='light'&&m!=='dark')m='light';document.documentElement.dataset.mode=m;document.documentElement.dataset.theme=localStorage.getItem('theme')||'gray';}catch(e){}})();</script>
   <link rel="stylesheet" href="/css/styles.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏆</text></svg>" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
@@ -54,19 +54,27 @@
       <div class="card">
         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px">
           <h2 style="margin:0">📈 Weekly trends</h2>
-          <label class="note">Drill into
-            <select id="trendDomain">
-              <option value="math">🔢 Math</option>
-              <option value="reading">📖 Reading &amp; Writing</option>
-            </select>
-          </label>
+          <div style="display:flex; gap:12px; flex-wrap:wrap">
+            <label class="note">Subject
+              <select id="trendDomain">
+                <option value="math">🔢 Math</option>
+                <option value="reading">📖 Reading &amp; Writing</option>
+              </select>
+            </label>
+            <label class="note">Difficulty
+              <select id="trendDiff">
+                <option value="medium">🟡 Medium</option>
+                <option value="hard">🔴 Hard</option>
+              </select>
+            </label>
+          </div>
         </div>
-        <p class="note">Accuracy and time per week. Top charts are by domain — pick a domain to see its skills below.</p>
+        <p class="note">Accuracy and time per week. Top charts are by subject — pick a subject &amp; difficulty to see its skills below.</p>
         <div class="dash-grid">
-          <div><h3 class="mini-h">Accuracy by domain</h3><div class="chart-box"><canvas id="wkDomainAcc"></canvas></div></div>
-          <div><h3 class="mini-h">Avg time by domain</h3><div class="chart-box"><canvas id="wkDomainTime"></canvas></div></div>
-          <div><h3 class="mini-h" id="wkSkillAccH">Accuracy by skill</h3><div class="chart-box"><canvas id="wkSkillAcc"></canvas></div></div>
-          <div><h3 class="mini-h" id="wkSkillTimeH">Avg time by skill</h3><div class="chart-box"><canvas id="wkSkillTime"></canvas></div></div>
+          <div><h3 class="mini-h">Accuracy by subject</h3><div class="chart-box"><canvas id="wkDomainAcc"></canvas></div><div class="chart-legend" id="wkDomainAccLegend"></div></div>
+          <div><h3 class="mini-h">Avg time by subject</h3><div class="chart-box"><canvas id="wkDomainTime"></canvas></div><div class="chart-legend" id="wkDomainTimeLegend"></div></div>
+          <div><h3 class="mini-h" id="wkSkillAccH">Accuracy by skill</h3><div class="chart-box"><canvas id="wkSkillAcc"></canvas></div><div class="chart-legend" id="wkSkillAccLegend"></div></div>
+          <div><h3 class="mini-h" id="wkSkillTimeH">Avg time by skill</h3><div class="chart-box"><canvas id="wkSkillTime"></canvas></div><div class="chart-legend" id="wkSkillTimeLegend"></div></div>
         </div>
       </div>
       <div class="dash-grid">
@@ -86,14 +94,7 @@
         <h2>🎯 Skills to focus on</h2>
         <p class="note">Each skill's <b>current state</b> — every question's latest result across all rounds — weakest first, so it's clear where to spend more time. Click a row to filter the list below.</p>
         <div id="skillHighlight"></div>
-        <div style="overflow-x:auto">
-          <table class="data" id="skillsTable">
-            <thead><tr>
-              <th>Skill</th><th>Domain</th><th>Difficulty</th><th>Accuracy</th><th>Correct</th><th>Missed</th><th>Resolved</th><th>Avg time</th>
-            </tr></thead>
-            <tbody></tbody>
-          </table>
-        </div>
+        <div id="skillsTables"></div>
       </div>
 
       <div class="card">
@@ -158,7 +159,7 @@
           <h2 style="margin:0">✅ Suggested Practice</h2>
           <button class="btn btn-primary" id="genPlanBtn" type="button">✨ Build my plan from weak skills</button>
         </div>
-        <p class="note">Extra practice you're doing on your weak skills — check them off so Dad can see the effort! 💪</p>
+        <p class="note">Extra practice on your weak skills — check each one off as you finish it. 💪</p>
         <form id="addTaskForm" class="filters" style="margin-bottom:12px">
           <input type="text" id="taskTitle" placeholder="Add your own task…" style="flex:1; min-width:200px" />
           <button class="btn btn-ghost" type="submit">➕ Add</button>

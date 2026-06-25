@@ -5,11 +5,11 @@ const THEME_ICON = { pink: '🏆', blue: '⚽', gray: '🎓', green: '🌿', yel
 
 function brandIcon(theme) { return THEME_ICON[theme] || THEME_ICON.gray; }
 
-// Resolve the initial mode: saved choice, else default to dark.
+// Resolve the initial mode: saved choice, else default to light.
 function initialMode() {
   const saved = localStorage.getItem('mode');
   if (saved === 'light' || saved === 'dark') return saved;
-  return 'dark';
+  return 'light';
 }
 
 function applyMode(mode) {
@@ -168,7 +168,8 @@ async function mountUserMenu() {
 
   const out = document.createElement('a');
   out.href = '#';
-  out.textContent = 'Log out';
+  out.className = 'nav-logout';
+  out.textContent = '⎋ Log out';
   out.addEventListener('click', (e) => { e.preventDefault(); logout(); });
   nav.appendChild(out);
 }

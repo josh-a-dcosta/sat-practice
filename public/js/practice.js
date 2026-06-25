@@ -171,7 +171,9 @@ function updateFinish() {
   const done = state.resolvedCount;
   const total = state.total;
   const skipped = state.skippedCount || 0;
-  $('progressFill').style.width = Math.round((done / total) * 100) + '%';
+  const pct = total ? Math.round((done / total) * 100) : 0;
+  $('progressFill').style.width = pct + '%';
+  const pp = $('progressPct'); if (pp) pp.textContent = pct + '%';
   $('finishBtn').disabled = !state.allResolved;
 
   const skBtn = $('skippedBtn');
@@ -193,8 +195,8 @@ function updateFinish() {
 
 function updateScore(running) {
   if (!running) return;
-  $('scNum').textContent = `${running.score} / ${running.answered}`;
   $('scAcc').textContent = `${running.accuracy}%`;
+  $('scNum').textContent = `· ${running.score}/${running.answered}`;
 }
 
 async function gotoPosition(newPos) {
@@ -396,11 +398,9 @@ function showFeedback(fb, opts) {
   } else {
     box.classList.add('bad');
     emoji.textContent = fb.peeked ? '👀' : (fb.overLimit ? '⏰' : '💡');
-    title.textContent = fb.peeked ? 'Peeked — locked' : (fb.overLimit ? 'Time was up' : 'Not quite');
-    const correctTxt = fb.correct ? ` The correct answer is ${fb.correct}.` : '';
-    msg.textContent = (fb.peeked ? 'This one is locked since you peeked.' :
-                       fb.overLimit ? 'The timer ran out, so this is locked.' :
-                       'No worries — every miss is a lesson!') + correctTxt + ' Read the explanation, then continue when ready.';
+    title.textContent = fb.peeked ? 'Peeked' : (fb.overLimit ? 'Time was up' : 'No worries!');
+    const ca = String(fb.correct || '').replace(/\.+$/, '');  // avoid "B.."
+    msg.textContent = (ca ? `Correct answer is ${ca}. ` : '') + 'Read the explanation.';
     if (fb.explanation) { explain.textContent = fb.explanation; explain.classList.remove('hidden'); }
     else explain.classList.add('hidden');
     if (!opts.silent) beep('wrong');

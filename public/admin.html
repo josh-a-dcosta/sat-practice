@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Admin 🏆</title>
-  <script>(function(){try{var m=localStorage.getItem('mode');if(m!=='light'&&m!=='dark')m='dark';document.documentElement.dataset.mode=m;document.documentElement.dataset.theme=localStorage.getItem('theme')||'gray';}catch(e){}})();</script>
+  <script>(function(){try{var m=localStorage.getItem('mode');if(m!=='light'&&m!=='dark')m='light';document.documentElement.dataset.mode=m;document.documentElement.dataset.theme=localStorage.getItem('theme')||'gray';}catch(e){}})();</script>
   <link rel="stylesheet" href="/css/styles.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏆</text></svg>" />
 </head>
@@ -20,7 +20,7 @@
     <div class="dash-menu">
       <button class="menu-btn" type="button" data-view="users">👥 Users &amp; Roles</button>
       <button class="menu-btn" type="button" data-view="assign">🔗 Tutor Assignments</button>
-      <button class="menu-btn" type="button" data-view="global">⏱️ Global Timers</button>
+      <button class="menu-btn" type="button" data-view="global">⚙️ Global Settings</button>
     </div>
 
     <!-- USERS -->
@@ -66,11 +66,12 @@
       </div>
     </section>
 
-    <!-- GLOBAL TIMERS -->
+    <!-- GLOBAL SETTINGS -->
     <section class="dash-view hidden" data-view="global">
       <div class="card">
-        <h2>⏱️ Global default timers</h2>
-        <p class="note">Defaults for everyone (minutes per question), by section · difficulty · round. Users can override these in their own Settings. Blank/default is 10 minutes.</p>
+        <h2>⚙️ Global Settings</h2>
+        <div class="subtabs"><button class="subtab active" type="button" data-sub="timers">⏱️ Timers</button></div>
+        <p class="note">Default timers for everyone (minutes per question), by section · difficulty · round. Users can override these in their own Settings. Blank/default is 10 minutes.</p>
         <div id="globalGrid"><div class="spinner">Loading…</div></div>
       </div>
     </section>
