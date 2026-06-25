@@ -80,6 +80,7 @@ function publicUser(u, roles, ctx) {
     roles,
     activeRole: ctx ? ctx.activeRole : null,
     activeStudentId: ctx ? ctx.activeStudentId : null,
+    activeStudentName: ctx ? (ctx.activeStudentName || null) : null,
   };
 }
 
@@ -91,7 +92,16 @@ function sessionForToken(token) {
   const u = db.prepare('SELECT * FROM users WHERE id = ?').get(t.user_id);
   if (!u) return null;
   const roles = rolesFor(u.id);
-  const user = publicUser(u, roles, { activeRole: t.active_role || null, activeStudentId: t.active_student_id || null });
+  let activeStudentName = null;
+  if (t.active_role === 'tutor' && t.active_student_id) {
+    const s = db.prepare('SELECT COALESCE(full_name, username) n FROM users WHERE id = ?').get(t.active_student_id);
+    activeStudentName = s ? s.n : null;
+  }
+  const user = publicUser(u, roles, {
+    activeRole: t.active_role || null,
+    activeStudentId: t.active_student_id || null,
+    activeStudentName,
+  });
   return { token, user };
 }
 

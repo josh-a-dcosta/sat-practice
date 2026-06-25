@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Choose how to sign in 🏆</title>
+  <script>(function(){try{var m=localStorage.getItem('mode');if(m!=='light'&&m!=='dark')m='dark';document.documentElement.dataset.mode=m;document.documentElement.dataset.theme=localStorage.getItem('theme')||'gray';}catch(e){}})();</script>
+  <link rel="stylesheet" href="/css/styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏆</text></svg>" />
+</head>
+<body>
+  <div class="topbar">
+    <a class="brand" href="#"><span class="brand-icon">🎓</span> SAT Practice</a>
+    <div class="topbar-right">
+      <a href="#" id="logoutLink">Log out</a>
+    </div>
+  </div>
+
+  <div class="container" style="max-width:640px">
+    <!-- Step 1: role -->
+    <section class="pick-step card" id="roleStep">
+      <h1 style="margin-top:0">How do you want to sign in today? 👋</h1>
+      <p class="subtitle">Pick a role to continue.</p>
+      <div class="pick-grid" id="roleList"><div class="spinner">Loading…</div></div>
+    </section>
+
+    <!-- Step 2: student (tutor only) -->
+    <section class="pick-step card hidden" id="studentStep">
+      <h1 style="margin-top:0">Which student do you want to view? 🎒</h1>
+      <p class="subtitle">You'll see their progress dashboard.</p>
+      <div class="pick-grid" id="studentList"></div>
+      <button class="btn btn-ghost" id="backToRoles" type="button" style="margin-top:14px">← Choose a different role</button>
+    </section>
+  </div>
+
+  <script src="/js/common.js"></script>
+  <script>
+    const $ = (id) => document.getElementById(id);
+    function escapeHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+
+    const ROLE_META = {
+      student: { emoji: '🎒', title: 'Student', desc: 'Practice questions and track your progress.' },
+      tutor:   { emoji: '🧑‍🏫', title: 'Tutor', desc: "View a student's progress dashboard." },
+      admin:   { emoji: '🛠️', title: 'Admin', desc: 'Manage users, roles, and settings.' },
+    };
+    const ORDER = ['student', 'tutor', 'admin'];
+    let OPTIONS = null;
+
+    function showStep(id) {
+      document.querySelectorAll('.pick-step').forEach((s) => s.classList.toggle('hidden', s.id !== id));
+      window.scrollTo(0, 0);
+    }
+
+    async function choose(role, studentId) {
+      try {
+        const r = await api('POST', '/api/context', { role, studentId });
+        location.href = landingFor(r.user);
+      } catch (e) { showToast(e.message || 'Could not switch.'); }
+    }
+
+    function renderRoles() {
+      showStep('roleStep');
+      const wrap = $('roleList'); wrap.innerHTML = '';
+      for (const role of ORDER) {
+        if (!OPTIONS.roles.includes(role)) continue;
+        const m = ROLE_META[role];
+        const b = document.createElement('button');
+        b.className = 'pick-card';
+        b.innerHTML = `<span class="pick-emoji">${m.emoji}</span>
+          <span class="pick-title">${m.title}</span>
+          <span class="pick-desc">${m.desc}</span>`;
+        b.onclick = () => (role === 'tutor' ? renderStudents() : choose(role));
+        wrap.appendChild(b);
+      }
+    }
+
+    function renderStudents() {
+      showStep('studentStep');
+      $('backToRoles').style.display = (OPTIONS.roles.length > 1) ? '' : 'none';
+      const wrap = $('studentList'); wrap.innerHTML = '';
+      if (!OPTIONS.students.length) {
+        wrap.innerHTML = '<p class="note">No students are assigned to you yet. Ask your admin to assign students to you. 🙂</p>';
+        return;
+      }
+      for (const s of OPTIONS.students) {
+        const b = document.createElement('button');
+        b.className = 'pick-card';
+        b.innerHTML = `<span class="pick-emoji">🎒</span><span class="pick-title">${escapeHtml(s.full_name)}</span>`;
+        b.onclick = () => choose('tutor', s.id);
+        wrap.appendChild(b);
+      }
+    }
+
+    $('backToRoles').addEventListener('click', renderRoles);
+    $('logoutLink').addEventListener('click', (e) => { e.preventDefault(); logout(); });
+
+    (async function init() {
+      try {
+        OPTIONS = await api('GET', '/api/context/options');
+      } catch (e) { location.href = '/login.html'; return; }
+      if (OPTIONS.roles.length === 1) {
+        return OPTIONS.roles[0] === 'tutor' ? renderStudents() : choose(OPTIONS.roles[0]);
+      }
+      renderRoles();
+    })();
+  </script>
+</body>
+</html>
