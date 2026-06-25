@@ -25,9 +25,21 @@ function fmtDate(s) {
   return d.toLocaleString(undefined, { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
 }
 
+let READONLY = false;
 async function load() {
   DATA = await api('GET', '/api/dashboard');
   allAttempts = DATA.attempts;
+
+  // Tutor view: read-only, and label whose dashboard this is.
+  READONLY = !!(DATA.viewer && DATA.viewer.readOnly);
+  if (DATA.viewer && DATA.viewer.studentName) {
+    const h = document.querySelector('.container.wide h1');
+    if (h) h.textContent = `📊 ${DATA.viewer.studentName}'s Dashboard`;
+  }
+  if (READONLY) {
+    const gp = $('genPlanBtn'); if (gp) gp.style.display = 'none';
+    const af = $('addTaskForm'); if (af) af.style.display = 'none';
+  }
   ACTIVITY = DATA.activity || [];
   DAILY = {}; for (const d of (DATA.dailyActivity || [])) DAILY[d.day] = d;
   SUMMARY = {}; for (const s of (DATA.dailySummaries || [])) SUMMARY[s.day] = s;
@@ -242,10 +254,11 @@ function renderTasks(tasks) {
   el.innerHTML = keys.map((key) => {
     const rows = groups[key].map((t) => {
       const done = t.status === 'done';
+      const del = READONLY ? '' : `<span style="margin-left:auto"><button class="task-del" data-del="${t.id}" title="Delete">✕</button></span>`;
       return `<div class="task-item ${done ? 'done' : ''}">
-        <label><input type="checkbox" data-task="${t.id}" ${done ? 'checked' : ''}/>
+        <label><input type="checkbox" data-task="${t.id}" ${done ? 'checked' : ''} ${READONLY ? 'disabled' : ''}/>
           <span><b>${escapeHtml(t.title)}</b>${t.detail ? `<br><span class="note">${escapeHtml(t.detail)}</span>` : ''}</span></label>
-        <span style="margin-left:auto"><button class="task-del" data-del="${t.id}" title="Delete">✕</button></span>
+        ${del}
       </div>`;
     }).join('');
     return `<div class="task-group"><h3 class="mini-h task-group-h">${escapeHtml(key)}</h3>${rows}</div>`;
@@ -795,10 +808,12 @@ $('addTaskForm').addEventListener('submit', async (e) => {
   loadTasks();
 });
 $('taskList').addEventListener('change', (e) => {
+  if (READONLY) return;
   const cb = e.target.closest('input[data-task]');
   if (cb) toggleTask(Number(cb.dataset.task), cb.checked);
 });
 $('taskList').addEventListener('click', (e) => {
+  if (READONLY) return;
   const del = e.target.closest('[data-del]');
   if (del) deleteTask(Number(del.dataset.del));
 });

@@ -133,6 +133,8 @@ async function mountUserMenu() {
   try { me = (await api('GET', '/api/me')).user; } catch (_) { return; /* 401 handled by api() */ }
   applyTheme(me.theme || 'gray');
   localStorage.setItem('theme', me.theme || 'gray');
+  window.__ME = me;
+  try { document.body.dataset.role = me.activeRole || ''; } catch (_) { /* ignore */ }
 
   const page = currentPageKey();
   if (page !== 'select' && page !== 'login') {

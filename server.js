@@ -135,6 +135,21 @@ async function handleApi(req, res, url) {
     if (!user) return sendJson(res, 401, { error: 'Not signed in' });
     const uid = user.id;
 
+    // Whose data a read endpoint should show: a tutor views their selected
+    // (and still-assigned) student; everyone else views their own data.
+    const isTutor = user.activeRole === 'tutor';
+    const viewId = isTutor
+      ? (user.activeStudentId && auth.isTutorOf(uid, user.activeStudentId) ? user.activeStudentId : null)
+      : uid;
+    const requireView = () => {
+      if (viewId == null) { const e = new Error('Pick a student to view.'); e.status = 403; throw e; }
+      return viewId;
+    };
+    // Tutors are read-only; block any write/practice action while in that role.
+    const blockTutorWrites = () => {
+      if (isTutor) { const e = new Error('Tutors have read-only access.'); e.status = 403; throw e; }
+    };
+
     // GET /api/me
     if (req.method === 'GET' && pathname === '/api/me') {
       return sendJson(res, 200, { user });
@@ -169,6 +184,7 @@ async function handleApi(req, res, url) {
 
     // POST /api/sessions  { topic, difficulty }
     if (req.method === 'POST' && pathname === '/api/sessions') {
+      blockTutorWrites();
       const body = await readBody(req);
       const topic      = String(body.topic || '');
       const difficulty = String(body.difficulty || 'medium').toLowerCase();
@@ -233,20 +249,24 @@ async function handleApi(req, res, url) {
 
     // ---- tasks / plan ----
     if (req.method === 'GET' && pathname === '/api/tasks') {
-      return sendJson(res, 200, { tasks: repo.listTasks(uid) });
+      return sendJson(res, 200, { tasks: repo.listTasks(requireView()) });
     }
     if (req.method === 'POST' && pathname === '/api/tasks') {
+      blockTutorWrites();
       const body = await readBody(req);
       return sendJson(res, 200, repo.addTask(uid, body));
     }
     if (req.method === 'POST' && parts[1] === 'tasks' && parts.length === 3) {
+      blockTutorWrites();
       const body = await readBody(req);
       return sendJson(res, 200, repo.setTaskStatus(uid, Number(parts[2]), String(body.status || 'open')));
     }
     if (req.method === 'DELETE' && parts[1] === 'tasks' && parts.length === 3) {
+      blockTutorWrites();
       return sendJson(res, 200, repo.deleteTask(uid, Number(parts[2])));
     }
     if (req.method === 'POST' && pathname === '/api/plan/generate') {
+      blockTutorWrites();
       return sendJson(res, 200, repo.generatePlan(uid));
     }
 
@@ -257,32 +277,36 @@ async function handleApi(req, res, url) {
     }
     // POST /api/settings  { topic, difficulty, roundTier, minutes }
     if (req.method === 'POST' && pathname === '/api/settings') {
+      blockTutorWrites();
       const b = await readBody(req);
       repo.setUserSetting(uid, String(b.topic || ''), String(b.difficulty || ''), Number(b.roundTier), Math.round(Number(b.minutes) * 60));
       return sendJson(res, 200, { grid: repo.settingsGrid(uid) });
     }
     // POST /api/settings/reset  { topic, difficulty, roundTier }  (revert to default)
     if (req.method === 'POST' && pathname === '/api/settings/reset') {
+      blockTutorWrites();
       const b = await readBody(req);
       repo.clearUserSetting(uid, String(b.topic || ''), String(b.difficulty || ''), Number(b.roundTier));
       return sendJson(res, 200, { grid: repo.settingsGrid(uid) });
     }
 
-    // GET /api/dashboard
+    // GET /api/dashboard  (own data, or the viewed student's for a tutor)
     if (req.method === 'GET' && pathname === '/api/dashboard') {
-      return sendJson(res, 200, repo.getDashboard(uid));
+      const dash = repo.getDashboard(requireView());
+      dash.viewer = { role: user.activeRole, readOnly: isTutor, studentName: user.activeStudentName || null };
+      return sendJson(res, 200, dash);
     }
 
     // GET /api/attempts/:id/review
     if (req.method === 'GET' && parts[1] === 'attempts' && parts[3] === 'review' && parts.length === 4) {
-      const review = repo.getAttemptReview(uid, Number(parts[2]));
+      const review = repo.getAttemptReview(requireView(), Number(parts[2]));
       if (!review) return sendJson(res, 404, { error: 'Attempt not found' });
       return sendJson(res, 200, review);
     }
 
     // GET /api/questions/:id/review  (Filtered List rows, incl. skipped)
     if (req.method === 'GET' && parts[1] === 'questions' && parts[3] === 'review' && parts.length === 4) {
-      const review = repo.getQuestionReview(uid, Number(parts[2]));
+      const review = repo.getQuestionReview(requireView(), Number(parts[2]));
       if (!review) return sendJson(res, 404, { error: 'Question not found' });
       return sendJson(res, 200, review);
     }
