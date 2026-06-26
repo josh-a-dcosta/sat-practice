@@ -11,10 +11,7 @@ const ROLES = ['student', 'tutor', 'admin'];
 // missing full names / roles are filled in. Users are managed in the DB / Admin
 // UI from here on — there is no users.txt anymore.
 const INITIAL_USERS = [
-  { username: 'ad', password: 'dad',    theme: 'yellow', fullName: 'Agnello DCosta', roles: ['admin', 'student'] },
-  { username: 'jd', password: 'sat265', theme: 'pink',   fullName: 'Jiselle DCosta', roles: ['student'] },
-  { username: 'fg', password: 'sat263', theme: 'blue',   fullName: 'Flavio Grimaldi', roles: ['student'] },
-  { username: 'aj', password: 'sir',    theme: 'gray',   fullName: 'Avichal Jain',   roles: ['tutor', 'student'] },
+  { username: 'ad', password: 'dad',    theme: 'yellow', fullName: 'Agnello DCosta', roles: ['admin', 'student'] }
 ];
 
 // First-run bootstrap: seed the initial accounts ONLY when the users table is
