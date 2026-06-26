@@ -53,8 +53,10 @@ async function load() {
   $('attemptsTable').querySelector('tbody').innerHTML =
     '<tr><td colspan="10" class="note">Set the filters and click 🔎 Search to see matching questions.</td></tr>';
   // Restore the last section the user was on (default to the charts overview).
-  const saved = localStorage.getItem('dashView') || 'dashboard';
-  const known = ['dashboard', 'calendar', 'weekly', 'skills', 'tasks'];
+  // A ?view= param (e.g. the top-bar Calendar link) wins over the saved view.
+  const known = ['dashboard', 'calendar', 'weekly', 'trends', 'skills', 'tasks'];
+  const urlView = getParam('view');
+  const saved = (urlView && known.includes(urlView)) ? urlView : (localStorage.getItem('dashView') || 'dashboard');
   showView(known.includes(saved) ? saved : 'dashboard');
   // If they left from a calendar day, reopen that day (week + practices panel).
   if (saved === 'calendar') {
@@ -70,7 +72,7 @@ function showView(name) {
   document.querySelectorAll('.dash-menu .menu-btn[data-view]').forEach((b) => b.classList.toggle('active', b.dataset.view === name));
   localStorage.setItem('dashView', name);
   if (name === 'dashboard') renderOverviewCharts();
-  if (name === 'weekly') { renderWeeklyTrends(); renderSectionCharts(); }
+  if (name === 'trends') { renderWeeklyTrends(); renderSectionCharts(); }
   window.scrollTo(0, 0);
 }
 
