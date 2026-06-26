@@ -298,6 +298,8 @@ h2 { font-size: 1.4rem; margin: 0 0 14px; }
 
 .q-nav {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   gap: 10px;
   margin: 12px 0 4px;
 }
@@ -331,30 +333,49 @@ h2 { font-size: 1.4rem; margin: 0 0 14px; }
   text-align: center;
 }
 
-/* Question map */
+/* Question map: a tiny, horizontally-scrollable strip with ‹ › arrows */
+.qmap { margin: 4px 0 14px; }
+.qmap-row { display: flex; align-items: center; gap: 6px; }
+.qmap-arrow {
+  flex: 0 0 auto;
+  width: 24px; height: 24px;
+  border-radius: 8px;
+  border: 2px solid var(--pink-200);
+  background: var(--white);
+  color: var(--pink-600);
+  font-weight: 900; font-size: 1rem; line-height: 1;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+.qmap-arrow:hover { background: var(--pink-50); }
 .map {
   display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 18px;
+  gap: 5px;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  padding: 2px;
+  flex: 1 1 auto;
+  scrollbar-width: none;          /* Firefox — arrows do the scrolling */
 }
+.map::-webkit-scrollbar { display: none; }
 .map button {
-  width: 38px; height: 38px;
-  border-radius: 10px;
+  flex: 0 0 auto;
+  width: 24px; height: 24px;
+  border-radius: 7px;
   border: 2px solid var(--pink-200);
   background: var(--white);
   color: var(--muted);
-  font-weight: 800;
+  font-weight: 800; font-size: 0.72rem;
   cursor: pointer;
 }
 .map button.answered { background: var(--pink-200); color: var(--pink-700); border-color: var(--pink-300); }
-.map button.correct { border-color: var(--green); border-width: 3px; color: var(--green); background: transparent; }
-.map button.wrong { border-color: #e23b5a; border-width: 3px; color: #e23b5a; background: transparent; }
-.map button.skipped { border-color: var(--amber); border-width: 3px; color: var(--amber); background: transparent; }
-.map button.current { box-shadow: 0 0 0 3px var(--pink-100); }
+.map button.correct { border-color: var(--green); color: var(--green); background: transparent; }
+.map button.wrong { border-color: #e23b5a; color: #e23b5a; background: transparent; }
+.map button.skipped { border-color: var(--amber); color: var(--amber); background: transparent; }
+.map button.current { box-shadow: 0 0 0 2px var(--pink-200); }
 :root[data-mode="dark"] .map button.correct { color: #4ee08a; border-color: #4ee08a; }
 :root[data-mode="dark"] .map button.wrong { color: #ff7088; border-color: #ff7088; }
-.map-legend { margin: 12px 0 4px; }
+.map-legend { margin: 8px 0 0; font-size: 0.78rem; }
 .done-tag { font-weight: 800; color: var(--green); }
 .done-score { font-weight: 800; color: var(--pink-600); }
 
@@ -856,9 +877,10 @@ body.fullscreen-mode .answer-pane { max-height: calc(100vh - 70px); overflow-y: 
 .mode-toggle:hover { background: var(--pink-100); }
 
 /* ----- Practice: live scoreboard + immediate feedback ----- */
-.timer-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.timer-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 .timer-wrap { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
 .elapsed-note { font-size: 0.78rem; font-weight: 700; color: var(--muted); white-space: nowrap; }
+.timer-row .timer-fs { margin-left: auto; }   /* push fullscreen to the right edge */
 .scoreboard {
   font-weight: 800; color: var(--pink-600);
   background: var(--pink-50); border: 2px solid var(--pink-200);

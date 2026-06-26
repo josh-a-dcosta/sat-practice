@@ -162,6 +162,9 @@ function renderMap() {
     b.onclick = () => gotoPosition(item.position);
     map.appendChild(b);
   }
+  // Keep the current box in view without scrolling the whole page.
+  const cur = map.querySelector('.current');
+  if (cur) map.scrollLeft = cur.offsetLeft - map.clientWidth / 2 + cur.clientWidth / 2;
 }
 
 function updateFinish() {
@@ -553,6 +556,9 @@ $('zoomIn').onclick = () => zoomBy(ZOOM_STEP);
 $('zoomOut').onclick = () => zoomBy(-ZOOM_STEP);
 $('zoomReset').onclick = zoomReset;
 $('fullscreenBtn').onclick = toggleFullscreen;
+// Scroll the question-map strip by roughly a screenful of boxes.
+$('mapLeft').onclick = () => $('map').scrollBy({ left: -180, behavior: 'smooth' });
+$('mapRight').onclick = () => $('map').scrollBy({ left: 180, behavior: 'smooth' });
 
 window.addEventListener('beforeunload', () => {
   if (!resolved && current) {
