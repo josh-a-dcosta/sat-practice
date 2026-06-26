@@ -829,6 +829,30 @@ function getDailySummaries(userId) {
   return buildDailySummaries(getDailyActivity(userId));
 }
 
+// ---------------------------------------------------------------------------
+// Weekly-report comments (student ↔ tutor, per week)
+// ---------------------------------------------------------------------------
+function listWeeklyComments(studentId, week) {
+  return db.prepare(`
+    SELECT wc.id, wc.week, wc.author_id, wc.author_role, wc.text, wc.created_at,
+           COALESCE(u.full_name, u.username) author_name
+    FROM weekly_comments wc LEFT JOIN users u ON u.id = wc.author_id
+    WHERE wc.student_id = ? AND wc.week = ?
+    ORDER BY wc.id
+  `).all(studentId, week);
+}
+
+function addWeeklyComment(studentId, week, authorId, authorRole, text) {
+  text = String(text || '').trim();
+  if (!String(week || '')) { const e = new Error('Week is required.'); e.status = 400; throw e; }
+  if (!text) { const e = new Error('Write something first.'); e.status = 400; throw e; }
+  db.prepare(`
+    INSERT INTO weekly_comments (student_id, week, author_id, author_role, text)
+    VALUES (?,?,?,?,?)
+  `).run(studentId, String(week), authorId, authorRole || null, text.slice(0, 2000));
+  return { ok: true };
+}
+
 // Event feed for the Filtered List (includes skips). One row per action.
 function getActivityFeed(userId) {
   const rows = db.prepare(`
@@ -1099,6 +1123,7 @@ module.exports = {
   submitAnswer, peekQuestion, timeoutQuestion, skipQuestion, completeSession,
   getDashboard, getAttemptReview, getQuestionReview,
   getDailyActivity, getDailySummaries, getSkillFocus, getActivityFeed,
+  listWeeklyComments, addWeeklyComment,
   listTasks, addTask, setTaskStatus, deleteTask, generatePlan,
   resolveTimer, settingsGrid, setUserSetting, clearUserSetting,
   setGlobalSetting, clearGlobalSetting,

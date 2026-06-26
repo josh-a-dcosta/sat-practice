@@ -240,6 +240,47 @@ function renderWeeklyReport() {
   const older = $('wkOlder'), newer = $('wkNewer');
   if (older) older.onclick = () => { weeklyIndex++; renderWeeklyReport(); };
   if (newer) newer.onclick = () => { weeklyIndex--; renderWeeklyReport(); };
+  loadWeeklyComments(r.week);
+}
+
+// ---- Weekly-report comments (student ↔ tutor, per week) -------------------
+let CUR_WEEK = null;
+async function loadWeeklyComments(week) {
+  CUR_WEEK = week;
+  const el = $('weeklyComments');
+  if (!el) return;
+  if (!week) { el.innerHTML = '<p class="note">No week to comment on yet.</p>'; return; }
+  let comments = [];
+  try { comments = (await api('GET', `/api/weekly-comments?week=${encodeURIComponent(week)}`)).comments; } catch (_) { /* ignore */ }
+  renderWeeklyComments(comments);
+}
+function renderWeeklyComments(comments) {
+  const el = $('weeklyComments');
+  if (!el) return;
+  const thread = comments.length ? comments.map((c) => {
+    const tutor = c.author_role === 'tutor';
+    const badge = tutor ? '🧑‍🏫 Tutor' : (c.author_role === 'student' ? '🎒 Student' : '');
+    return `<div class="wc-item ${tutor ? 'tutor' : 'student'}">
+      <div class="wc-head"><b>${escapeHtml(c.author_name || '—')}</b> <span class="note">${badge} · ${fmtDate(c.created_at)}</span></div>
+      <div class="wc-text">${escapeHtml(c.text)}</div>
+    </div>`;
+  }).join('') : '<p class="note">No notes yet for this week. Start the conversation below. 🙂</p>';
+  el.innerHTML = `<div class="wc-thread">${thread}</div>
+    <form class="wc-form" id="wcForm">
+      <textarea id="wcInput" class="spr-input" rows="2" placeholder="Add a note for this week…"></textarea>
+      <button class="btn btn-primary" type="submit">Post</button>
+    </form>`;
+  const f = $('wcForm');
+  if (f) f.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const text = $('wcInput').value.trim();
+    if (!text) return;
+    try {
+      const r = await api('POST', '/api/weekly-comments', { week: CUR_WEEK, text });
+      renderWeeklyComments(r.comments);
+      showToast('Posted ✓');
+    } catch (err) { showToast(err.message); }
+  });
 }
 
 // ---- Tasks / focus plan ----------------------------------------------------

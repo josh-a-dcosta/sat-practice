@@ -293,6 +293,19 @@ async function handleApi(req, res, url) {
       return sendJson(res, 200, { grid: repo.settingsGrid(uid) });
     }
 
+    // ---- weekly-report comments (student ↔ tutor, per week) ----
+    // GET /api/weekly-comments?week=YYYY-WW
+    if (req.method === 'GET' && pathname === '/api/weekly-comments') {
+      const week = url.searchParams.get('week') || '';
+      return sendJson(res, 200, { comments: repo.listWeeklyComments(requireView(), week) });
+    }
+    // POST /api/weekly-comments { week, text }
+    if (req.method === 'POST' && pathname === '/api/weekly-comments') {
+      const b = await readBody(req);
+      repo.addWeeklyComment(requireView(), String(b.week || ''), uid, user.activeRole, String(b.text || ''));
+      return sendJson(res, 200, { comments: repo.listWeeklyComments(requireView(), String(b.week || '')) });
+    }
+
     // GET /api/dashboard  (own data, or the viewed student's for a tutor)
     if (req.method === 'GET' && pathname === '/api/dashboard') {
       const dash = repo.getDashboard(requireView());

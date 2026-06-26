@@ -212,6 +212,20 @@ db.exec('CREATE INDEX IF NOT EXISTS idx_settings_user ON settings_user(user_id);
 // Collaborative plans: who added each suggested-practice task (student or tutor).
 try { db.exec('ALTER TABLE tasks ADD COLUMN added_by INTEGER'); } catch (_) { /* exists */ }
 
+// Weekly-report comment thread between a student and their tutor(s), per week.
+db.exec(`
+CREATE TABLE IF NOT EXISTS weekly_comments (
+  id          INTEGER PRIMARY KEY AUTOINCREMENT,
+  student_id  INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  week        TEXT NOT NULL,
+  author_id   INTEGER REFERENCES users(id) ON DELETE SET NULL,
+  author_role TEXT,
+  text        TEXT NOT NULL,
+  created_at  TEXT NOT NULL DEFAULT (datetime('now'))
+);
+CREATE INDEX IF NOT EXISTS idx_weekly_comments ON weekly_comments(student_id, week);
+`);
+
 // Round/practice restructure: per-question status + resolved time on an existing
 // volume. Adding the column succeeds only once — on that first add we backfill
 // status from the terminal attempt so old practices keep their state.
