@@ -296,13 +296,29 @@ h2 { font-size: 1.4rem; margin: 0 0 14px; }
 }
 .opt.selected .badge { background: var(--pink-500); color: #fff; }
 
+.q-nav {
+  display: flex;
+  gap: 10px;
+  margin: 12px 0 4px;
+}
+.session-ctrl {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  align-items: center;
+}
 .q-actions {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 22px;
-  gap: 12px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: stretch;
+  margin-top: 16px;
+  gap: 8px;
+}
+.answer-btn {
+  font-size: 1.08rem;
+  font-weight: 900;
+  letter-spacing: 0.07em;
+  padding: 14px;
 }
 
 .locked-note {

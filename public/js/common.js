@@ -331,7 +331,8 @@ function getParam(name) {
 
   document.addEventListener('DOMContentLoaded', async () => {
     try {
-      const me = await api('GET', '/api/me');
+      const res = await api('GET', '/api/me');
+      const me = res && res.user;
       if (me && me.username) inject(me);
     } catch (_) { /* not logged in — no widget */ }
   });
