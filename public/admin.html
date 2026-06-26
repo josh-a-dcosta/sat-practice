@@ -21,6 +21,7 @@
       <button class="menu-btn" type="button" data-view="users">👥 Users &amp; Roles</button>
       <button class="menu-btn" type="button" data-view="assign">🔗 Tutor Assignments</button>
       <button class="menu-btn" type="button" data-view="global">⚙️ Global Settings</button>
+      <button class="menu-btn" type="button" data-view="review">🖼️ Question Review</button>
     </div>
 
     <!-- USERS -->
@@ -75,13 +76,42 @@
         <div id="globalGrid"><div class="spinner">Loading…</div></div>
       </div>
     </section>
+
+    <!-- QUESTION REVIEW (answer panel / mask) -->
+    <section class="dash-view hidden" data-view="review">
+      <div class="card">
+        <h2>🖼️ Question Review — answer panel</h2>
+        <p class="note">For questions whose answer panel covers the choices, drag the line so the mask starts <i>below</i> the choices, then Approve. Approved questions leave the queue until you clear them.</p>
+        <div class="filters">
+          <label>Subject <select id="qrSubject"><option value="">All</option><option value="math">🔢 Math</option><option value="reading">📖 Reading</option></select></label>
+          <label>Domain <select id="qrTopic"><option value="">All</option></select></label>
+          <label>Difficulty <select id="qrDiff"><option value="">All</option><option value="medium">Medium</option><option value="hard">Hard</option></select></label>
+          <label>Skill <select id="qrSkill"><option value="">All</option></select></label>
+          <label>Status <select id="qrReviewed"><option value="0">To review</option><option value="1">Approved</option><option value="">All</option></select></label>
+          <button class="btn btn-primary" id="qrApply" type="button">Apply</button>
+          <button class="btn btn-ghost" id="qrClear" type="button">Clear approvals (this filter)</button>
+          <span class="note" id="qrCount"></span>
+        </div>
+        <div id="qrViewer"><p class="note">Apply a filter to start reviewing.</p></div>
+        <div class="filters" id="qrNav" style="justify-content:center; margin-top:12px; display:none">
+          <button class="btn btn-ghost" id="qrPrev" type="button">← Prev</button>
+          <span class="note" id="qrPos"></span>
+          <button class="btn btn-primary" id="qrApprove" type="button">✓ Approve &amp; next</button>
+          <button class="btn btn-ghost" id="qrNext" type="button">Next →</button>
+        </div>
+      </div>
+    </section>
   </div>
 
-  <!-- Per-user timer modal -->
+  <!-- Per-user settings modal (timers + active-question visibility) -->
   <div class="modal-overlay hidden" id="userTimerModal">
     <div class="modal-card" style="max-width:760px">
       <button class="modal-close" id="utClose" type="button" aria-label="Close">✕</button>
-      <h2 id="utTitle" style="margin-top:0">Timers</h2>
+      <h2 id="utTitle" style="margin-top:0">Settings</h2>
+      <h3 class="mini-h">Active questions</h3>
+      <p class="note">By default a student practices with <b>nonactive</b> questions only. Allow active (on-test) questions per subject:</p>
+      <div id="utVisibility" class="filters" style="margin-bottom:8px"></div>
+      <h3 class="mini-h">Timers</h3>
       <p class="note">Overrides this user's timers. Reset (↺) reverts a cell to the global default.</p>
       <div id="utGrid"><div class="spinner">Loading…</div></div>
     </div>

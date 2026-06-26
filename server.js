@@ -394,6 +394,41 @@ async function handleApi(req, res, url) {
         repo.setUserSetting(Number(parts[4]), String(b.topic || ''), String(b.difficulty || ''), Number(b.roundTier), Math.round(Number(b.minutes) * 60));
         return sendJson(res, 200, { grid: repo.settingsGrid(Number(parts[4])) });
       }
+      // ---- per-student active-question visibility ----
+      // GET /api/admin/visibility/:userId
+      if (req.method === 'GET' && parts[2] === 'visibility' && parts.length === 4) {
+        return sendJson(res, 200, { access: repo.getStudentAccess(Number(parts[3])) });
+      }
+      // POST /api/admin/visibility/:userId  { domain, includeActive }
+      if (req.method === 'POST' && parts[2] === 'visibility' && parts.length === 4) {
+        const b = await readBody(req);
+        const access = repo.setStudentAccess(Number(parts[3]), String(b.domain || ''), !!b.includeActive);
+        return sendJson(res, 200, { access });
+      }
+
+      // ---- answer-panel (mask) review ----
+      // GET /api/admin/questions?subject=&topic=&difficulty=&skill=&reviewed=
+      if (req.method === 'GET' && parts[2] === 'questions' && parts.length === 3) {
+        const f = {
+          subject: url.searchParams.get('subject') || '',
+          topic: url.searchParams.get('topic') || '',
+          difficulty: url.searchParams.get('difficulty') || '',
+          skill: url.searchParams.get('skill') || '',
+          reviewed: url.searchParams.get('reviewed') || '',
+        };
+        return sendJson(res, 200, { questions: repo.listQuestionsForReview(f) });
+      }
+      // POST /api/admin/questions/clear-review  { subject, topic, difficulty, skill }
+      if (req.method === 'POST' && parts[2] === 'questions' && parts[3] === 'clear-review' && parts.length === 4) {
+        const b = await readBody(req);
+        return sendJson(res, 200, repo.clearMaskReview(b || {}));
+      }
+      // POST /api/admin/questions/:id/mask  { maskFraction, approve }
+      if (req.method === 'POST' && parts[2] === 'questions' && parts[4] === 'mask' && parts.length === 5) {
+        const b = await readBody(req);
+        return sendJson(res, 200, repo.setQuestionMask(Number(parts[3]), b.maskFraction, !!b.approve));
+      }
+
       return sendJson(res, 404, { error: 'Unknown admin endpoint' });
     }
 

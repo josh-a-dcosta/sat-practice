@@ -212,6 +212,25 @@ db.exec('CREATE INDEX IF NOT EXISTS idx_settings_user ON settings_user(user_id);
 // Collaborative plans: who added each suggested-practice task (student or tutor).
 try { db.exec('ALTER TABLE tasks ADD COLUMN added_by INTEGER'); } catch (_) { /* exists */ }
 
+// Active vs. nonactive questions (active ones appear on the real adaptive test).
+// Default 0 (nonactive) so existing questions stay visible until the yearly
+// import marks the active ones. mask_reviewed: admin has approved the answer
+// panel (mask) position for this question's Question View.
+try { db.exec('ALTER TABLE questions ADD COLUMN active INTEGER NOT NULL DEFAULT 0'); } catch (_) { /* exists */ }
+try { db.exec('ALTER TABLE questions ADD COLUMN mask_reviewed INTEGER NOT NULL DEFAULT 0'); } catch (_) { /* exists */ }
+db.exec('CREATE INDEX IF NOT EXISTS idx_q_active ON questions(domain, active);');
+
+// Per-student question visibility: may a student see ACTIVE questions for a
+// subject? No row = no (nonactive only) — the default for every student.
+db.exec(`
+CREATE TABLE IF NOT EXISTS student_active_access (
+  user_id        INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  domain         TEXT NOT NULL,
+  include_active INTEGER NOT NULL DEFAULT 0,
+  UNIQUE (user_id, domain)
+);
+`);
+
 // Weekly-report comment thread between a student and their tutor(s), per week.
 db.exec(`
 CREATE TABLE IF NOT EXISTS weekly_comments (
