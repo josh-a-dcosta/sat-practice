@@ -48,7 +48,7 @@
         <p class="note">💡 <b>Active questions</b> (highlighted column): by default students practice with <b>nonactive</b> questions only. Tick 🔢 Math or 📖 Reading to also show <b>active</b> (real-test) questions to that student — it saves instantly. Scroll the table sideways if you don't see the column.</p>
         <div style="overflow-x:auto">
           <table class="data" id="usersTable">
-            <thead><tr><th>Full name</th><th>Username</th><th class="active-col">🎯 Active questions</th><th>Roles</th><th>Theme</th><th>New password</th><th></th></tr></thead>
+            <thead><tr><th>Full name</th><th>Username</th><th class="active-col">🎯 Show Active Questions</th><th>Roles</th><th>Timers</th><th>Theme</th><th>New password</th><th></th></tr></thead>
             <tbody></tbody>
           </table>
         </div>
@@ -122,16 +122,12 @@
     </section>
   </div>
 
-  <!-- Per-user settings modal (timers + active-question visibility) -->
+  <!-- Per-user timer overrides (active-question visibility lives in the Users table) -->
   <div class="modal-overlay hidden" id="userTimerModal">
     <div class="modal-card" style="max-width:760px">
       <button class="modal-close" id="utClose" type="button" aria-label="Close">✕</button>
-      <h2 id="utTitle" style="margin-top:0">Settings</h2>
-      <h3 class="mini-h">Active questions</h3>
-      <p class="note">By default a student practices with <b>nonactive</b> questions only. Allow active (on-test) questions per subject:</p>
-      <div id="utVisibility" class="filters" style="margin-bottom:8px"></div>
-      <h3 class="mini-h">Timers</h3>
-      <p class="note">Overrides this user's timers. Reset (↺) reverts a cell to the global default.</p>
+      <h2 id="utTitle" style="margin-top:0">Timers</h2>
+      <p class="note">Overrides this user's timers (minutes per question). Reset (↺) reverts a cell to the global default.</p>
       <div id="utGrid"><div class="spinner">Loading…</div></div>
     </div>
   </div>

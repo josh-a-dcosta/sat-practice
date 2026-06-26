@@ -37,11 +37,11 @@ function renderUsers() {
       <td><input class="spr-input uUser" value="${esc(u.username)}" style="width:110px"/></td>
       <td class="active-cell">${accToggles}</td>
       <td>${roleBoxes}</td>
+      <td style="text-align:center"><button class="btn btn-ghost uTimers icon-btn" type="button" title="Edit per-question timers">⏱️</button></td>
       <td><select class="uTheme">${themeOpts}</select></td>
       <td><input class="spr-input uPass" type="text" placeholder="(unchanged)" style="width:120px"/></td>
       <td style="white-space:nowrap">
         <button class="btn btn-primary uSave" type="button">Save</button>
-        <button class="btn btn-ghost uTimers" type="button" title="Per-question timers">⏱️ Timers</button>
         <button class="btn btn-ghost uDel" type="button">🗑️</button>
       </td>
     </tr>`;
@@ -184,32 +184,16 @@ $('globalGrid').addEventListener('click', async (e) => {
   catch (err) { showToast(err.message); }
 });
 
-// Per-user timers modal
+// Per-user timers modal (active-question visibility lives in the Users table).
 let UT_ID = null;
 async function openUserTimers(id) {
   UT_ID = id;
-  $('utTitle').textContent = `⚙️ ${userName(id)} — settings`;
+  $('utTitle').textContent = `⏱️ ${userName(id)} — timers`;
   $('userTimerModal').classList.remove('hidden');
-  loadUserVisibility(id);
   $('utGrid').innerHTML = '<div class="spinner">Loading…</div>';
   try { const g = (await api('GET', `/api/admin/settings/user/${id}`)).grid; $('utGrid').innerHTML = timerGridHtml(g, 'user'); }
   catch (e) { $('utGrid').innerHTML = `<p class="note">${esc(e.message)}</p>`; }
 }
-
-async function loadUserVisibility(id) {
-  const el = $('utVisibility');
-  el.innerHTML = '<span class="note">Loading…</span>';
-  try {
-    const a = (await api('GET', `/api/admin/visibility/${id}`)).access;
-    el.innerHTML = [['math', '🔢 Math'], ['reading', '📖 Reading']].map(([d, lbl]) =>
-      `<label class="rl"><input type="checkbox" class="visChk" data-domain="${d}" ${a[d] ? 'checked' : ''}/> Show active in ${lbl}</label>`).join('');
-  } catch (e) { el.innerHTML = `<span class="note">${esc(e.message)}</span>`; }
-}
-$('utVisibility').addEventListener('change', async (e) => {
-  const c = e.target.closest('.visChk'); if (!c || UT_ID == null) return;
-  try { await api('POST', `/api/admin/visibility/${UT_ID}`, { domain: c.dataset.domain, includeActive: c.checked }); showToast('Saved ✓'); }
-  catch (err) { showToast(err.message); c.checked = !c.checked; }
-});
 
 // ---- Question Review (answer-panel mask) ----------------------------------
 let QR_ALL = null, QR = [], QRI = 0;
