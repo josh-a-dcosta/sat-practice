@@ -39,6 +39,16 @@
             <div class="goal-bar"><span id="progressFill" style="width:0%"></span></div>
           </div>
 
+          <!-- Question map: tiny scrollable strip (jump to any question) -->
+          <div class="qmap">
+            <div class="qmap-row">
+              <button class="qmap-arrow" id="mapLeft" type="button" aria-label="Scroll left">‹</button>
+              <div class="map" id="map"></div>
+              <button class="qmap-arrow" id="mapRight" type="button" aria-label="Scroll right">›</button>
+            </div>
+            <p class="note map-legend">🟩 correct · 🟥 review · 🟧 skipped · ⬜ not done</p>
+          </div>
+
           <!-- Image-based (real PDF) question -->
           <div class="pdf-tools hidden" id="pdfTools">
             <span class="pdf-tools-label">🔍 Zoom</span>
@@ -72,18 +82,14 @@
         <!-- RIGHT: answer + controls -->
         <div class="card answer-pane">
           <div class="timer-row">
-            <div class="timer-wrap">
-              <div class="timer" id="timer">10:00</div>
-              <div class="elapsed-note" id="elapsedNote">⏱ 0:00 on this question</div>
-            </div>
-            <div class="session-ctrl">
-              <button class="btn btn-ghost" id="pauseBtn" type="button">⏸ Pause &amp; exit</button>
-              <button class="btn btn-ghost" id="fullscreenBtn" type="button" title="Use the whole screen for bigger panels">⛶ Full screen</button>
-            </div>
+            <div class="timer" id="timer">10:00</div>
+            <div class="elapsed-note" id="elapsedNote">⏱ 0:00 on this question</div>
+            <button class="btn btn-ghost timer-fs" id="fullscreenBtn" type="button" title="Use the whole screen for bigger panels">⛶ Full screen</button>
           </div>
 
           <div class="q-nav">
             <button class="btn btn-ghost" id="prevBtn">← Previous</button>
+            <button class="btn btn-ghost" id="pauseBtn" type="button" title="Pause &amp; exit this round">⏸ Pause</button>
             <button class="btn btn-ghost" id="nextBtn">Next →</button>
           </div>
 
@@ -119,10 +125,6 @@
           <div id="doneControls" class="hidden" style="margin-top:10px; text-align:center">
             <span class="done-score" id="doneScore"></span>
           </div>
-
-          <hr class="soft-rule" />
-          <p class="note map-legend">🟩 correct &nbsp;·&nbsp; 🟥 review (wrong / peeked / over time) &nbsp;·&nbsp; 🟧 skipped &nbsp;·&nbsp; ⬜ not done. Tap a box to revisit it.</p>
-          <div class="map" id="map"></div>
         </div>
       </div>
     </div>
