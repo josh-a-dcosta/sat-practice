@@ -123,11 +123,14 @@ function pivotWeeks(rows) {
 }
 
 // Render a compact vertical legend (one item per line) below a chart.
+// A dataset may pin its own `color`; otherwise it falls back to the palette.
+function seriesColor(d, i) { return (d && d.color) || SERIES_COLORS[i % SERIES_COLORS.length]; }
+
 function renderLegend(id, datasets) {
   const el = $(id + 'Legend');
   if (!el) return;
   el.innerHTML = datasets.map((d, i) => {
-    const c = SERIES_COLORS[i % SERIES_COLORS.length];
+    const c = seriesColor(d, i);
     return `<div class="lg-item"><span class="lg-dot" style="background:${c}"></span>${escapeHtml(d.label)}</div>`;
   }).join('');
 }
@@ -136,7 +139,7 @@ function lineChart(id, labels, datasets, opts) {
   makeChart(id, {
     type: 'line',
     data: { labels, datasets: datasets.map((d, i) => {
-      const c = SERIES_COLORS[i % SERIES_COLORS.length];
+      const c = seriesColor(d, i);
       return {
         label: d.label, data: d.data, borderColor: c, backgroundColor: c + '22',
         cubicInterpolationMode: 'monotone', tension: 0.4, spanGaps: true, fill: false,
@@ -162,12 +165,13 @@ function renderWeeklyTrends() {
   const labels = weeks.map((w) => weekLabel(w.start));
   const acc = (correct, attempts) => (attempts ? Math.round((correct / attempts) * 100) : null);
 
-  // Domain-level
-  const domains = [['math', '🔢 Math'], ['reading', '📖 Reading']];
-  const accSets = domains.map(([d, lbl]) => ({ label: lbl, data: weeks.map((w) => {
+  // Domain-level. Pin colors so Reading is a vivid violet — not a theme accent
+  // (no purple theme) and clearly distinct from Math's magenta.
+  const domains = [['math', '🔢 Math', '#ff4d94'], ['reading', '📖 Reading', '#7c3aed']];
+  const accSets = domains.map(([d, lbl, color]) => ({ label: lbl, color, data: weeks.map((w) => {
     const r = dom.find((x) => x.week === w.week && x.domain === d); return r ? acc(r.correct, r.attempts) : null;
   }) }));
-  const timeSets = domains.map(([d, lbl]) => ({ label: lbl, data: weeks.map((w) => {
+  const timeSets = domains.map(([d, lbl, color]) => ({ label: lbl, color, data: weeks.map((w) => {
     const r = dom.find((x) => x.week === w.week && x.domain === d); return r ? Math.round(r.avg_time) : null;
   }) }));
   lineChart('wkDomainAcc', labels, accSets, { y: { max: 100, ticks: { callback: (v) => v + '%' } } });
