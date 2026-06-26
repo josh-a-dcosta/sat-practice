@@ -173,8 +173,8 @@
               .sort((a, b) => (a.mastered / a.total) - (b.mastered / b.total));
             const skillRows = sk.map(s => {
               const pct = s.total ? Math.round((s.mastered / s.total) * 100) : 0;
-              return `<div class="skill-mini">
-                <span class="sm-name">${escapeHtml(s.skill)}</span>
+              return `<div class="skill-mini" title="${escapeHtml(s.skill)}">
+                <span class="sm-name">${escapeHtml(abbrevSkill(s.skill))}</span>
                 <div class="sm-bar"><i class="${masteryClass(pct)}" style="width:${pct}%"></i></div>
                 <span class="sm-pct">${s.mastered}/${s.total}</span></div>`;
             }).join('') || '<span class="note">No skills yet</span>';
@@ -230,7 +230,7 @@
               <button class="${cls}" data-topic="${item.topic}" data-difficulty="${diff}"
                       data-round="${displayRound}" data-deftl="${item.defaultTimeLimit}"
                       data-session="${item.activeSessionId || ''}" data-name="${escapeHtml(item.topicName)}">${btnLabel}</button>
-              <div class="skill-mastery-h note">Skill mastery (correct at least once / total)</div>
+              <div class="skill-mastery-h">Skill mastery <span class="sm-sub">correct at least once vs total</span></div>
               <div class="skill-mastery">${skillRows}</div>
             </div>`;
           }
@@ -295,6 +295,15 @@
     load().catch(e => {
       document.getElementById('domainSections').innerHTML = `<div class="card"><p class="note">Could not load: ${e.message}</p></div>`;
     });
+
+    // The puppy fetches once now, then about every 3 minutes (not constantly).
+    (function fetchLoop() {
+      const dog = document.querySelector('.fetch-dog');
+      if (!dog) return;
+      const play = () => { dog.classList.remove('fetching'); void dog.offsetWidth; dog.classList.add('fetching'); };
+      play();
+      setInterval(play, 180000);
+    })();
   </script>
 </body>
 </html>

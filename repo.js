@@ -845,6 +845,7 @@ function getActivityFeed(userId) {
     round: r.round, domain: r.domain, topic: r.topic, topicName: topicLabel(r.topic),
     difficulty: r.difficulty, skill: r.skill, status: r.status, statusLabel: STATUS_LABEL[r.status] || r.status,
     selected: r.selected, correct: correctDisplay(r), timeTaken: r.time_taken_seconds,
+    prompt: r.prompt || '',
   }));
 }
 
@@ -1022,17 +1023,21 @@ function buildWeeklyReports(weeklyByDomain, weeklyBySkill) {
 // ---------------------------------------------------------------------------
 function listTasks(userId) {
   return db.prepare(`
-    SELECT * FROM tasks WHERE user_id=?
-    ORDER BY (status='done'), COALESCE(due_date,'9999'), id
+    SELECT t.*, COALESCE(u.full_name, u.username) added_by_name
+    FROM tasks t LEFT JOIN users u ON u.id = t.added_by
+    WHERE t.user_id=?
+    ORDER BY (t.status='done'), t.id
   `).all(userId);
 }
 
-function addTask(userId, t) {
+// ownerId: whose plan this is (the student). addedBy: who added it (student or tutor).
+function addTask(userId, t, addedBy) {
   const info = db.prepare(`
-    INSERT INTO tasks (user_id, due_date, domain, topic, difficulty, skill, title, detail)
-    VALUES (?,?,?,?,?,?,?,?)
+    INSERT INTO tasks (user_id, due_date, domain, topic, difficulty, skill, title, detail, added_by)
+    VALUES (?,?,?,?,?,?,?,?,?)
   `).run(userId, t.due_date || null, t.domain || null, t.topic || null,
-         t.difficulty || null, t.skill || null, String(t.title || 'Practice task'), t.detail || null);
+         t.difficulty || null, t.skill || null, String(t.title || 'Practice task'), t.detail || null,
+         addedBy || null);
   return db.prepare('SELECT * FROM tasks WHERE id=?').get(Number(info.lastInsertRowid));
 }
 
@@ -1055,8 +1060,9 @@ function nextWeekday(from, weekday) { // weekday: 0=Sun..6=Sat
   return d.toISOString().slice(0, 10);
 }
 
-// Build Wed/Sat focus tasks from the weakest skills (idempotent on open tasks).
-function generatePlan(userId) {
+// Build focus tasks from the weakest skills (no duplicate skills — idempotent
+// against any open task on this plan, whoever added it). addedBy = acting user.
+function generatePlan(userId, addedBy) {
   const weak = db.prepare(`
     SELECT q.domain, q.topic, q.difficulty, COALESCE(q.skill,'(unspecified)') skill,
            COUNT(*) attempts, SUM(a.is_correct) correct
@@ -1080,7 +1086,7 @@ function generatePlan(userId) {
       domain: s.domain, topic: s.topic, difficulty: s.difficulty, skill: s.skill,
       title: `Practice: ${topicLabel(s.topic)} — ${s.skill} (${s.difficulty})`,
       detail: `Currently ${acc}%. Review explanations and redo ~10 questions to push above 70%.`,
-    }));
+    }, addedBy));
   });
   return { created, weak };
 }

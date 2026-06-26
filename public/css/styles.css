@@ -456,13 +456,19 @@ table.data tr:hover td { background: var(--pink-50); }
 .fd-shadow { fill: rgba(0,0,0,0.13); }
 :root[data-mode="dark"] .fd-shadow { fill: rgba(0,0,0,0.32); }
 
-.fd-dog  { transform-box: fill-box; transform-origin: 50% 50%; animation: fdRun 4.6s ease-in-out infinite; }
-.fd-bob  { transform-box: fill-box; transform-origin: 50% 100%; animation: fdBob 0.26s ease-in-out infinite; }
-.fd-ball { transform-box: fill-box; transform-origin: 50% 50%; animation: fdBall 4.6s ease-in-out infinite; }
-.fd-tail { transform-box: fill-box; transform-origin: 100% 100%; animation: fdWag 0.3s ease-in-out infinite; }
+/* The fetch only plays when JS adds .fetching (≈ once every 3 minutes), then
+   the elements return to their resting pose (dog left, ball waiting at right). */
+.fd-dog  { transform-box: fill-box; transform-origin: 50% 50%; }
+.fd-bob  { transform-box: fill-box; transform-origin: 50% 100%; }
+.fd-ball { transform-box: fill-box; transform-origin: 50% 50%; }
+.fd-tail { transform-box: fill-box; transform-origin: 100% 100%; }
 .fd-leg  { transform-box: fill-box; transform-origin: 50% 0%; }
-.fd-leg.a { animation: fdLegA 0.26s linear infinite; }
-.fd-leg.b { animation: fdLegB 0.26s linear infinite; }
+.fetch-dog.fetching .fd-dog   { animation: fdRun 4.6s ease-in-out; }
+.fetch-dog.fetching .fd-bob   { animation: fdBob 0.26s ease-in-out 18; }
+.fetch-dog.fetching .fd-ball  { animation: fdBall 4.6s ease-in-out; }
+.fetch-dog.fetching .fd-tail  { animation: fdWag 0.3s ease-in-out 16; }
+.fetch-dog.fetching .fd-leg.a { animation: fdLegA 0.26s linear 18; }
+.fetch-dog.fetching .fd-leg.b { animation: fdLegB 0.26s linear 18; }
 
 @keyframes fdRun {
   0%   { transform: translateX(0)    scaleX(1); }
@@ -550,6 +556,7 @@ table.data tr:hover td { background: var(--pink-50); }
 
 /* Suggested Practice grouped by round */
 .task-group { margin-bottom: 8px; }
+.task-meta { font-size: 0.72rem; color: var(--muted); }
 .task-group-h { margin: 14px 0 6px; color: var(--pink-600); }
 .tc-count { font-weight: 700; white-space: nowrap; }
 
@@ -1054,10 +1061,11 @@ body.login-page {
 .tc-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .tc-round { margin: 4px 0 8px; }
 .start-btn { width: 100%; margin: 4px 0 12px; }
-.skill-mastery-h { font-weight: 700; margin-bottom: 6px; }
+.skill-mastery-h { font-weight: 800; font-size: 0.86rem; color: var(--ink); margin-bottom: 6px; }
+.skill-mastery-h .sm-sub { font-weight: 600; font-size: 0.68rem; color: var(--muted); opacity: 0.85; }
 .skill-mastery { display: flex; flex-direction: column; gap: 6px; }
 .skill-mini { display: grid; grid-template-columns: 1fr 90px 52px; align-items: center; gap: 8px; }
-.sm-name { font-size: 0.9rem; }
+.sm-name { font-size: 0.9rem; cursor: help; }
 .sm-bar { height: 10px; background: var(--pink-100); border-radius: 999px; overflow: hidden; }
 .sm-bar i { display: block; height: 100%; border-radius: 999px; }
 .sm-bar i.ok { background: var(--green); }

@@ -36,10 +36,7 @@ async function load() {
     const h = document.querySelector('.container.wide h1');
     if (h) h.textContent = `📊 ${DATA.viewer.studentName}'s Dashboard`;
   }
-  if (READONLY) {
-    const gp = $('genPlanBtn'); if (gp) gp.style.display = 'none';
-    const af = $('addTaskForm'); if (af) af.style.display = 'none';
-  }
+  // Suggested Practice stays editable for tutors too (they can build the plan).
   ACTIVITY = DATA.activity || [];
   DAILY = {}; for (const d of (DATA.dailyActivity || [])) DAILY[d.day] = d;
   SUMMARY = {}; for (const s of (DATA.dailySummaries || [])) SUMMARY[s.day] = s;
@@ -264,7 +261,7 @@ function taskRoundLabel(t) {
 function renderTasks(tasks) {
   const el = $('taskList');
   if (!tasks.length) {
-    el.innerHTML = '<p class="note">No focus tasks yet. Click “Build my plan” to turn your weak skills into a checklist. ✨</p>';
+    el.innerHTML = '<p class="note">No focus tasks yet. Click “Build Plan” to turn weak skills into a checklist. ✨</p>';
     return;
   }
   const groups = {};
@@ -277,11 +274,14 @@ function renderTasks(tasks) {
   el.innerHTML = keys.map((key) => {
     const rows = groups[key].map((t) => {
       const done = t.status === 'done';
-      const del = READONLY ? '' : `<span style="margin-left:auto"><button class="task-del" data-del="${t.id}" title="Delete">✕</button></span>`;
+      const who = t.added_by_name ? `Added by ${escapeHtml(t.added_by_name)}` : 'Added';
+      const added = t.created_at ? ` · ${fmtDate(t.created_at)}` : '';
+      const doneMeta = (done && t.completed_at) ? ` · ✓ completed ${fmtDate(t.completed_at)}` : '';
       return `<div class="task-item ${done ? 'done' : ''}">
-        <label><input type="checkbox" data-task="${t.id}" ${done ? 'checked' : ''} ${READONLY ? 'disabled' : ''}/>
-          <span><b>${escapeHtml(t.title)}</b>${t.detail ? `<br><span class="note">${escapeHtml(t.detail)}</span>` : ''}</span></label>
-        ${del}
+        <label><input type="checkbox" data-task="${t.id}" ${done ? 'checked' : ''}/>
+          <span><b>${escapeHtml(t.title)}</b>${t.detail ? `<br><span class="note">${escapeHtml(t.detail)}</span>` : ''}
+            <br><span class="task-meta">${who}${added}${doneMeta}</span></span></label>
+        <span style="margin-left:auto"><button class="task-del" data-del="${t.id}" title="Delete">✕</button></span>
       </div>`;
     }).join('');
     return `<div class="task-group"><h3 class="mini-h task-group-h">${escapeHtml(key)}</h3>${rows}</div>`;
@@ -530,11 +530,11 @@ function renderSectionCharts() {
     return `${name} (${t.difficulty})`;
   });
   const colors = bt.map((_, i) => [PINK, PINK_LIGHT, AMBER, '#c084fc', '#60a5fa', '#34d399', '#fb923c', '#f87171'][i % 8]);
-  const barBase = (xOpts) => ({
-    responsive: true, maintainAspectRatio: false, indexAxis: 'y',
+  const barBase = (valOpts) => ({
+    responsive: true, maintainAspectRatio: false,
     scales: {
-      x: { beginAtZero: true, grid: { color: 'rgba(128,128,128,0.12)' }, ...xOpts },
-      y: { grid: { display: false } },
+      x: { grid: { display: false }, ticks: { autoSkip: false, maxRotation: 70, minRotation: 45, font: { size: 10 } } },
+      y: { beginAtZero: true, grid: { color: 'rgba(128,128,128,0.12)' }, ...valOpts },
     },
     plugins: { legend: { display: false }, tooltip: { boxPadding: 6 } },
   });
@@ -612,7 +612,6 @@ function getFilteredActivity() {
   const round   = $('fRound') ? $('fRound').value : '';
   const diff    = $('fDifficulty') ? $('fDifficulty').value : '';
   const status  = $('fStatus') ? $('fStatus').value : '';
-  const search  = $('fSearch').value.trim().toLowerCase();
   return ACTIVITY.filter((a) => {
     if (subject && a.domain !== subject) return false;
     if (domain  && a.topic !== domain) return false;
@@ -620,7 +619,6 @@ function getFilteredActivity() {
     if (round   && String(a.round) !== round) return false;
     if (diff    && a.difficulty !== diff) return false;
     if (status  && a.status !== status) return false;
-    if (search  && !(a.prompt || '').toLowerCase().includes(search)) return false;
     return true;
   });
 }
@@ -642,7 +640,7 @@ function renderAttempts() {
       <td>${domainEmoji} ${escapeHtml(a.topicName)}</td>
       <td>${escapeHtml(a.skill || '—')}</td>
       <td>${a.difficulty === 'hard' ? '🔴' : '🟡'} ${a.difficulty}</td>
-      <td><button class="link-cell" data-question="${a.questionId}" title="View this question, her answer, and the solution">${escapeHtml(a.prompt)}${(a.prompt || '').length >= 90 ? '…' : ''} 🔎</button></td>
+      <td><button class="link-cell" data-question="${a.questionId}" title="View this question, the answer, and the solution">🔎 View question</button></td>
       <td>${escapeHtml(a.selected || '—')}</td>
       <td>${escapeHtml(a.correct)}</td>
       <td>${pill}</td>
@@ -788,11 +786,9 @@ function exportCsv() {
 // table only re-runs when Search (or a quick skill click) is pressed.
 $('fSubject').addEventListener('change', () => { populateDomainFilter(); populateSkillFilter(); });
 $('fDomain').addEventListener('change', populateSkillFilter);
-$('fSearch').addEventListener('keydown', (e) => { if (e.key === 'Enter') renderAttempts(); });
 $('searchBtn').addEventListener('click', renderAttempts);
 $('clearBtn').addEventListener('click', () => {
   ['fSubject', 'fDomain', 'fSkill', 'fRound', 'fDifficulty', 'fStatus'].forEach((id) => { if ($(id)) $(id).value = ''; });
-  $('fSearch').value = '';
   populateDomainFilter(); populateSkillFilter();
   renderAttempts();
 });
@@ -808,7 +804,6 @@ $('skillsTables').addEventListener('click', (e) => {
   const row = e.target.closest('.skill-row');
   if (!row) return;
   ['fSubject', 'fDomain', 'fRound', 'fDifficulty', 'fStatus'].forEach((id) => { if ($(id)) $(id).value = ''; });
-  $('fSearch').value = '';
   populateDomainFilter(); populateSkillFilter();
   const sel = $('fSkill');
   if (sel) { sel.value = row.dataset.skill; renderAttempts(); }
@@ -840,12 +835,10 @@ $('addTaskForm').addEventListener('submit', async (e) => {
   loadTasks();
 });
 $('taskList').addEventListener('change', (e) => {
-  if (READONLY) return;
   const cb = e.target.closest('input[data-task]');
   if (cb) toggleTask(Number(cb.dataset.task), cb.checked);
 });
 $('taskList').addEventListener('click', (e) => {
-  if (READONLY) return;
   const del = e.target.closest('[data-del]');
   if (del) deleteTask(Number(del.dataset.del));
 });

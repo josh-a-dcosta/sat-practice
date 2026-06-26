@@ -198,18 +198,19 @@ async function handleApi(req, res, url) {
       return sendJson(res, 200, result);
     }
 
-    // GET /api/sessions/:id
+    // GET /api/sessions/:id  (a tutor may read their student's session for review)
     if (req.method === 'GET' && parts[1] === 'sessions' && parts.length === 3) {
-      const state = repo.getSessionState(uid, Number(parts[2]));
+      const state = repo.getSessionState(requireView(), Number(parts[2]));
       if (!state) return sendJson(res, 404, { error: 'Session not found' });
       return sendJson(res, 200, state);
     }
 
     // GET /api/sessions/:id/questions/:position
     if (req.method === 'GET' && parts[1] === 'sessions' && parts[3] === 'questions' && parts.length === 5) {
-      const data = repo.getQuestionAt(uid, Number(parts[2]), Number(parts[4]));
+      const data = repo.getQuestionAt(requireView(), Number(parts[2]), Number(parts[4]));
       if (!data) return sendJson(res, 404, { error: 'Question not found' });
-      repo.setCurrentPosition(uid, Number(parts[2]), Number(parts[4]));
+      // Only the practicing student advances their own position; tutors just look.
+      if (!isTutor) repo.setCurrentPosition(uid, Number(parts[2]), Number(parts[4]));
       return sendJson(res, 200, data);
     }
 
@@ -251,26 +252,25 @@ async function handleApi(req, res, url) {
     }
 
     // ---- tasks / plan ----
+    // Suggested Practice is collaborative: a student manages their own plan, and
+    // a tutor can build/manage the plan for their assigned student. Tasks belong
+    // to the student (viewId); added_by records who added them (uid).
     if (req.method === 'GET' && pathname === '/api/tasks') {
       return sendJson(res, 200, { tasks: repo.listTasks(requireView()) });
     }
     if (req.method === 'POST' && pathname === '/api/tasks') {
-      blockTutorWrites();
       const body = await readBody(req);
-      return sendJson(res, 200, repo.addTask(uid, body));
+      return sendJson(res, 200, repo.addTask(requireView(), body, uid));
     }
     if (req.method === 'POST' && parts[1] === 'tasks' && parts.length === 3) {
-      blockTutorWrites();
       const body = await readBody(req);
-      return sendJson(res, 200, repo.setTaskStatus(uid, Number(parts[2]), String(body.status || 'open')));
+      return sendJson(res, 200, repo.setTaskStatus(requireView(), Number(parts[2]), String(body.status || 'open')));
     }
     if (req.method === 'DELETE' && parts[1] === 'tasks' && parts.length === 3) {
-      blockTutorWrites();
-      return sendJson(res, 200, repo.deleteTask(uid, Number(parts[2])));
+      return sendJson(res, 200, repo.deleteTask(requireView(), Number(parts[2])));
     }
     if (req.method === 'POST' && pathname === '/api/plan/generate') {
-      blockTutorWrites();
-      return sendJson(res, 200, repo.generatePlan(uid));
+      return sendJson(res, 200, repo.generatePlan(requireView(), uid));
     }
 
     // ---- settings (a user's own per-question timers) ----

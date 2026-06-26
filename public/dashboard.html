@@ -134,7 +134,6 @@
               <option value="skipped">⏭ Skipped</option>
             </select>
           </label>
-          <input type="text" id="fSearch" placeholder="🔎 Search question text…" />
           <button class="btn btn-primary" id="searchBtn">🔎 Search</button>
           <button class="btn btn-ghost" id="clearBtn">Clear</button>
           <span class="note" id="rowCount"></span>
@@ -143,12 +142,11 @@
         <div style="overflow-x:auto">
           <table class="data" id="attemptsTable">
             <thead><tr>
-              <th>Date</th><th>Round</th><th>Domain</th><th>Skill</th><th>Difficulty</th><th>Question</th><th>Her answer</th><th>Correct</th><th>Status</th><th>Time</th>
+              <th>Date</th><th>Round</th><th>Domain</th><th>Skill</th><th>Difficulty</th><th>Question</th><th>Answer</th><th>Correct</th><th>Status</th><th>Time</th>
             </tr></thead>
             <tbody></tbody>
           </table>
         </div>
-        <p class="note" id="searchHint">Set the filters above and click 🔎 Search to see matching questions.</p>
       </div>
     </section>
 
@@ -157,11 +155,11 @@
       <div class="card">
         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px">
           <h2 style="margin:0">✅ Suggested Practice</h2>
-          <button class="btn btn-primary" id="genPlanBtn" type="button">✨ Build my plan from weak skills</button>
+          <button class="btn btn-primary" id="genPlanBtn" type="button">✨ Build Plan from weak skills</button>
         </div>
-        <p class="note">Extra practice on your weak skills — check each one off as you finish it. 💪</p>
+        <p class="note">Extra practice on weak skills — check each one off as it's finished. 💪</p>
         <form id="addTaskForm" class="filters" style="margin-bottom:12px">
-          <input type="text" id="taskTitle" placeholder="Add your own task…" style="flex:1; min-width:200px" />
+          <input type="text" id="taskTitle" placeholder="Add a task…" style="flex:1; min-width:200px" />
           <button class="btn btn-ghost" type="submit">➕ Add</button>
         </form>
         <div id="taskList"></div>

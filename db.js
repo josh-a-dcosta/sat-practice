@@ -209,6 +209,9 @@ db.exec('CREATE INDEX IF NOT EXISTS idx_tutor_students_tutor ON tutor_students(t
 db.exec('CREATE INDEX IF NOT EXISTS idx_tutor_students_student ON tutor_students(student_id);');
 db.exec('CREATE INDEX IF NOT EXISTS idx_settings_user ON settings_user(user_id);');
 
+// Collaborative plans: who added each suggested-practice task (student or tutor).
+try { db.exec('ALTER TABLE tasks ADD COLUMN added_by INTEGER'); } catch (_) { /* exists */ }
+
 // Round/practice restructure: per-question status + resolved time on an existing
 // volume. Adding the column succeeds only once — on that first add we backfill
 // status from the terminal attempt so old practices keep their state.
