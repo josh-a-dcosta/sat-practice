@@ -408,6 +408,8 @@ function showCalDay(day) {
 
   panel.innerHTML = html;
   panel.classList.remove('hidden');
+  // The panel sits below the week grid — nudge it into view if it's off-screen.
+  panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   // Remember the open day so returning to the dashboard restores this view.
   localStorage.setItem('dashCalDay', day);
   $('calPanelClose').onclick = () => { panel.classList.add('hidden'); localStorage.removeItem('dashCalDay'); };
