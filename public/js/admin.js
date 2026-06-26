@@ -221,9 +221,11 @@ function populateReviewFilters() {
 
 function applyReviewFilter() {
   const subj = $('qrSubject').value, top = $('qrTopic').value, diff = $('qrDiff').value, skill = $('qrSkill').value, rev = $('qrReviewed').value;
+  const act = $('qrActive') ? $('qrActive').value : '';
   QR = QR_ALL.filter((q) =>
     (!subj || q.domain === subj) && (!top || q.topic === top) && (!diff || q.difficulty === diff) &&
-    (!skill || q.skill === skill) && (rev === '' || (rev === '1' ? q.reviewed : !q.reviewed)));
+    (!skill || q.skill === skill) && (rev === '' || (rev === '1' ? q.reviewed : !q.reviewed)) &&
+    (act === '' || (act === '1' ? q.active : !q.active)));
   QRI = 0;
   $('qrCount').textContent = `${QR.length} question(s)`;
   renderReviewQ();
@@ -235,7 +237,7 @@ function renderReviewQ() {
   QRI = Math.max(0, Math.min(QRI, QR.length - 1));
   const q = QR[QRI];
   $('qrNav').style.display = '';
-  $('qrPos').textContent = `${QRI + 1} / ${QR.length} · ${q.topicName} ${q.difficulty} · ${q.reviewed ? '✓ approved' : 'to review'}`;
+  $('qrPos').textContent = `${QRI + 1} / ${QR.length} · ${q.topicName} ${q.difficulty} · ${q.active ? '🟢 active' : '⚪ nonactive'} · ${q.reviewed ? '✓ approved' : 'to review'}`;
   if (!q.image) {
     v.innerHTML = `<p class="note">Text question (no page image / answer mask). ID ${esc(q.extId)}.</p>`;
     return;

@@ -83,12 +83,13 @@
     <section class="dash-view hidden" data-view="review">
       <div class="card">
         <h2>🖼️ Question Review — answer panel</h2>
-        <p class="note">For questions whose answer panel covers the choices, drag the line so the mask starts <i>below</i> the choices, then Approve. Approved questions leave the queue until you clear them.</p>
+        <p class="note">Covers <b>every</b> question — active (on-test) and nonactive. For questions whose answer panel covers the choices, drag the line so the mask starts <i>below</i> the choices, then Approve. Approved questions leave the queue until you clear them.</p>
         <div class="filters">
           <label>Subject <select id="qrSubject"><option value="">All</option><option value="math">🔢 Math</option><option value="reading">📖 Reading</option></select></label>
           <label>Domain <select id="qrTopic"><option value="">All</option></select></label>
           <label>Difficulty <select id="qrDiff"><option value="">All</option><option value="medium">Medium</option><option value="hard">Hard</option></select></label>
           <label>Skill <select id="qrSkill"><option value="">All</option></select></label>
+          <label>Questions <select id="qrActive"><option value="">All (active + nonactive)</option><option value="1">🟢 Active (on test)</option><option value="0">⚪ Nonactive</option></select></label>
           <label>Status <select id="qrReviewed"><option value="0">To review</option><option value="1">Approved</option><option value="">All</option></select></label>
           <button class="btn btn-primary" id="qrApply" type="button">Apply</button>
           <button class="btn btn-ghost" id="qrClear" type="button">Clear approvals (this filter)</button>

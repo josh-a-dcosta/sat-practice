@@ -320,12 +320,18 @@ function getCatalogue(userId) {
     GROUP BY q.domain, q.topic, q.difficulty
   `).all(userId);
 
+  // Mastered counts only questions the student can actually attempt, matching
+  // the total above (so an active question they can no longer see never inflates
+  // the count).
   const mastered = db.prepare(`
     SELECT q.domain, q.topic, q.difficulty, COUNT(DISTINCT a.question_id) n
     FROM attempts a JOIN questions q ON q.id = a.question_id
     WHERE a.is_correct = 1 AND a.user_id = ?
+      AND (q.active = 0 OR EXISTS (
+        SELECT 1 FROM student_active_access sa
+        WHERE sa.user_id = ? AND sa.domain = q.domain AND sa.include_active = 1))
     GROUP BY q.domain, q.topic, q.difficulty
-  `).all(userId);
+  `).all(userId, userId);
 
   const masteredMap = {};
   for (const r of mastered) masteredMap[`${r.domain}|${r.topic}|${r.difficulty}`] = r.n;
