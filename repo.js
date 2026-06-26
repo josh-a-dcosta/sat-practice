@@ -111,8 +111,82 @@ function clearGlobalSetting(topic, difficulty, tier) {
   return { ok: true };
 }
 
-function totalQuestions(domain, topic, difficulty) {
-  return db.prepare('SELECT COUNT(*) n FROM questions WHERE domain=? AND topic=? AND difficulty=?')
+// ---------------------------------------------------------------------------
+// Active/nonactive visibility (admin sets per student, per subject)
+// ---------------------------------------------------------------------------
+function getStudentAccess(userId) {
+  const out = { math: false, reading: false };
+  for (const r of db.prepare('SELECT domain, include_active FROM student_active_access WHERE user_id=?').all(userId)) {
+    out[r.domain] = !!r.include_active;
+  }
+  return out;
+}
+function setStudentAccess(userId, domain, includeActive) {
+  if (domain !== 'math' && domain !== 'reading') { const e = new Error('Invalid subject'); e.status = 400; throw e; }
+  db.prepare(`
+    INSERT INTO student_active_access (user_id, domain, include_active) VALUES (?,?,?)
+    ON CONFLICT(user_id, domain) DO UPDATE SET include_active = excluded.include_active
+  `).run(userId, domain, includeActive ? 1 : 0);
+  return getStudentAccess(userId);
+}
+
+// ---------------------------------------------------------------------------
+// Answer-panel (mask) review — admin adjusts where the answer mask starts so
+// it never covers the choices, then approves. mask_fraction (0..1) = the
+// y-position where masking begins; practice already honours it.
+// ---------------------------------------------------------------------------
+function reviewWhere(filters) {
+  const where = [], params = [];
+  if (filters.subject)    { where.push('domain=?');     params.push(filters.subject); }
+  if (filters.topic)      { where.push('topic=?');      params.push(filters.topic); }
+  if (filters.difficulty) { where.push('difficulty=?'); params.push(filters.difficulty); }
+  if (filters.skill)      { where.push('skill=?');      params.push(filters.skill); }
+  return { clause: where.length ? 'WHERE ' + where.join(' AND ') : '', params };
+}
+
+function listQuestionsForReview(filters) {
+  const { clause, params } = reviewWhere(filters);
+  const extra = (filters.reviewed === '0') ? (clause ? ' AND mask_reviewed=0' : 'WHERE mask_reviewed=0')
+              : (filters.reviewed === '1') ? (clause ? ' AND mask_reviewed=1' : 'WHERE mask_reviewed=1') : '';
+  const rows = db.prepare(`
+    SELECT id, ext_id, domain, topic, difficulty, COALESCE(skill,'(unspecified)') skill, qtype,
+           image, answer_image, mask_fraction, mask_reviewed, active
+    FROM questions ${clause}${extra}
+    ORDER BY mask_reviewed, domain, topic, difficulty, id
+  `).all(...params);
+  return rows.map((q) => ({
+    id: q.id, extId: q.ext_id, domain: q.domain, topic: q.topic, topicName: topicLabel(q.topic),
+    difficulty: q.difficulty, skill: q.skill, qtype: q.qtype, image: q.image, answerImage: q.answer_image,
+    maskFraction: q.mask_fraction != null ? q.mask_fraction : 1, reviewed: !!q.mask_reviewed, active: !!q.active,
+  }));
+}
+
+function setQuestionMask(id, maskFraction, approve) {
+  let f = Number(maskFraction);
+  if (isNaN(f)) f = 1;
+  f = Math.max(0, Math.min(1, f));
+  if (approve) db.prepare('UPDATE questions SET mask_fraction=?, mask_reviewed=1 WHERE id=?').run(f, id);
+  else db.prepare('UPDATE questions SET mask_fraction=? WHERE id=?').run(f, id);
+  return { ok: true };
+}
+
+function clearMaskReview(filters) {
+  const { clause, params } = reviewWhere(filters);
+  const info = db.prepare(`UPDATE questions SET mask_reviewed=0 ${clause}`).run(...params);
+  return { cleared: info.changes };
+}
+
+// Whether a student may see ACTIVE questions for a subject (default: no).
+function includeActiveFor(userId, domain) {
+  const r = db.prepare('SELECT include_active FROM student_active_access WHERE user_id=? AND domain=?').get(userId, domain);
+  return !!(r && r.include_active);
+}
+
+// A student sees nonactive questions always; active ones only if enabled for
+// that subject. Counts/selection respect this so practice and progress match.
+function totalQuestions(userId, domain, topic, difficulty) {
+  const visible = includeActiveFor(userId, domain) ? '' : ' AND active=0';
+  return db.prepare(`SELECT COUNT(*) n FROM questions WHERE domain=? AND topic=? AND difficulty=?${visible}`)
     .get(domain, topic, difficulty).n;
 }
 // Round = practice: one full pass through every question in a (domain, topic,
@@ -156,7 +230,7 @@ function nextRoundNumber(userId, domain, topic, difficulty) {
 // Display summary for a section: the active round (resume) or the next round to
 // start, plus the per-round bars Home shows.
 function roundInfo(userId, domain, topic, difficulty) {
-  const total = totalQuestions(domain, topic, difficulty);
+  const total = totalQuestions(userId, domain, topic, difficulty);
   const rounds = sectionRounds(userId, domain, topic, difficulty);
   const active = rounds.find((r) => r.status === 'in_progress') || null;
   if (active) {
@@ -236,10 +310,15 @@ function sprIsCorrect(selected, acceptableJson) {
 // catalogue: what's available per topic+difficulty
 // ---------------------------------------------------------------------------
 function getCatalogue(userId) {
+  // Count only the questions this student can actually see (nonactive always;
+  // active only where enabled for the subject).
   const counts = db.prepare(`
-    SELECT domain, topic, difficulty, COUNT(*) total FROM questions
-    GROUP BY domain, topic, difficulty
-  `).all();
+    SELECT q.domain, q.topic, q.difficulty, COUNT(*) total FROM questions q
+    WHERE q.active = 0 OR EXISTS (
+      SELECT 1 FROM student_active_access sa
+      WHERE sa.user_id = ? AND sa.domain = q.domain AND sa.include_active = 1)
+    GROUP BY q.domain, q.topic, q.difficulty
+  `).all(userId);
 
   const mastered = db.prepare(`
     SELECT q.domain, q.topic, q.difficulty, COUNT(DISTINCT a.question_id) n
@@ -282,7 +361,12 @@ function getCatalogue(userId) {
 
 // Per-skill mastery across ALL of a user's attempts, for the Home breakdown.
 function getSkillCatalogue(userId) {
-  const rows = db.prepare("SELECT id, domain, topic, difficulty, COALESCE(skill,'(unspecified)') skill FROM questions").all();
+  const rows = db.prepare(`
+    SELECT q.id, q.domain, q.topic, q.difficulty, COALESCE(q.skill,'(unspecified)') skill FROM questions q
+    WHERE q.active = 0 OR EXISTS (
+      SELECT 1 FROM student_active_access sa
+      WHERE sa.user_id = ? AND sa.domain = q.domain AND sa.include_active = 1)
+  `).all(userId);
   const mastered = new Set(db.prepare('SELECT DISTINCT question_id id FROM attempts WHERE user_id=? AND is_correct=1').all(userId).map((r) => r.id));
   const attempted = new Set(db.prepare('SELECT DISTINCT question_id id FROM attempts WHERE user_id=?').all(userId).map((r) => r.id));
   const map = {};
@@ -323,9 +407,10 @@ function getTodayProgress(userId) {
 // ---------------------------------------------------------------------------
 // A round is a full pass through the whole section, so a fresh round seeds ALL
 // of the section's questions, shuffled (so no two users get the same order).
-function selectQuestions(domain, topic, difficulty) {
+function selectQuestions(userId, domain, topic, difficulty) {
+  const visible = includeActiveFor(userId, domain) ? '' : ' AND active=0';
   const all = db.prepare(
-    'SELECT id FROM questions WHERE domain=? AND topic=? AND difficulty=?'
+    `SELECT id FROM questions WHERE domain=? AND topic=? AND difficulty=?${visible}`
   ).all(domain, topic, difficulty).map((r) => r.id);
   return shuffle(all);
 }
@@ -360,7 +445,7 @@ function createOrResumeSession(userId, domain, topic, difficulty, opts = {}) {
   }
 
   const round = nextRoundNumber(userId, domain, topic, difficulty);
-  const ids = selectQuestions(domain, topic, difficulty);
+  const ids = selectQuestions(userId, domain, topic, difficulty);
   if (!ids.length) {
     const e = new Error(`No questions available for ${topicLabel(topic)} ${difficulty}. Upload questions for this section.`);
     e.status = 409; throw e;
@@ -829,6 +914,30 @@ function getDailySummaries(userId) {
   return buildDailySummaries(getDailyActivity(userId));
 }
 
+// ---------------------------------------------------------------------------
+// Weekly-report comments (student ↔ tutor, per week)
+// ---------------------------------------------------------------------------
+function listWeeklyComments(studentId, week) {
+  return db.prepare(`
+    SELECT wc.id, wc.week, wc.author_id, wc.author_role, wc.text, wc.created_at,
+           COALESCE(u.full_name, u.username) author_name
+    FROM weekly_comments wc LEFT JOIN users u ON u.id = wc.author_id
+    WHERE wc.student_id = ? AND wc.week = ?
+    ORDER BY wc.id
+  `).all(studentId, week);
+}
+
+function addWeeklyComment(studentId, week, authorId, authorRole, text) {
+  text = String(text || '').trim();
+  if (!String(week || '')) { const e = new Error('Week is required.'); e.status = 400; throw e; }
+  if (!text) { const e = new Error('Write something first.'); e.status = 400; throw e; }
+  db.prepare(`
+    INSERT INTO weekly_comments (student_id, week, author_id, author_role, text)
+    VALUES (?,?,?,?,?)
+  `).run(studentId, String(week), authorId, authorRole || null, text.slice(0, 2000));
+  return { ok: true };
+}
+
 // Event feed for the Filtered List (includes skips). One row per action.
 function getActivityFeed(userId) {
   const rows = db.prepare(`
@@ -845,6 +954,7 @@ function getActivityFeed(userId) {
     round: r.round, domain: r.domain, topic: r.topic, topicName: topicLabel(r.topic),
     difficulty: r.difficulty, skill: r.skill, status: r.status, statusLabel: STATUS_LABEL[r.status] || r.status,
     selected: r.selected, correct: correctDisplay(r), timeTaken: r.time_taken_seconds,
+    prompt: r.prompt || '',
   }));
 }
 
@@ -1022,17 +1132,21 @@ function buildWeeklyReports(weeklyByDomain, weeklyBySkill) {
 // ---------------------------------------------------------------------------
 function listTasks(userId) {
   return db.prepare(`
-    SELECT * FROM tasks WHERE user_id=?
-    ORDER BY (status='done'), COALESCE(due_date,'9999'), id
+    SELECT t.*, COALESCE(u.full_name, u.username) added_by_name
+    FROM tasks t LEFT JOIN users u ON u.id = t.added_by
+    WHERE t.user_id=?
+    ORDER BY (t.status='done'), t.id
   `).all(userId);
 }
 
-function addTask(userId, t) {
+// ownerId: whose plan this is (the student). addedBy: who added it (student or tutor).
+function addTask(userId, t, addedBy) {
   const info = db.prepare(`
-    INSERT INTO tasks (user_id, due_date, domain, topic, difficulty, skill, title, detail)
-    VALUES (?,?,?,?,?,?,?,?)
+    INSERT INTO tasks (user_id, due_date, domain, topic, difficulty, skill, title, detail, added_by)
+    VALUES (?,?,?,?,?,?,?,?,?)
   `).run(userId, t.due_date || null, t.domain || null, t.topic || null,
-         t.difficulty || null, t.skill || null, String(t.title || 'Practice task'), t.detail || null);
+         t.difficulty || null, t.skill || null, String(t.title || 'Practice task'), t.detail || null,
+         addedBy || null);
   return db.prepare('SELECT * FROM tasks WHERE id=?').get(Number(info.lastInsertRowid));
 }
 
@@ -1055,8 +1169,9 @@ function nextWeekday(from, weekday) { // weekday: 0=Sun..6=Sat
   return d.toISOString().slice(0, 10);
 }
 
-// Build Wed/Sat focus tasks from the weakest skills (idempotent on open tasks).
-function generatePlan(userId) {
+// Build focus tasks from the weakest skills (no duplicate skills — idempotent
+// against any open task on this plan, whoever added it). addedBy = acting user.
+function generatePlan(userId, addedBy) {
   const weak = db.prepare(`
     SELECT q.domain, q.topic, q.difficulty, COALESCE(q.skill,'(unspecified)') skill,
            COUNT(*) attempts, SUM(a.is_correct) correct
@@ -1080,7 +1195,7 @@ function generatePlan(userId) {
       domain: s.domain, topic: s.topic, difficulty: s.difficulty, skill: s.skill,
       title: `Practice: ${topicLabel(s.topic)} — ${s.skill} (${s.difficulty})`,
       detail: `Currently ${acc}%. Review explanations and redo ~10 questions to push above 70%.`,
-    }));
+    }, addedBy));
   });
   return { created, weak };
 }
@@ -1093,7 +1208,10 @@ module.exports = {
   submitAnswer, peekQuestion, timeoutQuestion, skipQuestion, completeSession,
   getDashboard, getAttemptReview, getQuestionReview,
   getDailyActivity, getDailySummaries, getSkillFocus, getActivityFeed,
+  listWeeklyComments, addWeeklyComment,
   listTasks, addTask, setTaskStatus, deleteTask, generatePlan,
   resolveTimer, settingsGrid, setUserSetting, clearUserSetting,
   setGlobalSetting, clearGlobalSetting,
+  getStudentAccess, setStudentAccess,
+  listQuestionsForReview, setQuestionMask, clearMaskReview,
 };

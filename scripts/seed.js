@@ -10,10 +10,13 @@ const files = fs.readdirSync(dataDir)
   .filter((f) => /^questions\..+\.json$/.test(f))
   .map((f) => path.join(dataDir, f));
 
+// NOTE: `active` and `mask_fraction` are intentionally NOT overwritten on
+// conflict — the yearly active/nonactive marking and the admin mask review own
+// those, so re-seeding the JSON banks never clobbers them.
 const upsert = db.prepare(`
   INSERT INTO questions
-    (ext_id, domain, topic, difficulty, passage, prompt, choices, correct, explanation, source, qtype, image, mask_fraction, answer_image, skill, test)
-  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    (ext_id, domain, topic, difficulty, passage, prompt, choices, correct, explanation, source, qtype, image, mask_fraction, answer_image, skill, test, active)
+  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
   ON CONFLICT(ext_id) DO UPDATE SET
     domain        = excluded.domain,
     topic         = excluded.topic,
@@ -26,7 +29,6 @@ const upsert = db.prepare(`
     source        = excluded.source,
     qtype         = excluded.qtype,
     image         = excluded.image,
-    mask_fraction = excluded.mask_fraction,
     answer_image  = excluded.answer_image,
     skill         = excluded.skill,
     test          = excluded.test
@@ -43,7 +45,7 @@ for (const file of files) {
       q.explanation ?? '', q.source ?? 'starter',
       q.qtype ?? 'mcq', q.image ?? null,
       q.mask_fraction ?? null, q.answer_image ?? null,
-      q.skill ?? null, q.test ?? 'SAT',
+      q.skill ?? null, q.test ?? 'SAT', q.active ? 1 : 0,
     );
     total++;
   }

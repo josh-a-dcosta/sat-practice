@@ -198,18 +198,19 @@ async function handleApi(req, res, url) {
       return sendJson(res, 200, result);
     }
 
-    // GET /api/sessions/:id
+    // GET /api/sessions/:id  (a tutor may read their student's session for review)
     if (req.method === 'GET' && parts[1] === 'sessions' && parts.length === 3) {
-      const state = repo.getSessionState(uid, Number(parts[2]));
+      const state = repo.getSessionState(requireView(), Number(parts[2]));
       if (!state) return sendJson(res, 404, { error: 'Session not found' });
       return sendJson(res, 200, state);
     }
 
     // GET /api/sessions/:id/questions/:position
     if (req.method === 'GET' && parts[1] === 'sessions' && parts[3] === 'questions' && parts.length === 5) {
-      const data = repo.getQuestionAt(uid, Number(parts[2]), Number(parts[4]));
+      const data = repo.getQuestionAt(requireView(), Number(parts[2]), Number(parts[4]));
       if (!data) return sendJson(res, 404, { error: 'Question not found' });
-      repo.setCurrentPosition(uid, Number(parts[2]), Number(parts[4]));
+      // Only the practicing student advances their own position; tutors just look.
+      if (!isTutor) repo.setCurrentPosition(uid, Number(parts[2]), Number(parts[4]));
       return sendJson(res, 200, data);
     }
 
@@ -251,26 +252,25 @@ async function handleApi(req, res, url) {
     }
 
     // ---- tasks / plan ----
+    // Suggested Practice is collaborative: a student manages their own plan, and
+    // a tutor can build/manage the plan for their assigned student. Tasks belong
+    // to the student (viewId); added_by records who added them (uid).
     if (req.method === 'GET' && pathname === '/api/tasks') {
       return sendJson(res, 200, { tasks: repo.listTasks(requireView()) });
     }
     if (req.method === 'POST' && pathname === '/api/tasks') {
-      blockTutorWrites();
       const body = await readBody(req);
-      return sendJson(res, 200, repo.addTask(uid, body));
+      return sendJson(res, 200, repo.addTask(requireView(), body, uid));
     }
     if (req.method === 'POST' && parts[1] === 'tasks' && parts.length === 3) {
-      blockTutorWrites();
       const body = await readBody(req);
-      return sendJson(res, 200, repo.setTaskStatus(uid, Number(parts[2]), String(body.status || 'open')));
+      return sendJson(res, 200, repo.setTaskStatus(requireView(), Number(parts[2]), String(body.status || 'open')));
     }
     if (req.method === 'DELETE' && parts[1] === 'tasks' && parts.length === 3) {
-      blockTutorWrites();
-      return sendJson(res, 200, repo.deleteTask(uid, Number(parts[2])));
+      return sendJson(res, 200, repo.deleteTask(requireView(), Number(parts[2])));
     }
     if (req.method === 'POST' && pathname === '/api/plan/generate') {
-      blockTutorWrites();
-      return sendJson(res, 200, repo.generatePlan(uid));
+      return sendJson(res, 200, repo.generatePlan(requireView(), uid));
     }
 
     // ---- settings (a user's own per-question timers) ----
@@ -291,6 +291,19 @@ async function handleApi(req, res, url) {
       const b = await readBody(req);
       repo.clearUserSetting(uid, String(b.topic || ''), String(b.difficulty || ''), Number(b.roundTier));
       return sendJson(res, 200, { grid: repo.settingsGrid(uid) });
+    }
+
+    // ---- weekly-report comments (student ↔ tutor, per week) ----
+    // GET /api/weekly-comments?week=YYYY-WW
+    if (req.method === 'GET' && pathname === '/api/weekly-comments') {
+      const week = url.searchParams.get('week') || '';
+      return sendJson(res, 200, { comments: repo.listWeeklyComments(requireView(), week) });
+    }
+    // POST /api/weekly-comments { week, text }
+    if (req.method === 'POST' && pathname === '/api/weekly-comments') {
+      const b = await readBody(req);
+      repo.addWeeklyComment(requireView(), String(b.week || ''), uid, user.activeRole, String(b.text || ''));
+      return sendJson(res, 200, { comments: repo.listWeeklyComments(requireView(), String(b.week || '')) });
     }
 
     // GET /api/dashboard  (own data, or the viewed student's for a tutor)
@@ -381,6 +394,41 @@ async function handleApi(req, res, url) {
         repo.setUserSetting(Number(parts[4]), String(b.topic || ''), String(b.difficulty || ''), Number(b.roundTier), Math.round(Number(b.minutes) * 60));
         return sendJson(res, 200, { grid: repo.settingsGrid(Number(parts[4])) });
       }
+      // ---- per-student active-question visibility ----
+      // GET /api/admin/visibility/:userId
+      if (req.method === 'GET' && parts[2] === 'visibility' && parts.length === 4) {
+        return sendJson(res, 200, { access: repo.getStudentAccess(Number(parts[3])) });
+      }
+      // POST /api/admin/visibility/:userId  { domain, includeActive }
+      if (req.method === 'POST' && parts[2] === 'visibility' && parts.length === 4) {
+        const b = await readBody(req);
+        const access = repo.setStudentAccess(Number(parts[3]), String(b.domain || ''), !!b.includeActive);
+        return sendJson(res, 200, { access });
+      }
+
+      // ---- answer-panel (mask) review ----
+      // GET /api/admin/questions?subject=&topic=&difficulty=&skill=&reviewed=
+      if (req.method === 'GET' && parts[2] === 'questions' && parts.length === 3) {
+        const f = {
+          subject: url.searchParams.get('subject') || '',
+          topic: url.searchParams.get('topic') || '',
+          difficulty: url.searchParams.get('difficulty') || '',
+          skill: url.searchParams.get('skill') || '',
+          reviewed: url.searchParams.get('reviewed') || '',
+        };
+        return sendJson(res, 200, { questions: repo.listQuestionsForReview(f) });
+      }
+      // POST /api/admin/questions/clear-review  { subject, topic, difficulty, skill }
+      if (req.method === 'POST' && parts[2] === 'questions' && parts[3] === 'clear-review' && parts.length === 4) {
+        const b = await readBody(req);
+        return sendJson(res, 200, repo.clearMaskReview(b || {}));
+      }
+      // POST /api/admin/questions/:id/mask  { maskFraction, approve }
+      if (req.method === 'POST' && parts[2] === 'questions' && parts[4] === 'mask' && parts.length === 5) {
+        const b = await readBody(req);
+        return sendJson(res, 200, repo.setQuestionMask(Number(parts[3]), b.maskFraction, !!b.approve));
+      }
+
       return sendJson(res, 404, { error: 'Unknown admin endpoint' });
     }
 

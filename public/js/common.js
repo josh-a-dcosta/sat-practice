@@ -1,5 +1,55 @@
 // Shared helpers used across pages.
 
+// ----- Skill name abbreviation (long College Board names overwhelm kids) -----
+// Curated short forms for the known skills; anything else falls back to a smart
+// shortener. The full name is always shown in a tooltip.
+const SKILL_ABBR = {
+  // Algebra
+  'Linear equations in one variable': 'Linear eqns · 1 var',
+  'Linear equations in two variables': 'Linear eqns · 2 vars',
+  'Systems of two linear equations in two variables': 'Systems of linear eqns',
+  'Linear functions': 'Linear functions',
+  'Linear inequalities in one or two variables': 'Linear inequalities',
+  // Advanced Math
+  'Nonlinear functions': 'Nonlinear functions',
+  'Nonlinear equations in one variable and systems of equations in two variables': 'Nonlinear eqns & systems',
+  'Equivalent expressions': 'Equivalent expressions',
+  // Problem-Solving & Data Analysis
+  'Inference from sample statistics and margin of error': 'Inference & margin of error',
+  'Percentages': 'Percentages',
+  'One-variable data: Distributions and measures of center and spread': 'One-variable data',
+  'Evaluating statistical claims: Observational studies and experiments': 'Evaluating stat claims',
+  'Two-variable data: Models and scatterplots': 'Two-variable data',
+  'Probability and conditional probability': 'Probability',
+  'Ratios, rates, proportional relationships, and units': 'Ratios, rates & units',
+  // Geometry & Trig
+  'Lines, angles, and triangles': 'Lines, angles & triangles',
+  'Area and volume': 'Area & volume',
+  'Right triangles and trigonometry': 'Right triangles & trig',
+  'Circles': 'Circles',
+  // Reading & Writing
+  'Central Ideas and Details': 'Central ideas & details',
+  'Command of Evidence': 'Command of evidence',
+  'Inferences': 'Inferences',
+  'Words in Context': 'Words in context',
+  'Text Structure and Purpose': 'Text structure & purpose',
+  'Cross-Text Connections': 'Cross-text connections',
+  'Rhetorical Synthesis': 'Rhetorical synthesis',
+  'Transitions': 'Transitions',
+  'Boundaries': 'Boundaries',
+  'Form, Structure, and Sense': 'Form, structure & sense',
+};
+function abbrevSkill(name) {
+  if (!name) return '';
+  if (SKILL_ABBR[name]) return SKILL_ABBR[name];
+  // "Label: detail…" → keep the label before the colon when it's short enough.
+  const colon = name.indexOf(':');
+  if (colon > 0 && colon <= 28) return name.slice(0, colon).trim();
+  if (name.length <= 26) return name;
+  // Otherwise trim to ~24 chars on a word boundary and add an ellipsis.
+  return name.slice(0, 24).replace(/[\s,]+\S*$/, '').trim() + '…';
+}
+
 // ----- Theme (accent color) + light/dark mode -----
 const THEME_ICON = { pink: '🏆', blue: '⚽', gray: '🎓', green: '🌿', yellow: '🌟' };
 
@@ -99,7 +149,7 @@ function currentPageKey() {
 // Which pages each role may view (the server also enforces this).
 const ROLE_ALLOWED = {
   student: ['home', 'dashboard', 'session', 'settings'],
-  tutor:   ['dashboard'],
+  tutor:   ['dashboard', 'session'],   // session = read-only review of their student
   admin:   ['admin'],
 };
 

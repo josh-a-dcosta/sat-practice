@@ -11,6 +11,7 @@ function showView(name) {
   document.querySelectorAll('.dash-view').forEach((v) => v.classList.toggle('hidden', v.dataset.view !== name));
   document.querySelectorAll('.dash-menu .menu-btn').forEach((b) => b.classList.toggle('active', b.dataset.view === name));
   if (name === 'global') loadGlobalTimers();
+  if (name === 'review') initReview();
   window.scrollTo(0, 0);
 }
 document.querySelectorAll('.dash-menu .menu-btn').forEach((b) => b.addEventListener('click', () => showView(b.dataset.view)));
@@ -167,12 +168,145 @@ $('globalGrid').addEventListener('click', async (e) => {
 let UT_ID = null;
 async function openUserTimers(id) {
   UT_ID = id;
-  $('utTitle').textContent = `⏱️ ${userName(id)} — timers`;
+  $('utTitle').textContent = `⚙️ ${userName(id)} — settings`;
   $('userTimerModal').classList.remove('hidden');
+  loadUserVisibility(id);
   $('utGrid').innerHTML = '<div class="spinner">Loading…</div>';
   try { const g = (await api('GET', `/api/admin/settings/user/${id}`)).grid; $('utGrid').innerHTML = timerGridHtml(g, 'user'); }
   catch (e) { $('utGrid').innerHTML = `<p class="note">${esc(e.message)}</p>`; }
 }
+
+async function loadUserVisibility(id) {
+  const el = $('utVisibility');
+  el.innerHTML = '<span class="note">Loading…</span>';
+  try {
+    const a = (await api('GET', `/api/admin/visibility/${id}`)).access;
+    el.innerHTML = [['math', '🔢 Math'], ['reading', '📖 Reading']].map(([d, lbl]) =>
+      `<label class="rl"><input type="checkbox" class="visChk" data-domain="${d}" ${a[d] ? 'checked' : ''}/> Show active in ${lbl}</label>`).join('');
+  } catch (e) { el.innerHTML = `<span class="note">${esc(e.message)}</span>`; }
+}
+$('utVisibility').addEventListener('change', async (e) => {
+  const c = e.target.closest('.visChk'); if (!c || UT_ID == null) return;
+  try { await api('POST', `/api/admin/visibility/${UT_ID}`, { domain: c.dataset.domain, includeActive: c.checked }); showToast('Saved ✓'); }
+  catch (err) { showToast(err.message); c.checked = !c.checked; }
+});
+
+// ---- Question Review (answer-panel mask) ----------------------------------
+let QR_ALL = null, QR = [], QRI = 0;
+
+async function initReview() {
+  if (QR_ALL) return;
+  $('qrViewer').innerHTML = '<div class="spinner">Loading questions…</div>';
+  try {
+    QR_ALL = (await api('GET', '/api/admin/questions')).questions;
+    populateReviewFilters();
+    $('qrViewer').innerHTML = '<p class="note">Set a filter and click Apply to start reviewing.</p>';
+  } catch (e) { $('qrViewer').innerHTML = `<p class="note">${esc(e.message)}</p>`; }
+}
+
+function populateReviewFilters() {
+  const subj = $('qrSubject').value, prevTop = $('qrTopic').value;
+  const topics = [...new Map(QR_ALL.filter((q) => !subj || q.domain === subj).map((q) => [q.topic, q.topicName])).entries()]
+    .sort((a, b) => a[1].localeCompare(b[1]));
+  $('qrTopic').innerHTML = '<option value="">All</option>' + topics.map(([t, n]) => `<option value="${esc(t)}">${esc(n)}</option>`).join('');
+  if (prevTop && topics.find((t) => t[0] === prevTop)) $('qrTopic').value = prevTop;
+  const top = $('qrTopic').value;
+  const skills = [...new Set(QR_ALL.filter((q) => (!subj || q.domain === subj) && (!top || q.topic === top)).map((q) => q.skill))].sort();
+  $('qrSkill').innerHTML = '<option value="">All</option>' + skills.map((s) => `<option value="${esc(s)}">${esc(s)}</option>`).join('');
+}
+
+function applyReviewFilter() {
+  const subj = $('qrSubject').value, top = $('qrTopic').value, diff = $('qrDiff').value, skill = $('qrSkill').value, rev = $('qrReviewed').value;
+  QR = QR_ALL.filter((q) =>
+    (!subj || q.domain === subj) && (!top || q.topic === top) && (!diff || q.difficulty === diff) &&
+    (!skill || q.skill === skill) && (rev === '' || (rev === '1' ? q.reviewed : !q.reviewed)));
+  QRI = 0;
+  $('qrCount').textContent = `${QR.length} question(s)`;
+  renderReviewQ();
+}
+
+function renderReviewQ() {
+  const v = $('qrViewer');
+  if (!QR.length) { v.innerHTML = '<p class="note">No questions match — nothing to review here. 🎉</p>'; $('qrNav').style.display = 'none'; return; }
+  QRI = Math.max(0, Math.min(QRI, QR.length - 1));
+  const q = QR[QRI];
+  $('qrNav').style.display = '';
+  $('qrPos').textContent = `${QRI + 1} / ${QR.length} · ${q.topicName} ${q.difficulty} · ${q.reviewed ? '✓ approved' : 'to review'}`;
+  if (!q.image) {
+    v.innerHTML = `<p class="note">Text question (no page image / answer mask). ID ${esc(q.extId)}.</p>`;
+    return;
+  }
+  v.innerHTML = `<div class="qr-frame" id="qrFrame">
+      <img class="qr-img" id="qrImg" src="${esc(q.image)}" alt="Question ${esc(q.extId)}" />
+      <div class="qr-mask" id="qrMask"><div class="qr-handle" id="qrHandle">⇅ drag — answer hidden below this line</div></div>
+    </div>
+    <div class="note" style="margin-top:6px">ID ${esc(q.extId)} · ${esc(q.skill)} · mask at <span id="qrPct">${Math.round(q.maskFraction * 100)}</span>%</div>`;
+  positionMask(q.maskFraction);
+  wireMaskDrag(q);
+}
+
+function positionMask(frac) {
+  const m = $('qrMask'); if (m) m.style.top = (frac * 100) + '%';
+  const p = $('qrPct'); if (p) p.textContent = Math.round(frac * 100);
+}
+
+function wireMaskDrag(q) {
+  const frame = $('qrFrame'), handle = $('qrHandle');
+  if (!frame || !handle) return;
+  const move = (clientY) => {
+    const r = frame.getBoundingClientRect();
+    let frac = (clientY - r.top) / r.height;
+    frac = Math.max(0, Math.min(1, frac));
+    q.maskFraction = frac; positionMask(frac);
+  };
+  const onMove = (e) => { e.preventDefault(); move(e.touches ? e.touches[0].clientY : e.clientY); };
+  const onUp = () => {
+    document.removeEventListener('mousemove', onMove); document.removeEventListener('mouseup', onUp);
+    document.removeEventListener('touchmove', onMove); document.removeEventListener('touchend', onUp);
+    saveMask(q, false);
+  };
+  const onDown = (e) => {
+    e.preventDefault();
+    document.addEventListener('mousemove', onMove); document.addEventListener('mouseup', onUp);
+    document.addEventListener('touchmove', onMove, { passive: false }); document.addEventListener('touchend', onUp);
+  };
+  handle.addEventListener('mousedown', onDown);
+  handle.addEventListener('touchstart', onDown, { passive: false });
+}
+
+async function saveMask(q, approve) {
+  try {
+    await api('POST', `/api/admin/questions/${q.id}/mask`, { maskFraction: q.maskFraction, approve });
+    if (approve) q.reviewed = true;
+  } catch (e) { showToast(e.message); }
+}
+
+async function approveAndNext() {
+  if (!QR.length) return;
+  const q = QR[QRI];
+  await saveMask(q, true);
+  showToast('Approved ✓');
+  if ($('qrReviewed').value === '0') { QR.splice(QRI, 1); $('qrCount').textContent = `${QR.length} question(s)`; renderReviewQ(); }
+  else { QRI++; renderReviewQ(); }
+}
+
+$('qrSubject').addEventListener('change', populateReviewFilters);
+$('qrTopic').addEventListener('change', populateReviewFilters);
+$('qrApply').addEventListener('click', applyReviewFilter);
+$('qrApprove').addEventListener('click', () => approveAndNext());
+$('qrPrev').addEventListener('click', () => { QRI--; renderReviewQ(); });
+$('qrNext').addEventListener('click', () => { QRI++; renderReviewQ(); });
+$('qrClear').addEventListener('click', async () => {
+  if (!confirm('Clear approval for all questions matching the current filter? They will return to the review queue.')) return;
+  try {
+    const r = await api('POST', '/api/admin/questions/clear-review', {
+      subject: $('qrSubject').value, topic: $('qrTopic').value, difficulty: $('qrDiff').value, skill: $('qrSkill').value,
+    });
+    QR_ALL = (await api('GET', '/api/admin/questions')).questions;
+    applyReviewFilter();
+    showToast(`Cleared ${r.cleared} approval(s)`);
+  } catch (e) { showToast(e.message); }
+});
 $('utClose').addEventListener('click', () => $('userTimerModal').classList.add('hidden'));
 $('userTimerModal').addEventListener('click', (e) => { if (e.target.id === 'userTimerModal') $('userTimerModal').classList.add('hidden'); });
 $('utGrid').addEventListener('change', async (e) => {
