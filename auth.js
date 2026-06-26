@@ -17,23 +17,21 @@ const INITIAL_USERS = [
   { username: 'aj', password: 'sir',    theme: 'gray',   fullName: 'Avichal Jain',   roles: ['tutor', 'student'] },
 ];
 
-// Idempotent bootstrap: ensure the initial users, their roles, and the global
-// timer defaults exist. Safe to run on every boot.
+// First-run bootstrap: seed the initial accounts ONLY when the users table is
+// empty (a fresh volume). On any existing DB this is a no-op, so users added,
+// edited, or deleted via the Admin UI are never overwritten or re-created.
+// Only questions get refreshed on boot — never users.
 function bootstrap() {
-  const insUser = db.prepare('INSERT OR IGNORE INTO users (username, password, theme) VALUES (?,?,?)');
-  const setName = db.prepare('UPDATE users SET full_name = ? WHERE username = ? AND (full_name IS NULL OR full_name = \'\')');
+  const haveUsers = db.prepare('SELECT 1 FROM users LIMIT 1').get();
+  if (haveUsers) return;  // existing DB — leave users exactly as they are
+
+  const insUser = db.prepare('INSERT OR IGNORE INTO users (username, password, theme, full_name) VALUES (?,?,?,?)');
   const insRole = db.prepare('INSERT OR IGNORE INTO user_roles (user_id, role) VALUES (?, ?)');
   for (const u of INITIAL_USERS) {
-    insUser.run(u.username, u.password, u.theme);
-    setName.run(u.fullName, u.username);
+    insUser.run(u.username, u.password, u.theme, u.fullName);
     const row = db.prepare('SELECT id FROM users WHERE username = ?').get(u.username);
     if (row) for (const r of u.roles) insRole.run(row.id, r);
   }
-  // Any pre-existing user without a role becomes a student (keeps logins working).
-  const orphans = db.prepare(`
-    SELECT id FROM users WHERE id NOT IN (SELECT user_id FROM user_roles)
-  `).all();
-  for (const o of orphans) insRole.run(o.id, 'student');
   // Timer defaults are not seeded — an unset (topic,difficulty,tier) falls back
   // to 10 minutes in repo.resolveTimer; admin can set global overrides later.
 }
