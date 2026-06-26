@@ -33,7 +33,7 @@ function renderUsers() {
       <td><input class="spr-input uPass" type="text" placeholder="(unchanged)" style="width:120px"/></td>
       <td style="white-space:nowrap">
         <button class="btn btn-primary uSave" type="button">Save</button>
-        <button class="btn btn-ghost uTimers" type="button">⏱️</button>
+        <button class="btn btn-ghost uTimers" type="button" title="Active questions &amp; timers">⚙️ Settings</button>
         <button class="btn btn-ghost uDel" type="button">🗑️</button>
       </td>
     </tr>`;

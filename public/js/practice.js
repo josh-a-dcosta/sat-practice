@@ -102,8 +102,7 @@ function saveProgress() {
 async function loadState() {
   state = await api('GET', `/api/sessions/${sessionId}`);
   const domainEmoji = state.domain === 'math' ? '🔢' : '📖';
-  const diffLabel = state.difficulty === 'hard' ? '🔴 Hard' : '🟡 Medium';
-  $('sectionLabel').textContent = `${domainEmoji} ${state.topicName || titleCase(state.topic)} · ${diffLabel}`;
+  $('sectionLabel').textContent = `${domainEmoji} ${state.topicName || titleCase(state.topic)}`;
   renderMap();
   if (state.status === 'completed') {
     enterReviewUI();
@@ -124,15 +123,13 @@ function firstWrong() {
 function enterReviewUI() {
   reviewMode = true;
   stopTiming(); stopHeartbeat();
-  $('finishControls').classList.add('hidden');
   $('doneControls').classList.remove('hidden');
   $('pauseBtn').classList.add('hidden');
   $('topCloseBtn').classList.remove('hidden');
   $('doneTag').classList.remove('hidden');
   const pl = $('pauseLink'); if (pl) pl.classList.add('hidden');
   const correct = state.items.filter((i) => i.correct).length;
-  $('doneScore').textContent = `Score ${correct} / ${state.items.length}`;
-  $('finishNote').textContent = 'All done! 🎉 Tap any 🟥 box to revisit it with the answer and explanation.';
+  $('doneScore').textContent = `🎉 Round complete! Score: ${correct} / ${state.items.length}`;
 }
 
 async function completeAndReview() {
@@ -170,34 +167,13 @@ function renderMap() {
 function updateFinish() {
   const done = state.resolvedCount;
   const total = state.total;
-  const skipped = state.skippedCount || 0;
   const pct = total ? Math.round((done / total) * 100) : 0;
   $('progressFill').style.width = pct + '%';
   const pp = $('progressPct'); if (pp) pp.textContent = pct + '%';
-  $('finishBtn').disabled = !state.allResolved;
-
-  const skBtn = $('skippedBtn');
-  if (skipped > 0) {
-    skBtn.classList.remove('hidden');
-    skBtn.textContent = `⏭ Skipped (${skipped})`;
-  } else {
-    skBtn.classList.add('hidden');
-  }
-
-  if (state.allResolved) {
-    $('finishNote').textContent = '🌟 Every question resolved! Click Finish to see your round scorecard.';
-  } else if (skipped > 0) {
-    $('finishNote').textContent = `Resolved ${done} of ${total}. You have ${skipped} skipped — clear them (and any not done) to finish the round.`;
-  } else {
-    $('finishNote').textContent = `Resolved ${done} of ${total}. Finish unlocks when every question is resolved.`;
-  }
 }
 
-function updateScore(running) {
-  if (!running) return;
-  $('scAcc').textContent = `${running.accuracy}%`;
-  $('scNum').textContent = `· ${running.score}/${running.answered}`;
-}
+// Accuracy is shown on Home/Dashboard after practice, not during — avoids mid-round pressure.
+function updateScore() { /* intentionally empty */ }
 
 async function gotoPosition(newPos) {
   if (newPos < 1 || newPos > state.total) return;
@@ -439,11 +415,6 @@ function findNextUnresolved(fromPos) {
   return byStatus(false) || byStatus(true); // pending first, then skipped
 }
 
-function firstSkipped() {
-  const s = state.items.find((i) => i.skipped);
-  return s ? s.position : null;
-}
-
 function hasUnresolvedElsewhere() {
   return state.items.some((i) => !i.resolved && i.position !== pos);
 }
@@ -573,8 +544,6 @@ $('prevBtn').onclick = () => gotoPosition(pos - 1);
 $('nextBtn').onclick = () => gotoPosition(pos + 1);
 $('submitBtn').onclick = submitAnswer;
 $('skipBtn').onclick = skipCurrent;
-$('skippedBtn').onclick = () => { const p = firstSkipped(); if (p) gotoPosition(p); };
-$('finishBtn').onclick = () => completeAndReview();
 $('pauseBtn').onclick = pauseExit;
 // Close returns to wherever the session was opened from (dashboard vs home).
 $('topCloseBtn').onclick = () => { location.href = getParam('return') === 'dashboard' ? '/dashboard.html' : '/'; };
