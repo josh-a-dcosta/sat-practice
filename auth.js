@@ -15,7 +15,6 @@ const INITIAL_USERS = [
   { username: 'jd', password: 'sat265', theme: 'pink',   fullName: 'Jiselle DCosta', roles: ['student'] },
   { username: 'fg', password: 'sat263', theme: 'blue',   fullName: 'Flavio Grimaldi', roles: ['student'] },
   { username: 'aj', password: 'sir',    theme: 'gray',   fullName: 'Avichal Jain',   roles: ['tutor', 'student'] },
-  { username: 'as', password: 'sir',    theme: 'gray',   fullName: 'Abhinav Rai',    roles: ['tutor', 'student'] },
 ];
 
 // Idempotent bootstrap: ensure the initial users, their roles, and the global
