@@ -338,9 +338,15 @@ h2 { font-size: 1.4rem; margin: 0 0 14px; }
 .q-actions .answer-btn.btn-ghost { font-weight: 800; letter-spacing: 0.03em; }
 .q-actions .skip-btn { color: var(--muted); }
 
-/* Admin: inline per-student active-question toggles */
-.active-cell { white-space: nowrap; }
-.active-cell .rl { display: inline-flex; align-items: center; gap: 4px; margin-right: 8px; font-size: 0.85rem; }
+/* Admin: inline per-student active-question toggles — highlighted so it's
+   easy to find among the other columns. */
+.active-cell, th.active-col {
+  white-space: nowrap;
+  background: var(--pink-50);
+  box-shadow: inset 3px 0 0 var(--pink-400), inset -3px 0 0 var(--pink-400);
+}
+th.active-col { color: var(--pink-700); }
+.active-cell .rl { display: flex; align-items: center; gap: 5px; margin: 2px 0; font-size: 0.9rem; font-weight: 700; }
 
 .locked-note {
   margin-top: 14px;

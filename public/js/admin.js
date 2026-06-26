@@ -35,8 +35,8 @@ function renderUsers() {
     return `<tr data-id="${u.id}">
       <td><input class="spr-input uName" value="${esc(u.fullName)}" style="min-width:140px"/></td>
       <td><input class="spr-input uUser" value="${esc(u.username)}" style="width:110px"/></td>
-      <td>${roleBoxes}</td>
       <td class="active-cell">${accToggles}</td>
+      <td>${roleBoxes}</td>
       <td><select class="uTheme">${themeOpts}</select></td>
       <td><input class="spr-input uPass" type="text" placeholder="(unchanged)" style="width:120px"/></td>
       <td style="white-space:nowrap">
