@@ -1200,6 +1200,48 @@ function generatePlan(userId, addedBy) {
   return { created, weak };
 }
 
+// ---------------------------------------------------------------------------
+// Bug reports
+// ---------------------------------------------------------------------------
+function addBugReport(userId, { message, page }) {
+  const msg = String(message || '').trim().slice(0, 100);
+  if (!msg) throw Object.assign(new Error('message required'), { status: 400 });
+  const pg = String(page || '').trim().slice(0, 200);
+  const r = db.prepare(
+    'INSERT INTO bug_reports (user_id, message, page) VALUES (?,?,?)'
+  ).run(userId, msg, pg);
+  return { id: r.lastInsertRowid };
+}
+
+function listBugReports({ status } = {}) {
+  let where = '';
+  const params = [];
+  if (status === 'open' || status === 'closed') { where = 'WHERE b.status=?'; params.push(status); }
+  return db.prepare(`
+    SELECT b.id, b.message, b.page, b.reported_at, b.status, b.closed_at,
+           u.full_name reporter_name, u.username reporter_username,
+           cu.full_name closed_by_name
+    FROM bug_reports b
+    JOIN users u ON u.id = b.user_id
+    LEFT JOIN users cu ON cu.id = b.closed_by
+    ${where}
+    ORDER BY b.reported_at DESC
+  `).all(...params);
+}
+
+function closeBugReport(id, closedBy) {
+  const r = db.prepare(
+    "UPDATE bug_reports SET status='closed', closed_at=datetime('now'), closed_by=? WHERE id=? AND status='open'"
+  ).run(closedBy, id);
+  if (!r.changes) throw Object.assign(new Error('not found or already closed'), { status: 404 });
+  return { ok: true };
+}
+
+function reopenBugReport(id) {
+  db.prepare("UPDATE bug_reports SET status='open', closed_at=NULL, closed_by=NULL WHERE id=?").run(id);
+  return { ok: true };
+}
+
 module.exports = {
   SESSION_SIZE, DAILY_GOAL, TIME_LIMIT, TIME_LIMITS, SESSION_MINUTES, timeLimitFor,
   getCatalogue, getSkillCatalogue, getTodayProgress, listActiveSessions, sectionRounds,
@@ -1214,4 +1256,5 @@ module.exports = {
   setGlobalSetting, clearGlobalSetting,
   getStudentAccess, setStudentAccess,
   listQuestionsForReview, setQuestionMask, clearMaskReview,
+  addBugReport, listBugReports, closeBugReport, reopenBugReport,
 };

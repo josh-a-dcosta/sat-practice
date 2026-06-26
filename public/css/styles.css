@@ -1087,3 +1087,76 @@ body.login-page {
 .sm-bar i.mid { background: var(--amber); }
 .sm-bar i.low { background: #e23b5a; }
 .sm-pct { font-weight: 800; font-size: 0.85rem; text-align: right; }
+
+/* ---- Bug-report floating widget ---- */
+#bugWidget {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 9000;
+}
+#bugBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  border: none;
+  background: var(--pink-500);
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(0,0,0,.25);
+  transition: transform .15s, box-shadow .15s;
+}
+#bugBtn:hover { transform: scale(1.12) rotate(-8deg); box-shadow: 0 5px 18px rgba(0,0,0,.3); }
+.bw-panel {
+  position: absolute;
+  bottom: 56px;
+  right: 0;
+  width: 280px;
+  background: var(--bg-card);
+  border: 1px solid var(--pink-200);
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 6px 24px rgba(0,0,0,.18);
+  animation: bwSlideUp .18s ease;
+}
+@keyframes bwSlideUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.bw-header { font-weight: 700; font-size: 1rem; margin-bottom: 4px; }
+.bw-hint   { font-size: 0.82rem; color: var(--text-muted); margin: 0 0 10px; }
+.bw-textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--pink-200);
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 0.9rem;
+  font-family: inherit;
+  background: var(--bg);
+  color: var(--text);
+  resize: none;
+  line-height: 1.4;
+}
+.bw-textarea:focus { outline: 2px solid var(--pink-500); border-color: transparent; }
+.bw-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 8px; }
+.bw-count  { font-size: 0.78rem; color: var(--text-muted); }
+.bw-submit { font-size: 0.85rem; padding: 6px 14px; }
+.bw-thanks { text-align: center; font-size: 0.92rem; font-weight: 600; padding: 6px 0; color: var(--pink-500); }
+
+/* ---- Admin bug tracker table ---- */
+.bug-table td { vertical-align: middle; }
+.bug-who  { min-width: 140px; }
+.bug-page { min-width: 110px; font-size: 0.82rem; }
+.bug-msg  { max-width: 340px; word-break: break-word; }
+.bug-reporter { display: block; font-weight: 600; font-size: 0.92rem; }
+.bug-date { display: block; font-size: 0.78rem; color: var(--text-muted); margin-top: 1px; }
+.bug-badge { display: inline-block; font-size: 0.82rem; font-weight: 600; padding: 2px 8px; border-radius: 999px; }
+.bug-badge.open   { background: rgba(245,180,0,.15); color: #a07000; }
+.bug-badge.closed { background: rgba(0,180,80,.12);  color: #0a7a3a; }
+:root[data-mode="dark"] .bug-badge.open   { color: #f5c400; }
+:root[data-mode="dark"] .bug-badge.closed { color: #22d87a; }
+.btn-sm { padding: 5px 12px; font-size: 0.82rem; }

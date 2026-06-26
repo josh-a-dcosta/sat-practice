@@ -429,7 +429,27 @@ async function handleApi(req, res, url) {
         return sendJson(res, 200, repo.setQuestionMask(Number(parts[3]), b.maskFraction, !!b.approve));
       }
 
+      // GET /api/admin/bugs?status=open|closed|all
+      if (req.method === 'GET' && pathname === '/api/admin/bugs') {
+        const st = url.searchParams.get('status') || 'open';
+        return sendJson(res, 200, repo.listBugReports({ status: st === 'all' ? undefined : st }));
+      }
+      // POST /api/admin/bugs/:id/close
+      if (req.method === 'POST' && parts[2] === 'bugs' && parts[4] === 'close' && parts.length === 5) {
+        return sendJson(res, 200, repo.closeBugReport(Number(parts[3]), uid));
+      }
+      // POST /api/admin/bugs/:id/reopen
+      if (req.method === 'POST' && parts[2] === 'bugs' && parts[4] === 'reopen' && parts.length === 5) {
+        return sendJson(res, 200, repo.reopenBugReport(Number(parts[3])));
+      }
+
       return sendJson(res, 404, { error: 'Unknown admin endpoint' });
+    }
+
+    // POST /api/bugs  — any authenticated user can report a bug (uid already verified above)
+    if (req.method === 'POST' && pathname === '/api/bugs') {
+      const b = await readBody(req);
+      return sendJson(res, 201, repo.addBugReport(uid, { message: b.message, page: b.page }));
     }
 
     return sendJson(res, 404, { error: 'Unknown endpoint' });

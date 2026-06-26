@@ -268,3 +268,71 @@ function fmtTime(totalSeconds) {
 function getParam(name) {
   return new URL(window.location.href).searchParams.get(name);
 }
+
+// ---------------------------------------------------------------------------
+// Bug-report widget — floats on every page after the user is authenticated.
+// ---------------------------------------------------------------------------
+(function mountBugWidget() {
+  function inject(me) {
+    const widget = document.createElement('div');
+    widget.id = 'bugWidget';
+    widget.innerHTML = `
+      <button id="bugBtn" type="button" title="Report a bug 🐛" aria-label="Report a bug">🐛</button>
+      <div id="bugPanel" class="bw-panel hidden" role="dialog" aria-label="Bug report">
+        <div class="bw-header">Found a bug? 🔍</div>
+        <p class="bw-hint">Tell us what went wrong — we'll squash it!</p>
+        <textarea id="bugMsg" class="bw-textarea" maxlength="100"
+          placeholder="What happened? (100 chars max)" rows="3"></textarea>
+        <div class="bw-footer">
+          <span id="bugCount" class="bw-count">100</span>
+          <button id="bugSubmit" class="btn btn-primary bw-submit" type="button">Squash it! 🔨</button>
+        </div>
+        <div id="bugThanks" class="bw-thanks hidden">🎉 Thanks! We'll get right on it.</div>
+      </div>`;
+    document.body.appendChild(widget);
+
+    const btn    = document.getElementById('bugBtn');
+    const panel  = document.getElementById('bugPanel');
+    const msg    = document.getElementById('bugMsg');
+    const count  = document.getElementById('bugCount');
+    const submit = document.getElementById('bugSubmit');
+    const thanks = document.getElementById('bugThanks');
+
+    btn.addEventListener('click', () => {
+      const open = !panel.classList.contains('hidden');
+      panel.classList.toggle('hidden', open);
+      if (!open) { msg.value = ''; count.textContent = '100'; thanks.classList.add('hidden'); msg.focus(); }
+    });
+
+    msg.addEventListener('input', () => { count.textContent = 100 - msg.value.length; });
+
+    submit.addEventListener('click', async () => {
+      const text = msg.value.trim();
+      if (!text) { msg.focus(); return; }
+      submit.disabled = true;
+      try {
+        await api('POST', '/api/bugs', { message: text, page: window.location.pathname });
+        msg.classList.add('hidden');
+        count.classList.add('hidden');
+        submit.classList.add('hidden');
+        thanks.classList.remove('hidden');
+        setTimeout(() => { panel.classList.add('hidden'); }, 2200);
+      } catch (_) {
+        submit.disabled = false;
+        alert('Could not send — please try again.');
+      }
+    });
+
+    // Close panel when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!widget.contains(e.target)) panel.classList.add('hidden');
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', async () => {
+    try {
+      const me = await api('GET', '/api/me');
+      if (me && me.username) inject(me);
+    } catch (_) { /* not logged in — no widget */ }
+  });
+}());

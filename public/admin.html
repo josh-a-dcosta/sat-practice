@@ -22,6 +22,7 @@
       <button class="menu-btn" type="button" data-view="assign">🔗 Tutor Assignments</button>
       <button class="menu-btn" type="button" data-view="global">⚙️ Global Settings</button>
       <button class="menu-btn" type="button" data-view="review">🖼️ Question Review</button>
+      <button class="menu-btn" type="button" data-view="bugs">🐛 Bugs</button>
     </div>
 
     <!-- USERS -->
@@ -99,6 +100,23 @@
           <button class="btn btn-primary" id="qrApprove" type="button">✓ Approve &amp; next</button>
           <button class="btn btn-ghost" id="qrNext" type="button">Next →</button>
         </div>
+      </div>
+    </section>
+
+    <!-- BUG TRACKER -->
+    <section class="dash-view hidden" data-view="bugs">
+      <div class="card">
+        <h2>🐛 Bug Tracker</h2>
+        <p class="note">Bugs reported by users — squash them one by one!</p>
+        <div class="filters" style="align-items:center">
+          <div class="subtabs" id="bugTabs">
+            <button class="subtab active" type="button" data-status="open">🟡 Open</button>
+            <button class="subtab" type="button" data-status="closed">✅ Closed</button>
+            <button class="subtab" type="button" data-status="all">📋 All</button>
+          </div>
+          <span class="note" id="bugTotal"></span>
+        </div>
+        <div id="bugList"><div class="spinner">Loading…</div></div>
       </div>
     </section>
   </div>

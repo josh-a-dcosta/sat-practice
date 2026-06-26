@@ -12,6 +12,7 @@ function showView(name) {
   document.querySelectorAll('.dash-menu .menu-btn').forEach((b) => b.classList.toggle('active', b.dataset.view === name));
   if (name === 'global') loadGlobalTimers();
   if (name === 'review') initReview();
+  if (name === 'bugs') loadBugs();
   window.scrollTo(0, 0);
 }
 document.querySelectorAll('.dash-menu .menu-btn').forEach((b) => b.addEventListener('click', () => showView(b.dataset.view)));
@@ -319,6 +320,74 @@ $('utGrid').addEventListener('click', async (e) => {
   const b = e.target.closest('.set-reset'); if (!b || UT_ID == null) return;
   try { const g = (await api('POST', `/api/admin/settings/user/${UT_ID}/reset`, { topic:b.dataset.topic, difficulty:b.dataset.diff, roundTier:Number(b.dataset.tier) })).grid; $('utGrid').innerHTML = timerGridHtml(g,'user'); }
   catch (err) { showToast(err.message); }
+});
+
+// ---- Bug Tracker ----
+let _bugStatus = 'open';
+
+function fmtBugDate(s) {
+  if (!s) return '';
+  const d = new Date(s + (s.endsWith('Z') ? '' : 'Z'));
+  return d.toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }) +
+    ' ' + d.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' });
+}
+
+async function loadBugs(status) {
+  if (status !== undefined) _bugStatus = status;
+  const list = document.getElementById('bugList');
+  const total = document.getElementById('bugTotal');
+  list.innerHTML = '<div class="spinner">Loading…</div>';
+  const bugs = await api('GET', `/api/admin/bugs?status=${_bugStatus}`);
+  total.textContent = `${bugs.length} bug${bugs.length !== 1 ? 's' : ''}`;
+
+  if (!bugs.length) {
+    list.innerHTML = `<p class="note" style="padding:16px 0">${_bugStatus === 'open' ? '🎉 No open bugs — you\'re all caught up!' : 'Nothing here yet.'}</p>`;
+    return;
+  }
+
+  const rows = bugs.map((b) => `
+    <tr class="bug-row bug-${b.status}">
+      <td class="bug-who">
+        <span class="bug-reporter">${esc(b.reporter_name || b.reporter_username)}</span>
+        <span class="bug-date">${fmtBugDate(b.reported_at)}</span>
+      </td>
+      <td class="bug-page"><code>${esc(b.page || '—')}</code></td>
+      <td class="bug-msg">${esc(b.message)}</td>
+      <td class="bug-status">${b.status === 'open' ? '<span class="bug-badge open">🟡 Open</span>' : `<span class="bug-badge closed">✅ Closed</span><span class="bug-date">${b.closed_by_name ? 'by ' + esc(b.closed_by_name) : ''}</span>`}</td>
+      <td class="bug-actions">
+        ${b.status === 'open'
+          ? `<button class="btn btn-primary btn-sm" data-bug-close="${b.id}">✓ Close</button>`
+          : `<button class="btn btn-ghost btn-sm" data-bug-reopen="${b.id}">↺ Reopen</button>`}
+      </td>
+    </tr>`).join('');
+
+  list.innerHTML = `<div style="overflow-x:auto"><table class="data bug-table">
+    <thead><tr><th>Reporter</th><th>Screen</th><th>Description</th><th>Status</th><th></th></tr></thead>
+    <tbody>${rows}</tbody>
+  </table></div>`;
+
+  list.querySelectorAll('[data-bug-close]').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      btn.disabled = true;
+      await api('POST', `/api/admin/bugs/${btn.dataset.bugClose}/close`);
+      loadBugs();
+    });
+  });
+  list.querySelectorAll('[data-bug-reopen]').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      btn.disabled = true;
+      await api('POST', `/api/admin/bugs/${btn.dataset.bugReopen}/reopen`);
+      loadBugs();
+    });
+  });
+}
+
+document.querySelectorAll('#bugTabs .subtab').forEach((t) => {
+  t.addEventListener('click', () => {
+    document.querySelectorAll('#bugTabs .subtab').forEach((s) => s.classList.remove('active'));
+    t.classList.add('active');
+    loadBugs(t.dataset.status);
+  });
 });
 
 // ---- init ----
