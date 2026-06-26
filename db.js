@@ -293,4 +293,19 @@ if (aeEmpty && haveAttempts) {
   `);
 }
 
+// Bug reports: any authenticated user can file one; only admins manage them.
+db.exec(`
+CREATE TABLE IF NOT EXISTS bug_reports (
+  id          INTEGER PRIMARY KEY AUTOINCREMENT,
+  user_id     INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  message     TEXT NOT NULL,
+  page        TEXT NOT NULL DEFAULT '',
+  reported_at TEXT NOT NULL DEFAULT (datetime('now')),
+  status      TEXT NOT NULL DEFAULT 'open' CHECK (status IN ('open','closed')),
+  closed_at   TEXT,
+  closed_by   INTEGER REFERENCES users(id) ON DELETE SET NULL
+);
+CREATE INDEX IF NOT EXISTS idx_bug_reports ON bug_reports(status, reported_at DESC);
+`);
+
 module.exports = { db, DB_PATH };
