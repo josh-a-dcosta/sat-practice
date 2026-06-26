@@ -54,7 +54,7 @@ async function load() {
     '<tr><td colspan="10" class="note">Set the filters and click 🔎 Search to see matching questions.</td></tr>';
   // Restore the last section the user was on (default to the charts overview).
   // A ?view= param (e.g. the top-bar Calendar link) wins over the saved view.
-  const known = ['dashboard', 'calendar', 'weekly', 'trends', 'skills', 'tasks'];
+  const known = ['dashboard', 'calendar', 'weekly', 'trends', 'skills', 'tasks', 'notes'];
   const urlView = getParam('view');
   const saved = (urlView && known.includes(urlView)) ? urlView : (localStorage.getItem('dashView') || 'dashboard');
   showView(known.includes(saved) ? saved : 'dashboard');
@@ -63,6 +63,18 @@ async function load() {
     const cd = localStorage.getItem('dashCalDay');
     if (cd) { calWeekMonday = mondayOf(cd); renderCalendar(); showCalDay(cd); }
   }
+  refreshNotesBadge();
+}
+
+// Badge the Notes & Feedback button when the student has unseen tutor notes.
+async function refreshNotesBadge() {
+  const badge = $('notesBadge');
+  if (!badge) return;
+  try {
+    const { count } = await api('GET', '/api/notes/unseen');
+    if (count > 0) { badge.textContent = count; badge.classList.remove('hidden'); }
+    else badge.classList.add('hidden');
+  } catch (_) { /* ignore */ }
 }
 
 // Switch which dashboard section is visible (charts render on show so they
@@ -73,7 +85,15 @@ function showView(name) {
   localStorage.setItem('dashView', name);
   if (name === 'dashboard') renderOverviewCharts();
   if (name === 'trends') { renderWeeklyTrends(); renderSectionCharts(); }
+  if (name === 'notes') { renderNotesView(); markNotesSeen(); }
   window.scrollTo(0, 0);
+}
+
+// Opening Notes clears the unseen badge (server-side + locally).
+async function markNotesSeen() {
+  const badge = $('notesBadge');
+  if (badge) badge.classList.add('hidden');
+  try { await api('POST', '/api/notes/seen'); } catch (_) { /* ignore */ }
 }
 
 function populateRoundFilter() {
@@ -246,6 +266,28 @@ function renderWeeklyReport() {
   const older = $('wkOlder'), newer = $('wkNewer');
   if (older) older.onclick = () => { weeklyIndex++; renderWeeklyReport(); };
   if (newer) newer.onclick = () => { weeklyIndex--; renderWeeklyReport(); };
+}
+
+// ---- Notes & feedback (its own view) — week-navigable comment thread -------
+let notesIndex = 0;
+function renderNotesView() {
+  const reps = DATA.weeklyReports || [];
+  const nav = $('notesNav');
+  if (!reps.length) {
+    if (nav) nav.innerHTML = '';
+    $('weeklyComments').innerHTML = '<p class="note">No weeks yet — practice a little and notes will appear here. 🌱</p>';
+    return;
+  }
+  notesIndex = Math.max(0, Math.min(notesIndex, reps.length - 1));
+  const r = reps[notesIndex];
+  if (nav) {
+    nav.innerHTML = `<button class="cal-nav" id="ntOlder" ${notesIndex >= reps.length - 1 ? 'disabled' : ''}>◀ Older</button>
+      <div class="cal-week-label">Week of ${escapeHtml(weekLabel(r.weekStart))}${notesIndex === 0 ? ' · latest' : ''} <span class="note">(${notesIndex + 1}/${reps.length})</span></div>
+      <button class="cal-nav" id="ntNewer" ${notesIndex <= 0 ? 'disabled' : ''}>Newer ▶</button>`;
+    const o = $('ntOlder'), n = $('ntNewer');
+    if (o) o.onclick = () => { notesIndex++; renderNotesView(); };
+    if (n) n.onclick = () => { notesIndex--; renderNotesView(); };
+  }
   loadWeeklyComments(r.week);
 }
 

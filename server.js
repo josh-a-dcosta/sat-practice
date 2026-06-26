@@ -305,6 +305,16 @@ async function handleApi(req, res, url) {
       repo.addWeeklyComment(requireView(), String(b.week || ''), uid, user.activeRole, String(b.text || ''));
       return sendJson(res, 200, { comments: repo.listWeeklyComments(requireView(), String(b.week || '')) });
     }
+    // GET /api/notes/unseen — unseen tutor notes for the signed-in student.
+    if (req.method === 'GET' && pathname === '/api/notes/unseen') {
+      if (user.activeRole !== 'student') return sendJson(res, 200, { count: 0, latest: null });
+      return sendJson(res, 200, repo.unseenNotes(uid));
+    }
+    // POST /api/notes/seen — student acknowledges their notes are read.
+    if (req.method === 'POST' && pathname === '/api/notes/seen') {
+      if (user.activeRole !== 'student') return sendJson(res, 200, { ok: true });
+      return sendJson(res, 200, repo.markNotesSeen(uid));
+    }
 
     // GET /api/dashboard  (own data, or the viewed student's for a tutor)
     if (req.method === 'GET' && pathname === '/api/dashboard') {

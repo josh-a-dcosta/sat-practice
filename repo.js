@@ -927,6 +927,25 @@ function listWeeklyComments(studentId, week) {
   `).all(studentId, week);
 }
 
+// Notes a student hasn't seen yet — anyone else's note (tutor/admin) newer than
+// the student's last Notes view. Returns the count + the most recent one.
+function unseenNotes(studentId) {
+  const rows = db.prepare(`
+    SELECT wc.week, wc.text, wc.created_at, COALESCE(u.full_name, u.username) author_name
+    FROM weekly_comments wc LEFT JOIN users u ON u.id = wc.author_id
+    WHERE wc.student_id = ?
+      AND wc.author_id IS NOT NULL AND wc.author_id <> ?
+      AND wc.created_at > COALESCE((SELECT notes_seen_at FROM users WHERE id = ?), '')
+    ORDER BY wc.id DESC
+  `).all(studentId, studentId, studentId);
+  return { count: rows.length, latest: rows[0] || null };
+}
+
+function markNotesSeen(studentId) {
+  db.prepare("UPDATE users SET notes_seen_at = datetime('now') WHERE id = ?").run(studentId);
+  return { ok: true };
+}
+
 function addWeeklyComment(studentId, week, authorId, authorRole, text) {
   text = String(text || '').trim();
   if (!String(week || '')) { const e = new Error('Week is required.'); e.status = 400; throw e; }
@@ -1250,7 +1269,7 @@ module.exports = {
   submitAnswer, peekQuestion, timeoutQuestion, skipQuestion, completeSession,
   getDashboard, getAttemptReview, getQuestionReview,
   getDailyActivity, getDailySummaries, getSkillFocus, getActivityFeed,
-  listWeeklyComments, addWeeklyComment,
+  listWeeklyComments, addWeeklyComment, unseenNotes, markNotesSeen,
   listTasks, addTask, setTaskStatus, deleteTask, generatePlan,
   resolveTimer, settingsGrid, setUserSetting, clearUserSetting,
   setGlobalSetting, clearGlobalSetting,
