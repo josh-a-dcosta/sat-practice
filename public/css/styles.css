@@ -322,6 +322,13 @@ h2 { font-size: 1.4rem; margin: 0 0 14px; }
   letter-spacing: 0.07em;
   padding: 14px;
 }
+/* Next/Skip share ANSWER's full-width block style but read lighter. */
+.q-actions .answer-btn.btn-ghost { font-weight: 800; letter-spacing: 0.03em; }
+.q-actions .skip-btn { color: var(--muted); }
+
+/* Admin: inline per-student active-question toggles */
+.active-cell { white-space: nowrap; }
+.active-cell .rl { display: inline-flex; align-items: center; gap: 4px; margin-right: 8px; font-size: 0.85rem; }
 
 .locked-note {
   margin-top: 14px;
@@ -1153,7 +1160,8 @@ body.login-page {
   bottom: 56px;
   right: 0;
   width: 280px;
-  background: var(--bg-card);
+  background: var(--white);
+  color: var(--ink);
   border: 1px solid var(--pink-200);
   border-radius: 14px;
   padding: 16px;
@@ -1164,8 +1172,8 @@ body.login-page {
   from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-.bw-header { font-weight: 700; font-size: 1rem; margin-bottom: 4px; }
-.bw-hint   { font-size: 0.82rem; color: var(--text-muted); margin: 0 0 10px; }
+.bw-header { font-weight: 700; font-size: 1rem; margin-bottom: 4px; color: var(--ink); }
+.bw-hint   { font-size: 0.82rem; color: var(--muted); margin: 0 0 10px; }
 .bw-textarea {
   width: 100%;
   box-sizing: border-box;
@@ -1174,14 +1182,15 @@ body.login-page {
   padding: 8px;
   font-size: 0.9rem;
   font-family: inherit;
-  background: var(--bg);
-  color: var(--text);
+  background: var(--pink-50);
+  color: var(--ink);
   resize: none;
   line-height: 1.4;
 }
+.bw-textarea::placeholder { color: var(--muted); }
 .bw-textarea:focus { outline: 2px solid var(--pink-500); border-color: transparent; }
 .bw-footer { display: flex; align-items: center; justify-content: space-between; margin-top: 8px; }
-.bw-count  { font-size: 0.78rem; color: var(--text-muted); }
+.bw-count  { font-size: 0.78rem; color: var(--muted); }
 .bw-submit { font-size: 0.85rem; padding: 6px 14px; }
 .bw-thanks { text-align: center; font-size: 0.92rem; font-weight: 600; padding: 6px 0; color: var(--pink-500); }
 

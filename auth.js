@@ -133,11 +133,17 @@ function listUsers() {
     (studentsByTutor[r.tutor_id] = studentsByTutor[r.tutor_id] || []).push(r.student_id);
     (tutorsByStudent[r.student_id] = tutorsByStudent[r.student_id] || []).push(r.tutor_id);
   }
+  // Active-question access per student (default: nonactive only, i.e. false).
+  const accessByUser = {};
+  for (const r of db.prepare('SELECT user_id, domain, include_active FROM student_active_access').all()) {
+    (accessByUser[r.user_id] = accessByUser[r.user_id] || { math: false, reading: false })[r.domain] = !!r.include_active;
+  }
   return users.map((u) => ({
     id: u.id, username: u.username, fullName: u.full_name, theme: u.theme || 'gray',
     roles: (rolesByUser[u.id] || []).sort(),
     studentIds: studentsByTutor[u.id] || [],
     tutorIds: tutorsByStudent[u.id] || [],
+    activeAccess: accessByUser[u.id] || { math: false, reading: false },
   }));
 }
 

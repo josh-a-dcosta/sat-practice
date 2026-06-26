@@ -90,7 +90,6 @@
           <div class="q-nav">
             <button class="btn btn-ghost" id="prevBtn">← Previous</button>
             <button class="btn btn-ghost" id="pauseBtn" type="button" title="Pause &amp; exit this round">⏸ Pause</button>
-            <button class="btn btn-ghost" id="nextBtn">Next →</button>
           </div>
 
           <!-- Immediate feedback after answering / peeking / timing out -->
@@ -119,7 +118,8 @@
 
           <div class="q-actions">
             <button class="btn btn-primary answer-btn" id="submitBtn" disabled>ANSWER</button>
-            <button class="btn btn-ghost hidden" id="skipBtn" title="Come back to this one later">Skip</button>
+            <button class="btn btn-ghost answer-btn" id="nextBtn">Next →</button>
+            <button class="btn btn-ghost answer-btn skip-btn hidden" id="skipBtn" title="Come back to this one later">Skip</button>
           </div>
 
           <div id="doneControls" class="hidden" style="margin-top:10px; text-align:center">
