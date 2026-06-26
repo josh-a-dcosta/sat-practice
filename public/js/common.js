@@ -159,18 +159,24 @@ function buildRoleNav(user) {
   if (!nav) return;
   nav.innerHTML = '';
   const page = currentPageKey();
+  // On the dashboard, Calendar and Dashboard share a page — disambiguate by the
+  // ?view= param so the right tab highlights.
+  let activeKey = page;
+  if (page === 'dashboard') activeKey = getParam('view') === 'calendar' ? 'calendar' : 'dashboard';
   const add = (href, label, key) => {
     const a = document.createElement('a');
-    a.className = 'nav-btn' + (key === page ? ' active' : '');
+    a.className = 'nav-btn' + (key === activeKey ? ' active' : '');
     a.href = href; a.textContent = label;
     nav.appendChild(a);
   };
   if (user.activeRole === 'student') {
     add('/', '🏠 Home', 'home');
-    add('/dashboard.html', '📊 Dashboard', 'dashboard');
+    add('/dashboard.html?view=calendar', '🗓️ Calendar', 'calendar');
+    add('/dashboard.html?view=dashboard', '📊 Dashboard', 'dashboard');
     add('/settings.html', '⚙️ Settings', 'settings');
   } else if (user.activeRole === 'tutor') {
-    add('/dashboard.html', '📊 Dashboard', 'dashboard');
+    add('/dashboard.html?view=calendar', '🗓️ Calendar', 'calendar');
+    add('/dashboard.html?view=dashboard', '📊 Dashboard', 'dashboard');
   } else if (user.activeRole === 'admin') {
     add('/admin.html', '🛠️ Admin', 'admin');
   }

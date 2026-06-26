@@ -25,8 +25,8 @@
 
     <!-- Top menu: each button shows a section (charts are the default view) -->
     <div class="dash-menu" id="dashMenu">
-      <button class="menu-btn" type="button" data-view="calendar">🗓️ Calendar</button>
       <button class="menu-btn" type="button" data-view="weekly">📝 Weekly Report</button>
+      <button class="menu-btn" type="button" data-view="trends">📈 Trends</button>
       <button class="menu-btn" type="button" data-view="skills">🎯 Skills to Focus</button>
       <button class="menu-btn" type="button" data-view="tasks">✅ Suggested Practice</button>
     </div>
@@ -49,19 +49,33 @@
       </div>
     </section>
 
-    <!-- ===== WEEKLY REPORT: trends + section/time + text ===== -->
+    <!-- ===== WEEKLY REPORT: text summary + notes/feedback ===== -->
     <section class="dash-view hidden" data-view="weekly">
+      <div class="card">
+        <h2>📝 Weekly report</h2>
+        <p class="note">An easy-to-read summary of where you're strong and what to practice — updated each week.</p>
+        <div id="weeklyReport"></div>
+      </div>
+      <div class="card">
+        <h2>💬 Notes &amp; feedback</h2>
+        <p class="note">Tutor feedback and student responses for the week shown above — kept per week so you can look back.</p>
+        <div id="weeklyComments"></div>
+      </div>
+    </section>
+
+    <!-- ===== TRENDS: weekly trend charts + section/time ===== -->
+    <section class="dash-view hidden" data-view="trends">
       <div class="card">
         <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px">
           <h2 style="margin:0">📈 Weekly trends</h2>
-          <div style="display:flex; gap:12px; flex-wrap:wrap">
-            <label class="note">Subject
+          <div style="display:flex; gap:16px; flex-wrap:wrap">
+            <label class="trend-filter">Subject
               <select id="trendDomain">
                 <option value="math">🔢 Math</option>
                 <option value="reading">📖 Reading &amp; Writing</option>
               </select>
             </label>
-            <label class="note">Difficulty
+            <label class="trend-filter">Difficulty
               <select id="trendDiff">
                 <option value="medium">🟡 Medium</option>
                 <option value="hard">🔴 Hard</option>
@@ -80,16 +94,6 @@
       <div class="dash-grid">
         <div class="card"><h2>Accuracy by section</h2><div class="chart-box"><canvas id="sectionChart"></canvas></div></div>
         <div class="card"><h2>Average time per question</h2><div class="chart-box"><canvas id="timeChart"></canvas></div></div>
-      </div>
-      <div class="card">
-        <h2>📝 Weekly report</h2>
-        <p class="note">An easy-to-read summary of where you're strong and what to practice — updated each week.</p>
-        <div id="weeklyReport"></div>
-      </div>
-      <div class="card">
-        <h2>💬 Notes &amp; feedback</h2>
-        <p class="note">Tutor feedback and student responses for the week shown above — kept per week so you can look back.</p>
-        <div id="weeklyComments"></div>
       </div>
     </section>
 

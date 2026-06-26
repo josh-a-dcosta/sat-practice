@@ -132,6 +132,18 @@ a { color: var(--pink-600); }
 
 h1 { font-size: 2rem; margin: 0 0 6px; }
 h2 { font-size: 1.4rem; margin: 0 0 14px; }
+
+/* Prominent Subject / Difficulty pickers in the Trends "Weekly trends" header */
+.trend-filter {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 1.15rem; font-weight: 800; color: var(--ink);
+}
+.trend-filter select {
+  font-size: 1.05rem; font-weight: 800; color: var(--ink);
+  padding: 7px 12px; border-radius: 12px;
+  border: 2px solid var(--pink-300); background: var(--pink-50);
+  cursor: pointer;
+}
 .subtitle { color: var(--muted); margin: 0 0 20px; }
 
 /* Buttons */
@@ -1025,7 +1037,10 @@ body.login-page {
 .cal-attempt:first-of-type { border-top: none; }
 
 /* ----- Standout nav buttons + active page indicator ----- */
-.navlinks { display: flex; align-items: center; }
+.navlinks { display: flex; align-items: center; flex: 1; }
+/* Page links (Home · Calendar · Dashboard · Settings) sit left, right after the
+   brand; the user menu (mode toggle, name, switch, log out) is pushed right. */
+.navlinks #modeToggle { margin-left: auto; }
 .navlinks .nav-btn {
   margin-left: 12px; padding: 8px 16px; border-radius: 999px;
   border: 2px solid var(--pink-300); background: var(--pink-50);
