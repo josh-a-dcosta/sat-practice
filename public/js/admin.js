@@ -25,15 +25,23 @@ function renderUsers() {
   tb.innerHTML = USERS.map((u) => {
     const themeOpts = THEMES.map((t) => `<option value="${t}" ${u.theme===t?'selected':''}>${t}</option>`).join('');
     const roleBoxes = ROLES.map((r) => `<label class="rl"><input type="checkbox" class="uRole" value="${r}" ${u.roles.includes(r)?'checked':''}/> ${r}</label>`).join(' ');
+    const acc = u.activeAccess || { math: false, reading: false };
+    const isStudent = u.roles.includes('student');
+    // Inline active-question toggles (per domain). Only meaningful for students.
+    const accToggles = isStudent
+      ? `<label class="rl" title="Show on-test (active) Math questions to this student"><input type="checkbox" class="uActive" data-domain="math" ${acc.math?'checked':''}/> 🔢 Math</label>
+         <label class="rl" title="Show on-test (active) Reading questions to this student"><input type="checkbox" class="uActive" data-domain="reading" ${acc.reading?'checked':''}/> 📖 Reading</label>`
+      : '<span class="note">—</span>';
     return `<tr data-id="${u.id}">
       <td><input class="spr-input uName" value="${esc(u.fullName)}" style="min-width:140px"/></td>
       <td><input class="spr-input uUser" value="${esc(u.username)}" style="width:110px"/></td>
       <td>${roleBoxes}</td>
+      <td class="active-cell">${accToggles}</td>
       <td><select class="uTheme">${themeOpts}</select></td>
       <td><input class="spr-input uPass" type="text" placeholder="(unchanged)" style="width:120px"/></td>
       <td style="white-space:nowrap">
         <button class="btn btn-primary uSave" type="button">Save</button>
-        <button class="btn btn-ghost uTimers" type="button" title="Active questions &amp; timers">⚙️ Settings</button>
+        <button class="btn btn-ghost uTimers" type="button" title="Per-question timers">⏱️ Timers</button>
         <button class="btn btn-ghost uDel" type="button">🗑️</button>
       </td>
     </tr>`;
@@ -64,6 +72,17 @@ $('usersTable').addEventListener('click', async (e) => {
       }
     }
   } catch (err) { showToast(err.message); }
+});
+
+// Inline active-question toggles — save immediately on change.
+$('usersTable').addEventListener('change', async (e) => {
+  const c = e.target.closest('.uActive'); if (!c) return;
+  const row = e.target.closest('tr[data-id]'); if (!row) return;
+  const id = Number(row.dataset.id);
+  try {
+    await api('POST', `/api/admin/visibility/${id}`, { domain: c.dataset.domain, includeActive: c.checked });
+    showToast(`Active ${c.dataset.domain} ${c.checked ? 'enabled' : 'disabled'} ✓`);
+  } catch (err) { showToast(err.message); c.checked = !c.checked; }
 });
 
 $('addUserForm').addEventListener('submit', async (e) => {
