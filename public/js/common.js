@@ -200,6 +200,7 @@ async function mountUserMenu() {
     if (!(ROLE_ALLOWED[me.activeRole] || []).includes(page)) {
       location.href = landingFor(me); return;
     }
+    maybeNotifyNotes(me);   // gentle once-a-day reminder of unseen tutor notes
   }
 
   const nav = document.querySelector('.navlinks');
@@ -230,6 +231,21 @@ async function mountUserMenu() {
   nav.appendChild(out);
 }
 
+// Once per day, remind a student about notes from their tutor they haven't read.
+async function maybeNotifyNotes(me) {
+  if (!me || me.activeRole !== 'student') return;
+  const key = 'notesReminded:' + new Date().toISOString().slice(0, 10);
+  if (localStorage.getItem(key)) return;
+  try {
+    const r = await api('GET', '/api/notes/unseen');
+    if (r && r.count > 0) {
+      localStorage.setItem(key, '1');
+      const who = (r.latest && r.latest.author_name) ? ` from ${r.latest.author_name}` : '';
+      showToast(`📬 You have ${r.count} new note${r.count === 1 ? '' : 's'}${who}! Open 💬 Notes & Feedback on your Dashboard.`, 7000);
+    }
+  } catch (_) { /* ignore */ }
+}
+
 document.addEventListener('DOMContentLoaded', mountUserMenu);
 
 const ENCOURAGEMENTS = [
@@ -250,7 +266,7 @@ function randomEncouragement() {
 }
 
 let _toastTimer = null;
-function showToast(message) {
+function showToast(message, duration) {
   let el = document.querySelector('.toast');
   if (!el) {
     el = document.createElement('div');
@@ -262,7 +278,7 @@ function showToast(message) {
   void el.offsetWidth;
   el.classList.add('show');
   clearTimeout(_toastTimer);
-  _toastTimer = setTimeout(() => el.classList.remove('show'), 2400);
+  _toastTimer = setTimeout(() => el.classList.remove('show'), duration || 2400);
 }
 
 function fmtTime(totalSeconds) {

@@ -202,6 +202,9 @@ db.exec('CREATE INDEX IF NOT EXISTS idx_tasks_user ON tasks(user_id);');
 
 // Roles/settings feature: full name on users + active context on tokens.
 try { db.exec('ALTER TABLE users ADD COLUMN full_name TEXT'); } catch (_) { /* exists */ }
+// When the student last opened their Notes & feedback — drives the "you have a
+// new note" reminder (a tutor note newer than this is considered unseen).
+try { db.exec('ALTER TABLE users ADD COLUMN notes_seen_at TEXT'); } catch (_) { /* exists */ }
 try { db.exec('ALTER TABLE auth_tokens ADD COLUMN active_role TEXT'); } catch (_) { /* exists */ }
 try { db.exec('ALTER TABLE auth_tokens ADD COLUMN active_student_id INTEGER'); } catch (_) { /* exists */ }
 db.exec('CREATE INDEX IF NOT EXISTS idx_user_roles ON user_roles(user_id);');

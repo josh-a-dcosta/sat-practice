@@ -29,6 +29,7 @@
       <button class="menu-btn" type="button" data-view="trends">📈 Trends</button>
       <button class="menu-btn" type="button" data-view="skills">🎯 Skills to Focus</button>
       <button class="menu-btn" type="button" data-view="tasks">✅ Suggested Practice</button>
+      <button class="menu-btn" type="button" data-view="notes">💬 Notes &amp; Feedback <span class="menu-badge hidden" id="notesBadge"></span></button>
     </div>
 
     <!-- ===== DASHBOARD: Overview + Daily activity + Overall accuracy ===== -->
@@ -49,17 +50,12 @@
       </div>
     </section>
 
-    <!-- ===== WEEKLY REPORT: text summary + notes/feedback ===== -->
+    <!-- ===== WEEKLY REPORT: text summary ===== -->
     <section class="dash-view hidden" data-view="weekly">
       <div class="card">
         <h2>📝 Weekly report</h2>
         <p class="note">An easy-to-read summary of where you're strong and what to practice — updated each week.</p>
         <div id="weeklyReport"></div>
-      </div>
-      <div class="card">
-        <h2>💬 Notes &amp; feedback</h2>
-        <p class="note">Tutor feedback and student responses for the week shown above — kept per week so you can look back.</p>
-        <div id="weeklyComments"></div>
       </div>
     </section>
 
@@ -172,6 +168,16 @@
           <button class="btn btn-ghost" type="submit">➕ Add</button>
         </form>
         <div id="taskList"></div>
+      </div>
+    </section>
+
+    <!-- ===== NOTES & FEEDBACK ===== -->
+    <section class="dash-view hidden" data-view="notes">
+      <div class="card">
+        <h2>💬 Notes &amp; feedback</h2>
+        <p class="note">Tutor feedback and your responses, kept per week so you can look back. Use ◀ ▶ to browse weeks.</p>
+        <div id="notesNav" class="cal-toolbar"></div>
+        <div id="weeklyComments"></div>
       </div>
     </section>
 
