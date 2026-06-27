@@ -1,5 +1,11 @@
 'use strict';
 
+// App timezone: every day/week bucket and the daily goal use SQLite 'localtime',
+// which follows this process's TZ. Railway defaults to UTC, so we pin a default
+// here (overridable by setting the TZ env var on the host). Must run before any
+// date use, including db.js below.
+process.env.TZ = process.env.TZ || 'Asia/Kolkata';
+
 const http = require('http');
 const fs   = require('fs');
 const path = require('path');

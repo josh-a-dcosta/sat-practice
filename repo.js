@@ -822,10 +822,17 @@ const STATUS_LABEL = {
 // Per-day status counts + the practices (rounds touched) that day. Drives the
 // calendar and daily summaries; "full test" days will tag the same way later.
 function getDailyActivity(userId) {
+  // correct/wrong/peeked/timedout count actions; skipped counts DISTINCT
+  // questions (a question skipped repeatedly is one skipped question, not many).
   const dayRows = db.prepare(`
-    SELECT date(occurred_at,'localtime') day, status, COUNT(*) n
+    SELECT date(occurred_at,'localtime') day,
+           SUM(CASE WHEN status='correct'  THEN 1 ELSE 0 END) correct,
+           SUM(CASE WHEN status='wrong'    THEN 1 ELSE 0 END) wrong,
+           SUM(CASE WHEN status='peeked'   THEN 1 ELSE 0 END) peeked,
+           SUM(CASE WHEN status='timedout' THEN 1 ELSE 0 END) timedout,
+           COUNT(DISTINCT CASE WHEN status='skipped' THEN question_id END) skipped
     FROM activity_events WHERE user_id=?
-    GROUP BY day, status
+    GROUP BY day
   `).all(userId);
 
   const practiceRows = db.prepare(`
@@ -835,7 +842,7 @@ function getDailyActivity(userId) {
            SUM(CASE WHEN status='wrong'    THEN 1 ELSE 0 END) wrong,
            SUM(CASE WHEN status='peeked'   THEN 1 ELSE 0 END) peeked,
            SUM(CASE WHEN status='timedout' THEN 1 ELSE 0 END) timedout,
-           SUM(CASE WHEN status='skipped'  THEN 1 ELSE 0 END) skipped
+           COUNT(DISTINCT CASE WHEN status='skipped' THEN question_id END) skipped
     FROM activity_events WHERE user_id=?
     GROUP BY date(occurred_at,'localtime'), session_id
     ORDER BY day, session_id
@@ -845,7 +852,7 @@ function getDailyActivity(userId) {
   const blank = () => ({ correct: 0, wrong: 0, peeked: 0, timedout: 0, skipped: 0 });
   for (const r of dayRows) {
     days[r.day] = days[r.day] || { day: r.day, counts: blank(), practices: [], tags: ['practice'] };
-    days[r.day].counts[r.status] = r.n;
+    days[r.day].counts = { correct: r.correct, wrong: r.wrong, peeked: r.peeked, timedout: r.timedout, skipped: r.skipped };
   }
   for (const p of practiceRows) {
     days[p.day] = days[p.day] || { day: p.day, counts: blank(), practices: [], tags: ['practice'] };
