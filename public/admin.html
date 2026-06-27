@@ -27,9 +27,9 @@
 
     <!-- USERS -->
     <section class="dash-view" data-view="users">
-      <div class="card">
-        <h2>➕ Add a user</h2>
-        <form id="addUserForm" class="filters">
+      <details class="card collapse-card">
+        <summary class="collapse-head"><h2 style="display:inline; margin:0">➕ Add a user</h2></summary>
+        <form id="addUserForm" class="filters" style="margin-top:14px">
           <input class="spr-input" id="nuName" placeholder="Full name" style="min-width:160px" />
           <input class="spr-input" id="nuUser" placeholder="Username" style="min-width:120px" />
           <input class="spr-input" id="nuPass" placeholder="Password" style="min-width:120px" />
@@ -42,7 +42,7 @@
           <label class="rl"><input type="checkbox" class="nuRole" value="admin" /> Admin</label>
           <button class="btn btn-primary" type="submit">Add</button>
         </form>
-      </div>
+      </details>
       <div class="card">
         <h2>Users</h2>
         <p class="note">💡 <b>Show Active Questions</b> (highlighted column): per subject, pick the pool this student practices from — <b>Nonactive</b> (practice-only, the default), <b>Active</b> (real-test), or <b>All</b>. Counts on Home, Dashboard and tests follow this. Saves instantly. <b>Engagement</b> shows their login count and total time answering.</p>
