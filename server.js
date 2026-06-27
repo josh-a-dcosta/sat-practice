@@ -1,10 +1,10 @@
 'use strict';
 
-// App timezone: every day/week bucket and the daily goal use SQLite 'localtime',
-// which follows this process's TZ. Railway defaults to UTC, so we pin a default
-// here (overridable by setting the TZ env var on the host). Must run before any
-// date use, including db.js below.
-process.env.TZ = process.env.TZ || 'Asia/Kolkata';
+// Timestamps are stored in UTC (datetime('now')); the UI presents US Eastern.
+// Day/week buckets and the daily goal use SQLite 'localtime', which follows this
+// process's TZ — so we pin US Eastern here (overridable via the TZ env var on the
+// host). Must run before any date use, including db.js below.
+process.env.TZ = process.env.TZ || 'America/New_York';
 
 const http = require('http');
 const fs   = require('fs');
@@ -415,10 +415,10 @@ async function handleApi(req, res, url) {
       if (req.method === 'GET' && parts[2] === 'visibility' && parts.length === 4) {
         return sendJson(res, 200, { access: repo.getStudentAccess(Number(parts[3])) });
       }
-      // POST /api/admin/visibility/:userId  { domain, includeActive }
+      // POST /api/admin/visibility/:userId  { domain, mode }  (mode: nonactive|active|all)
       if (req.method === 'POST' && parts[2] === 'visibility' && parts.length === 4) {
         const b = await readBody(req);
-        const access = repo.setStudentAccess(Number(parts[3]), String(b.domain || ''), !!b.includeActive);
+        const access = repo.setStudentAccess(Number(parts[3]), String(b.domain || ''), String(b.mode || 'nonactive'));
         return sendJson(res, 200, { access });
       }
 

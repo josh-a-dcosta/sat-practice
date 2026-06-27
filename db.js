@@ -189,6 +189,10 @@ try { db.exec("ALTER TABLE users ADD COLUMN theme TEXT NOT NULL DEFAULT 'gray'")
 try { db.exec('ALTER TABLE sessions ADD COLUMN round INTEGER NOT NULL DEFAULT 1'); } catch (_) { /* already exists */ }
 try { db.exec('ALTER TABLE sessions ADD COLUMN time_limit_seconds INTEGER'); } catch (_) { /* already exists */ }
 try { db.exec('ALTER TABLE sessions ADD COLUMN user_id INTEGER'); } catch (_) { /* already exists */ }
+// Anti-cheat: a signature of this round's question order, so no two rounds for
+// the same section ever share a sequence (see repo.createOrResumeSession).
+try { db.exec('ALTER TABLE sessions ADD COLUMN seq_sig TEXT'); } catch (_) { /* exists */ }
+db.exec('CREATE INDEX IF NOT EXISTS idx_sessions_seq ON sessions(domain, topic, difficulty, seq_sig);');
 try { db.exec('ALTER TABLE attempts ADD COLUMN user_id INTEGER'); } catch (_) { /* already exists */ }
 db.exec('CREATE INDEX IF NOT EXISTS idx_sessions_user ON sessions(user_id);');
 db.exec('CREATE INDEX IF NOT EXISTS idx_attempts_user ON attempts(user_id);');
@@ -205,6 +209,9 @@ try { db.exec('ALTER TABLE users ADD COLUMN full_name TEXT'); } catch (_) { /* e
 // When the student last opened their Notes & feedback — drives the "you have a
 // new note" reminder (a tutor note newer than this is considered unseen).
 try { db.exec('ALTER TABLE users ADD COLUMN notes_seen_at TEXT'); } catch (_) { /* exists */ }
+// Engagement tracking: how many times the user has logged in, and when last.
+try { db.exec('ALTER TABLE users ADD COLUMN login_count INTEGER NOT NULL DEFAULT 0'); } catch (_) { /* exists */ }
+try { db.exec('ALTER TABLE users ADD COLUMN last_login_at TEXT'); } catch (_) { /* exists */ }
 try { db.exec('ALTER TABLE auth_tokens ADD COLUMN active_role TEXT'); } catch (_) { /* exists */ }
 try { db.exec('ALTER TABLE auth_tokens ADD COLUMN active_student_id INTEGER'); } catch (_) { /* exists */ }
 db.exec('CREATE INDEX IF NOT EXISTS idx_user_roles ON user_roles(user_id);');
@@ -223,8 +230,10 @@ try { db.exec('ALTER TABLE questions ADD COLUMN active INTEGER NOT NULL DEFAULT 
 try { db.exec('ALTER TABLE questions ADD COLUMN mask_reviewed INTEGER NOT NULL DEFAULT 0'); } catch (_) { /* exists */ }
 db.exec('CREATE INDEX IF NOT EXISTS idx_q_active ON questions(domain, active);');
 
-// Per-student question visibility: may a student see ACTIVE questions for a
-// subject? No row = no (nonactive only) — the default for every student.
+// Per-student question visibility for a subject: which pool they practice from.
+// mode ∈ nonactive | active | all. No row = 'nonactive' (the default for every
+// student). The legacy include_active column is kept (additive-only migrations):
+// mode is the source of truth; include_active is mirrored for back-compat.
 db.exec(`
 CREATE TABLE IF NOT EXISTS student_active_access (
   user_id        INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
@@ -233,6 +242,10 @@ CREATE TABLE IF NOT EXISTS student_active_access (
   UNIQUE (user_id, domain)
 );
 `);
+// Add the three-way mode and backfill it from the old boolean once.
+let modeAdded = false;
+try { db.exec("ALTER TABLE student_active_access ADD COLUMN mode TEXT NOT NULL DEFAULT 'nonactive'"); modeAdded = true; } catch (_) { /* exists */ }
+if (modeAdded) db.exec("UPDATE student_active_access SET mode = CASE WHEN include_active = 1 THEN 'all' ELSE 'nonactive' END");
 
 // Weekly-report comment thread between a student and their tutor(s), per week.
 db.exec(`
