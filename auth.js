@@ -50,7 +50,8 @@ function studentsOfTutor(tutorId) {
 }
 
 function login(username, password) {
-  const u = db.prepare('SELECT * FROM users WHERE username = ?').get(String(username || '').trim());
+  // Username match is case-insensitive (the password stays case-sensitive).
+  const u = db.prepare('SELECT * FROM users WHERE username = ? COLLATE NOCASE').get(String(username || '').trim());
   if (!u || u.password !== String(password || '')) return null;
   // Engagement: count this login and stamp when it happened (UTC, like all times).
   db.prepare("UPDATE users SET login_count = COALESCE(login_count,0) + 1, last_login_at = datetime('now') WHERE id = ?").run(u.id);
