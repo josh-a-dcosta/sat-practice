@@ -171,8 +171,11 @@ function lineChart(id, labels, datasets, opts) {
       interaction: { intersect: false, mode: 'index' },
       scales: {
         y: { beginAtZero: true, grid: { color: 'rgba(128,128,128,0.12)' }, ...(opts && opts.y) },
-        x: { grid: { display: false } },
+        // offset keeps the first/last points off the axes so day 1 isn't glued
+        // to the y-axis; a touch of left/right layout padding adds breathing room.
+        x: { offset: true, grid: { display: false } },
       },
+      layout: { padding: { left: 6, right: 12 } },
       plugins: { legend: { display: false }, tooltip: { boxPadding: 6 } },
     },
   });
