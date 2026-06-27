@@ -571,14 +571,12 @@ function renderTiles() {
   const readTotal    = cat.filter(c => c.domain === 'reading').reduce((s,c) => s + c.total, 0);
   const readMastered = cat.filter(c => c.domain === 'reading').reduce((s,c) => s + c.mastered, 0);
   const tiles = [
-    { num: o.attempts, lbl: 'Total attempts' },
-    { num: o.correct, lbl: 'Correct' },
+    { num: eng.loginCount, lbl: '🔑 Visits' },
+    { num: fmtDurLong(eng.practiceSeconds), lbl: '⏱ Time practiced' },
     { num: o.accuracy + '%', lbl: 'Overall accuracy' },
     { num: fmtTime(o.avgTime), lbl: 'Avg time / question' },
     { num: `${mathMastered}/${mathTotal}`, lbl: '🔢 Math mastered' },
     { num: `${readMastered}/${readTotal}`, lbl: '📖 Reading mastered' },
-    { num: fmtDurLong(eng.practiceSeconds), lbl: '⏱ Time practiced' },
-    { num: eng.loginCount, lbl: '🔑 Visits' },
   ];
   $('statTiles').innerHTML = tiles.map((t) =>
     `<div class="stat"><div class="num">${t.num}</div><div class="lbl">${t.lbl}</div></div>`).join('');
