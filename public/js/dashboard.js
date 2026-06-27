@@ -204,23 +204,30 @@ function renderWeeklyTrends() {
 }
 
 function renderSkillTrends() {
-  const dsel = $('trendDomain') ? $('trendDomain').value : 'math';
-  const diff = $('trendDiff') ? $('trendDiff').value : 'medium';
-  // Filter by subject + difficulty so legend labels are just the skill name.
-  const rows = (DATA.weeklyBySkill || []).filter((r) => r.domain === dsel && r.difficulty === diff);
+  // Empty = "All". Subject/difficulty filter the skill drill-down.
+  const dsel = $('trendDomain') ? $('trendDomain').value : '';
+  const diff = $('trendDiff') ? $('trendDiff').value : '';
+  const rows = (DATA.weeklyBySkill || []).filter((r) => (!dsel || r.domain === dsel) && (!diff || r.difficulty === diff));
   const weeks = pivotWeeks(rows);
   const labels = weeks.map((w) => weekLabel(w.start));
-  const totals = {};
-  for (const r of rows) { totals[r.skill] = (totals[r.skill] || 0) + r.attempts; }
+  // Aggregate by (skill, week) so "All" correctly merges rows that span
+  // subjects/difficulties instead of picking just one.
+  const totals = {}, agg = {};
+  for (const r of rows) {
+    totals[r.skill] = (totals[r.skill] || 0) + r.attempts;
+    const wk = (agg[r.skill] = agg[r.skill] || {});
+    const a = (wk[r.week] = wk[r.week] || { correct: 0, attempts: 0, timeSum: 0 });
+    a.correct += r.correct; a.attempts += r.attempts; a.timeSum += r.avg_time * r.attempts;
+  }
   const skills = Object.keys(totals).sort((a, b) => totals[b] - totals[a]).slice(0, 8);
   const acc = (c, n) => (n ? Math.round((c / n) * 100) : null);
   const accSets = skills.map((k) => ({ label: k, data: weeks.map((w) => {
-    const r = rows.find((x) => x.week === w.week && x.skill === k); return r ? acc(r.correct, r.attempts) : null;
+    const a = agg[k][w.week]; return a ? acc(a.correct, a.attempts) : null;
   }) }));
   const timeSets = skills.map((k) => ({ label: k, data: weeks.map((w) => {
-    const r = rows.find((x) => x.week === w.week && x.skill === k); return r ? Math.round(r.avg_time) : null;
+    const a = agg[k][w.week]; return a && a.attempts ? Math.round(a.timeSum / a.attempts) : null;
   }) }));
-  const dlabel = (dsel === 'math' ? 'Math' : 'Reading') + ' · ' + (diff === 'hard' ? 'Hard' : 'Medium');
+  const dlabel = (dsel ? (dsel === 'math' ? 'Math' : 'Reading') : 'All subjects') + ' · ' + (diff ? (diff === 'hard' ? 'Hard' : 'Medium') : 'All difficulties');
   $('wkSkillAccH').textContent = `Accuracy by skill — ${dlabel}`;
   $('wkSkillTimeH').textContent = `Avg time by skill — ${dlabel}`;
   if (!skills.length) {

@@ -52,6 +52,8 @@ function studentsOfTutor(tutorId) {
 function login(username, password) {
   const u = db.prepare('SELECT * FROM users WHERE username = ?').get(String(username || '').trim());
   if (!u || u.password !== String(password || '')) return null;
+  // Engagement: count this login and stamp when it happened (UTC, like all times).
+  db.prepare("UPDATE users SET login_count = COALESCE(login_count,0) + 1, last_login_at = datetime('now') WHERE id = ?").run(u.id);
   const token = crypto.randomBytes(24).toString('hex');
   const roles = rolesFor(u.id);
   // One-role users skip the picker; multi-role users choose after login.
@@ -123,7 +125,11 @@ function setActiveContext(token, role, studentId) {
 function err(msg, code) { const e = new Error(msg); e.status = code || 400; return e; }
 
 function listUsers() {
-  const users = db.prepare('SELECT id, username, COALESCE(full_name, username) full_name, theme FROM users ORDER BY full_name').all();
+  const users = db.prepare(`
+    SELECT id, username, COALESCE(full_name, username) full_name, theme,
+           COALESCE(login_count,0) login_count, last_login_at
+    FROM users ORDER BY full_name
+  `).all();
   const rolesByUser = {};
   for (const r of db.prepare('SELECT user_id, role FROM user_roles').all()) {
     (rolesByUser[r.user_id] = rolesByUser[r.user_id] || []).push(r.role);
@@ -133,17 +139,24 @@ function listUsers() {
     (studentsByTutor[r.tutor_id] = studentsByTutor[r.tutor_id] || []).push(r.student_id);
     (tutorsByStudent[r.student_id] = tutorsByStudent[r.student_id] || []).push(r.tutor_id);
   }
-  // Active-question access per student (default: nonactive only, i.e. false).
+  // Per-subject practice pool per student (default: nonactive).
   const accessByUser = {};
-  for (const r of db.prepare('SELECT user_id, domain, include_active FROM student_active_access').all()) {
-    (accessByUser[r.user_id] = accessByUser[r.user_id] || { math: false, reading: false })[r.domain] = !!r.include_active;
+  for (const r of db.prepare('SELECT user_id, domain, mode FROM student_active_access').all()) {
+    (accessByUser[r.user_id] = accessByUser[r.user_id] || { math: 'nonactive', reading: 'nonactive' })[r.domain] = r.mode || 'nonactive';
+  }
+  // Total time spent answering (sum of per-question seconds), for engagement.
+  const timeByUser = {};
+  for (const r of db.prepare('SELECT user_id, COALESCE(SUM(time_taken_seconds),0) secs FROM attempts GROUP BY user_id').all()) {
+    timeByUser[r.user_id] = r.secs;
   }
   return users.map((u) => ({
     id: u.id, username: u.username, fullName: u.full_name, theme: u.theme || 'gray',
     roles: (rolesByUser[u.id] || []).sort(),
     studentIds: studentsByTutor[u.id] || [],
     tutorIds: tutorsByStudent[u.id] || [],
-    activeAccess: accessByUser[u.id] || { math: false, reading: false },
+    activeAccess: accessByUser[u.id] || { math: 'nonactive', reading: 'nonactive' },
+    loginCount: u.login_count, lastLoginAt: u.last_login_at,
+    practiceSeconds: timeByUser[u.id] || 0,
   }));
 }
 

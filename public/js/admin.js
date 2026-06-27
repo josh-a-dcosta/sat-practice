@@ -25,18 +25,23 @@ function renderUsers() {
   tb.innerHTML = USERS.map((u) => {
     const themeOpts = THEMES.map((t) => `<option value="${t}" ${u.theme===t?'selected':''}>${t}</option>`).join('');
     const roleBoxes = ROLES.map((r) => `<label class="rl"><input type="checkbox" class="uRole" value="${r}" ${u.roles.includes(r)?'checked':''}/> ${r}</label>`).join(' ');
-    const acc = u.activeAccess || { math: false, reading: false };
+    const acc = u.activeAccess || { math: 'nonactive', reading: 'nonactive' };
     const isStudent = u.roles.includes('student');
-    // Inline active-question toggles (per domain). Only meaningful for students.
-    const accToggles = isStudent
-      ? `<label class="rl" title="Show on-test (active) Math questions to this student"><input type="checkbox" class="uActive" data-domain="math" ${acc.math?'checked':''}/> 🔢 Math</label>
-         <label class="rl" title="Show on-test (active) Reading questions to this student"><input type="checkbox" class="uActive" data-domain="reading" ${acc.reading?'checked':''}/> 📖 Reading</label>`
-      : '<span class="note">—</span>';
+    // Per-subject practice pool (nonactive | active | all). Only for students.
+    const modeSel = (dom, label) => {
+      const v = acc[dom] || 'nonactive';
+      const opt = (val, txt) => `<option value="${val}" ${v===val?'selected':''}>${txt}</option>`;
+      return `<label class="rl" title="Which ${dom} questions ${esc(u.fullName)} practices">${label}
+        <select class="uActive" data-domain="${dom}" data-prev="${v}">${opt('nonactive','Nonactive')}${opt('active','Active')}${opt('all','All')}</select></label>`;
+    };
+    const accToggles = isStudent ? modeSel('math', '🔢') + modeSel('reading', '📖') : '<span class="note">—</span>';
+    const engagement = `<span class="eng" title="${u.lastLoginAt ? 'Last login: ' + fmtUserDate(u.lastLoginAt) : 'Never logged in'}">🔑 ${u.loginCount || 0}<br>⏱ ${fmtDuration(u.practiceSeconds || 0)}</span>`;
     return `<tr data-id="${u.id}">
       <td><input class="spr-input uName" value="${esc(u.fullName)}" style="min-width:140px"/></td>
       <td><input class="spr-input uUser" value="${esc(u.username)}" style="width:110px"/></td>
       <td class="active-cell">${accToggles}</td>
       <td>${roleBoxes}</td>
+      <td class="eng-cell">${engagement}</td>
       <td style="text-align:center"><button class="btn btn-ghost uTimers icon-btn" type="button" title="Edit per-question timers">⏱️</button></td>
       <td><select class="uTheme">${themeOpts}</select></td>
       <td><input class="spr-input uPass" type="text" placeholder="(unchanged)" style="width:120px"/></td>
@@ -74,16 +79,33 @@ $('usersTable').addEventListener('click', async (e) => {
   } catch (err) { showToast(err.message); }
 });
 
-// Inline active-question toggles — save immediately on change.
+// Per-subject practice-pool dropdowns — save immediately on change.
 $('usersTable').addEventListener('change', async (e) => {
   const c = e.target.closest('.uActive'); if (!c) return;
   const row = e.target.closest('tr[data-id]'); if (!row) return;
   const id = Number(row.dataset.id);
+  const prev = c.dataset.prev || 'nonactive';
   try {
-    await api('POST', `/api/admin/visibility/${id}`, { domain: c.dataset.domain, includeActive: c.checked });
-    showToast(`Active ${c.dataset.domain} ${c.checked ? 'enabled' : 'disabled'} ✓`);
-  } catch (err) { showToast(err.message); c.checked = !c.checked; }
+    await api('POST', `/api/admin/visibility/${id}`, { domain: c.dataset.domain, mode: c.value });
+    c.dataset.prev = c.value;
+    showToast(`${c.dataset.domain}: ${c.value} questions ✓`);
+  } catch (err) { showToast(err.message); c.value = prev; }
 });
+
+// ---- small formatters for engagement stats -------------------------------
+function fmtDuration(secs) {
+  secs = Math.round(secs || 0);
+  const h = Math.floor(secs / 3600), m = Math.floor((secs % 3600) / 60);
+  if (h) return `${h}h ${m}m`;
+  if (m) return `${m}m`;
+  return `${secs}s`;
+}
+function fmtUserDate(s) {
+  if (!s) return '';
+  // Stored UTC ("YYYY-MM-DD HH:MM:SS"); show in the viewer's local (US East) time.
+  const d = new Date(s.replace(' ', 'T') + 'Z');
+  return isNaN(d) ? s : d.toLocaleString('en-US', { dateStyle: 'medium', timeStyle: 'short' });
+}
 
 $('addUserForm').addEventListener('submit', async (e) => {
   e.preventDefault();

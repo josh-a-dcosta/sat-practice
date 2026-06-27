@@ -1,5 +1,6 @@
 'use strict';
 
+const crypto = require('crypto');
 const { db } = require('./db');
 const { TAXONOMY, isValidTopic, isValidDifficulty, domainOfTopic, topicLabel } = require('./topics');
 
@@ -114,19 +115,25 @@ function clearGlobalSetting(topic, difficulty, tier) {
 // ---------------------------------------------------------------------------
 // Active/nonactive visibility (admin sets per student, per subject)
 // ---------------------------------------------------------------------------
+const VIS_MODES = ['nonactive', 'active', 'all'];
+
+// Per-subject practice pool for a student: nonactive | active | all.
+// No row = 'nonactive' (the default for every student).
 function getStudentAccess(userId) {
-  const out = { math: false, reading: false };
-  for (const r of db.prepare('SELECT domain, include_active FROM student_active_access WHERE user_id=?').all(userId)) {
-    out[r.domain] = !!r.include_active;
+  const out = { math: 'nonactive', reading: 'nonactive' };
+  for (const r of db.prepare('SELECT domain, mode FROM student_active_access WHERE user_id=?').all(userId)) {
+    if (out[r.domain] !== undefined) out[r.domain] = r.mode || 'nonactive';
   }
   return out;
 }
-function setStudentAccess(userId, domain, includeActive) {
+function setStudentAccess(userId, domain, mode) {
   if (domain !== 'math' && domain !== 'reading') { const e = new Error('Invalid subject'); e.status = 400; throw e; }
+  if (!VIS_MODES.includes(mode)) { const e = new Error('Invalid mode'); e.status = 400; throw e; }
+  const includeActive = mode === 'all' ? 1 : 0;  // keep legacy column coherent
   db.prepare(`
-    INSERT INTO student_active_access (user_id, domain, include_active) VALUES (?,?,?)
-    ON CONFLICT(user_id, domain) DO UPDATE SET include_active = excluded.include_active
-  `).run(userId, domain, includeActive ? 1 : 0);
+    INSERT INTO student_active_access (user_id, domain, mode, include_active) VALUES (?,?,?,?)
+    ON CONFLICT(user_id, domain) DO UPDATE SET mode = excluded.mode, include_active = excluded.include_active
+  `).run(userId, domain, mode, includeActive);
   return getStudentAccess(userId);
 }
 
@@ -176,16 +183,30 @@ function clearMaskReview(filters) {
   return { cleared: info.changes };
 }
 
-// Whether a student may see ACTIVE questions for a subject (default: no).
-function includeActiveFor(userId, domain) {
-  const r = db.prepare('SELECT include_active FROM student_active_access WHERE user_id=? AND domain=?').get(userId, domain);
-  return !!(r && r.include_active);
+// The student's practice pool for a subject: nonactive | active | all.
+function visibilityMode(userId, domain) {
+  const r = db.prepare('SELECT mode FROM student_active_access WHERE user_id=? AND domain=?').get(userId, domain);
+  return (r && r.mode) || 'nonactive';
+}
+// SQL fragment that restricts `active` for a single-domain query.
+function activeClause(mode) {
+  return mode === 'active' ? ' AND active=1' : mode === 'all' ? '' : ' AND active=0';
+}
+// A bare condition on q.active for a given mode (used in multi-domain CASE/OR).
+function activeCond(mode) {
+  return mode === 'active' ? 'q.active=1' : mode === 'all' ? '1=1' : 'q.active=0';
+}
+// Multi-domain WHERE: each subject filtered by that student's own mode. Returns
+// a clause like "((q.domain='math' AND q.active=0) OR (q.domain='reading' AND 1=1))".
+function visibilityWhere(userId) {
+  const m = visibilityMode(userId, 'math'), r = visibilityMode(userId, 'reading');
+  return `((q.domain='math' AND ${activeCond(m)}) OR (q.domain='reading' AND ${activeCond(r)}))`;
 }
 
-// A student sees nonactive questions always; active ones only if enabled for
-// that subject. Counts/selection respect this so practice and progress match.
+// Counts/selection respect the student's per-subject pool so practice and
+// progress always match what they can actually attempt.
 function totalQuestions(userId, domain, topic, difficulty) {
-  const visible = includeActiveFor(userId, domain) ? '' : ' AND active=0';
+  const visible = activeClause(visibilityMode(userId, domain));
   return db.prepare(`SELECT COUNT(*) n FROM questions WHERE domain=? AND topic=? AND difficulty=?${visible}`)
     .get(domain, topic, difficulty).n;
 }
@@ -310,28 +331,23 @@ function sprIsCorrect(selected, acceptableJson) {
 // catalogue: what's available per topic+difficulty
 // ---------------------------------------------------------------------------
 function getCatalogue(userId) {
-  // Count only the questions this student can actually see (nonactive always;
-  // active only where enabled for the subject).
+  // Count only the questions in this student's per-subject pool (nonactive /
+  // active / all, set by an admin).
+  const vis = visibilityWhere(userId);
   const counts = db.prepare(`
     SELECT q.domain, q.topic, q.difficulty, COUNT(*) total FROM questions q
-    WHERE q.active = 0 OR EXISTS (
-      SELECT 1 FROM student_active_access sa
-      WHERE sa.user_id = ? AND sa.domain = q.domain AND sa.include_active = 1)
+    WHERE ${vis}
     GROUP BY q.domain, q.topic, q.difficulty
-  `).all(userId);
+  `).all();
 
   // Mastered counts only questions the student can actually attempt, matching
-  // the total above (so an active question they can no longer see never inflates
-  // the count).
+  // the total above (so a question outside their pool never inflates the count).
   const mastered = db.prepare(`
     SELECT q.domain, q.topic, q.difficulty, COUNT(DISTINCT a.question_id) n
     FROM attempts a JOIN questions q ON q.id = a.question_id
-    WHERE a.is_correct = 1 AND a.user_id = ?
-      AND (q.active = 0 OR EXISTS (
-        SELECT 1 FROM student_active_access sa
-        WHERE sa.user_id = ? AND sa.domain = q.domain AND sa.include_active = 1))
+    WHERE a.is_correct = 1 AND a.user_id = ? AND ${vis}
     GROUP BY q.domain, q.topic, q.difficulty
-  `).all(userId, userId);
+  `).all(userId);
 
   const masteredMap = {};
   for (const r of mastered) masteredMap[`${r.domain}|${r.topic}|${r.difficulty}`] = r.n;
@@ -369,10 +385,8 @@ function getCatalogue(userId) {
 function getSkillCatalogue(userId) {
   const rows = db.prepare(`
     SELECT q.id, q.domain, q.topic, q.difficulty, COALESCE(q.skill,'(unspecified)') skill FROM questions q
-    WHERE q.active = 0 OR EXISTS (
-      SELECT 1 FROM student_active_access sa
-      WHERE sa.user_id = ? AND sa.domain = q.domain AND sa.include_active = 1)
-  `).all(userId);
+    WHERE ${visibilityWhere(userId)}
+  `).all();
   const mastered = new Set(db.prepare('SELECT DISTINCT question_id id FROM attempts WHERE user_id=? AND is_correct=1').all(userId).map((r) => r.id));
   const attempted = new Set(db.prepare('SELECT DISTINCT question_id id FROM attempts WHERE user_id=?').all(userId).map((r) => r.id));
   const map = {};
@@ -414,7 +428,7 @@ function getTodayProgress(userId) {
 // A round is a full pass through the whole section, so a fresh round seeds ALL
 // of the section's questions, shuffled (so no two users get the same order).
 function selectQuestions(userId, domain, topic, difficulty) {
-  const visible = includeActiveFor(userId, domain) ? '' : ' AND active=0';
+  const visible = activeClause(visibilityMode(userId, domain));
   const all = db.prepare(
     `SELECT id FROM questions WHERE domain=? AND topic=? AND difficulty=?${visible}`
   ).all(domain, topic, difficulty).map((r) => r.id);
@@ -451,10 +465,21 @@ function createOrResumeSession(userId, domain, topic, difficulty, opts = {}) {
   }
 
   const round = nextRoundNumber(userId, domain, topic, difficulty);
-  const ids = selectQuestions(userId, domain, topic, difficulty);
+  // Anti-cheat: pick a question order whose signature no round of this section
+  // (any user, any round) has used before, so no two test-takers — and no two
+  // rounds — ever get the same sequence. Reshuffle until unique (or the pool is
+  // too small for another permutation, in which case we accept after a cap).
+  let ids = selectQuestions(userId, domain, topic, difficulty);
   if (!ids.length) {
     const e = new Error(`No questions available for ${topicLabel(topic)} ${difficulty}. Upload questions for this section.`);
     e.status = 409; throw e;
+  }
+  const seqUsed = db.prepare('SELECT 1 FROM sessions WHERE domain=? AND topic=? AND difficulty=? AND seq_sig=? LIMIT 1');
+  const sigOf = (arr) => crypto.createHash('sha1').update(arr.join(',')).digest('hex');
+  let sig = sigOf(ids);
+  for (let tries = 0; tries < 50 && seqUsed.get(domain, topic, difficulty, sig); tries++) {
+    ids = shuffle(ids);
+    sig = sigOf(ids);
   }
 
   // Base default from settings (user → global → 10 min); a per-start override
@@ -466,8 +491,8 @@ function createOrResumeSession(userId, domain, topic, difficulty, opts = {}) {
   db.exec('BEGIN');
   try {
     const info = db.prepare(
-      'INSERT INTO sessions (user_id, domain, topic, difficulty, round, time_limit_seconds) VALUES (?,?,?,?,?,?)'
-    ).run(userId, domain, topic, difficulty, round, tl);
+      'INSERT INTO sessions (user_id, domain, topic, difficulty, round, time_limit_seconds, seq_sig) VALUES (?,?,?,?,?,?,?)'
+    ).run(userId, domain, topic, difficulty, round, tl, sig);
     const sid = Number(info.lastInsertRowid);
     const ins = db.prepare('INSERT INTO session_questions (session_id,question_id,position) VALUES (?,?,?)');
     ids.forEach((qid, i) => ins.run(sid, qid, i + 1));
