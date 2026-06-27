@@ -984,6 +984,14 @@ function markNotesSeen(studentId) {
   return { ok: true };
 }
 
+// Engagement for one user: total logins, last login (UTC), and total time spent
+// answering questions (sum of per-attempt seconds).
+function userEngagement(userId) {
+  const u = db.prepare('SELECT COALESCE(login_count,0) login_count, last_login_at FROM users WHERE id=?').get(userId) || {};
+  const t = db.prepare('SELECT COALESCE(SUM(time_taken_seconds),0) secs FROM attempts WHERE user_id=?').get(userId);
+  return { loginCount: u.login_count || 0, lastLoginAt: u.last_login_at || null, practiceSeconds: (t && t.secs) || 0 };
+}
+
 function addWeeklyComment(studentId, week, authorId, authorRole, text) {
   text = String(text || '').trim();
   if (!String(week || '')) { const e = new Error('Week is required.'); e.status = 400; throw e; }
@@ -1126,6 +1134,7 @@ function getDashboard(userId) {
   return {
     today: getTodayProgress(userId),
     catalogue,
+    engagement: userEngagement(userId),
     overall: {
       attempts: overall.attempts || 0,
       correct: overall.correct || 0,
@@ -1307,7 +1316,7 @@ module.exports = {
   submitAnswer, peekQuestion, timeoutQuestion, skipQuestion, completeSession,
   getDashboard, getAttemptReview, getQuestionReview,
   getDailyActivity, getDailySummaries, getSkillFocus, getActivityFeed,
-  listWeeklyComments, addWeeklyComment, unseenNotes, markNotesSeen,
+  listWeeklyComments, addWeeklyComment, unseenNotes, markNotesSeen, userEngagement,
   listTasks, addTask, setTaskStatus, deleteTask, generatePlan,
   resolveTimer, settingsGrid, setUserSetting, clearUserSetting,
   setGlobalSetting, clearGlobalSetting,
