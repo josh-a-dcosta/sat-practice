@@ -352,6 +352,11 @@ th.active-col { color: var(--pink-700); }
 .active-cell .rl { display: flex; align-items: center; gap: 5px; margin: 2px 0; font-size: 0.9rem; font-weight: 700; }
 .active-cell .uActive { padding: 5px 8px; border-radius: 8px; border: 2px solid var(--pink-200); background: var(--white); color: var(--ink); font-weight: 700; cursor: pointer; }
 .eng-cell { white-space: nowrap; font-size: 0.82rem; font-weight: 800; color: var(--muted); text-align: center; line-height: 1.5; }
+/* Collapsible card (e.g. "Add a user") — collapsed by default via <details> */
+.collapse-card > .collapse-head { cursor: pointer; list-style: none; display: flex; align-items: center; gap: 8px; }
+.collapse-card > .collapse-head::-webkit-details-marker { display: none; }
+.collapse-card > .collapse-head::before { content: '▸'; color: var(--pink-500); font-weight: 900; transition: transform .15s; }
+.collapse-card[open] > .collapse-head::before { transform: rotate(90deg); }
 /* Timers icon button (its own column) */
 #usersTable .icon-btn { font-size: 1.2rem; padding: 6px 12px; line-height: 1; }
 /* Theme picker — sized like the Filters selects */
