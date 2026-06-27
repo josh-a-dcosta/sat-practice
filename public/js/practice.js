@@ -104,11 +104,11 @@ async function loadState() {
   const domainEmoji = state.domain === 'math' ? '🔢' : '📖';
   $('sectionLabel').textContent = `${domainEmoji} ${state.topicName || titleCase(state.topic)}`;
   renderMap();
+  updateFinish();   // reflect round completion in both live and review modes
   if (state.status === 'completed') {
     enterReviewUI();
     pos = firstWrong() || state.currentPosition || 1;
   } else {
-    updateFinish();
     pos = state.currentPosition || 1;
   }
   await loadQuestion(pos);
