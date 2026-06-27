@@ -393,7 +393,7 @@ function getTodayProgress(userId) {
     SELECT domain, COUNT(*) n
     FROM activity_events
     WHERE user_id = ? AND status != 'skipped'
-      AND date(occurred_at) = date('now','localtime')
+      AND date(occurred_at,'localtime') = date('now','localtime')
     GROUP BY domain
   `).all(userId);
   let mathToday = 0, readingToday = 0;
@@ -1020,9 +1020,9 @@ function getDashboard(userId) {
   `).get(userId);
 
   const byDay = db.prepare(`
-    SELECT date(answered_at) day, COUNT(*) total,
+    SELECT date(answered_at,'localtime') day, COUNT(*) total,
            SUM(is_correct) correct, SUM(CASE WHEN is_correct=0 THEN 1 ELSE 0 END) wrong
-    FROM attempts WHERE user_id=? GROUP BY date(answered_at) ORDER BY day
+    FROM attempts WHERE user_id=? GROUP BY date(answered_at,'localtime') ORDER BY day
   `).all(userId);
 
   const byTopic = db.prepare(`
@@ -1069,7 +1069,7 @@ function getDashboard(userId) {
 
   // Weekly trends (week = ISO %Y-%W) for accuracy + timing, by domain and skill.
   const weeklyByDomain = db.prepare(`
-    SELECT strftime('%Y-%W', a.answered_at) week, MIN(date(a.answered_at)) week_start,
+    SELECT strftime('%Y-%W', a.answered_at, 'localtime') week, MIN(date(a.answered_at,'localtime')) week_start,
            q.domain, COUNT(*) attempts, SUM(a.is_correct) correct,
            COALESCE(AVG(a.time_taken_seconds),0) avg_time
     FROM attempts a JOIN questions q ON q.id=a.question_id
@@ -1078,7 +1078,7 @@ function getDashboard(userId) {
   `).all(userId);
 
   const weeklyBySkill = db.prepare(`
-    SELECT strftime('%Y-%W', a.answered_at) week, MIN(date(a.answered_at)) week_start,
+    SELECT strftime('%Y-%W', a.answered_at, 'localtime') week, MIN(date(a.answered_at,'localtime')) week_start,
            q.domain, q.topic, q.difficulty, COALESCE(q.skill,'(unspecified)') skill,
            COUNT(*) attempts, SUM(a.is_correct) correct,
            SUM(a.over_limit) over_limit, SUM(a.peeked) peeked,
