@@ -565,6 +565,7 @@ function renderSkills() {
 function renderTiles() {
   const o = DATA.overall;
   const cat = DATA.catalogue || [];
+  const eng = DATA.engagement || { loginCount: 0, practiceSeconds: 0 };
   const mathTotal    = cat.filter(c => c.domain === 'math').reduce((s,c) => s + c.total, 0);
   const mathMastered = cat.filter(c => c.domain === 'math').reduce((s,c) => s + c.mastered, 0);
   const readTotal    = cat.filter(c => c.domain === 'reading').reduce((s,c) => s + c.total, 0);
@@ -576,9 +577,20 @@ function renderTiles() {
     { num: fmtTime(o.avgTime), lbl: 'Avg time / question' },
     { num: `${mathMastered}/${mathTotal}`, lbl: '🔢 Math mastered' },
     { num: `${readMastered}/${readTotal}`, lbl: '📖 Reading mastered' },
+    { num: fmtDurLong(eng.practiceSeconds), lbl: '⏱ Time practiced' },
+    { num: eng.loginCount, lbl: '🔑 Visits' },
   ];
   $('statTiles').innerHTML = tiles.map((t) =>
     `<div class="stat"><div class="num">${t.num}</div><div class="lbl">${t.lbl}</div></div>`).join('');
+}
+
+// Total practice time reads as "3h 47m" / "47m" / "30s".
+function fmtDurLong(secs) {
+  secs = Math.round(secs || 0);
+  const h = Math.floor(secs / 3600), m = Math.floor((secs % 3600) / 60);
+  if (h) return `${h}h ${m}m`;
+  if (m) return `${m}m`;
+  return `${secs}s`;
 }
 
 let charts = {};
