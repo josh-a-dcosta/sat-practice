@@ -63,10 +63,11 @@ function diffLabel(d, withEmoji = true) {
 function diffEmoji(d) { return (DIFFICULTY[d] || {}).emoji || ''; }
 
 // ----- Subjects (domains) -----
-// DB/API use 'math'/'reading'; `name` is the full label, `short` fits charts.
+// DB/API use 'math'/'reading'; `name` is the full label, `short` fits charts,
+// `color` is the trend-chart series color.
 const SUBJECTS = {
-  math:    { name: 'Math', short: 'Math', emoji: '🔢' },
-  reading: { name: 'Reading & Writing', short: 'Reading', emoji: '📖' },
+  math:    { name: 'Math', short: 'Math', emoji: '🔢', color: '#ff4d94' },
+  reading: { name: 'Reading & Writing', short: 'Reading', emoji: '📖', color: '#7c3aed' },
 };
 const SUBJECT_KEYS = ['math', 'reading'];
 function subjectLabel(d, withEmoji = true) {
@@ -78,14 +79,34 @@ function subjectShort(d, withEmoji = true) {
   return (withEmoji ? `${x.emoji} ${x.short}` : x.short).trim();
 }
 function subjectEmoji(d) { return (SUBJECTS[d] || {}).emoji || ''; }
+function subjectColor(d) { return (SUBJECTS[d] || {}).color || '#888'; }
 
-// Relabel static <option>s (difficulty + subject) from the maps above, so every
-// dropdown stays in sync with one source of truth — no per-page hardcoding.
+// ----- Resolution statuses -----  (DB values fixed; one source for labels)
+const STATUS = {
+  correct:  { label: 'Correct',   emoji: '✅' },
+  wrong:    { label: 'Wrong',     emoji: '❌' },
+  peeked:   { label: 'Peeked',    emoji: '👀' },
+  timedout: { label: 'Over time', emoji: '⏰' },
+  skipped:  { label: 'Skipped',   emoji: '⏭' },
+};
+const STATUS_KEYS = ['correct', 'wrong', 'peeked', 'timedout', 'skipped'];
+function statusLabel(s, withEmoji = true) {
+  const x = STATUS[s] || { label: s || '', emoji: '' };
+  return (withEmoji ? `${x.emoji} ${x.label}` : x.label).trim();
+}
+function statusEmoji(s) { return (STATUS[s] || {}).emoji || ''; }
+
+// ----- Themes & roles -----  (single source for dropdowns/checkboxes)
+const THEME_KEYS = ['gray', 'pink', 'blue', 'green', 'yellow'];
+const ROLE_KEYS  = ['student', 'tutor', 'admin'];
+
+// Relabel static <option>s (difficulty + subject + status) from the maps above,
+// so every dropdown stays in sync with one source of truth — no per-page
+// hardcoding. Empty options in the HTML get filled here.
 function syncSelectLabels(root = document) {
-  root.querySelectorAll('option[value="medium"]').forEach((o) => { o.textContent = diffLabel('medium'); });
-  root.querySelectorAll('option[value="hard"]').forEach((o) => { o.textContent = diffLabel('hard'); });
-  root.querySelectorAll('option[value="math"]').forEach((o) => { o.textContent = subjectLabel('math'); });
-  root.querySelectorAll('option[value="reading"]').forEach((o) => { o.textContent = subjectLabel('reading'); });
+  ['medium', 'hard'].forEach((d) => root.querySelectorAll(`option[value="${d}"]`).forEach((o) => { o.textContent = diffLabel(d); }));
+  SUBJECT_KEYS.forEach((d) => root.querySelectorAll(`option[value="${d}"]`).forEach((o) => { o.textContent = subjectLabel(d); }));
+  STATUS_KEYS.forEach((s) => root.querySelectorAll(`option[value="${s}"]`).forEach((o) => { o.textContent = statusLabel(s); }));
 }
 document.addEventListener('DOMContentLoaded', () => syncSelectLabels());
 
