@@ -5,7 +5,6 @@ const { db } = require('./db');
 const { TAXONOMY, isValidTopic, isValidDifficulty, domainOfTopic, topicLabel } = require('./topics');
 
 const SESSION_SIZE = 40;
-const DAILY_GOAL   = 40;
 const TIME_LIMIT   = 600; // legacy default (10 min)
 const TIME_LIMITS  = { medium: 600, hard: 600 }; // 10:00 per question
 const SESSION_MINUTES = 90;
@@ -398,28 +397,6 @@ function getSkillCatalogue(userId) {
     if (attempted.has(q.id)) map[k].attempted++;
   }
   return Object.values(map);
-}
-
-function getTodayProgress(userId) {
-  // A question resolved today (correct/wrong/peeked/timedout) counts toward the
-  // daily goal; skips don't (they're deferred, not done).
-  const rows = db.prepare(`
-    SELECT domain, COUNT(*) n
-    FROM activity_events
-    WHERE user_id = ? AND status != 'skipped'
-      AND date(occurred_at,'localtime') = date('now','localtime')
-    GROUP BY domain
-  `).all(userId);
-  let mathToday = 0, readingToday = 0;
-  for (const r of rows) { if (r.domain === 'math') mathToday = r.n; else if (r.domain === 'reading') readingToday = r.n; }
-  const perDomain = DAILY_GOAL; // 40 math + 40 reading on practice days
-  const answeredToday = mathToday + readingToday;
-  return {
-    answeredToday, mathToday, readingToday,
-    goalPerDomain: perDomain, goal: perDomain * 2,
-    mathMet: mathToday >= perDomain, readingMet: readingToday >= perDomain,
-    met: mathToday >= perDomain && readingToday >= perDomain,
-  };
 }
 
 // ---------------------------------------------------------------------------
@@ -1132,7 +1109,6 @@ function getDashboard(userId) {
   const dailyActivity = getDailyActivity(userId);
 
   return {
-    today: getTodayProgress(userId),
     catalogue,
     engagement: userEngagement(userId),
     overall: {
@@ -1309,8 +1285,8 @@ function reopenBugReport(id) {
 }
 
 module.exports = {
-  SESSION_SIZE, DAILY_GOAL, TIME_LIMIT, TIME_LIMITS, SESSION_MINUTES, timeLimitFor,
-  getCatalogue, getSkillCatalogue, getTodayProgress, listActiveSessions, sectionRounds,
+  SESSION_SIZE, TIME_LIMIT, TIME_LIMITS, SESSION_MINUTES, timeLimitFor,
+  getCatalogue, getSkillCatalogue, listActiveSessions, sectionRounds,
   createOrResumeSession, getSessionState,
   getQuestionAt, setCurrentPosition, saveProgress,
   submitAnswer, peekQuestion, timeoutQuestion, skipQuestion, completeSession,

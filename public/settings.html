@@ -17,7 +17,7 @@
   <div class="container">
     <div class="card">
       <h1 style="margin-top:0">⚙️ My timer settings</h1>
-      <p class="note">How long you get per question, by section · difficulty · round. Blank/default is <b>10 minutes</b>. These are <i>your</i> defaults — you can still tweak the timer when you start any round.</p>
+      <p class="note">How long you get per question, by section · mode · round. Blank/default is <b>10 minutes</b>. These are <i>your</i> defaults — you can still tweak the timer when you start any round.</p>
     </div>
     <div id="settingsBody"><div class="spinner">Loading…</div></div>
   </div>
@@ -56,7 +56,7 @@
         if (!topics.length) continue;
         html += `<div class="card"><h2>${sub.label}</h2>
           <div style="overflow-x:auto"><table class="data set-table">
-          <thead><tr><th>Section</th><th>Difficulty</th><th>Round 1</th><th>Round 2+</th></tr></thead><tbody>`;
+          <thead><tr><th>Section</th><th>Mode</th><th>Round 1</th><th>Round 2+</th></tr></thead><tbody>`;
         for (const t of topics) {
           for (const diff of ['medium','hard']) {
             const c1 = cell(t.topic, diff, 1), c2 = cell(t.topic, diff, 2);

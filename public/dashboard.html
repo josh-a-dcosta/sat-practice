@@ -73,16 +73,16 @@
                 <option value="reading"></option>
               </select>
             </label>
-            <label class="trend-filter">Difficulty
+            <label class="trend-filter">Mode
               <select id="trendDiff">
-                <option value="">🎚️ All difficulties</option>
+                <option value="">🎚️ All modes</option>
                 <option value="medium"></option>
                 <option value="hard"></option>
               </select>
             </label>
           </div>
         </div>
-        <p class="note">Accuracy and time per week. Top charts are by subject — pick a subject &amp; difficulty to see its skills below.</p>
+        <p class="note">Accuracy and time per week. Top charts are by subject — pick a subject &amp; mode to see its skills below.</p>
         <div class="dash-grid">
           <div><h3 class="mini-h">Accuracy by subject</h3><div class="chart-box"><canvas id="wkDomainAcc"></canvas></div><div class="chart-legend" id="wkDomainAccLegend"></div></div>
           <div><h3 class="mini-h">Avg time by subject</h3><div class="chart-box"><canvas id="wkDomainTime"></canvas></div><div class="chart-legend" id="wkDomainTimeLegend"></div></div>
@@ -125,7 +125,7 @@
           <label>Skill
             <select id="fSkill"><option value="">All</option></select>
           </label>
-          <label>Difficulty
+          <label>Mode
             <select id="fDifficulty">
               <option value="">All</option>
               <option value="medium"></option>
@@ -150,7 +150,7 @@
         <div style="overflow-x:auto">
           <table class="data" id="attemptsTable">
             <thead><tr>
-              <th>Date</th><th>Round</th><th>Domain</th><th>Skill</th><th>Difficulty</th><th>Question</th><th>Answer</th><th>Correct</th><th>Status</th><th>Time</th>
+              <th>Date</th><th>Round</th><th>Domain</th><th>Skill</th><th>Mode</th><th>Question</th><th>Answer</th><th>Correct</th><th>Status</th><th>Time</th>
             </tr></thead>
             <tbody></tbody>
           </table>

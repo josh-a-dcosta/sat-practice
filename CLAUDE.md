@@ -156,7 +156,6 @@ production has live data on the `/data` volume.
 - **Mastery:** a question is "mastered" if answered correctly at least once (ever).
   **Skills-to-focus** instead uses the **grand current state** — each question's
   *latest* result across all rounds (`getSkillFocus`).
-- **Daily goal:** 40 Math + 40 Reading per practice day (Mon/Tue/Thu/Fri).
 
 ## PDF import pipeline
 
