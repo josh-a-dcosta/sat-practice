@@ -62,6 +62,15 @@ function diffLabel(d, withEmoji = true) {
 }
 function diffEmoji(d) { return (DIFFICULTY[d] || {}).emoji || ''; }
 
+// Relabel any difficulty <option> (value medium/hard) from the names above, so
+// static dropdowns stay in sync with one source of truth — no per-page edits
+// needed when the names change. Keeps each option's "All" siblings untouched.
+function syncDifficultyOptions(root = document) {
+  root.querySelectorAll('option[value="medium"]').forEach((o) => { o.textContent = diffLabel('medium'); });
+  root.querySelectorAll('option[value="hard"]').forEach((o) => { o.textContent = diffLabel('hard'); });
+}
+document.addEventListener('DOMContentLoaded', () => syncDifficultyOptions());
+
 // ----- Theme (accent color) + light/dark mode -----
 const THEME_ICON = { pink: '🏆', blue: '⚽', gray: '🎓', green: '🌿', yellow: '🌟' };
 
