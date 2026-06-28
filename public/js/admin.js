@@ -3,8 +3,18 @@ const $ = (id) => document.getElementById(id);
 function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 
 let USERS = [];
-const THEMES = ['gray', 'pink', 'blue', 'green', 'yellow'];
-const ROLES = ['student', 'tutor', 'admin'];
+const THEMES = THEME_KEYS;   // from common.js — single source
+const ROLES = ROLE_KEYS;
+const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+
+// Fill the Add-user form's theme dropdown + role checkboxes from the shared
+// lists (no hardcoded options in the HTML).
+function initAddUserForm() {
+  const th = $('nuTheme');
+  if (th) th.innerHTML = THEMES.map((t) => `<option value="${t}">${cap(t)}</option>`).join('');
+  const rl = $('nuRoles');
+  if (rl) rl.innerHTML = ROLES.map((r) => `<label class="rl"><input type="checkbox" class="nuRole" value="${r}" ${r === 'student' ? 'checked' : ''}/> ${cap(r)}</label>`).join(' ');
+}
 const SUBJECTS = SUBJECT_KEYS.map(k => ({ key: k, label: subjectLabel(k) }));
 
 function showView(name) {
@@ -419,6 +429,7 @@ document.querySelectorAll('#bugTabs .subtab').forEach((t) => {
 
 // ---- init ----
 (async function init() {
+  initAddUserForm();
   try { await refreshUsers(); showView('users'); }
   catch (e) { document.querySelector('.container').innerHTML = `<div class="card"><p class="note">Could not load admin: ${esc(e.message)}</p></div>`; }
 })();

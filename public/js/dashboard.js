@@ -190,7 +190,7 @@ function renderWeeklyTrends() {
 
   // Domain-level. Pin colors so Reading is a vivid violet — not a theme accent
   // (no purple theme) and clearly distinct from Math's magenta.
-  const domains = [['math', subjectShort('math'), '#ff4d94'], ['reading', subjectShort('reading'), '#7c3aed']];
+  const domains = [['math', subjectShort('math'), subjectColor('math')], ['reading', subjectShort('reading'), subjectColor('reading')]];
   const accSets = domains.map(([d, lbl, color]) => ({ label: lbl, color, data: weeks.map((w) => {
     const r = dom.find((x) => x.week === w.week && x.domain === d); return r ? acc(r.correct, r.attempts) : null;
   }) }));
