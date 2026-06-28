@@ -5,7 +5,7 @@ function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'
 let USERS = [];
 const THEMES = ['gray', 'pink', 'blue', 'green', 'yellow'];
 const ROLES = ['student', 'tutor', 'admin'];
-const SUBJECTS = [{ key:'math', label:'🔢 Math' }, { key:'reading', label:'📖 Reading & Writing' }];
+const SUBJECTS = SUBJECT_KEYS.map(k => ({ key: k, label: subjectLabel(k) }));
 
 function showView(name) {
   document.querySelectorAll('.dash-view').forEach((v) => v.classList.toggle('hidden', v.dataset.view !== name));
@@ -34,7 +34,7 @@ function renderUsers() {
       return `<label class="rl" title="Which ${dom} questions ${esc(u.fullName)} practices">${label}
         <select class="uActive" data-domain="${dom}" data-prev="${v}">${opt('nonactive','Nonactive')}${opt('active','Active')}${opt('all','All')}</select></label>`;
     };
-    const accToggles = isStudent ? modeSel('math', '🔢') + modeSel('reading', '📖') : '<span class="note">—</span>';
+    const accToggles = isStudent ? modeSel('math', subjectEmoji('math')) + modeSel('reading', subjectEmoji('reading')) : '<span class="note">—</span>';
     const engagement = `<span class="eng" title="${u.lastLoginAt ? 'Last login: ' + fmtUserDate(u.lastLoginAt) : 'Never logged in'}">🔑 ${u.loginCount || 0}<br>⏱ ${fmtDuration(u.practiceSeconds || 0)}</span>`;
     return `<tr data-id="${u.id}">
       <td><input class="spr-input uName" value="${esc(u.fullName)}" style="min-width:140px"/></td>

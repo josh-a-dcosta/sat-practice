@@ -101,7 +101,7 @@ function saveProgress() {
 // ---------- load ----------
 async function loadState() {
   state = await api('GET', `/api/sessions/${sessionId}`);
-  const domainEmoji = state.domain === 'math' ? '🔢' : '📖';
+  const domainEmoji = subjectEmoji(state.domain);
   $('sectionLabel').textContent = `${domainEmoji} ${state.topicName || titleCase(state.topic)}`;
   renderMap();
   updateFinish();   // reflect round completion in both live and review modes
