@@ -163,11 +163,16 @@
         panel.className = 'home-panel';
         panel.dataset.panel = domain;
 
-        let html = '';
-        for (const diff of ['hard', 'medium']) {
+        // Difficulty as side-by-side sub-tabs: Medium first (shown by default),
+        // Hard reveals its domains on click.
+        const diffs = ['medium', 'hard'].filter(d => cat.some(c => c.domain === domain && c.difficulty === d && c.total > 0));
+        let tabsHtml = '<div class="diff-tabs">';
+        let panelsHtml = '';
+        diffs.forEach((diff, di) => {
+          const isActive = di === 0;
+          tabsHtml += `<button class="diff-tab${isActive ? ' active' : ''}" data-diff="${diff}">${diff === 'medium' ? '🟡 Medium' : '🔴 Hard'}</button>`;
           const items = cat.filter(c => c.domain === domain && c.difficulty === diff && c.total > 0);
-          if (!items.length) continue;
-          html += `<h3 class="diff-group-h">${diff === 'medium' ? '🟡 Medium' : '🔴 Hard'}</h3><div class="topic-grid">`;
+          let grid = '<div class="topic-grid">';
           for (const item of items) {
             const sk = skillCat.filter(s => s.domain === domain && s.topic === item.topic && s.difficulty === diff)
               .sort((a, b) => (a.mastered / a.total) - (b.mastered / b.total));
@@ -221,7 +226,7 @@
             else if (item.prevComplete) btnLabel = `🔄 Start Round ${displayRound}`;
             else btnLabel = `🚀 Start Round ${displayRound}`;
 
-            html += `<div class="topic-card">
+            grid += `<div class="topic-card">
               <div class="tc-head">
                 <div class="topic-name">${escapeHtml(item.topicName)}</div>
                 <span class="note tc-count">${item.total} Qs</span>
@@ -234,14 +239,25 @@
               <div class="skill-mastery">${skillRows}</div>
             </div>`;
           }
-          html += `</div>`;
-        }
-        panel.innerHTML = html;
+          grid += `</div>`;
+          panelsHtml += `<div class="diff-panel${isActive ? '' : ' hidden'}" data-diff="${diff}">${grid}</div>`;
+        });
+        tabsHtml += `</div>`;
+        panel.innerHTML = diffs.length ? tabsHtml + panelsHtml : '';
         wrap.appendChild(panel);
       }
 
       document.querySelectorAll('.start-btn').forEach(btn => {
         btn.addEventListener('click', () => openStartModal(btn.dataset));
+      });
+      // Difficulty sub-tabs: switch which difficulty's domains show, per subject.
+      document.querySelectorAll('.diff-tab').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const panel = btn.closest('.home-panel');
+          const diff = btn.dataset.diff;
+          panel.querySelectorAll('.diff-tab').forEach(t => t.classList.toggle('active', t.dataset.diff === diff));
+          panel.querySelectorAll('.diff-panel').forEach(p => p.classList.toggle('hidden', p.dataset.diff !== diff));
+        });
       });
       if (avail.length) selectHomeTab(avail[0].domain);
     }
