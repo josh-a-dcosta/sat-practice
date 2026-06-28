@@ -53,7 +53,7 @@ function abbrevSkill(name) {
 // ----- Friendly difficulty names -----
 // The DB/API still use 'medium'/'hard'; these are just the kid-facing labels.
 const DIFFICULTY = {
-  medium: { name: 'Chill Mode', emoji: '🏖️' },
+  medium: { name: 'Chill Mode', emoji: '😎' },
   hard:   { name: 'Beast Mode', emoji: '🦁' },
 };
 function diffLabel(d, withEmoji = true) {
