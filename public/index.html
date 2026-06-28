@@ -104,7 +104,7 @@
       if (ACTIVE.length) {
         const chips = ACTIVE.map((a) => {
           const emoji = a.domain === 'math' ? '🔢' : '📖';
-          const diff = a.difficulty === 'hard' ? '🔴' : '🟡';
+          const diff = diffEmoji(a.difficulty);
           const left = Math.max(0, a.total - a.answeredCount);
           const sk = a.skippedCount ? ` · ⏭ ${a.skippedCount}` : '';
           return `<a class="resume-chip" href="/session.html?id=${a.id}">
@@ -170,7 +170,7 @@
         let panelsHtml = '';
         diffs.forEach((diff, di) => {
           const isActive = di === 0;
-          tabsHtml += `<button class="diff-tab${isActive ? ' active' : ''}" data-diff="${diff}">${diff === 'medium' ? '🟡 Medium' : '🔴 Hard'}</button>`;
+          tabsHtml += `<button class="diff-tab${isActive ? ' active' : ''}" data-diff="${diff}">${diffLabel(diff)}</button>`;
           const items = cat.filter(c => c.domain === domain && c.difficulty === diff && c.total > 0);
           let grid = '<div class="topic-grid">';
           for (const item of items) {
@@ -267,7 +267,7 @@
       // Resume straight into this section's active round if there is one.
       if (d.session) { window.location.href = `/session.html?id=${d.session}`; return; }
       PENDING = { topic: d.topic, difficulty: d.difficulty };
-      const diffName = d.difficulty === 'medium' ? 'Medium' : 'Hard';
+      const diffName = diffLabel(d.difficulty);
       document.getElementById('startTitle').textContent = `${d.name} · ${diffName}`;
       document.getElementById('startSub').textContent = `Round ${d.round} — every question in this section, one timed pass. Skip the tricky ones and come back.`;
       document.getElementById('startMins').value = (Number(d.deftl) / 60);
