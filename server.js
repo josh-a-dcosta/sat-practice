@@ -1,7 +1,7 @@
 'use strict';
 
 // Timestamps are stored in UTC (datetime('now')); the UI presents US Eastern.
-// Day/week buckets and the daily goal use SQLite 'localtime', which follows this
+// Day/week buckets use SQLite 'localtime', which follows this
 // process's TZ — so we pin US Eastern here (overridable via the TZ env var on the
 // host). Must run before any date use, including db.js below.
 process.env.TZ = process.env.TZ || 'America/New_York';
@@ -181,7 +181,6 @@ async function handleApi(req, res, url) {
     if (req.method === 'GET' && pathname === '/api/overview') {
       return sendJson(res, 200, {
         user,
-        today:        repo.getTodayProgress(uid),
         catalogue:    repo.getCatalogue(uid),
         skillCatalogue: repo.getSkillCatalogue(uid),
         activeSessions: repo.listActiveSessions(uid),

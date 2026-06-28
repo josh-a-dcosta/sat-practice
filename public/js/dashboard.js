@@ -227,13 +227,13 @@ function renderSkillTrends() {
   const timeSets = skills.map((k) => ({ label: k, data: weeks.map((w) => {
     const a = agg[k][w.week]; return a && a.attempts ? Math.round(a.timeSum / a.attempts) : null;
   }) }));
-  const dlabel = (dsel ? subjectShort(dsel, false) : 'All subjects') + ' · ' + (diff ? diffLabel(diff) : 'All difficulties');
+  const dlabel = (dsel ? subjectShort(dsel, false) : 'All subjects') + ' · ' + (diff ? diffLabel(diff) : 'All modes');
   $('wkSkillAccH').textContent = `Accuracy by skill — ${dlabel}`;
   $('wkSkillTimeH').textContent = `Avg time by skill — ${dlabel}`;
   if (!skills.length) {
     ['wkSkillAcc', 'wkSkillTime'].forEach((id) => {
       if (charts[id]) charts[id].destroy();
-      const lg = $(id + 'Legend'); if (lg) lg.innerHTML = '<span class="note">No data for this subject · difficulty yet.</span>';
+      const lg = $(id + 'Legend'); if (lg) lg.innerHTML = '<span class="note">No data for this subject · mode yet.</span>';
     });
     return;
   }
@@ -555,7 +555,7 @@ function renderSkills() {
     if (!sub.length) return '';
     return `<h3 class="mini-h skills-sub">${label}</h3>
       <div style="overflow-x:auto"><table class="data">
-        <thead><tr><th>Skill</th><th>Domain</th><th>Difficulty</th><th>Accuracy</th><th>Correct</th><th>Missed</th><th>Resolved</th><th>Avg time</th></tr></thead>
+        <thead><tr><th>Skill</th><th>Domain</th><th>Mode</th><th>Accuracy</th><th>Correct</th><th>Missed</th><th>Resolved</th><th>Avg time</th></tr></thead>
         <tbody>${sub.map(rowHtml).join('')}</tbody>
       </table></div>`;
   };
@@ -865,7 +865,7 @@ function renderReview(r) {
 
 function exportCsv() {
   const rows = getFilteredActivity();
-  const header = ['Date', 'Round', 'Domain', 'Topic', 'Skill', 'Difficulty', 'Question', 'HerAnswer', 'Correct', 'Status', 'TimeSeconds'];
+  const header = ['Date', 'Round', 'Domain', 'Topic', 'Skill', 'Mode', 'Question', 'HerAnswer', 'Correct', 'Status', 'TimeSeconds'];
   const lines = [header.join(',')];
   const q = (v) => '"' + String(v == null ? '' : v).replace(/"/g, '""') + '"';
   for (const a of rows) {
