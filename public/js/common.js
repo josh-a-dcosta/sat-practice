@@ -62,14 +62,32 @@ function diffLabel(d, withEmoji = true) {
 }
 function diffEmoji(d) { return (DIFFICULTY[d] || {}).emoji || ''; }
 
-// Relabel any difficulty <option> (value medium/hard) from the names above, so
-// static dropdowns stay in sync with one source of truth — no per-page edits
-// needed when the names change. Keeps each option's "All" siblings untouched.
-function syncDifficultyOptions(root = document) {
+// ----- Subjects (domains) -----
+// DB/API use 'math'/'reading'; `name` is the full label, `short` fits charts.
+const SUBJECTS = {
+  math:    { name: 'Math', short: 'Math', emoji: '🔢' },
+  reading: { name: 'Reading & Writing', short: 'Reading', emoji: '📖' },
+};
+const SUBJECT_KEYS = ['math', 'reading'];
+function subjectLabel(d, withEmoji = true) {
+  const x = SUBJECTS[d] || { name: d || '', emoji: '' };
+  return (withEmoji ? `${x.emoji} ${x.name}` : x.name).trim();
+}
+function subjectShort(d, withEmoji = true) {
+  const x = SUBJECTS[d] || { short: d || '', emoji: '' };
+  return (withEmoji ? `${x.emoji} ${x.short}` : x.short).trim();
+}
+function subjectEmoji(d) { return (SUBJECTS[d] || {}).emoji || ''; }
+
+// Relabel static <option>s (difficulty + subject) from the maps above, so every
+// dropdown stays in sync with one source of truth — no per-page hardcoding.
+function syncSelectLabels(root = document) {
   root.querySelectorAll('option[value="medium"]').forEach((o) => { o.textContent = diffLabel('medium'); });
   root.querySelectorAll('option[value="hard"]').forEach((o) => { o.textContent = diffLabel('hard'); });
+  root.querySelectorAll('option[value="math"]').forEach((o) => { o.textContent = subjectLabel('math'); });
+  root.querySelectorAll('option[value="reading"]').forEach((o) => { o.textContent = subjectLabel('reading'); });
 }
-document.addEventListener('DOMContentLoaded', () => syncDifficultyOptions());
+document.addEventListener('DOMContentLoaded', () => syncSelectLabels());
 
 // ----- Theme (accent color) + light/dark mode -----
 const THEME_ICON = { pink: '🏆', blue: '⚽', gray: '🎓', green: '🌿', yellow: '🌟' };

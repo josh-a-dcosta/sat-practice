@@ -87,10 +87,7 @@
 
   <script src="/js/common.js"></script>
   <script>
-    const DOMAIN_ORDER = [
-      { domain: 'math',    emoji: '🔢', label: 'Math' },
-      { domain: 'reading', emoji: '📖', label: 'Reading & Writing' },
-    ];
+    const DOMAIN_ORDER = SUBJECT_KEYS.map(d => ({ domain: d, emoji: subjectEmoji(d), label: subjectLabel(d, false) }));
 
     let ACTIVE = [];        // in-progress rounds (one per section)
 
@@ -103,7 +100,7 @@
       const ab = document.getElementById('activeBanner');
       if (ACTIVE.length) {
         const chips = ACTIVE.map((a) => {
-          const emoji = a.domain === 'math' ? '🔢' : '📖';
+          const emoji = subjectEmoji(a.domain);
           const diff = diffEmoji(a.difficulty);
           const left = Math.max(0, a.total - a.answeredCount);
           const sk = a.skippedCount ? ` · ⏭ ${a.skippedCount}` : '';

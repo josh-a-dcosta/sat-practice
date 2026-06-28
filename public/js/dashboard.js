@@ -190,7 +190,7 @@ function renderWeeklyTrends() {
 
   // Domain-level. Pin colors so Reading is a vivid violet — not a theme accent
   // (no purple theme) and clearly distinct from Math's magenta.
-  const domains = [['math', '🔢 Math', '#ff4d94'], ['reading', '📖 Reading', '#7c3aed']];
+  const domains = [['math', subjectShort('math'), '#ff4d94'], ['reading', subjectShort('reading'), '#7c3aed']];
   const accSets = domains.map(([d, lbl, color]) => ({ label: lbl, color, data: weeks.map((w) => {
     const r = dom.find((x) => x.week === w.week && x.domain === d); return r ? acc(r.correct, r.attempts) : null;
   }) }));
@@ -227,7 +227,7 @@ function renderSkillTrends() {
   const timeSets = skills.map((k) => ({ label: k, data: weeks.map((w) => {
     const a = agg[k][w.week]; return a && a.attempts ? Math.round(a.timeSum / a.attempts) : null;
   }) }));
-  const dlabel = (dsel ? (dsel === 'math' ? 'Math' : 'Reading') : 'All subjects') + ' · ' + (diff ? diffLabel(diff) : 'All difficulties');
+  const dlabel = (dsel ? subjectShort(dsel, false) : 'All subjects') + ' · ' + (diff ? diffLabel(diff) : 'All difficulties');
   $('wkSkillAccH').textContent = `Accuracy by skill — ${dlabel}`;
   $('wkSkillTimeH').textContent = `Avg time by skill — ${dlabel}`;
   if (!skills.length) {
@@ -254,7 +254,7 @@ function renderWeeklyReport() {
   const overall = totalA ? Math.round((totalC / totalA) * 100) : 0;
   const domLis = r.domains.map((d) => {
     const acc = d.attempts ? Math.round((d.correct / d.attempts) * 100) : 0;
-    const name = d.domain === 'math' ? '🔢 Math' : '📖 Reading';
+    const name = subjectShort(d.domain);
     return `<li><b>${name}:</b> ${d.attempts} questions · ${acc}% accuracy · ~${Math.round(d.avg_time)}s per question</li>`;
   }).join('');
 
@@ -447,7 +447,7 @@ function showCalDay(day) {
 
     html += `<div class="cal-sub">📝 Practices on this day</div>`;
     html += (entry.practices || []).map((p) => {
-      const emoji = p.domain === 'math' ? '🔢' : '📖';
+      const emoji = subjectEmoji(p.domain);
       const resolved = p.correct + p.wrong + p.peeked + p.timedout;
       const acc = resolved ? Math.round((p.correct / resolved) * 100) : 0;
       return `<div class="cal-attempt">
@@ -559,7 +559,7 @@ function renderSkills() {
         <tbody>${sub.map(rowHtml).join('')}</tbody>
       </table></div>`;
   };
-  wrap.innerHTML = table('math', '🔢 Math') + table('reading', '📖 Reading & Writing');
+  wrap.innerHTML = table('math', subjectLabel('math')) + table('reading', subjectLabel('reading'));
 }
 
 function renderTiles() {
@@ -575,8 +575,8 @@ function renderTiles() {
     { num: fmtDurLong(eng.practiceSeconds), lbl: '⏱ Time practiced' },
     { num: o.accuracy + '%', lbl: 'Overall accuracy' },
     { num: fmtTime(o.avgTime), lbl: 'Avg time / question' },
-    { num: `${mathMastered}/${mathTotal}`, lbl: '🔢 Math mastered' },
-    { num: `${readMastered}/${readTotal}`, lbl: '📖 Reading mastered' },
+    { num: `${mathMastered}/${mathTotal}`, lbl: subjectShort('math') + ' mastered' },
+    { num: `${readMastered}/${readTotal}`, lbl: subjectShort('reading') + ' mastered' },
   ];
   $('statTiles').innerHTML = tiles.map((t) =>
     `<div class="stat"><div class="num">${t.num}</div><div class="lbl">${t.lbl}</div></div>`).join('');
@@ -687,7 +687,7 @@ function renderSessions() {
     return;
   }
   tbody.innerHTML = DATA.sessions.map((s) => {
-    const domainEmoji = s.domain === 'math' ? '🔢' : '📖';
+    const domainEmoji = subjectEmoji(s.domain);
     const status = s.status === 'completed'
       ? '<span class="pill correct">completed</span>'
       : '<span class="pill wrong">in progress</span>';
@@ -743,7 +743,7 @@ function renderAttempts() {
     return;
   }
   tbody.innerHTML = rows.map((a) => {
-    const domainEmoji = a.domain === 'math' ? '🔢' : '📖';
+    const domainEmoji = subjectEmoji(a.domain);
     const pill = STATUS_PILL[a.status] || a.status;
     return `<tr>
       <td>${fmtDate(a.occurredAt)}</td>
@@ -806,7 +806,7 @@ function reviewFullscreen() {
 }
 
 function renderReview(r) {
-  const domainEmoji = r.domain === 'math' ? '🔢' : '📖';
+  const domainEmoji = subjectEmoji(r.domain);
   const topicName = r.topicName || fmtTopic(r.topic);
   const resultPill = r.isCorrect
     ? '<span class="pill correct">✓ You got this right</span>'
