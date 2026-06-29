@@ -56,7 +56,7 @@ function abbrevSkill(name) {
 // filter label already implies it).
 const DIFFICULTY = {
   medium: { name: 'Chill Mode', short: 'Chill', emoji: '😎' },
-  hard:   { name: 'Dragon Mode', short: 'Dragon', emoji: '🐉' },
+  hard:   { name: 'Dragon Mode', short: 'Dragon', emoji: '🐲' },
 };
 function diffLabel(d, withEmoji = true) {
   const x = DIFFICULTY[d] || { name: d || '', emoji: '' };
