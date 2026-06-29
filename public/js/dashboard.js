@@ -30,12 +30,8 @@ async function load() {
   DATA = await api('GET', '/api/dashboard');
   allAttempts = DATA.attempts;
 
-  // Tutor view: read-only, and label whose dashboard this is.
+  // Tutor view: read-only (whose dashboard it is shows in the top-bar user chip).
   READONLY = !!(DATA.viewer && DATA.viewer.readOnly);
-  if (DATA.viewer && DATA.viewer.studentName) {
-    const h = document.querySelector('.container.wide h1');
-    if (h) h.textContent = `📊 ${DATA.viewer.studentName}'s Dashboard`;
-  }
   // Suggested Practice stays editable for tutors too (they can build the plan).
   ACTIVITY = DATA.activity || [];
   DAILY = {}; for (const d of (DATA.dailyActivity || [])) DAILY[d.day] = d;
@@ -82,6 +78,9 @@ async function refreshNotesBadge() {
 function showView(name) {
   document.querySelectorAll('.dash-view').forEach((v) => v.classList.toggle('hidden', v.dataset.view !== name));
   document.querySelectorAll('.dash-menu .menu-btn[data-view]').forEach((b) => b.classList.toggle('active', b.dataset.view === name));
+  // Calendar is its own page (reached from the top-bar) — hide the section menu there.
+  const menu = document.querySelector('.dash-menu');
+  if (menu) menu.classList.toggle('hidden', name === 'calendar');
   localStorage.setItem('dashView', name);
   if (name === 'dashboard') renderOverviewCharts();
   if (name === 'trends') { renderWeeklyTrends(); renderSectionCharts(); }

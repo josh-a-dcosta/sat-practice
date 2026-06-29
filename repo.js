@@ -5,7 +5,7 @@ const { db } = require('./db');
 const { TAXONOMY, isValidTopic, isValidDifficulty, domainOfTopic, topicLabel } = require('./topics');
 
 // Friendly mode names (mirrors the front-end DIFFICULTY map; DB stays medium/hard).
-const MODE_NAME = { medium: 'Chill', hard: 'Beast' };
+const MODE_NAME = { medium: 'Chill', hard: 'Dragon' };
 function modeName(d) { return MODE_NAME[d] || d; }
 
 const SESSION_SIZE = 40;

@@ -15,10 +15,6 @@
   </div>
 
   <div class="container">
-    <div class="card">
-      <h1 style="margin-top:0">⚙️ My timer settings</h1>
-      <p class="note">How long you get per question, by domain · mode · round. Blank/default is <b>10 minutes</b>. These are <i>your</i> defaults — you can still tweak the timer when you start any round.</p>
-    </div>
     <div id="settingsBody"><div class="spinner">Loading…</div></div>
   </div>
 
@@ -26,7 +22,7 @@
   <script>
     const $ = (id) => document.getElementById(id);
     function escapeHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
-    const SUBJECTS = SUBJECT_KEYS.map(k => ({ key: k, label: subjectLabel(k) }));
+    const SUBJECT_LIST = SUBJECT_KEYS.map(k => ({ key: k, label: subjectLabel(k) }));
     let GRID = [];
 
     function cell(topic, difficulty, tier) {
@@ -50,7 +46,7 @@
     function render() {
       const body = $('settingsBody');
       let html = '';
-      for (const sub of SUBJECTS) {
+      for (const sub of SUBJECT_LIST) {
         const topics = [];
         for (const g of GRID) if (g.subject === sub.key && !topics.find((t)=>t.topic===g.topic)) topics.push({ topic:g.topic, name:g.topicName });
         if (!topics.length) continue;
