@@ -334,12 +334,12 @@ h2 { font-size: 1.4rem; margin: 0 0 14px; }
   letter-spacing: 0.07em;
   padding: 14px;
 }
-/* Skip shares ANSWER's full-width block style but reads lighter. */
-.q-actions .answer-btn.btn-ghost { font-weight: 800; letter-spacing: 0.03em; }
-.q-actions .skip-btn { color: var(--muted); }
-/* Previous + Next sit together on one line, splitting the width evenly. */
-.q-actions .nav-row { display: flex; gap: 10px; }
-.q-actions .nav-row .btn { flex: 1; }
+/* Paired buttons on one line, splitting the width evenly (Prev/Next and
+   Pause/Full screen both use this). */
+.nav-row { display: flex; gap: 10px; }
+.nav-row .btn { flex: 1; }
+.ctrl-row { margin: 10px 0 4px; }
+.nav-row .btn:disabled { opacity: 0.45; cursor: not-allowed; }
 
 /* Admin: inline per-student active-question toggles — highlighted so it's
    easy to find among the other columns. */
@@ -923,7 +923,6 @@ body.fullscreen-mode .answer-pane { max-height: calc(100vh - 70px); overflow-y: 
 .timer-row { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
 .timer-wrap { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; }
 .elapsed-note { font-size: 0.78rem; font-weight: 700; color: var(--muted); white-space: nowrap; }
-.timer-ctrl { margin-left: auto; display: flex; gap: 6px; flex-wrap: wrap; }  /* Pause + Fullscreen on the right */
 .scoreboard {
   font-weight: 800; color: var(--pink-600);
   background: var(--pink-50); border: 2px solid var(--pink-200);

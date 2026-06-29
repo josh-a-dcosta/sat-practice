@@ -105,7 +105,11 @@ async function loadState() {
   $('sectionLabel').textContent = `${domainEmoji} ${state.topicName || titleCase(state.topic)}`;
   renderMap();
   updateFinish();   // reflect round completion in both live and review modes
-  if (state.status === 'completed') {
+  // Review (no timer) when the round is done OR it was opened to look at, not
+  // practice — i.e. from the dashboard/calendar. Practice (timer on) is only the
+  // resume flow from Home, which carries no return param.
+  const openedForReview = getParam('return') === 'dashboard';
+  if (state.status === 'completed' || openedForReview) {
     enterReviewUI();
     pos = firstWrong() || state.currentPosition || 1;
   } else {
@@ -119,17 +123,23 @@ function firstWrong() {
   return w ? w.position : null;
 }
 
-// Switch the screen into "attempt complete" review mode.
+// Switch the screen into review mode: no timer, read-only answers, exit via
+// Close. Used for finished rounds and for any round opened from the dashboard.
 function enterReviewUI() {
   reviewMode = true;
   stopTiming(); stopHeartbeat();
   $('doneControls').classList.remove('hidden');
-  $('pauseBtn').classList.add('hidden');
+  $('pauseBtn').disabled = true;             // pause isn't in use while reviewing
   $('topCloseBtn').classList.remove('hidden');
   $('doneTag').classList.remove('hidden');
   const pl = $('pauseLink'); if (pl) pl.classList.add('hidden');
-  const correct = state.items.filter((i) => i.correct).length;
-  $('doneScore').textContent = `🎉 Round complete! Score: ${correct} / ${state.items.length}`;
+  if (state.status === 'completed') {
+    const correct = state.items.filter((i) => i.correct).length;
+    $('doneScore').textContent = `🎉 Round complete! Score: ${correct} / ${state.items.length}`;
+  } else {
+    $('doneTag').textContent = '👀 Review mode — the timer is off';
+    $('doneScore').textContent = 'Resume from Home to keep practicing.';
+  }
 }
 
 async function completeAndReview() {
@@ -140,7 +150,10 @@ async function completeAndReview() {
   } catch (e) { showToast(e.message); }
 }
 
-function pauseExit() { saveProgress(); location.href = '/'; }
+// Leave the session, back to wherever it was opened from: the dashboard (which
+// restores the exact view — calendar, etc.) or Home.
+function exitTo() { saveProgress(); location.href = getParam('return') === 'dashboard' ? '/dashboard.html' : '/'; }
+function pauseExit() { exitTo(); }
 
 function titleCase(t) { return t.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()); }
 
@@ -236,11 +249,13 @@ async function loadQuestion(p) {
   $('prevBtn').disabled = current.position <= 1;
   $('nextBtn').disabled = current.position >= current.total;
 
-  // Skip is only offered while the question is still open (not in review mode).
-  $('skipBtn').classList.toggle('hidden', resolved || reviewMode);
-
   if (resolved) {
     showFeedback(current.feedback, { silent: true });
+  } else if (reviewMode) {
+    // Reviewing an unanswered question (round opened from the dashboard): show
+    // it read-only with no timer.
+    $('submitBtn').classList.add('hidden');
+    $('answerHint').textContent = '';
   } else {
     $('submitBtn').classList.remove('hidden');
     $('submitBtn').disabled = true;
@@ -260,7 +275,7 @@ function renderInputs(q) {
   const sprWrap = $('sprWrap');
   const sprInput = $('sprInput');
   choicesWrap.innerHTML = '';
-  const lock = resolved;
+  const lock = resolved || reviewMode;
 
   if (q.qtype === 'spr') {
     choicesWrap.classList.add('hidden');
@@ -320,20 +335,6 @@ async function autoTimeout() {
   if (resolved) return;
   resolved = true;            // guard against repeat
   await resolve('timeout', {});
-}
-
-// Defer this question (logged as a skip) and jump to the next one needing work.
-async function skipCurrent() {
-  if (resolved || !current) return;
-  saveProgress(); stopTiming(); stopHeartbeat();
-  const timeTaken = Math.round(currentElapsed());
-  try {
-    await api('POST', `/api/sessions/${sessionId}/skip`, { questionId: current.question.id, timeTaken });
-    await refreshState();
-    const next = findNextUnresolved(pos);
-    if (next && next !== pos) await gotoPosition(next);
-    else await loadQuestion(pos); // nothing else left to do — reload (will offer finish)
-  } catch (e) { showToast(e.message); }
 }
 
 async function resolve(kind, extra) {
@@ -546,10 +547,8 @@ function escapeHtml(s) {
 $('prevBtn').onclick = () => gotoPosition(pos - 1);
 $('nextBtn').onclick = () => gotoPosition(pos + 1);
 $('submitBtn').onclick = submitAnswer;
-$('skipBtn').onclick = skipCurrent;
 $('pauseBtn').onclick = pauseExit;
-// Close returns to wherever the session was opened from (dashboard vs home).
-$('topCloseBtn').onclick = () => { location.href = getParam('return') === 'dashboard' ? '/dashboard.html' : '/'; };
+$('topCloseBtn').onclick = exitTo;
 $('revealBtn').onclick = peekAnswer;
 $('fbNext').onclick = goNext;
 $('zoomIn').onclick = () => zoomBy(ZOOM_STEP);
