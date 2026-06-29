@@ -50,15 +50,21 @@ function abbrevSkill(name) {
   return name.slice(0, 24).replace(/[\s,]+\S*$/, '').trim() + '…';
 }
 
-// ----- Friendly difficulty names -----
-// The DB/API still use 'medium'/'hard'; these are just the kid-facing labels.
+// ----- Friendly difficulty (mode) names -----
+// DB/API still use 'medium'/'hard'. `name` is the full label (used on Home);
+// `short` drops the redundant "Mode" word (used everywhere a "Mode" column or
+// filter label already implies it).
 const DIFFICULTY = {
-  medium: { name: 'Chill Mode', emoji: '😎' },
-  hard:   { name: 'Beast Mode', emoji: '🦁' },
+  medium: { name: 'Chill Mode', short: 'Chill', emoji: '😎' },
+  hard:   { name: 'Beast Mode', short: 'Beast', emoji: '🦁' },
 };
 function diffLabel(d, withEmoji = true) {
   const x = DIFFICULTY[d] || { name: d || '', emoji: '' };
   return (withEmoji ? `${x.emoji} ${x.name}` : x.name).trim();
+}
+function diffShort(d, withEmoji = true) {
+  const x = DIFFICULTY[d] || { short: d || '', emoji: '' };
+  return (withEmoji ? `${x.emoji} ${x.short}` : x.short).trim();
 }
 function diffEmoji(d) { return (DIFFICULTY[d] || {}).emoji || ''; }
 
@@ -104,7 +110,8 @@ const ROLE_KEYS  = ['student', 'tutor', 'admin'];
 // so every dropdown stays in sync with one source of truth — no per-page
 // hardcoding. Empty options in the HTML get filled here.
 function syncSelectLabels(root = document) {
-  ['medium', 'hard'].forEach((d) => root.querySelectorAll(`option[value="${d}"]`).forEach((o) => { o.textContent = diffLabel(d); }));
+  // Mode dropdowns: text only, no emoji, no redundant "Mode" word.
+  ['medium', 'hard'].forEach((d) => root.querySelectorAll(`option[value="${d}"]`).forEach((o) => { o.textContent = diffShort(d, false); }));
   SUBJECT_KEYS.forEach((d) => root.querySelectorAll(`option[value="${d}"]`).forEach((o) => { o.textContent = subjectLabel(d); }));
   STATUS_KEYS.forEach((s) => root.querySelectorAll(`option[value="${s}"]`).forEach((o) => { o.textContent = statusLabel(s); }));
 }

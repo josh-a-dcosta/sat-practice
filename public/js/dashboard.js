@@ -227,7 +227,7 @@ function renderSkillTrends() {
   const timeSets = skills.map((k) => ({ label: k, data: weeks.map((w) => {
     const a = agg[k][w.week]; return a && a.attempts ? Math.round(a.timeSum / a.attempts) : null;
   }) }));
-  const dlabel = (dsel ? subjectShort(dsel, false) : 'All subjects') + ' · ' + (diff ? diffLabel(diff) : 'All modes');
+  const dlabel = (dsel ? subjectShort(dsel, false) : 'All subjects') + ' · ' + (diff ? diffShort(diff) : 'All modes');
   $('wkSkillAccH').textContent = `Accuracy by skill — ${dlabel}`;
   $('wkSkillTimeH').textContent = `Avg time by skill — ${dlabel}`;
   if (!skills.length) {
@@ -451,7 +451,7 @@ function showCalDay(day) {
       const resolved = p.correct + p.wrong + p.peeked + p.timedout;
       const acc = resolved ? Math.round((p.correct / resolved) * 100) : 0;
       return `<div class="cal-attempt">
-        <span>${emoji} <b>${escapeHtml(p.topicName)}</b> <span class="note">${diffLabel(p.difficulty)} · Round ${p.round}</span>
+        <span>${emoji} <b>${escapeHtml(p.topicName)}</b> <span class="note">${diffShort(p.difficulty)} · Round ${p.round}</span>
           · ${p.events} action${p.events === 1 ? '' : 's'} · ${acc}% on resolved</span>
         <a class="btn btn-ghost" href="/session.html?id=${p.sessionId}&return=dashboard">Review →</a>
       </div>`;
@@ -536,13 +536,13 @@ function renderSkills() {
   highlight.innerHTML = `<div class="skill-focus">
       <span class="skill-focus-emoji">💡</span>
       <div><b>Top area to work on:</b> ${escapeHtml(weak.skill)}
-      <span class="note">(currently ${weak.accuracy}% over ${weak.resolved} question${weak.resolved === 1 ? '' : 's'} · ${escapeHtml(weak.topicName)} · ${escapeHtml(diffLabel(weak.difficulty, false))})</span></div>
+      <span class="note">(currently ${weak.accuracy}% over ${weak.resolved} question${weak.resolved === 1 ? '' : 's'} · ${escapeHtml(weak.topicName)} · ${escapeHtml(diffShort(weak.difficulty, false))})</span></div>
     </div>`;
 
   const rowHtml = (r) => `<tr class="skill-row" data-skill="${escapeHtml(r.skill)}" title="Filter the list by this skill">
       <td><b>${escapeHtml(r.skill)}</b></td>
       <td>${escapeHtml(r.topicName)}</td>
-      <td>${diffLabel(r.difficulty)}</td>
+      <td>${diffShort(r.difficulty)}</td>
       <td><div class="acc-bar"><span class="${accClass(r.accuracy)}" style="width:${r.accuracy}%"></span><em>${r.accuracy}%</em></div></td>
       <td>${r.correct}</td>
       <td>${r.wrong + (r.peeked || 0) + (r.timedout || 0)}</td>
@@ -638,7 +638,7 @@ function renderSectionCharts() {
   const bt = DATA.byTopic || [];
   const topicLabels = bt.map(t => {
     const name = t.topicName || t.topic.replace(/-/g,' ').replace(/\b\w/g,c=>c.toUpperCase());
-    return `${name} (${diffLabel(t.difficulty, false)})`;
+    return `${name} (${diffShort(t.difficulty, false)})`;
   });
   const colors = bt.map((_, i) => [PINK, PINK_LIGHT, AMBER, '#c084fc', '#60a5fa', '#34d399', '#fb923c', '#f87171'][i % 8]);
   const barBase = (valOpts) => ({
@@ -698,7 +698,7 @@ function renderSessions() {
     return `<tr>
       <td>${s.id}</td>
       <td>${domainEmoji} ${fmtTopic(s.topic)}</td>
-      <td>${diffLabel(s.difficulty)}</td>
+      <td>${diffShort(s.difficulty)}</td>
       <td>${status}</td>
       <td>${fmtDate(s.created_at)}</td>
       <td>${fmtDate(s.completed_at)}</td>
@@ -750,7 +750,7 @@ function renderAttempts() {
       <td>R${a.round || 1}</td>
       <td>${domainEmoji} ${escapeHtml(a.topicName)}</td>
       <td>${escapeHtml(a.skill || '—')}</td>
-      <td>${diffLabel(a.difficulty)}</td>
+      <td>${diffShort(a.difficulty)}</td>
       <td><button class="link-cell" data-question="${a.questionId}" title="View this question, the answer, and the solution">🔎 View question</button></td>
       <td>${escapeHtml(a.selected || '—')}</td>
       <td>${escapeHtml(a.correct)}</td>
