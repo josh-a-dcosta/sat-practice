@@ -4,6 +4,10 @@ const crypto = require('crypto');
 const { db } = require('./db');
 const { TAXONOMY, isValidTopic, isValidDifficulty, domainOfTopic, topicLabel } = require('./topics');
 
+// Friendly mode names (mirrors the front-end DIFFICULTY map; DB stays medium/hard).
+const MODE_NAME = { medium: 'Chill', hard: 'Beast' };
+function modeName(d) { return MODE_NAME[d] || d; }
+
 const SESSION_SIZE = 40;
 const TIME_LIMIT   = 600; // legacy default (10 min)
 const TIME_LIMITS  = { medium: 600, hard: 600 }; // 10:00 per question
@@ -1147,7 +1151,7 @@ function buildWeeklyReports(weeklyByDomain, weeklyBySkill) {
   for (const w of Object.values(weeks).sort((a, b) => b.week.localeCompare(a.week))) {
     const skills = w.skills.map((s) => ({
       ...s, acc: fmtPct(s.correct, s.attempts), avg: Math.round(s.avg_time),
-      label: `${topicLabel(s.topic)} · ${s.skill} (${s.difficulty})`,
+      label: `${topicLabel(s.topic)} · ${s.skill} (${modeName(s.difficulty)})`,
     }));
     const enough = skills.filter((s) => s.attempts >= 3);
     const pool = enough.length ? enough : skills;
