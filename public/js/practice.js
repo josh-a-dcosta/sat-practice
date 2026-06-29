@@ -128,16 +128,16 @@ function firstWrong() {
 function enterReviewUI() {
   reviewMode = true;
   stopTiming(); stopHeartbeat();
+  $('timerRow').classList.add('hidden');         // no timer while reviewing
+  $('pauseBtn').classList.add('hidden');         // pause isn't in use
+  $('closeBtn').classList.remove('hidden');      // exit via Close, inside the panel
+  $('reviewBadge').classList.remove('hidden');   // badge sits next to "Question x of y"
   $('doneControls').classList.remove('hidden');
-  $('pauseBtn').disabled = true;             // pause isn't in use while reviewing
-  $('topCloseBtn').classList.remove('hidden');
-  $('doneTag').classList.remove('hidden');
   const pl = $('pauseLink'); if (pl) pl.classList.add('hidden');
   if (state.status === 'completed') {
     const correct = state.items.filter((i) => i.correct).length;
     $('doneScore').textContent = `🎉 Round complete! Score: ${correct} / ${state.items.length}`;
   } else {
-    $('doneTag').textContent = '👀 Review mode — the timer is off';
     $('doneScore').textContent = 'Resume from Home to keep practicing.';
   }
 }
@@ -548,7 +548,7 @@ $('prevBtn').onclick = () => gotoPosition(pos - 1);
 $('nextBtn').onclick = () => gotoPosition(pos + 1);
 $('submitBtn').onclick = submitAnswer;
 $('pauseBtn').onclick = pauseExit;
-$('topCloseBtn').onclick = exitTo;
+$('closeBtn').onclick = exitTo;
 $('revealBtn').onclick = peekAnswer;
 $('fbNext').onclick = goNext;
 $('zoomIn').onclick = () => zoomBy(ZOOM_STEP);

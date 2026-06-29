@@ -254,7 +254,10 @@ h2 { font-size: 1.4rem; margin: 0 0 14px; }
   gap: 10px;
   margin-bottom: 8px;
 }
+.q-head-left { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .q-counter { font-weight: 800; color: var(--pink-600); }
+.review-badge { font-size: 0.78rem; font-weight: 800; color: #b9722a; background: #fff3e0; border: 1px solid #f3c98a; border-radius: 999px; padding: 2px 10px; white-space: nowrap; }
+:root[data-mode="dark"] .review-badge { background: #33290f; color: #f3c98a; border-color: #6b5520; }
 .timer {
   font-variant-numeric: tabular-nums;
   font-weight: 800;
@@ -295,7 +298,8 @@ h2 { font-size: 1.4rem; margin: 0 0 14px; }
 }
 .opt:hover { border-color: var(--pink-400); background: var(--pink-50); }
 .opt.selected { border-color: var(--pink-500); background: var(--pink-100); }
-.opt.locked { cursor: default; opacity: 0.95; }
+/* Once answered/reviewing, choices are inert — no hover, no clicks. */
+.opt.locked { cursor: default; opacity: 0.95; pointer-events: none; }
 .opt.locked:hover { transform: none; }
 .opt .badge {
   width: 34px; height: 34px;
@@ -934,14 +938,14 @@ body.fullscreen-mode .answer-pane { max-height: calc(100vh - 70px); overflow-y: 
   border: 2px solid var(--pink-200); background: var(--pink-50);
 }
 .feedback.good { border-color: var(--green); background: #e9f9f1; }
-.feedback.bad  { border-color: var(--amber); background: #fff7e8; }
+.feedback.bad  { border-color: #e23b5a; background: #fdecef; }
 .feedback .fb-emoji { font-size: 2.4rem; line-height: 1; }
 .feedback .fb-title { font-weight: 800; font-size: 1.2rem; margin: 4px 0 6px; }
 .feedback .fb-msg { color: var(--ink); margin-bottom: 10px; }
 .feedback .explanation { text-align: left; }
 .opt.is-correct { border-color: var(--green); background: #e9f9f1; }
 :root[data-mode="dark"] .feedback.good { background: #14361f; }
-:root[data-mode="dark"] .feedback.bad  { background: #33290f; }
+:root[data-mode="dark"] .feedback.bad  { background: #3a1620; }
 :root[data-mode="dark"] .opt.is-correct { background: #14361f; }
 
 /* ----- Phase 3 dashboard: trends, report, tasks, calendar ----- */

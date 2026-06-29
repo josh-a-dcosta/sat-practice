@@ -19,19 +19,14 @@
   <div class="container wide practice-page">
     <!-- QUESTION VIEW -->
     <div id="questionView">
-      <div class="practice-toolbar">
-        <div class="toolbar-left">
-          <span class="done-tag hidden" id="doneTag">✅ Practice complete — review your answers below</span>
-        </div>
-        <div class="toolbar-right">
-          <button class="btn btn-primary hidden" id="topCloseBtn" type="button">✕ Close</button>
-        </div>
-      </div>
       <div class="practice-split">
         <!-- LEFT: the real PDF question page -->
         <div class="card pdf-pane">
           <div class="q-header">
-            <span class="q-counter" id="counter">Question</span>
+            <span class="q-head-left">
+              <span class="q-counter" id="counter">Question</span>
+              <span class="review-badge hidden" id="reviewBadge">👀 Review mode</span>
+            </span>
             <span class="note" id="sectionLabel" style="font-weight:700"></span>
           </div>
           <div class="round-progress">
@@ -81,12 +76,13 @@
 
         <!-- RIGHT: answer + controls -->
         <div class="card answer-pane">
-          <div class="timer-row">
+          <div class="timer-row" id="timerRow">
             <div class="timer" id="timer">10:00</div>
             <div class="elapsed-note" id="elapsedNote">⏱ 0:00 on this question</div>
           </div>
           <div class="nav-row ctrl-row">
             <button class="btn btn-ghost" id="pauseBtn" type="button" title="Pause &amp; exit this round">⏸ Pause</button>
+            <button class="btn btn-ghost hidden" id="closeBtn" type="button" title="Close review">✕ Close</button>
             <button class="btn btn-ghost" id="fullscreenBtn" type="button" title="Use the whole screen for bigger panels">⛶ Full screen</button>
           </div>
 
