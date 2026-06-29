@@ -524,22 +524,13 @@ function accClass(acc) {
 function renderSkills() {
   // Grand current state: each question's latest result across all rounds.
   const rows = DATA.skillFocus || [];
-  const highlight = $('skillHighlight');
   const wrap = $('skillsTables');
   if (!rows.length) {
     wrap.innerHTML = '<p class="note">No skills resolved yet. Once questions are answered, the per-skill breakdown shows here.</p>';
-    highlight.innerHTML = '';
     return;
   }
-  // Highlight the weakest skill with enough resolved to be meaningful.
-  const weak = rows.filter((r) => r.resolved >= 2)[0] || rows[0];
-  highlight.innerHTML = `<div class="skill-focus">
-      <span class="skill-focus-emoji">💡</span>
-      <div><b>Top area to work on:</b> ${escapeHtml(weak.skill)}
-      <span class="note">(currently ${weak.accuracy}% over ${weak.resolved} question${weak.resolved === 1 ? '' : 's'} · ${escapeHtml(weak.topicName)} · ${escapeHtml(diffShort(weak.difficulty, false))})</span></div>
-    </div>`;
 
-  const rowHtml = (r) => `<tr class="skill-row" data-skill="${escapeHtml(r.skill)}" title="Filter the list by this skill">
+  const rowHtml = (r) => `<tr class="skill-row" data-skill="${escapeHtml(r.skill)}" title="Filter the list by this skill — click to view">
       <td><b>${escapeHtml(r.skill)}</b></td>
       <td>${escapeHtml(r.topicName)}</td>
       <td>${diffShort(r.difficulty)}</td>
@@ -550,16 +541,17 @@ function renderSkills() {
       <td>${fmtTime(r.avgTime)}</td>
     </tr>`;
 
-  const table = (subject, label) => {
+  // One table for both subjects (with a group header per subject) so every
+  // column lines up across Math and Reading.
+  const group = (subject, label) => {
     const sub = rows.filter((r) => r.domain === subject);
     if (!sub.length) return '';
-    return `<h3 class="mini-h skills-sub">${label}</h3>
-      <div style="overflow-x:auto"><table class="data">
-        <thead><tr><th>Skill</th><th>Domain</th><th>Mode</th><th>Accuracy</th><th>Correct</th><th>Missed</th><th>Resolved</th><th>Avg time</th></tr></thead>
-        <tbody>${sub.map(rowHtml).join('')}</tbody>
-      </table></div>`;
+    return `<tr class="skills-group"><td colspan="8">${label}</td></tr>${sub.map(rowHtml).join('')}`;
   };
-  wrap.innerHTML = table('math', subjectLabel('math')) + table('reading', subjectLabel('reading'));
+  wrap.innerHTML = `<div style="overflow-x:auto"><table class="data skills-table">
+      <thead><tr><th>Skill</th><th>Domain</th><th>Mode</th><th>Accuracy</th><th>Correct</th><th>Missed</th><th>Resolved</th><th>Avg time</th></tr></thead>
+      <tbody>${group('math', subjectLabel('math')) + group('reading', subjectLabel('reading'))}</tbody>
+    </table></div>`;
 }
 
 function renderTiles() {

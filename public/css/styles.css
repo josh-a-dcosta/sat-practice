@@ -828,6 +828,12 @@ body.fullscreen-mode .answer-pane { max-height: calc(100vh - 70px); overflow-y: 
 .skill-focus-emoji { font-size: 1.6rem; }
 .skill-row { cursor: pointer; }
 .skill-row:hover { background: var(--pink-50); }
+/* Subject header row inside the merged Skills-to-Focus table */
+.skills-group td {
+  background: var(--pink-100); color: var(--pink-600);
+  font-weight: 800; font-size: 0.9rem; letter-spacing: 0.02em;
+}
+.skills-table tr.skills-group:hover td { background: var(--pink-100); }
 .acc-bar {
   position: relative; background: var(--pink-100); border-radius: 999px;
   height: 20px; min-width: 90px; overflow: hidden;
