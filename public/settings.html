@@ -62,7 +62,7 @@
             const c1 = cell(t.topic, diff, 1), c2 = cell(t.topic, diff, 2);
             html += `<tr>
               <td><b>${escapeHtml(t.name)}</b></td>
-              <td>${diffLabel(diff)}</td>
+              <td>${diffShort(diff)}</td>
               <td>${cellHtml(c1)}</td>
               <td>${cellHtml(c2)}</td>
             </tr>`;

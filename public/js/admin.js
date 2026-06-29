@@ -179,7 +179,7 @@ function timerGridHtml(grid, mode) {
       for (const diff of ['medium', 'hard']) {
         const c1 = grid.find((g) => g.topic===t.topic && g.difficulty===diff && g.roundTier===1);
         const c2 = grid.find((g) => g.topic===t.topic && g.difficulty===diff && g.roundTier===2);
-        html += `<tr><td><b>${esc(t.name)}</b></td><td>${diffLabel(diff)}</td>
+        html += `<tr><td><b>${esc(t.name)}</b></td><td>${diffShort(diff)}</td>
           <td>${cellHtml(c1, mode)}</td><td>${cellHtml(c2, mode)}</td></tr>`;
       }
     }
@@ -269,7 +269,7 @@ function renderReviewQ() {
   QRI = Math.max(0, Math.min(QRI, QR.length - 1));
   const q = QR[QRI];
   $('qrNav').style.display = '';
-  $('qrPos').textContent = `${QRI + 1} / ${QR.length} · ${q.topicName} ${diffLabel(q.difficulty, false)} · ${q.active ? '🟢 active' : '⚪ nonactive'} · ${q.reviewed ? '✓ approved' : 'to review'}`;
+  $('qrPos').textContent = `${QRI + 1} / ${QR.length} · ${q.topicName} ${diffShort(q.difficulty, false)} · ${q.active ? '🟢 active' : '⚪ nonactive'} · ${q.reviewed ? '✓ approved' : 'to review'}`;
   if (!q.image) {
     v.innerHTML = `<p class="note">Text question (no page image / answer mask). ID ${esc(q.extId)}.</p>`;
     return;
