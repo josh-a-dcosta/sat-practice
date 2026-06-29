@@ -18,52 +18,6 @@
   </div>
 
   <div class="container">
-    <div class="card">
-      <h1>Hi there! Ready to practice?
-        <span class="fetch-dog" role="img" aria-label="A little golden retriever puppy practicing fetch">
-          <svg viewBox="0 0 120 44" xmlns="http://www.w3.org/2000/svg">
-            <!-- tennis ball -->
-            <g class="fd-ball">
-              <circle cx="96" cy="34" r="6" fill="#cfe84a"/>
-              <path d="M90.6 30.6 Q96 34 90.6 37.4" fill="none" stroke="#ffffff" stroke-width="1.1"/>
-              <path d="M101.4 30.6 Q96 34 101.4 37.4" fill="none" stroke="#ffffff" stroke-width="1.1"/>
-            </g>
-            <!-- dog -->
-            <g class="fd-dog">
-              <ellipse class="fd-shadow" cx="20" cy="40.5" rx="15" ry="2.2"/>
-              <g class="fd-bob">
-                <!-- feathered tail -->
-                <path class="fd-tail" d="M11 25 C 2 25 -3 18 0 12 C 3 16 6 20 13 22 Z" fill="#d39a40"/>
-                <!-- back legs -->
-                <rect class="fd-leg b" x="9"  y="28" width="3.4" height="10" rx="1.7" fill="#d6993f"/>
-                <rect class="fd-leg a" x="15" y="28" width="3.4" height="10" rx="1.7" fill="#d6993f"/>
-                <!-- body (sleek, elongated) -->
-                <ellipse cx="19" cy="25" rx="13.5" ry="8" fill="#e3a64e"/>
-                <!-- chest highlight -->
-                <ellipse cx="28" cy="27" rx="5.5" ry="6.2" fill="#eec079"/>
-                <!-- front legs -->
-                <rect class="fd-leg a" x="24" y="28" width="3.4" height="10" rx="1.7" fill="#d6993f"/>
-                <rect class="fd-leg b" x="29" y="28" width="3.4" height="10" rx="1.7" fill="#d6993f"/>
-                <!-- head -->
-                <circle cx="31" cy="16" r="7" fill="#e6ad57"/>
-                <!-- floppy ear -->
-                <ellipse cx="27.5" cy="19" rx="3.1" ry="7.5" fill="#c98a36" transform="rotate(10 27.5 19)"/>
-                <!-- top-of-head highlight -->
-                <path d="M26 11 Q31 7 36 12 Q31 11 26 14 Z" fill="#edba6a"/>
-                <!-- long muzzle -->
-                <ellipse cx="36.5" cy="19.5" rx="5.5" ry="3.6" fill="#eec079"/>
-                <!-- nose -->
-                <circle cx="40" cy="18.8" r="1.8" fill="#2e241f"/>
-                <!-- eye -->
-                <circle cx="33" cy="14.4" r="1.4" fill="#2e241f"/>
-              </g>
-            </g>
-          </svg>
-        </span>
-      </h1>
-      <p class="subtitle">Choose a topic below. You've got this! ✨</p>
-    </div>
-
     <div id="activeBanner"></div>
     <div id="dailySummary"></div>
     <div id="domainSections"><div class="spinner">Loading…</div></div>
@@ -308,15 +262,6 @@
     load().catch(e => {
       document.getElementById('domainSections').innerHTML = `<div class="card"><p class="note">Could not load: ${e.message}</p></div>`;
     });
-
-    // The puppy fetches once now, then about every 3 minutes (not constantly).
-    (function fetchLoop() {
-      const dog = document.querySelector('.fetch-dog');
-      if (!dog) return;
-      const play = () => { dog.classList.remove('fetching'); void dog.offsetWidth; dog.classList.add('fetching'); };
-      play();
-      setInterval(play, 180000);
-    })();
   </script>
 </body>
 </html>
