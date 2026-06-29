@@ -174,7 +174,7 @@ function timerGridHtml(grid, mode) {
     for (const g of grid) if (g.subject === sub.key && !topics.find((t) => t.topic === g.topic)) topics.push({ topic: g.topic, name: g.topicName });
     if (!topics.length) continue;
     html += `<h3 class="mini-h">${sub.label}</h3><div style="overflow-x:auto"><table class="data set-table">
-      <thead><tr><th>Section</th><th>Mode</th><th>Round 1</th><th>Round 2+</th></tr></thead><tbody>`;
+      <thead><tr><th>Domain</th><th>Mode</th><th>Round 1</th><th>Round 2+</th></tr></thead><tbody>`;
     for (const t of topics) {
       for (const diff of ['medium', 'hard']) {
         const c1 = grid.find((g) => g.topic===t.topic && g.difficulty===diff && g.roundTier===1);
