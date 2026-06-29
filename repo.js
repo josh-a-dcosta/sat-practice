@@ -1057,6 +1057,17 @@ function getDashboard(userId) {
   `).all(userId);
   for (const r of byTopic) r.topicName = topicLabel(r.topic);
 
+  // Per-day, per-domain(topic) counts + time — powers the stacked Overview charts.
+  const byDayTopic = db.prepare(`
+    SELECT date(a.answered_at,'localtime') day, q.domain, q.topic,
+           COUNT(*) total, COALESCE(SUM(a.time_taken_seconds),0) seconds
+    FROM attempts a JOIN questions q ON q.id=a.question_id
+    WHERE a.user_id=?
+    GROUP BY date(a.answered_at,'localtime'), q.domain, q.topic
+    ORDER BY day
+  `).all(userId);
+  for (const r of byDayTopic) r.topicName = topicLabel(r.topic);
+
   // Per-skill performance so she can see exactly which skills need work.
   const bySkill = db.prepare(`
     SELECT q.domain, q.topic, q.difficulty, COALESCE(q.skill,'(unspecified)') skill,
@@ -1122,7 +1133,7 @@ function getDashboard(userId) {
       accuracy: overall.attempts ? Math.round((overall.correct / overall.attempts) * 100) : 0,
       avgTime: Math.round(overall.avg_time || 0),
     },
-    byDay, byTopic, bySkill, sessions, attempts: attemptRows,
+    byDay, byTopic, byDayTopic, bySkill, sessions, attempts: attemptRows,
     weeklyByDomain, weeklyBySkill,
     weeklyReports: buildWeeklyReports(weeklyByDomain, weeklyBySkill),
     // Round/practice restructure: activity-log views (all statuses, all history).
