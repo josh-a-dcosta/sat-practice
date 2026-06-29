@@ -387,40 +387,12 @@ function showFeedback(fb, opts) {
   }
   updateScore(fb.running);
   updateElapsedNote();   // freeze the per-question time at its final value
-  // Offer "Next" only while something else still needs work.
-  $('fbNext').style.display = hasUnresolvedElsewhere() ? '' : 'none';
 }
 
 async function refreshState() {
   state = await api('GET', `/api/sessions/${sessionId}`);
   updateFinish();
   renderMap();
-}
-
-function goNext() {
-  const next = findNextUnresolved(pos) || (pos < state.total ? pos + 1 : pos);
-  gotoPosition(next);
-}
-
-// Next thing needing work, scanning forward then wrapping. Pending questions
-// come before skipped ones, so a round flows through fresh questions first and
-// the skipped ones resurface near the end.
-function findNextUnresolved(fromPos) {
-  const order = [];
-  for (let i = fromPos + 1; i <= state.total; i++) order.push(i);
-  for (let i = 1; i <= fromPos; i++) order.push(i);
-  const byStatus = (wantSkipped) => {
-    for (const p of order) {
-      const item = state.items.find((x) => x.position === p);
-      if (item && !item.resolved && (!!item.skipped === wantSkipped)) return p;
-    }
-    return null;
-  };
-  return byStatus(false) || byStatus(true); // pending first, then skipped
-}
-
-function hasUnresolvedElsewhere() {
-  return state.items.some((i) => !i.resolved && i.position !== pos);
 }
 
 async function finishSession() {
@@ -550,7 +522,6 @@ $('submitBtn').onclick = submitAnswer;
 $('pauseBtn').onclick = pauseExit;
 $('closeBtn').onclick = exitTo;
 $('revealBtn').onclick = peekAnswer;
-$('fbNext').onclick = goNext;
 $('zoomIn').onclick = () => zoomBy(ZOOM_STEP);
 $('zoomOut').onclick = () => zoomBy(-ZOOM_STEP);
 $('zoomReset').onclick = zoomReset;
