@@ -595,33 +595,46 @@ function makeChart(id, config) {
 }
 
 function renderOverviewCharts() {
-  // Daily activity (stacked bar)
-  const days = DATA.byDay;
-  makeChart('dailyChart', {
-    type: 'bar',
-    data: {
-      labels: days.map((d) => d.day),
-      datasets: [
-        { label: 'Correct', data: days.map((d) => d.correct), backgroundColor: GREEN, borderRadius: 5, maxBarThickness: 26 },
-        { label: 'Wrong', data: days.map((d) => d.wrong), backgroundColor: PINK_LIGHT, borderRadius: 5, maxBarThickness: 26 },
-      ],
+  // Both Overview charts stack each day by the domain (topic) being practiced.
+  const rows = DATA.byDayTopic || [];
+  const days = [...new Set(rows.map((r) => r.day))].sort();
+  // Stable topic order (Math topics first, then Reading) so colors stay put.
+  const topicsMap = new Map();
+  for (const r of rows) if (!topicsMap.has(r.topic)) topicsMap.set(r.topic, { topic: r.topic, topicName: r.topicName, domain: r.domain });
+  const topics = [...topicsMap.values()].sort((a, b) =>
+    a.domain === b.domain ? a.topicName.localeCompare(b.topicName) : (a.domain === 'math' ? -1 : 1));
+  const idx = {};
+  for (const r of rows) idx[`${r.day}|${r.topic}`] = r;
+  const series = (valFn) => topics.map((t, i) => ({
+    label: t.topicName,
+    data: days.map((d) => { const r = idx[`${d}|${t.topic}`]; return r ? valFn(r) : 0; }),
+    backgroundColor: SERIES_COLORS[i % SERIES_COLORS.length],
+    borderRadius: 5, maxBarThickness: 26,
+  }));
+  const stackedOpts = (yLabel, fmt) => ({
+    responsive: true, maintainAspectRatio: false,
+    scales: {
+      x: { stacked: true, grid: { display: false } },
+      y: { stacked: true, beginAtZero: true, grid: { color: 'rgba(128,128,128,0.12)' }, ticks: { precision: 0 }, title: { display: !!yLabel, text: yLabel } },
     },
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      scales: { x: { stacked: true, grid: { display: false } }, y: { stacked: true, beginAtZero: true, grid: { color: 'rgba(128,128,128,0.12)' }, ticks: { precision: 0 } } },
-      plugins: { legend: { position: 'bottom', labels: { boxWidth: 12 } } },
+    plugins: {
+      legend: { position: 'bottom', labels: { boxWidth: 12 } },
+      tooltip: fmt ? { callbacks: { label: (c) => `${c.dataset.label}: ${fmt(c.parsed.y)}` } } : {},
     },
   });
 
-  // Overall accuracy doughnut
-  const o = DATA.overall;
-  makeChart('accuracyChart', {
-    type: 'doughnut',
-    data: {
-      labels: ['Correct', 'Wrong'],
-      datasets: [{ data: [o.correct, o.wrong], backgroundColor: [GREEN, PINK] }],
-    },
-    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } },
+  // #4 Daily activity — questions resolved per day, stacked by domain.
+  makeChart('dailyChart', {
+    type: 'bar',
+    data: { labels: days, datasets: series((r) => r.total) },
+    options: stackedOpts('', (v) => `${v} question${v === 1 ? '' : 's'}`),
+  });
+
+  // #5 Daily time spent — minutes per day, stacked by domain.
+  makeChart('dailyTimeChart', {
+    type: 'bar',
+    data: { labels: days, datasets: series((r) => Math.round((r.seconds / 60) * 10) / 10) },
+    options: stackedOpts('minutes', (v) => `${v} min`),
   });
 }
 
