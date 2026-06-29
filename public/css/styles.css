@@ -1070,6 +1070,8 @@ body.login-page {
 .cal-panel-head .task-del { margin-left: auto; }
 .cal-attempt { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; padding: 8px 0; border-top: 1px solid var(--pink-100); }
 .cal-attempt:first-of-type { border-top: none; }
+/* Stand-out Review button in the calendar day panel (uses the theme accent). */
+.cal-review-btn { padding: 8px 18px; font-size: 0.92rem; flex-shrink: 0; }
 
 /* ----- Standout nav buttons + active page indicator ----- */
 .navlinks { display: flex; align-items: center; flex: 1; }
