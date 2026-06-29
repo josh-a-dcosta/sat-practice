@@ -46,7 +46,7 @@
               <div class="map" id="map"></div>
               <button class="qmap-arrow" id="mapRight" type="button" aria-label="Scroll right">›</button>
             </div>
-            <p class="note map-legend">🟩 correct · 🟥 review · 🟧 skipped · ⬜ not done</p>
+            <p class="note map-legend">🟩 correct · 🟥 review · ⬜ not done</p>
           </div>
 
           <!-- Image-based (real PDF) question -->
@@ -84,10 +84,10 @@
           <div class="timer-row">
             <div class="timer" id="timer">10:00</div>
             <div class="elapsed-note" id="elapsedNote">⏱ 0:00 on this question</div>
-            <div class="timer-ctrl">
-              <button class="btn btn-ghost" id="pauseBtn" type="button" title="Pause &amp; exit this round">⏸ Pause</button>
-              <button class="btn btn-ghost" id="fullscreenBtn" type="button" title="Use the whole screen for bigger panels">⛶ Full screen</button>
-            </div>
+          </div>
+          <div class="nav-row ctrl-row">
+            <button class="btn btn-ghost" id="pauseBtn" type="button" title="Pause &amp; exit this round">⏸ Pause</button>
+            <button class="btn btn-ghost" id="fullscreenBtn" type="button" title="Use the whole screen for bigger panels">⛶ Full screen</button>
           </div>
 
           <!-- Immediate feedback after answering / peeking / timing out -->
@@ -120,7 +120,6 @@
               <button class="btn btn-ghost" id="prevBtn">← Previous</button>
               <button class="btn btn-ghost" id="nextBtn">Next →</button>
             </div>
-            <button class="btn btn-ghost answer-btn skip-btn hidden" id="skipBtn" title="Come back to this one later">Skip</button>
           </div>
 
           <div id="doneControls" class="hidden" style="margin-top:10px; text-align:center">
