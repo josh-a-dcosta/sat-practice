@@ -218,7 +218,7 @@
       // Resume straight into this section's active round if there is one.
       if (d.session) { window.location.href = `/session.html?id=${d.session}`; return; }
       PENDING = { topic: d.topic, difficulty: d.difficulty };
-      const diffName = diffLabel(d.difficulty, false);
+      const diffName = diffLabel(d.difficulty);
       document.getElementById('startTitle').textContent = `${d.name} · ${diffName}`;
       document.getElementById('startSub').textContent = `Round ${d.round} — every question in this section, one timed pass. Skip the tricky ones and come back.`;
       document.getElementById('startMins').value = (Number(d.deftl) / 60);
