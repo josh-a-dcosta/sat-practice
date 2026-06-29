@@ -342,6 +342,8 @@ h2 { font-size: 1.4rem; margin: 0 0 14px; }
    Pause/Full screen both use this). */
 .nav-row { display: flex; gap: 10px; }
 .nav-row .btn { flex: 1; }
+/* Extra breathing room between the ANSWER button and Prev/Next below it. */
+.q-actions .nav-row { margin-top: 16px; }
 .ctrl-row { margin: 10px 0 4px; }
 .nav-row .btn:disabled { opacity: 0.45; cursor: not-allowed; }
 
