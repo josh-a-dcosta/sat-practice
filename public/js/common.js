@@ -58,21 +58,15 @@ const DIFFICULTY = {
   medium: { name: 'Chill Mode', short: 'Chill', emoji: '😎' },
   hard:   { name: 'Dragon Mode', short: 'Dragon', emoji: '🐲' },
 };
-// Custom red/gold dragon-head icon for Dragon Mode (hard). It's an inline SVG,
-// not a text emoji, so the colors are guaranteed on every device. Because it
-// returns markup, the icon-bearing diff* helpers must be used in innerHTML (the
-// two text-only spots call them with withEmoji=false).
-const DRAGON_SVG = '<svg class="mode-dragon" role="img" aria-label="Dragon" viewBox="4 3 60 45" xmlns="http://www.w3.org/2000/svg"><path fill="#e23b1e" d="M42 24 C33 21 24 22 16 23 L6 19 C12 25 16 26 20 28 L4 30 C13 33 19 34 25 35 L9 39 C19 39 28 39 38 41 C44 38 46 29 42 24 Z"/><path fill="#f6a01e" d="M41 26 C32 24 24 25 17 26 L10 23 C15 27 19 28 23 30 L12 33 C20 35 26 35 33 37 C39 37 42 31 41 26 Z"/><path fill="#ffd24a" d="M39 28 C32 27 26 29 20 31 C27 33 33 34 38 36 C41 33 41 30 39 28 Z"/><path fill="#f4b32c" d="M53 18 C61 11 64 6 64 3 C63 11 60 16 55 23 Z"/><path fill="#e0992a" d="M48 20 C55 14 59 9 61 6 C60 13 57 18 51 24 Z"/><path fill="#e0992a" d="M56 27 L64 23 59 31 64 32 56 39 Z"/><path fill="#d72631" d="M40 28 C44 20 52 18 58 21 C63 24 64 32 61 38 C57 36 53 36 49 37 L46 37 C45 33 42 30 40 28 Z"/><path fill="#a3160c" d="M42 38 C47 41 54 42 60 41 C59 46 55 48 50 48 C44 48 42 44 42 38 Z"/><path fill="#fff" d="M47 37 l2 3.4 2-3.4 z M52 37 l1.6 2.8 1.6-2.8 z"/><path fill="#a3160c" d="M50 25 C55 23 60 24 62 27 C58 26 54 26 51 28 Z"/><path fill="#ffd24a" d="M52 27 L59 26 55 31 Z"/><circle cx="55" cy="28.5" r="1.3" fill="#2b0805"/><circle cx="42" cy="27" r="1.2" fill="#5e0d08"/></svg>';
-function diffIcon(d) { return d === 'hard' ? DRAGON_SVG : ((DIFFICULTY[d] || {}).emoji || ''); }
 function diffLabel(d, withEmoji = true) {
-  const x = DIFFICULTY[d] || { name: d || '' };
-  return (withEmoji ? `${diffIcon(d)} ${x.name}` : x.name).trim();
+  const x = DIFFICULTY[d] || { name: d || '', emoji: '' };
+  return (withEmoji ? `${x.emoji} ${x.name}` : x.name).trim();
 }
 function diffShort(d, withEmoji = true) {
-  const x = DIFFICULTY[d] || { short: d || '' };
-  return (withEmoji ? `${diffIcon(d)} ${x.short}` : x.short).trim();
+  const x = DIFFICULTY[d] || { short: d || '', emoji: '' };
+  return (withEmoji ? `${x.emoji} ${x.short}` : x.short).trim();
 }
-function diffEmoji(d) { return diffIcon(d); }
+function diffEmoji(d) { return (DIFFICULTY[d] || {}).emoji || ''; }
 
 // ----- Subjects (domains) -----
 // DB/API use 'math'/'reading'; `name` is the full label, `short` fits charts,
