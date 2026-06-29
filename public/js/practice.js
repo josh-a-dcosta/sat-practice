@@ -379,8 +379,13 @@ function showFeedback(fb, opts) {
     box.classList.add('bad');
     emoji.textContent = fb.peeked ? '👀' : (fb.overLimit ? '⏰' : '💡');
     title.textContent = fb.peeked ? 'Peeked' : (fb.overLimit ? 'Time was up' : 'No worries!');
-    const ca = String(fb.correct || '').replace(/\.+$/, '');  // avoid "B.."
-    msg.textContent = (ca ? `Correct answer is ${ca}. ` : '') + 'Read the explanation.';
+    // Show the correct choice letter (MCQ) or value (SPR), then what they picked.
+    const ca = fb.correctLabel || String(fb.correct || '').replace(/\.+$/, '');  // avoid "B.."
+    const lines = [];
+    if (ca) lines.push(`Correct answer is ${ca}.`);
+    if (fb.selected) lines.push(`You answered ${fb.selected}${fb.explanation ? ' (Check explanation)' : ''}`);
+    else if (fb.explanation) lines.push('Check explanation');
+    msg.textContent = lines.join('\n');
     if (fb.explanation) { explain.textContent = fb.explanation; explain.classList.remove('hidden'); }
     else explain.classList.add('hidden');
     if (!opts.silent) beep('wrong');

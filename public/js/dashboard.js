@@ -226,7 +226,7 @@ function renderSkillTrends() {
   const timeSets = skills.map((k) => ({ label: k, data: weeks.map((w) => {
     const a = agg[k][w.week]; return a && a.attempts ? Math.round(a.timeSum / a.attempts) : null;
   }) }));
-  const dlabel = (dsel ? subjectShort(dsel, false) : 'All subjects') + ' · ' + (diff ? diffShort(diff) : 'All modes');
+  const dlabel = (dsel ? subjectShort(dsel, false) : 'All subjects') + ' · ' + (diff ? diffShort(diff, false) : 'All modes');
   $('wkSkillAccH').textContent = `Accuracy by skill — ${dlabel}`;
   $('wkSkillTimeH').textContent = `Avg time by skill — ${dlabel}`;
   if (!skills.length) {
