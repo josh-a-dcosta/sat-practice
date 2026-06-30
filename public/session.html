@@ -41,17 +41,19 @@
               <div class="map" id="map"></div>
               <button class="qmap-arrow" id="mapRight" type="button" aria-label="Scroll right">›</button>
             </div>
-            <p class="note map-legend">🟩 correct · 🟥 review · ⬜ not done</p>
+            <!-- Legend on the left; compact zoom/fit tools hug the right edge -->
+            <div class="map-legend-row">
+              <p class="note map-legend">🟩 correct · 🟥 review · ⬜ not done</p>
+              <div class="pdf-tools hidden" id="pdfTools">
+                <button class="zoom-btn" id="zoomOut" type="button" aria-label="Zoom out">➖</button>
+                <span class="zoom-level" id="zoomLevel">100%</span>
+                <button class="zoom-btn" id="zoomIn" type="button" aria-label="Zoom in">➕</button>
+                <button class="zoom-btn zoom-reset" id="zoomReset" type="button">⤢ Fit</button>
+              </div>
+            </div>
           </div>
 
           <!-- Image-based (real PDF) question -->
-          <div class="pdf-tools hidden" id="pdfTools">
-            <span class="pdf-tools-label">🔍 Zoom</span>
-            <button class="zoom-btn" id="zoomOut" type="button" aria-label="Zoom out">➖</button>
-            <span class="zoom-level" id="zoomLevel">100%</span>
-            <button class="zoom-btn" id="zoomIn" type="button" aria-label="Zoom in">➕</button>
-            <button class="zoom-btn zoom-reset" id="zoomReset" type="button">⤢ Fit</button>
-          </div>
           <div class="pdf-frame hidden" id="pdfFrame">
             <div class="pdf-inner" id="pdfInner">
               <img id="qImage" alt="Question" />
@@ -76,14 +78,17 @@
 
         <!-- RIGHT: answer + controls -->
         <div class="card answer-pane">
+          <!-- Window-style controls (full screen / close) in the top-right corner -->
+          <div class="win-controls">
+            <button class="win-btn" id="fullscreenBtn" type="button" title="Full screen">⛶</button>
+            <button class="win-btn win-close hidden" id="closeBtn" type="button" title="Close review">✕</button>
+          </div>
           <div class="timer-row" id="timerRow">
             <div class="timer" id="timer">10:00</div>
             <div class="elapsed-note" id="elapsedNote">⏱ 0:00 on this question</div>
           </div>
           <div class="nav-row ctrl-row">
             <button class="btn btn-ghost" id="pauseBtn" type="button" title="Pause &amp; exit this round">⏸ Pause</button>
-            <button class="btn btn-ghost hidden" id="closeBtn" type="button" title="Close review">✕ Close</button>
-            <button class="btn btn-ghost" id="fullscreenBtn" type="button" title="Use the whole screen for bigger panels">⛶ Full screen</button>
           </div>
 
           <!-- Immediate feedback after answering / peeking / timing out -->

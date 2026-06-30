@@ -764,6 +764,32 @@ body.fullscreen-mode .answer-pane { max-height: calc(100vh - 70px); overflow-y: 
 .zoom-reset { margin-left: 4px; }
 .zoom-level { font-weight: 800; color: var(--pink-700); min-width: 48px; text-align: center; }
 
+/* Legend (left) + compact zoom/fit tools (right edge) share one row. */
+.map-legend-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
+.map-legend-row .map-legend { margin: 0; }
+.map-legend-row .pdf-tools { margin: 0; gap: 5px; }
+.map-legend-row .pdf-tools .zoom-btn { padding: 3px 8px; font-size: 0.8rem; border-radius: 8px; }
+.map-legend-row .pdf-tools .zoom-reset { margin-left: 2px; }
+.map-legend-row .pdf-tools .zoom-level { min-width: 38px; font-size: 0.78rem; }
+
+/* Window-style controls (full screen / close) in the panel's top-right corner */
+.win-controls { display: flex; justify-content: flex-end; gap: 3px; margin: -4px 0 6px; }
+.win-btn {
+  width: 40px; height: 28px; border: none; border-radius: 7px;
+  background: var(--pink-100); color: var(--pink-700);
+  font-size: 0.9rem; line-height: 1; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center;
+}
+.win-btn:hover { background: var(--pink-200); color: var(--ink); }
+.win-btn.win-close:hover { background: #e23b5a; color: #fff; }
+
+/* Dark mode: secondary/ghost button text uses a bright neutral so it never goes
+   faint on the colored themes (whose accent 600/700 are dark). */
+:root[data-mode="dark"] .btn-ghost,
+:root[data-mode="dark"] .zoom-btn,
+:root[data-mode="dark"] .zoom-level,
+:root[data-mode="dark"] .win-btn { color: var(--ink); }
+
 /* The rendered PDF page with a reveal-able answer mask */
 .pdf-frame {
   border: 2px solid var(--pink-100);
