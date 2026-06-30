@@ -132,7 +132,7 @@ CREATE TABLE IF NOT EXISTS tasks (
 -- Roles & assignments (a user may hold several roles).
 CREATE TABLE IF NOT EXISTS user_roles (
   user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
-  role    TEXT NOT NULL CHECK (role IN ('student','tutor','admin')),
+  role    TEXT NOT NULL CHECK (role IN ('student','tutor','admin','parent')),
   UNIQUE (user_id, role)
 );
 
@@ -141,6 +141,14 @@ CREATE TABLE IF NOT EXISTS tutor_students (
   tutor_id   INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
   student_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
   UNIQUE (tutor_id, student_id)
+);
+
+-- Many-to-many parent ↔ student links (a student may have several parents and a
+-- parent several students). Parents get the same read-only view as a tutor.
+CREATE TABLE IF NOT EXISTS parent_students (
+  parent_id  INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  student_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  UNIQUE (parent_id, student_id)
 );
 
 -- Per-question timer settings, keyed by section (topic) × difficulty × round
@@ -214,9 +222,28 @@ try { db.exec('ALTER TABLE users ADD COLUMN login_count INTEGER NOT NULL DEFAULT
 try { db.exec('ALTER TABLE users ADD COLUMN last_login_at TEXT'); } catch (_) { /* exists */ }
 try { db.exec('ALTER TABLE auth_tokens ADD COLUMN active_role TEXT'); } catch (_) { /* exists */ }
 try { db.exec('ALTER TABLE auth_tokens ADD COLUMN active_student_id INTEGER'); } catch (_) { /* exists */ }
+// Relax the user_roles CHECK to allow the 'parent' role on volumes created
+// before it existed (SQLite can't ALTER a CHECK, so rebuild the table once).
+const urDef = db.prepare("SELECT sql FROM sqlite_master WHERE type='table' AND name='user_roles'").get();
+if (urDef && !/parent/.test(urDef.sql)) {
+  db.exec('PRAGMA foreign_keys=OFF;');
+  db.exec(`
+    CREATE TABLE user_roles_new (
+      user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+      role    TEXT NOT NULL CHECK (role IN ('student','tutor','admin','parent')),
+      UNIQUE (user_id, role)
+    );
+    INSERT OR IGNORE INTO user_roles_new (user_id, role) SELECT user_id, role FROM user_roles;
+    DROP TABLE user_roles;
+    ALTER TABLE user_roles_new RENAME TO user_roles;
+  `);
+  db.exec('PRAGMA foreign_keys=ON;');
+}
 db.exec('CREATE INDEX IF NOT EXISTS idx_user_roles ON user_roles(user_id);');
 db.exec('CREATE INDEX IF NOT EXISTS idx_tutor_students_tutor ON tutor_students(tutor_id);');
 db.exec('CREATE INDEX IF NOT EXISTS idx_tutor_students_student ON tutor_students(student_id);');
+db.exec('CREATE INDEX IF NOT EXISTS idx_parent_students_parent ON parent_students(parent_id);');
+db.exec('CREATE INDEX IF NOT EXISTS idx_parent_students_student ON parent_students(student_id);');
 db.exec('CREATE INDEX IF NOT EXISTS idx_settings_user ON settings_user(user_id);');
 
 // Collaborative plans: who added each suggested-practice task (student or tutor).
@@ -259,6 +286,19 @@ CREATE TABLE IF NOT EXISTS weekly_comments (
   created_at  TEXT NOT NULL DEFAULT (datetime('now'))
 );
 CREATE INDEX IF NOT EXISTS idx_weekly_comments ON weekly_comments(student_id, week);
+`);
+
+// Emoji reactions on a message in the weekly thread. One row per (message, user,
+// emoji) so a user can add several distinct reactions but not duplicate one.
+db.exec(`
+CREATE TABLE IF NOT EXISTS comment_reactions (
+  comment_id INTEGER NOT NULL REFERENCES weekly_comments(id) ON DELETE CASCADE,
+  user_id    INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  emoji      TEXT NOT NULL,
+  created_at TEXT NOT NULL DEFAULT (datetime('now')),
+  UNIQUE (comment_id, user_id, emoji)
+);
+CREATE INDEX IF NOT EXISTS idx_comment_reactions ON comment_reactions(comment_id);
 `);
 
 // Round/practice restructure: per-question status + resolved time on an existing

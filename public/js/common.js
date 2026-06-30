@@ -104,7 +104,9 @@ function statusEmoji(s) { return (STATUS[s] || {}).emoji || ''; }
 
 // ----- Themes & roles -----  (single source for dropdowns/checkboxes)
 const THEME_KEYS = ['gray', 'pink', 'blue', 'green', 'yellow'];
-const ROLE_KEYS  = ['student', 'tutor', 'admin'];
+const ROLE_KEYS  = ['student', 'tutor', 'admin', 'parent'];
+// Roles that view a specific student's read-only dashboard (pick a student first).
+const VIEWER_ROLE_KEYS = ['tutor', 'parent'];
 
 // Relabel static <option>s (difficulty + subject + status) from the maps above,
 // so every dropdown stays in sync with one source of truth — no per-page
@@ -192,12 +194,12 @@ function mountModeToggle() {
 }
 
 // ----- Roles: landing pages, page access, and per-role nav -----
-const ROLE_LANDING = { student: '/', tutor: '/dashboard.html', admin: '/admin.html' };
+const ROLE_LANDING = { student: '/', tutor: '/dashboard.html', parent: '/dashboard.html', admin: '/admin.html' };
 
 // Where a freshly-resolved user should land (or the picker if not resolved).
 function landingFor(user) {
   if (!user || !user.activeRole) return '/select.html';
-  if (user.activeRole === 'tutor' && !user.activeStudentId) return '/select.html';
+  if (VIEWER_ROLE_KEYS.includes(user.activeRole) && !user.activeStudentId) return '/select.html';
   return ROLE_LANDING[user.activeRole] || '/';
 }
 
@@ -217,6 +219,7 @@ function currentPageKey() {
 const ROLE_ALLOWED = {
   student: ['home', 'dashboard', 'session', 'settings'],
   tutor:   ['dashboard', 'session'],   // session = read-only review of their student
+  parent:  ['dashboard', 'session'],   // same read-only access as a tutor
   admin:   ['admin'],
 };
 
@@ -246,7 +249,7 @@ function buildRoleNav(user) {
     add('/dashboard.html?view=calendar', '🗓️ Calendar', 'calendar');
     add('/dashboard.html?view=dashboard', '📊 Dashboard', 'dashboard');
     add('/settings.html', '⚙️ Settings', 'settings');
-  } else if (user.activeRole === 'tutor') {
+  } else if (user.activeRole === 'tutor' || user.activeRole === 'parent') {
     add('/dashboard.html?view=calendar', '🗓️ Calendar', 'calendar');
     add('/dashboard.html?view=dashboard', '📊 Dashboard', 'dashboard');
   } else if (user.activeRole === 'admin') {
@@ -266,7 +269,7 @@ async function mountUserMenu() {
 
   const page = currentPageKey();
   if (page !== 'select' && page !== 'login') {
-    if (!me.activeRole || (me.activeRole === 'tutor' && !me.activeStudentId)) {
+    if (!me.activeRole || (VIEWER_ROLE_KEYS.includes(me.activeRole) && !me.activeStudentId)) {
       location.href = '/select.html'; return;
     }
     if (!(ROLE_ALLOWED[me.activeRole] || []).includes(page)) {
@@ -282,12 +285,12 @@ async function mountUserMenu() {
 
   const chip = document.createElement('span');
   chip.className = 'user-chip';
-  chip.textContent = (me.activeRole === 'tutor' && me.activeStudentName)
+  chip.textContent = (VIEWER_ROLE_KEYS.includes(me.activeRole) && me.activeStudentName)
     ? `👤 ${me.fullName} · viewing ${me.activeStudentName}`
     : `👤 ${me.fullName}`;
   nav.appendChild(chip);
 
-  if ((me.roles && me.roles.length > 1) || me.activeRole === 'tutor') {
+  if ((me.roles && me.roles.length > 1) || VIEWER_ROLE_KEYS.includes(me.activeRole)) {
     const sw = document.createElement('a');
     sw.href = '/select.html';
     sw.className = 'nav-switch';
