@@ -420,7 +420,9 @@ let wideMode = false;
 function setWide(on) {
   wideMode = on;
   document.body.classList.toggle('fullscreen-mode', on);
-  $('fullscreenBtn').textContent = on ? '🡼 Exit full screen' : '⛶ Full screen';
+  const b = $('fullscreenBtn');
+  b.textContent = on ? '❐' : '⛶';
+  b.title = on ? 'Exit full screen' : 'Full screen';
 }
 function toggleFullscreen() {
   setWide(!wideMode);
