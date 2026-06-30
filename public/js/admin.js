@@ -15,7 +15,7 @@ function initAddUserForm() {
   const rl = $('nuRoles');
   if (rl) rl.innerHTML = ROLES.map((r) => `<label class="rl"><input type="checkbox" class="nuRole" value="${r}" ${r === 'student' ? 'checked' : ''}/> ${cap(r)}</label>`).join(' ');
 }
-const SUBJECTS = SUBJECT_KEYS.map(k => ({ key: k, label: subjectLabel(k) }));
+const SUBJECT_LIST = SUBJECT_KEYS.map(k => ({ key: k, label: subjectLabel(k) }));
 
 function showView(name) {
   document.querySelectorAll('.dash-view').forEach((v) => v.classList.toggle('hidden', v.dataset.view !== name));
@@ -205,7 +205,7 @@ $('pasgList').addEventListener('click', async (e) => {
 // ---- Timer grids (shared by global + per-user) ----------------------------
 function timerGridHtml(grid, mode) {
   let html = '';
-  for (const sub of SUBJECTS) {
+  for (const sub of SUBJECT_LIST) {
     const topics = [];
     for (const g of grid) if (g.subject === sub.key && !topics.find((t) => t.topic === g.topic)) topics.push({ topic: g.topic, name: g.topicName });
     if (!topics.length) continue;
