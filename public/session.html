@@ -78,17 +78,18 @@
 
         <!-- RIGHT: answer + controls -->
         <div class="card answer-pane">
-          <!-- Window-style controls (full screen / close) in the top-right corner -->
-          <div class="win-controls">
+          <!-- One control bar: Pause · timer · time-on-question on the left;
+               full screen / close as window buttons hugging the right edge.
+               Close + full screen show in both test and review modes. -->
+          <div class="pane-topbar">
+            <button class="win-btn win-pause" id="pauseBtn" type="button" title="Pause &amp; exit this round">⏸</button>
+            <span class="timer-group" id="timerRow">
+              <span class="timer" id="timer">10:00</span>
+              <span class="elapsed-note" id="elapsedNote">⏱ 0:00 on this question</span>
+            </span>
+            <span class="topbar-spacer"></span>
             <button class="win-btn" id="fullscreenBtn" type="button" title="Full screen">⛶</button>
-            <button class="win-btn win-close hidden" id="closeBtn" type="button" title="Close review">✕</button>
-          </div>
-          <div class="timer-row" id="timerRow">
-            <div class="timer" id="timer">10:00</div>
-            <div class="elapsed-note" id="elapsedNote">⏱ 0:00 on this question</div>
-          </div>
-          <div class="nav-row ctrl-row">
-            <button class="btn btn-ghost" id="pauseBtn" type="button" title="Pause &amp; exit this round">⏸ Pause</button>
+            <button class="win-btn win-close" id="closeBtn" type="button" title="Close">✕</button>
           </div>
 
           <!-- Immediate feedback after answering / peeking / timing out -->
