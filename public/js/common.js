@@ -226,10 +226,15 @@ function buildRoleNav(user) {
   if (!nav) return;
   nav.innerHTML = '';
   const page = currentPageKey();
-  // On the dashboard, Calendar and Dashboard share a page — disambiguate by the
-  // ?view= param so the right tab highlights.
+  // On the dashboard, Calendar and Dashboard share a page — highlight the tab
+  // that dashboard.js will actually show: the ?view= param wins, else the
+  // last-used view saved in localStorage (so the right tab lights up on login).
   let activeKey = page;
-  if (page === 'dashboard') activeKey = getParam('view') === 'calendar' ? 'calendar' : 'dashboard';
+  if (page === 'dashboard') {
+    let view = getParam('view');
+    if (!view) { try { view = localStorage.getItem('dashView'); } catch (_) { /* ignore */ } }
+    activeKey = view === 'calendar' ? 'calendar' : 'dashboard';
+  }
   const add = (href, label, key) => {
     const a = document.createElement('a');
     a.className = 'nav-btn' + (key === activeKey ? ' active' : '');
