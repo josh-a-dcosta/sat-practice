@@ -420,7 +420,9 @@ th.active-col { color: var(--pink-700); }
 .map button.correct { border-color: var(--green); color: var(--green); background: transparent; }
 .map button.wrong { border-color: #e23b5a; color: #e23b5a; background: transparent; }
 .map button.skipped { border-color: var(--amber); color: var(--amber); background: transparent; }
-.map button.current { box-shadow: 0 0 0 2px var(--pink-200); }
+/* The question being shown gets a solid theme-accent fill so it clearly stands
+   out; any correct/wrong border underneath still signals its status. */
+.map button.current { background: var(--pink-500); color: #fff; box-shadow: 0 0 0 2px var(--pink-200); }
 :root[data-mode="dark"] .map button.correct { color: #4ee08a; border-color: #4ee08a; }
 :root[data-mode="dark"] .map button.wrong { color: #ff7088; border-color: #ff7088; }
 .map-legend { margin: 8px 0 0; font-size: 0.78rem; }
@@ -944,14 +946,15 @@ body.fullscreen-mode .answer-pane { max-height: calc(100vh - 70px); overflow-y: 
 }
 .scoreboard .note { color: var(--muted); font-weight: 700; margin-left: 4px; }
 .feedback {
-  border-radius: 16px; padding: 16px 18px; margin-bottom: 16px; text-align: center;
+  border-radius: 14px; padding: 9px 14px; margin-bottom: 10px; text-align: center;
   border: 2px solid var(--pink-200); background: var(--pink-50);
 }
 .feedback.good { border-color: var(--green); background: #e9f9f1; }
 .feedback.bad  { border-color: #e23b5a; background: #fdecef; }
-.feedback .fb-emoji { font-size: 2.4rem; line-height: 1; }
-.feedback .fb-title { font-weight: 800; font-size: 1.2rem; margin: 4px 0 6px; }
-.feedback .fb-msg { color: var(--ink); margin-bottom: 10px; white-space: pre-line; }
+/* Compact: emoji + title share one line so the panel doesn't dominate. */
+.feedback .fb-emoji { font-size: 1.35rem; line-height: 1; display: inline; margin-right: 6px; vertical-align: -0.1em; }
+.feedback .fb-title { font-weight: 800; font-size: 1.02rem; margin: 0 0 4px; display: inline; }
+.feedback .fb-msg { color: var(--ink); margin-bottom: 6px; white-space: pre-line; }
 .feedback .explanation { text-align: left; }
 .opt.is-correct { border-color: var(--green); background: #e9f9f1; }
 :root[data-mode="dark"] .feedback.good { background: #14361f; }
