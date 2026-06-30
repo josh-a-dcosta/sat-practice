@@ -557,20 +557,29 @@ function renderTiles() {
   const o = DATA.overall;
   const cat = DATA.catalogue || [];
   const eng = DATA.engagement || { loginCount: 0, practiceSeconds: 0 };
-  const mathTotal    = cat.filter(c => c.domain === 'math').reduce((s,c) => s + c.total, 0);
-  const mathMastered = cat.filter(c => c.domain === 'math').reduce((s,c) => s + c.mastered, 0);
-  const readTotal    = cat.filter(c => c.domain === 'reading').reduce((s,c) => s + c.total, 0);
-  const readMastered = cat.filter(c => c.domain === 'reading').reduce((s,c) => s + c.mastered, 0);
+  // Mastered vs total per subject, plus a per-difficulty (Chill/Dragon) breakdown.
+  const tally = (domain, diff) => {
+    const rows = cat.filter(c => c.domain === domain && (!diff || c.difficulty === diff));
+    return { m: rows.reduce((s, c) => s + c.mastered, 0), t: rows.reduce((s, c) => s + c.total, 0) };
+  };
+  const subjTile = (domain) => {
+    const all = tally(domain), med = tally(domain, 'medium'), hard = tally(domain, 'hard');
+    const sub = `<div class="stat-break">`
+      + `<span>${diffEmoji('medium')} ${med.m}/${med.t}</span>`
+      + `<span>${diffEmoji('hard')} ${hard.m}/${hard.t}</span>`
+      + `</div>`;
+    return { num: `${all.m}/${all.t}`, lbl: subjectShort(domain) + ' mastered', sub };
+  };
   const tiles = [
     { num: eng.loginCount, lbl: '🔑 Visits' },
     { num: fmtDurLong(eng.practiceSeconds), lbl: '⏱ Time practiced' },
     { num: o.accuracy + '%', lbl: 'Overall accuracy' },
     { num: fmtTime(o.avgTime), lbl: 'Avg time / question' },
-    { num: `${mathMastered}/${mathTotal}`, lbl: subjectShort('math') + ' mastered' },
-    { num: `${readMastered}/${readTotal}`, lbl: subjectShort('reading') + ' mastered' },
+    subjTile('math'),
+    subjTile('reading'),
   ];
   $('statTiles').innerHTML = tiles.map((t) =>
-    `<div class="stat"><div class="num">${t.num}</div><div class="lbl">${t.lbl}</div></div>`).join('');
+    `<div class="stat"><div class="num">${t.num}</div><div class="lbl">${t.lbl}</div>${t.sub || ''}</div>`).join('');
 }
 
 // Total practice time reads as "3h 47m" / "47m" / "30s".

@@ -244,6 +244,9 @@ h2 { font-size: 1.4rem; margin: 0 0 14px; }
 }
 .stat .num { font-size: 1.9rem; font-weight: 800; color: var(--pink-600); }
 .stat .lbl { color: var(--muted); font-size: 0.85rem; font-weight: 700; }
+/* Per-difficulty mastered breakdown under a subject tile */
+.stat-break { display: flex; justify-content: center; gap: 12px; margin-top: 8px; flex-wrap: wrap; }
+.stat-break span { font-size: 0.82rem; font-weight: 800; color: var(--ink); white-space: nowrap; }
 
 /* Question UI */
 .q-header {
