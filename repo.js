@@ -936,19 +936,33 @@ function getDailySummaries(userId) {
 // ---------------------------------------------------------------------------
 // Weekly-report comments (student ↔ tutor, per week)
 // ---------------------------------------------------------------------------
-function listWeeklyComments(studentId, week) {
-  return db.prepare(`
+function listWeeklyComments(studentId, week, viewerId) {
+  const comments = db.prepare(`
     SELECT wc.id, wc.week, wc.author_id, wc.author_role, wc.text, wc.created_at,
            COALESCE(u.full_name, u.username) author_name
     FROM weekly_comments wc LEFT JOIN users u ON u.id = wc.author_id
     WHERE wc.student_id = ? AND wc.week = ?
     ORDER BY wc.id
   `).all(studentId, week);
+  if (!comments.length) return comments;
+  // Attach reactions: per message, the emoji counts + which ones this viewer made.
+  const reactions = db.prepare(`
+    SELECT comment_id, emoji, COUNT(*) n,
+           SUM(CASE WHEN user_id = ? THEN 1 ELSE 0 END) mine
+    FROM comment_reactions
+    WHERE comment_id IN (${comments.map(() => '?').join(',')})
+    GROUP BY comment_id, emoji
+  `).all(viewerId || 0, ...comments.map((c) => c.id));
+  const byComment = {};
+  for (const r of reactions) (byComment[r.comment_id] = byComment[r.comment_id] || []).push({ emoji: r.emoji, count: r.n, mine: !!r.mine });
+  for (const c of comments) c.reactions = byComment[c.id] || [];
+  return comments;
 }
 
-// Notes a student hasn't seen yet — anyone else's note (tutor/admin) newer than
-// the student's last Notes view. Returns the count + the most recent one.
-function unseenNotes(studentId) {
+// Unseen messages in a student's thread for a given viewer: anyone else's
+// message newer than that viewer's last Notes view. Works for the student
+// themselves and for an assigned tutor/parent. Returns count + most recent.
+function unseenMessages(studentId, viewerId) {
   const rows = db.prepare(`
     SELECT wc.week, wc.text, wc.created_at, COALESCE(u.full_name, u.username) author_name
     FROM weekly_comments wc LEFT JOIN users u ON u.id = wc.author_id
@@ -956,12 +970,26 @@ function unseenNotes(studentId) {
       AND wc.author_id IS NOT NULL AND wc.author_id <> ?
       AND wc.created_at > COALESCE((SELECT notes_seen_at FROM users WHERE id = ?), '')
     ORDER BY wc.id DESC
-  `).all(studentId, studentId, studentId);
+  `).all(studentId, viewerId, viewerId);
   return { count: rows.length, latest: rows[0] || null };
 }
 
-function markNotesSeen(studentId) {
-  db.prepare("UPDATE users SET notes_seen_at = datetime('now') WHERE id = ?").run(studentId);
+function markNotesSeen(viewerId) {
+  db.prepare("UPDATE users SET notes_seen_at = datetime('now') WHERE id = ?").run(viewerId);
+  return { ok: true };
+}
+
+// Toggle one emoji reaction by a user on a message. The message must belong to
+// the thread the caller is allowed to view (studentId), so reactions can't be
+// placed on another student's thread. Returns the message's updated reactions.
+const REACTION_EMOJI = ['👍', '❤️', '😂', '🎉', '👏', '🔥'];
+function toggleReaction(studentId, commentId, userId, emoji) {
+  if (!REACTION_EMOJI.includes(emoji)) { const e = new Error('Unknown reaction.'); e.status = 400; throw e; }
+  const c = db.prepare('SELECT id FROM weekly_comments WHERE id = ? AND student_id = ?').get(Number(commentId), studentId);
+  if (!c) { const e = new Error('Message not found.'); e.status = 404; throw e; }
+  const existing = db.prepare('SELECT 1 FROM comment_reactions WHERE comment_id = ? AND user_id = ? AND emoji = ?').get(c.id, userId, emoji);
+  if (existing) db.prepare('DELETE FROM comment_reactions WHERE comment_id = ? AND user_id = ? AND emoji = ?').run(c.id, userId, emoji);
+  else db.prepare('INSERT OR IGNORE INTO comment_reactions (comment_id, user_id, emoji) VALUES (?,?,?)').run(c.id, userId, emoji);
   return { ok: true };
 }
 
@@ -1307,7 +1335,7 @@ module.exports = {
   submitAnswer, peekQuestion, timeoutQuestion, skipQuestion, completeSession,
   getDashboard, getAttemptReview, getQuestionReview,
   getDailyActivity, getDailySummaries, getSkillFocus, getActivityFeed,
-  listWeeklyComments, addWeeklyComment, unseenNotes, markNotesSeen, userEngagement,
+  listWeeklyComments, addWeeklyComment, unseenMessages, markNotesSeen, toggleReaction, REACTION_EMOJI, userEngagement,
   listTasks, addTask, setTaskStatus, deleteTask, generatePlan,
   resolveTimer, settingsGrid, setUserSetting, clearUserSetting,
   setGlobalSetting, clearGlobalSetting,
