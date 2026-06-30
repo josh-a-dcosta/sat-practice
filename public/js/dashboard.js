@@ -452,7 +452,7 @@ function showCalDay(day) {
       return `<div class="cal-attempt">
         <span>${emoji} <b>${escapeHtml(p.topicName)}</b> <span class="note">${diffShort(p.difficulty)} · Round ${p.round}</span>
           · ${p.events} action${p.events === 1 ? '' : 's'} · ${acc}% on resolved</span>
-        <a class="btn btn-primary cal-review-btn" href="/session.html?id=${p.sessionId}&return=dashboard">${diffEmoji(p.difficulty)} Review →</a>
+        <a class="btn btn-primary cal-review-btn" href="/session.html?id=${p.sessionId}&return=calendar">${diffEmoji(p.difficulty)} Review →</a>
       </div>`;
     }).join('');
   }

@@ -108,7 +108,8 @@ async function loadState() {
   // Review (no timer) when the round is done OR it was opened to look at, not
   // practice — i.e. from the dashboard/calendar. Practice (timer on) is only the
   // resume flow from Home, which carries no return param.
-  const openedForReview = getParam('return') === 'dashboard';
+  const ret = getParam('return');
+  const openedForReview = ret === 'dashboard' || ret === 'calendar';
   if (state.status === 'completed' || openedForReview) {
     enterReviewUI();
     pos = firstWrong() || state.currentPosition || 1;
@@ -152,7 +153,13 @@ async function completeAndReview() {
 
 // Leave the session, back to wherever it was opened from: the dashboard (which
 // restores the exact view — calendar, etc.) or Home.
-function exitTo() { saveProgress(); location.href = getParam('return') === 'dashboard' ? '/dashboard.html' : '/'; }
+function exitTo() {
+  saveProgress();
+  const ret = getParam('return');
+  location.href = ret === 'calendar' ? '/dashboard.html?view=calendar'
+                : ret === 'dashboard' ? '/dashboard.html'
+                : '/';
+}
 function pauseExit() { exitTo(); }
 
 function titleCase(t) { return t.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase()); }
