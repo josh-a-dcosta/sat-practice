@@ -236,7 +236,7 @@ function buildRoleNav(user) {
   if (page === 'dashboard') {
     let view = getParam('view');
     if (!view) { try { view = localStorage.getItem('dashView'); } catch (_) { /* ignore */ } }
-    activeKey = view === 'calendar' ? 'calendar' : 'dashboard';
+    activeKey = view === 'calendar' ? 'calendar' : view === 'notes' ? 'notes' : 'dashboard';
   }
   const add = (href, label, key) => {
     const a = document.createElement('a');
@@ -255,6 +255,33 @@ function buildRoleNav(user) {
   } else if (user.activeRole === 'admin') {
     add('/admin.html', '🛠️ Admin', 'admin');
   }
+  // Messages indicator: everyone with a thread (student / tutor / parent).
+  if (['student', 'tutor', 'parent'].includes(user.activeRole)) {
+    const a = document.createElement('a');
+    a.className = 'nav-btn nav-messages' + (activeKey === 'notes' ? ' active' : '');
+    a.href = '/dashboard.html?view=notes';
+    a.innerHTML = '💬 Messages <span class="nav-badge hidden" id="navMsgBadge"></span>';
+    nav.appendChild(a);
+  }
+}
+
+// Poll the unseen-message count and badge the top-bar Messages button.
+async function refreshMessagesBadge() {
+  const badge = document.getElementById('navMsgBadge');
+  if (!badge) return;
+  try {
+    const { count } = await api('GET', '/api/notes/unseen');
+    if (count > 0) { badge.textContent = count > 9 ? '9+' : count; badge.classList.remove('hidden'); }
+    else badge.classList.add('hidden');
+  } catch (_) { /* ignore */ }
+}
+let _msgPollStarted = false;
+function startMessagesPoll() {
+  if (_msgPollStarted) return;
+  _msgPollStarted = true;
+  refreshMessagesBadge();
+  setInterval(refreshMessagesBadge, 60000);
+  window.addEventListener('focus', refreshMessagesBadge);
 }
 
 // Show the signed-in user + role nav + switch/log-out, and apply their theme.
@@ -282,6 +309,7 @@ async function mountUserMenu() {
   if (!nav) return;
   buildRoleNav(me);
   mountModeToggle();
+  startMessagesPoll();   // badge the top-bar Messages button with unseen count
 
   const chip = document.createElement('span');
   chip.className = 'user-chip';

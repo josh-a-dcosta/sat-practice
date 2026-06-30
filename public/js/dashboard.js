@@ -311,21 +311,32 @@ async function loadWeeklyComments(week) {
   try { comments = (await api('GET', `/api/weekly-comments?week=${encodeURIComponent(week)}`)).comments; } catch (_) { /* ignore */ }
   renderWeeklyComments(comments);
 }
+const ROLE_BADGE = { tutor: '🧑‍🏫 Tutor', parent: '👨‍👩‍👧 Parent', student: '🎒 Student', admin: '🛠️ Admin' };
+const REACTION_EMOJI = ['👍', '❤️', '😂', '🎉', '👏', '🔥'];
+function reactionBar(c) {
+  // Existing reactions (with counts) followed by a small "add" picker.
+  const chips = (c.reactions || []).map((r) =>
+    `<button class="wc-react ${r.mine ? 'mine' : ''}" data-id="${c.id}" data-emoji="${r.emoji}">${r.emoji} ${r.count}</button>`).join('');
+  const picker = REACTION_EMOJI.map((e) =>
+    `<button class="wc-react-add" data-id="${c.id}" data-emoji="${e}">${e}</button>`).join('');
+  return `<div class="wc-reactions">${chips}<span class="wc-react-pick">${picker}</span></div>`;
+}
 function renderWeeklyComments(comments) {
   const el = $('weeklyComments');
   if (!el) return;
   const thread = comments.length ? comments.map((c) => {
-    const tutor = c.author_role === 'tutor';
-    const badge = tutor ? '🧑‍🏫 Tutor' : (c.author_role === 'student' ? '🎒 Student' : '');
-    return `<div class="wc-item ${tutor ? 'tutor' : 'student'}">
+    const role = c.author_role || 'student';
+    const badge = ROLE_BADGE[role] || '';
+    return `<div class="wc-item ${escapeHtml(role)}">
       <div class="wc-head"><b>${escapeHtml(c.author_name || '—')}</b> <span class="note">${badge} · ${fmtDate(c.created_at)}</span></div>
       <div class="wc-text">${escapeHtml(c.text)}</div>
+      ${reactionBar(c)}
     </div>`;
-  }).join('') : '<p class="note">No notes yet for this week. Start the conversation below. 🙂</p>';
+  }).join('') : '<p class="note">No messages yet for this week. Start the conversation below. 🙂</p>';
   el.innerHTML = `<div class="wc-thread">${thread}</div>
     <form class="wc-form" id="wcForm">
-      <textarea id="wcInput" class="spr-input" rows="2" placeholder="Add a note for this week…"></textarea>
-      <button class="btn btn-primary" type="submit">Post</button>
+      <textarea id="wcInput" class="spr-input" rows="2" placeholder="Write a message for this week…"></textarea>
+      <button class="btn btn-primary" type="submit">Send</button>
     </form>`;
   const f = $('wcForm');
   if (f) f.addEventListener('submit', async (e) => {
@@ -335,9 +346,16 @@ function renderWeeklyComments(comments) {
     try {
       const r = await api('POST', '/api/weekly-comments', { week: CUR_WEEK, text });
       renderWeeklyComments(r.comments);
-      showToast('Posted ✓');
+      showToast('Sent ✓');
     } catch (err) { showToast(err.message); }
   });
+  // Toggle a reaction (works on both existing chips and the add-picker).
+  el.querySelectorAll('.wc-react, .wc-react-add').forEach((b) => b.addEventListener('click', async () => {
+    try {
+      const r = await api('POST', `/api/weekly-comments/${b.dataset.id}/react`, { week: CUR_WEEK, emoji: b.dataset.emoji });
+      renderWeeklyComments(r.comments);
+    } catch (err) { showToast(err.message); }
+  }));
 }
 
 // ---- Tasks / focus plan ----------------------------------------------------

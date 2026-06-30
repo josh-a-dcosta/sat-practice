@@ -301,26 +301,32 @@ async function handleApi(req, res, url) {
       return sendJson(res, 200, { grid: repo.settingsGrid(uid) });
     }
 
-    // ---- weekly-report comments (student ↔ tutor, per week) ----
+    // ---- messages: the per-student weekly thread (student ↔ tutor ↔ parent) ----
     // GET /api/weekly-comments?week=YYYY-WW
     if (req.method === 'GET' && pathname === '/api/weekly-comments') {
       const week = url.searchParams.get('week') || '';
-      return sendJson(res, 200, { comments: repo.listWeeklyComments(requireView(), week) });
+      return sendJson(res, 200, { comments: repo.listWeeklyComments(requireView(), week, uid) });
     }
     // POST /api/weekly-comments { week, text }
     if (req.method === 'POST' && pathname === '/api/weekly-comments') {
       const b = await readBody(req);
       repo.addWeeklyComment(requireView(), String(b.week || ''), uid, user.activeRole, String(b.text || ''));
-      return sendJson(res, 200, { comments: repo.listWeeklyComments(requireView(), String(b.week || '')) });
+      return sendJson(res, 200, { comments: repo.listWeeklyComments(requireView(), String(b.week || ''), uid) });
     }
-    // GET /api/notes/unseen — unseen tutor notes for the signed-in student.
+    // POST /api/weekly-comments/:id/react { week, emoji } — toggle a reaction.
+    if (req.method === 'POST' && parts[1] === 'weekly-comments' && parts[3] === 'react' && parts.length === 4) {
+      const b = await readBody(req);
+      repo.toggleReaction(requireView(), Number(parts[2]), uid, String(b.emoji || ''));
+      return sendJson(res, 200, { comments: repo.listWeeklyComments(requireView(), String(b.week || ''), uid) });
+    }
+    // GET /api/notes/unseen — unseen messages for the signed-in viewer's thread
+    // (a student's own thread, or the assigned student's for a tutor/parent).
     if (req.method === 'GET' && pathname === '/api/notes/unseen') {
-      if (user.activeRole !== 'student') return sendJson(res, 200, { count: 0, latest: null });
-      return sendJson(res, 200, repo.unseenNotes(uid));
+      if (viewId == null) return sendJson(res, 200, { count: 0, latest: null });
+      return sendJson(res, 200, repo.unseenMessages(viewId, uid));
     }
-    // POST /api/notes/seen — student acknowledges their notes are read.
+    // POST /api/notes/seen — viewer acknowledges the thread is read.
     if (req.method === 'POST' && pathname === '/api/notes/seen') {
-      if (user.activeRole !== 'student') return sendJson(res, 200, { ok: true });
       return sendJson(res, 200, repo.markNotesSeen(uid));
     }
 
