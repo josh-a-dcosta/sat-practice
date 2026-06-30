@@ -383,7 +383,7 @@ function showFeedback(fb, opts) {
     const ca = fb.correctLabel || String(fb.correct || '').replace(/\.+$/, '');  // avoid "B.."
     const lines = [];
     if (ca) lines.push(`Correct answer is ${ca}.`);
-    if (fb.selected) lines.push(`You answered ${fb.selected}${fb.explanation ? ' (Check explanation)' : ''}`);
+    if (fb.selected) lines.push(`You answered ${fb.selected}.${fb.explanation ? ' (Check explanation)' : ''}`);
     else if (fb.explanation) lines.push('Check explanation');
     msg.textContent = lines.join('\n');
     if (fb.explanation) { explain.textContent = fb.explanation; explain.classList.remove('hidden'); }
