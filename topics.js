@@ -25,11 +25,24 @@ const TAXONOMY = {
     emoji: '📖',
     topics: {
       'information-ideas': 'INFO IDEAS',
-      'craft-structure': 'CRAFT STRUCTS',
+      'craft-structure': 'CRAFT STRUCT',
       'expression-ideas': 'EXP IDEAS',
-      'standard-conventions': 'PUNC',
+      'standard-conventions': 'PUNCT GRMR',
     },
   },
+};
+
+// Full, human-readable topic names (the abbreviations above are the compact
+// labels used in tables/charts; these are shown where there's room, e.g. Home).
+const TOPIC_FULL = {
+  'algebra': 'Algebra',
+  'advanced-math': 'Advanced Math',
+  'psda': 'Problem-Solving and Data Analysis',
+  'geometry': 'Geometry and Trigonometry',
+  'information-ideas': 'Information and Ideas',
+  'craft-structure': 'Craft and Structure',
+  'expression-ideas': 'Expression of Ideas',
+  'standard-conventions': 'Standard English Conventions',
 };
 
 const DIFFICULTIES = ['medium', 'hard'];
@@ -49,6 +62,10 @@ function topicLabel(topic) {
     if (d.topics[topic]) return d.topics[topic];
   }
   return topic;
+}
+
+function topicFullName(topic) {
+  return TOPIC_FULL[topic] || topicLabel(topic);
 }
 
 function isValidTopic(topic) {
@@ -78,6 +95,7 @@ module.exports = {
   DIFFICULTY_LABELS,
   domainOfTopic,
   topicLabel,
+  topicFullName,
   isValidTopic,
   isValidDifficulty,
   allCategories,

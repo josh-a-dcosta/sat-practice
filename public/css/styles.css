@@ -515,9 +515,11 @@ table.data tr:hover td { background: var(--pink-50); }
   font-weight: 800;
   font-size: 1.02rem;
   color: var(--ink);
-  margin-bottom: 6px;
   line-height: 1.25;
+  flex: 1 1 auto;
+  min-width: 0;
 }
+.tc-abbr { font-weight: 700; font-size: 0.82rem; color: var(--muted); white-space: nowrap; }
 
 /* Per-round completion mini-bars inside a Home block */
 .round-bars { display: flex; flex-direction: column; gap: 8px; margin: 8px 0 12px; }
@@ -1185,9 +1187,9 @@ body.login-page {
 }
 .diff-tab:hover { background: var(--pink-100); }
 .diff-tab.active { background: var(--pink-500); color: #fff; border-color: var(--pink-500); box-shadow: var(--shadow-sm); }
-.tc-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.tc-head { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 8px; }
 .tc-round { margin: 4px 0 8px; }
-.start-btn { width: 100%; margin: 4px 0 12px; }
+.start-btn { padding: 7px 13px; font-size: 0.82rem; white-space: nowrap; flex: none; }
 .skill-mastery-h { font-weight: 800; font-size: 0.86rem; color: var(--ink); margin-bottom: 6px; }
 .skill-mastery-h .sm-sub { font-weight: 600; font-size: 0.68rem; color: var(--muted); opacity: 0.85; }
 .skill-mastery { display: flex; flex-direction: column; gap: 6px; }
