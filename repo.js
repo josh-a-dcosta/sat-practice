@@ -2,7 +2,7 @@
 
 const crypto = require('crypto');
 const { db } = require('./db');
-const { TAXONOMY, isValidTopic, isValidDifficulty, domainOfTopic, topicLabel } = require('./topics');
+const { TAXONOMY, isValidTopic, isValidDifficulty, domainOfTopic, topicLabel, topicFullName } = require('./topics');
 
 // Friendly mode names (mirrors the front-end DIFFICULTY map; DB stays medium/hard).
 const MODE_NAME = { medium: 'Chill', hard: 'Dragon' };
@@ -366,7 +366,7 @@ function getCatalogue(userId) {
         const ri = total > 0 ? roundInfo(userId, domain, topic, difficulty)
                              : { round: 1, attempted: 0, total: 0, skipped: 0, prevComplete: false, activeSessionId: null, rounds: [] };
         catalogue.push({
-          domain, topic, topicName, difficulty,
+          domain, topic, topicName, topicFullName: topicFullName(topic), difficulty,
           total, mastered: masteredN,
           available: total > 0,
           activeSessionId: ri.activeSessionId,

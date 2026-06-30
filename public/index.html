@@ -137,22 +137,25 @@
 
             // One compact row per round: completion bar + accuracy bar side by
             // side. Round numbers are positional (1,2,3…) so they increment.
+            // Show only the most recent 6 rounds; older ones (Round 1, 2…) drop
+            // off the top once a section gets past round 6.
             const rounds = item.rounds || [];
-            let roundBars = rounds.map((r, idx) => {
+            const startIdx = Math.max(0, rounds.length - 6);
+            let roundBars = rounds.slice(startIdx).map((r, j) => {
+              const idx = startIdx + j;                // true 0-based round index
               const active = r.status === 'in_progress';
               const acc = r.resolved ? Math.round((r.correct / r.resolved) * 100) : 0;
               const accCls = acc >= 80 ? 'ok' : acc >= 50 ? 'mid' : 'low';
               const accBar = r.resolved
                 ? `<div class="rr-bar acc"><span class="${accCls}" style="width:${acc}%"></span></div><span class="rr-pct">${acc}%</span>`
                 : `<div class="rr-bar acc"><span style="width:0%"></span></div><span class="rr-pct note">—</span>`;
-              const tag = active ? '<span class="rr-tag">◀ active</span>' : '';
+              // The active round is shown by its bold label, so no extra tag.
               return `<div class="round-row${active ? ' active' : ''}">
                 <span class="rr-label">Round ${idx + 1}</span>
                 <div class="rr-bar"><span style="width:${r.pct}%"></span></div>
                 <span class="rr-pct">${r.pct}%</span>
                 <span class="rr-acc-label">Accuracy</span>
                 ${accBar}
-                ${tag}
               </div>`;
             }).join('');
             if (!rounds.length) {
@@ -171,21 +174,23 @@
             const activeIdx = rounds.findIndex(r => r.status === 'in_progress');
             const displayRound = activeIdx >= 0 ? activeIdx + 1 : rounds.length + 1;
 
-            // Start / Resume button reflects the section's state.
+            // Small Start / Resume button reflects the section's state; it sits
+            // in the header to leave room for the per-round bars below.
             let btnLabel, cls = 'btn btn-primary start-btn';
-            if (item.activeSessionId) btnLabel = `▶ Resume Round ${displayRound}`;
-            else if (item.prevComplete) btnLabel = `🔄 Start Round ${displayRound}`;
-            else btnLabel = `🚀 Start Round ${displayRound}`;
+            if (item.activeSessionId) btnLabel = `▶ Resume R${displayRound}`;
+            else if (item.prevComplete) btnLabel = `🔄 Start R${displayRound}`;
+            else btnLabel = `🚀 Start R${displayRound}`;
 
+            const fullName = item.topicFullName || item.topicName;
             grid += `<div class="topic-card">
               <div class="tc-head">
-                <div class="topic-name">${escapeHtml(item.topicName)}</div>
+                <div class="topic-name">${escapeHtml(fullName)} <span class="tc-abbr">(${escapeHtml(item.topicName)})</span></div>
                 <span class="note tc-count">${item.total} Qs</span>
+                <button class="${cls}" data-topic="${item.topic}" data-difficulty="${diff}"
+                        data-round="${displayRound}" data-deftl="${item.defaultTimeLimit}"
+                        data-session="${item.activeSessionId || ''}" data-name="${escapeHtml(fullName)}">${btnLabel}</button>
               </div>
               <div class="round-bars">${roundBars}</div>
-              <button class="${cls}" data-topic="${item.topic}" data-difficulty="${diff}"
-                      data-round="${displayRound}" data-deftl="${item.defaultTimeLimit}"
-                      data-session="${item.activeSessionId || ''}" data-name="${escapeHtml(item.topicName)}">${btnLabel}</button>
               <div class="skill-mastery-h">Skill mastery <span class="sm-sub">correct at least once vs total</span></div>
               <div class="skill-mastery">${skillRows}</div>
             </div>`;
