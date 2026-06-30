@@ -175,11 +175,12 @@
             const displayRound = activeIdx >= 0 ? activeIdx + 1 : rounds.length + 1;
 
             // Small Start / Resume button reflects the section's state; it sits
-            // in the header to leave room for the per-round bars below.
+            // in the header to leave room for the per-round bars below. It leads
+            // with the mode icon (Chill/Dragon) so the level is always visible.
+            const dEmoji = diffEmoji(diff);
             let btnLabel, cls = 'btn btn-primary start-btn';
-            if (item.activeSessionId) btnLabel = `▶ Resume R${displayRound}`;
-            else if (item.prevComplete) btnLabel = `🔄 Start R${displayRound}`;
-            else btnLabel = `🚀 Start R${displayRound}`;
+            if (item.activeSessionId) btnLabel = `${dEmoji} Resume R${displayRound}`;
+            else btnLabel = `${dEmoji} Start R${displayRound}`;
 
             const fullName = item.topicFullName || item.topicName;
             grid += `<div class="topic-card">
