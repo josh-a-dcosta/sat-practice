@@ -4,7 +4,10 @@ const crypto = require('crypto');
 const { db } = require('./db');
 
 const THEMES = new Set(['pink', 'blue', 'gray', 'green', 'yellow']);
-const ROLES = ['student', 'tutor', 'admin'];
+const ROLES = ['student', 'tutor', 'admin', 'parent'];
+// Roles that view a specific student's read-only dashboard (and so must pick a
+// student after login and carry an active_student_id on their token).
+const VIEWER_ROLES = ['tutor', 'parent'];
 
 // Initial accounts (migrated from the old users.txt). Seeded idempotently so a
 // fresh database can log in; on an existing volume these already exist and only
@@ -49,6 +52,29 @@ function studentsOfTutor(tutorId) {
   `).all(tutorId);
 }
 
+function isParentOf(parentId, studentId) {
+  return !!db.prepare('SELECT 1 FROM parent_students WHERE parent_id = ? AND student_id = ?').get(parentId, studentId);
+}
+
+function studentsOfParent(parentId) {
+  return db.prepare(`
+    SELECT u.id, u.username, COALESCE(u.full_name, u.username) full_name
+    FROM parent_students ps JOIN users u ON u.id = ps.student_id
+    WHERE ps.parent_id = ? ORDER BY full_name
+  `).all(parentId);
+}
+
+// Students this viewer (tutor or parent) is assigned to — used by the picker.
+function studentsForViewer(role, userId) {
+  return role === 'parent' ? studentsOfParent(userId)
+       : role === 'tutor'  ? studentsOfTutor(userId) : [];
+}
+// Is this viewer assigned to the given student, by their active role?
+function viewerHasStudent(role, userId, studentId) {
+  return role === 'parent' ? isParentOf(userId, studentId)
+       : role === 'tutor'  ? isTutorOf(userId, studentId) : false;
+}
+
 function login(username, password) {
   // Username match is case-insensitive (the password stays case-sensitive).
   const u = db.prepare('SELECT * FROM users WHERE username = ? COLLATE NOCASE').get(String(username || '').trim());
@@ -84,7 +110,7 @@ function sessionForToken(token) {
   if (!u) return null;
   const roles = rolesFor(u.id);
   let activeStudentName = null;
-  if (t.active_role === 'tutor' && t.active_student_id) {
+  if (VIEWER_ROLES.includes(t.active_role) && t.active_student_id) {
     const s = db.prepare('SELECT COALESCE(full_name, username) n FROM users WHERE id = ?').get(t.active_student_id);
     activeStudentName = s ? s.n : null;
   }
@@ -110,9 +136,9 @@ function setActiveContext(token, role, studentId) {
     const e = new Error('You do not have that role.'); e.status = 403; throw e;
   }
   let sid = null;
-  if (role === 'tutor') {
+  if (VIEWER_ROLES.includes(role)) {
     sid = Number(studentId) || null;
-    if (!sid || !isTutorOf(s.user.id, sid)) {
+    if (!sid || !viewerHasStudent(role, s.user.id, sid)) {
       const e = new Error('Pick a student you are assigned to.'); e.status = 400; throw e;
     }
   }
@@ -140,6 +166,11 @@ function listUsers() {
     (studentsByTutor[r.tutor_id] = studentsByTutor[r.tutor_id] || []).push(r.student_id);
     (tutorsByStudent[r.student_id] = tutorsByStudent[r.student_id] || []).push(r.tutor_id);
   }
+  const studentsByParent = {}, parentsByStudent = {};
+  for (const r of db.prepare('SELECT parent_id, student_id FROM parent_students').all()) {
+    (studentsByParent[r.parent_id] = studentsByParent[r.parent_id] || []).push(r.student_id);
+    (parentsByStudent[r.student_id] = parentsByStudent[r.student_id] || []).push(r.parent_id);
+  }
   // Per-subject practice pool per student (default: nonactive).
   const accessByUser = {};
   for (const r of db.prepare('SELECT user_id, domain, mode FROM student_active_access').all()) {
@@ -155,6 +186,8 @@ function listUsers() {
     roles: (rolesByUser[u.id] || []).sort(),
     studentIds: studentsByTutor[u.id] || [],
     tutorIds: tutorsByStudent[u.id] || [],
+    parentStudentIds: studentsByParent[u.id] || [],
+    parentIds: parentsByStudent[u.id] || [],
     activeAccess: accessByUser[u.id] || { math: 'nonactive', reading: 'nonactive' },
     loginCount: u.login_count, lastLoginAt: u.last_login_at,
     practiceSeconds: timeByUser[u.id] || 0,
@@ -219,6 +252,18 @@ function unassignStudent(tutorId, studentId) {
   return true;
 }
 
+function assignParent(parentId, studentId) {
+  parentId = Number(parentId); studentId = Number(studentId);
+  if (!parentId || !studentId || parentId === studentId) throw err('Pick a parent and a different student.');
+  db.prepare('INSERT OR IGNORE INTO parent_students (parent_id, student_id) VALUES (?, ?)').run(parentId, studentId);
+  return true;
+}
+
+function unassignParent(parentId, studentId) {
+  db.prepare('DELETE FROM parent_students WHERE parent_id = ? AND student_id = ?').run(Number(parentId), Number(studentId));
+  return true;
+}
+
 function logout(token) {
   if (token) db.prepare('DELETE FROM auth_tokens WHERE token = ?').run(token);
 }
@@ -228,7 +273,9 @@ function countUsers() {
 }
 
 module.exports = {
-  ROLES, bootstrap, login, userForToken, sessionForToken, setActiveContext,
-  rolesFor, isTutorOf, studentsOfTutor, logout, countUsers,
-  listUsers, createUser, updateUser, setRoles, deleteUser, assignStudent, unassignStudent,
+  ROLES, VIEWER_ROLES, bootstrap, login, userForToken, sessionForToken, setActiveContext,
+  rolesFor, isTutorOf, studentsOfTutor, isParentOf, studentsOfParent,
+  studentsForViewer, viewerHasStudent, logout, countUsers,
+  listUsers, createUser, updateUser, setRoles, deleteUser,
+  assignStudent, unassignStudent, assignParent, unassignParent,
 };

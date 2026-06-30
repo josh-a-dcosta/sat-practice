@@ -141,19 +141,19 @@ async function handleApi(req, res, url) {
     if (!user) return sendJson(res, 401, { error: 'Not signed in' });
     const uid = user.id;
 
-    // Whose data a read endpoint should show: a tutor views their selected
-    // (and still-assigned) student; everyone else views their own data.
-    const isTutor = user.activeRole === 'tutor';
-    const viewId = isTutor
-      ? (user.activeStudentId && auth.isTutorOf(uid, user.activeStudentId) ? user.activeStudentId : null)
+    // Whose data a read endpoint should show: a viewer (tutor or parent) views
+    // their selected (and still-assigned) student; everyone else views own data.
+    const isReadOnly = auth.VIEWER_ROLES.includes(user.activeRole);
+    const viewId = isReadOnly
+      ? (user.activeStudentId && auth.viewerHasStudent(user.activeRole, uid, user.activeStudentId) ? user.activeStudentId : null)
       : uid;
     const requireView = () => {
       if (viewId == null) { const e = new Error('Pick a student to view.'); e.status = 403; throw e; }
       return viewId;
     };
-    // Tutors are read-only; block any write/practice action while in that role.
-    const blockTutorWrites = () => {
-      if (isTutor) { const e = new Error('Tutors have read-only access.'); e.status = 403; throw e; }
+    // Tutors and parents are read-only; block any write/practice action.
+    const blockReadOnlyWrites = () => {
+      if (isReadOnly) { const e = new Error('This role has read-only access.'); e.status = 403; throw e; }
     };
     const requireAdmin = () => {
       if (user.activeRole !== 'admin') { const e = new Error('Admin access only.'); e.status = 403; throw e; }
@@ -164,10 +164,13 @@ async function handleApi(req, res, url) {
       return sendJson(res, 200, { user });
     }
 
-    // GET /api/context/options — roles to choose from + tutorable students.
+    // GET /api/context/options — roles to choose from + viewable students per
+    // viewer role (a user may be a tutor and/or a parent of different students).
     if (req.method === 'GET' && pathname === '/api/context/options') {
-      const students = user.roles.includes('tutor') ? auth.studentsOfTutor(uid) : [];
-      return sendJson(res, 200, { roles: user.roles, students });
+      const tutorStudents  = user.roles.includes('tutor')  ? auth.studentsOfTutor(uid)  : [];
+      const parentStudents = user.roles.includes('parent') ? auth.studentsOfParent(uid) : [];
+      const studentsByRole = { tutor: tutorStudents, parent: parentStudents };
+      return sendJson(res, 200, { roles: user.roles, studentsByRole });
     }
 
     // POST /api/context { role, studentId } — set the active role/student.
@@ -192,7 +195,7 @@ async function handleApi(req, res, url) {
 
     // POST /api/sessions  { topic, difficulty }
     if (req.method === 'POST' && pathname === '/api/sessions') {
-      blockTutorWrites();
+      blockReadOnlyWrites();
       const body = await readBody(req);
       const topic      = String(body.topic || '');
       const difficulty = String(body.difficulty || 'medium').toLowerCase();
@@ -215,7 +218,7 @@ async function handleApi(req, res, url) {
       const data = repo.getQuestionAt(requireView(), Number(parts[2]), Number(parts[4]));
       if (!data) return sendJson(res, 404, { error: 'Question not found' });
       // Only the practicing student advances their own position; tutors just look.
-      if (!isTutor) repo.setCurrentPosition(uid, Number(parts[2]), Number(parts[4]));
+      if (!isReadOnly) repo.setCurrentPosition(uid, Number(parts[2]), Number(parts[4]));
       return sendJson(res, 200, data);
     }
 
@@ -285,14 +288,14 @@ async function handleApi(req, res, url) {
     }
     // POST /api/settings  { topic, difficulty, roundTier, minutes }
     if (req.method === 'POST' && pathname === '/api/settings') {
-      blockTutorWrites();
+      blockReadOnlyWrites();
       const b = await readBody(req);
       repo.setUserSetting(uid, String(b.topic || ''), String(b.difficulty || ''), Number(b.roundTier), Math.round(Number(b.minutes) * 60));
       return sendJson(res, 200, { grid: repo.settingsGrid(uid) });
     }
     // POST /api/settings/reset  { topic, difficulty, roundTier }  (revert to default)
     if (req.method === 'POST' && pathname === '/api/settings/reset') {
-      blockTutorWrites();
+      blockReadOnlyWrites();
       const b = await readBody(req);
       repo.clearUserSetting(uid, String(b.topic || ''), String(b.difficulty || ''), Number(b.roundTier));
       return sendJson(res, 200, { grid: repo.settingsGrid(uid) });
@@ -324,7 +327,7 @@ async function handleApi(req, res, url) {
     // GET /api/dashboard  (own data, or the viewed student's for a tutor)
     if (req.method === 'GET' && pathname === '/api/dashboard') {
       const dash = repo.getDashboard(requireView());
-      dash.viewer = { role: user.activeRole, readOnly: isTutor, studentName: user.activeStudentName || null };
+      dash.viewer = { role: user.activeRole, readOnly: isReadOnly, studentName: user.activeStudentName || null };
       return sendJson(res, 200, dash);
     }
 
@@ -379,6 +382,13 @@ async function handleApi(req, res, url) {
         const b = await readBody(req);
         if (pathname.endsWith('unassign')) auth.unassignStudent(b.tutorId, b.studentId);
         else auth.assignStudent(b.tutorId, b.studentId);
+        return sendJson(res, 200, { users: auth.listUsers() });
+      }
+      // POST /api/admin/assign-parent | /api/admin/unassign-parent { parentId, studentId }
+      if (req.method === 'POST' && (pathname === '/api/admin/assign-parent' || pathname === '/api/admin/unassign-parent')) {
+        const b = await readBody(req);
+        if (pathname.endsWith('unassign-parent')) auth.unassignParent(b.parentId, b.studentId);
+        else auth.assignParent(b.parentId, b.studentId);
         return sendJson(res, 200, { users: auth.listUsers() });
       }
       // GET /api/admin/settings/global  | POST set | POST reset

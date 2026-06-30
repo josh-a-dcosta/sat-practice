@@ -41,10 +41,13 @@
     const ROLE_META = {
       student: { emoji: '🎒', title: 'Student', desc: 'Practice questions and track your progress.' },
       tutor:   { emoji: '🧑‍🏫', title: 'Tutor', desc: "View a student's progress dashboard." },
+      parent:  { emoji: '👨‍👩‍👧', title: 'Parent', desc: "View your child's progress dashboard." },
       admin:   { emoji: '🛠️', title: 'Admin', desc: 'Manage users, roles, and settings.' },
     };
-    const ORDER = ['student', 'tutor', 'admin'];
+    const ORDER = ['student', 'tutor', 'parent', 'admin'];
+    const VIEWER_ROLES = ['tutor', 'parent'];
     let OPTIONS = null;
+    let PICK_ROLE = null;   // the viewer role the student picker is currently for
 
     function showStep(id) {
       document.querySelectorAll('.pick-step').forEach((s) => s.classList.toggle('hidden', s.id !== id));
@@ -69,24 +72,26 @@
         b.innerHTML = `<span class="pick-emoji">${m.emoji}</span>
           <span class="pick-title">${m.title}</span>
           <span class="pick-desc">${m.desc}</span>`;
-        b.onclick = () => (role === 'tutor' ? renderStudents() : choose(role));
+        b.onclick = () => (VIEWER_ROLES.includes(role) ? renderStudents(role) : choose(role));
         wrap.appendChild(b);
       }
     }
 
-    function renderStudents() {
+    function renderStudents(role) {
+      PICK_ROLE = role;
       showStep('studentStep');
       $('backToRoles').style.display = (OPTIONS.roles.length > 1) ? '' : 'none';
       const wrap = $('studentList'); wrap.innerHTML = '';
-      if (!OPTIONS.students.length) {
+      const students = (OPTIONS.studentsByRole && OPTIONS.studentsByRole[role]) || [];
+      if (!students.length) {
         wrap.innerHTML = '<p class="note">No students are assigned to you yet. Ask your admin to assign students to you. 🙂</p>';
         return;
       }
-      for (const s of OPTIONS.students) {
+      for (const s of students) {
         const b = document.createElement('button');
         b.className = 'pick-card';
         b.innerHTML = `<span class="pick-emoji">🎒</span><span class="pick-title">${escapeHtml(s.full_name)}</span>`;
-        b.onclick = () => choose('tutor', s.id);
+        b.onclick = () => choose(role, s.id);
         wrap.appendChild(b);
       }
     }
@@ -99,7 +104,8 @@
         OPTIONS = await api('GET', '/api/context/options');
       } catch (e) { location.href = '/login.html'; return; }
       if (OPTIONS.roles.length === 1) {
-        return OPTIONS.roles[0] === 'tutor' ? renderStudents() : choose(OPTIONS.roles[0]);
+        const only = OPTIONS.roles[0];
+        return VIEWER_ROLES.includes(only) ? renderStudents(only) : choose(only);
       }
       renderRoles();
     })();

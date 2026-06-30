@@ -63,7 +63,7 @@ function renderUsers() {
   }).join('');
 }
 
-async function refreshUsers(payload) { USERS = payload ? payload.users : (await api('GET', '/api/admin/users')).users; renderUsers(); populateAssign(); renderAssign(); }
+async function refreshUsers(payload) { USERS = payload ? payload.users : (await api('GET', '/api/admin/users')).users; renderUsers(); populateAssign(); renderAssign(); populateParentAssign(); renderParentAssign(); }
 
 $('usersTable').addEventListener('click', async (e) => {
   const row = e.target.closest('tr[data-id]'); if (!row) return;
@@ -163,6 +163,42 @@ $('asgList').addEventListener('click', async (e) => {
   const b = e.target.closest('.asgRemove'); if (!b) return;
   const tutorId = Number($('asgTutor').value), studentId = Number(b.dataset.sid);
   try { const r = await api('POST', '/api/admin/unassign', { tutorId, studentId }); refreshUsers(r); }
+  catch (err) { showToast(err.message); }
+});
+
+// ---- Parent assignments (mirror of tutor assignments) ---------------------
+function populateParentAssign() {
+  const parents = USERS.filter((u) => u.roles.includes('parent'));
+  const students = USERS.filter((u) => u.roles.includes('student'));
+  const cur = $('pasgParent').value;
+  $('pasgParent').innerHTML = parents.map((u) => `<option value="${u.id}">${esc(u.fullName)}</option>`).join('') || '<option value="">(no parents)</option>';
+  if (cur) $('pasgParent').value = cur;
+  $('pasgStudent').innerHTML = students.map((u) => `<option value="${u.id}">${esc(u.fullName)}</option>`).join('');
+}
+
+function renderParentAssign() {
+  const parentId = Number($('pasgParent').value);
+  const parent = USERS.find((u) => u.id === parentId);
+  const wrap = $('pasgList');
+  if (!parent) { wrap.innerHTML = '<p class="note">Add a parent role to a user to assign children.</p>'; return; }
+  const list = (parent.parentStudentIds || []).map((sid) => `<div class="cal-attempt">
+      <span>🎒 <b>${esc(userName(sid))}</b></span>
+      <button class="btn btn-ghost pasgRemove" data-sid="${sid}">✕ Remove</button>
+    </div>`).join('') || '<p class="note">No children assigned yet.</p>';
+  wrap.innerHTML = `<h3 class="mini-h">${esc(parent.fullName)}'s children</h3>${list}`;
+}
+
+$('pasgParent').addEventListener('change', renderParentAssign);
+$('pasgAddBtn').addEventListener('click', async () => {
+  const parentId = Number($('pasgParent').value), studentId = Number($('pasgStudent').value);
+  if (!parentId || !studentId) return;
+  try { const r = await api('POST', '/api/admin/assign-parent', { parentId, studentId }); refreshUsers(r); }
+  catch (err) { showToast(err.message); }
+});
+$('pasgList').addEventListener('click', async (e) => {
+  const b = e.target.closest('.pasgRemove'); if (!b) return;
+  const parentId = Number($('pasgParent').value), studentId = Number(b.dataset.sid);
+  try { const r = await api('POST', '/api/admin/unassign-parent', { parentId, studentId }); refreshUsers(r); }
   catch (err) { showToast(err.message); }
 });
 
